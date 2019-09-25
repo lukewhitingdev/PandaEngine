@@ -14,7 +14,6 @@ graphics::~graphics()
 
 bool graphics::Init(int wWidth, int wHeight, HWND hwnd)
 {
-
 	// Create the Direct3D object
 	m_Direct3D = new direct3D;
 
@@ -27,6 +26,7 @@ bool graphics::Init(int wWidth, int wHeight, HWND hwnd)
 		MessageBox(hwnd, L"Could not initialize Direct3D!", L"Error: ", MB_OK);
 		return false;
 	}
+
 
 	// If all goes well continue
 	return true;
@@ -58,7 +58,7 @@ bool graphics::Frame()
 bool graphics::Render()
 {
 	// Clear the buffers
-	m_Direct3D->BeginScene(1.0f, 1.0f, 1.0f, 1.0f);
+	m_Direct3D->BeginScene(0.0f, 1.0f, 1.0f, 1.0f);
 
 	// Present the scene to screen / flip buffers
 	m_Direct3D->EndScene();

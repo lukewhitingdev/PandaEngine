@@ -1,7 +1,5 @@
 #include "direct3D.h"
 
-
-
 direct3D::direct3D()
 {
 	m_swapChain = 0;
@@ -19,17 +17,15 @@ direct3D::~direct3D()
 {
 }
 
-bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen, float sDepth, float sNear)
+
+bool direct3D::Init(int screenWidth, int screenHeight, bool vsync, HWND hwnd, bool fullscreen,
+	float screenDepth, float screenNear)
 {
-	HRESULT hResult;
+	HRESULT result;
 	IDXGIFactory* factory;
 	IDXGIAdapter* adapter;
 	IDXGIOutput* adapterOutput;
-	unsigned int numModes;
-	unsigned int i;
-	unsigned int numerator;
-	unsigned int denominator;
-	unsigned int stringLength;
+	unsigned int numModes, i, numerator, denominator, stringLength;
 	DXGI_MODE_DESC* displayModeList;
 	DXGI_ADAPTER_DESC adapterDesc;
 	int error;
@@ -40,56 +36,73 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	D3D11_DEPTH_STENCIL_DESC depthStencilDesc;
 	D3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc;
 	D3D11_RASTERIZER_DESC rasterDesc;
-	D3D11_VIEWPORT Viewport;
+	D3D11_VIEWPORT viewport;
 	float fieldOfView, screenAspect;
+
 
 	// Set the local vSync setting
 	m_Vsync_enabled = vsync;
 
 	// Generate the DirectX Graphics Factory
-	if (FAILED(CreateDXGIFactory(_uuidof(IDXGIFactory), (void**)&factory))) {
+	result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&factory);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
 	// Using the factory to create a adapter for the video card
-	if (FAILED(factory->EnumAdapters(0, &adapter))) {
+	result = factory->EnumAdapters(0, &adapter);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
 	// Add primary monitor to adapter enum
-	if (FAILED(adapter->EnumOutputs(0, &adapterOutput))) {
+	result = adapter->EnumOutputs(0, &adapterOutput);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
 	// Get number of modes that fit the DXGI display format (below) for the adapter to output to 
 	// Format: DXGI_FORMAT_R8G8B8A8_UNORM
-	if(FAILED(adapterOutput->GetDisplayModeList(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &numModes, NULL))) {
+	result = adapterOutput->GetDisplayModeList(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &numModes, NULL);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
 	// Create a object to hold the list of display modes the current monitor / video card combination can support
 	displayModeList = new DXGI_MODE_DESC[numModes];
-	if (!displayModeList) {
+	if (!displayModeList)
+	{
 		return false;
 	}
 
 	// populating the list with adapterOutput display mode info
-	if (FAILED(adapterOutput->GetDisplayModeList(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &numModes, displayModeList))) {
+	result = adapterOutput->GetDisplayModeList(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &numModes, displayModeList);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
 	// Find the display mode on the GPU/Display that fits the current resolution set in the program 
-	for (int i = 0; i < numModes; i++) {
-		if (displayModeList[i].Width == (unsigned int)wWidth) {
-			if (displayModeList[i].Height == (unsigned int)wHeight) {
+	for (i = 0; i < numModes; i++)
+	{
+		if (displayModeList[i].Width == (unsigned int)screenWidth)
+		{
+			if (displayModeList[i].Height == (unsigned int)screenHeight)
+			{
 				numerator = displayModeList[i].RefreshRate.Numerator;
 				denominator = displayModeList[i].RefreshRate.Denominator;
 			}
 		}
 	}
 
-	// Get the adapter desc
-	if (FAILED(adapter->GetDesc(&adapterDesc))) {
+	// Get the adapter(GPU) desc
+	result = adapter->GetDesc(&adapterDesc);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
@@ -97,7 +110,9 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	m_videoCardMemory = (int)(adapterDesc.DedicatedVideoMemory / 1024 / 1024);
 
 	// Convert the name of the video card to a char array and save it
-	if (wcstombs_s(&stringLength, m_videoCardDescription, 128, adapterDesc.Description, 128) != 0) {
+	error = wcstombs_s(&stringLength, m_videoCardDescription, 128, adapterDesc.Description, 128);
+	if (error != 0)
+	{
 		return false;
 	}
 
@@ -107,7 +122,7 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	delete[] displayModeList;
 	displayModeList = 0;
 
-	// Release the adapterOutput
+	// Release the adapter output
 	adapterOutput->Release();
 	adapterOutput = 0;
 
@@ -119,44 +134,48 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	factory->Release();
 	factory = 0;
 
-	// Initalise the swapChain description
+	// Initialize the swap chain description.
 	ZeroMemory(&swapChainDesc, sizeof(swapChainDesc));
 
 	// Set ammount of back buffers
 	swapChainDesc.BufferCount = 1;
 
-	// Set the width and height of the back buffer
-	swapChainDesc.BufferDesc.Width = wWidth;
-	swapChainDesc.BufferDesc.Height = wHeight;
+	// Set the width and height of the back buffer.
+	swapChainDesc.BufferDesc.Width = screenWidth;
+	swapChainDesc.BufferDesc.Height = screenHeight;
 
-	// Set 32-Bit surface for the back buffer
+	// Set regular 32-bit surface for the back buffer.
 	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 
-	// Set refresh rate
-	if (m_Vsync_enabled) {
+	// Set the refresh rate of the back buffer.
+	if (m_Vsync_enabled)
+	{
 		swapChainDesc.BufferDesc.RefreshRate.Numerator = numerator;
 		swapChainDesc.BufferDesc.RefreshRate.Denominator = denominator;
 	}
-	else {
+	else
+	{
 		swapChainDesc.BufferDesc.RefreshRate.Numerator = 0;
 		swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
 	}
 
-	// Set the back buffer usage
+	// Set the usage of the back buffer.
 	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 
-	// give it the handle to the window
+	// Set the handle for the window to render to.
 	swapChainDesc.OutputWindow = hwnd;
 
-	// Turn multisampling off
+	// Turn multisampling off.
 	swapChainDesc.SampleDesc.Count = 1;
 	swapChainDesc.SampleDesc.Quality = 0;
 
 	// Get if in fullscreen or not
-	if (fScreen) {
+	if (fullscreen)
+	{
 		swapChainDesc.Windowed = false;
 	}
-	else {
+	else
+	{
 		swapChainDesc.Windowed = true;
 	}
 
@@ -167,7 +186,7 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	// Reset the back buffer after swapping
 	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
 
-	// Dont set advanced flags
+	// Don't set the advanced flags.
 	swapChainDesc.Flags = 0;
 
 	// What version of directX we are using
@@ -183,15 +202,21 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 		}
 	}
 
-	// Get Pointer to back buffer
-	if (FAILED(m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBufferPtr))) {
-		return false;
-	}
-	if (FAILED(m_Device->CreateRenderTargetView(backBufferPtr, NULL, &m_renderTargetView))) {
+	// Get the pointer to the back buffer.
+	result = m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBufferPtr);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
-	// Relase the backbuffer pointer
+	// Create the render target view with the back buffer pointer.
+	result = m_Device->CreateRenderTargetView(backBufferPtr, NULL, &m_renderTargetView);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	// Release pointer to the back buffer as we no longer need it.
 	backBufferPtr->Release();
 	backBufferPtr = 0;
 
@@ -199,8 +224,8 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	ZeroMemory(&depthBufferDesc, sizeof(depthBufferDesc));
 
 	//Setup depth buffer desc
-	depthBufferDesc.Width = wWidth;
-	depthBufferDesc.Height = wHeight;
+	depthBufferDesc.Width = screenWidth;
+	depthBufferDesc.Height = screenHeight;
 	depthBufferDesc.MipLevels = 1;
 	depthBufferDesc.ArraySize = 1;
 	depthBufferDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
@@ -212,14 +237,16 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	depthBufferDesc.MiscFlags = 0;
 
 	// Create texture for the depth buffer using the desc
-	if (FAILED(m_Device->CreateTexture2D(&depthBufferDesc, NULL, &m_depthStencilBuffer))) {
+	result = m_Device->CreateTexture2D(&depthBufferDesc, NULL, &m_depthStencilBuffer);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
-	// Initialise the description of the stencil buffer
+	// Initialize the description of the stencil state.
 	ZeroMemory(&depthStencilDesc, sizeof(depthStencilDesc));
 
-	//Setup stencil buffer desc
+	//Setup stencil state desc
 	depthStencilDesc.DepthEnable = true;
 	depthStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
 	depthStencilDesc.DepthFunc = D3D11_COMPARISON_LESS;
@@ -240,15 +267,17 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	depthStencilDesc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
 	depthStencilDesc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
 
-	// Create the depth stencil state
-	if (FAILED(m_Device->CreateDepthStencilState(&depthStencilDesc, &m_depthStencilState))) {
+	// Create the depth stencil state.
+	result = m_Device->CreateDepthStencilState(&depthStencilDesc, &m_depthStencilState);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
-	// Set stencil state
+	// Set the depth stencil state.
 	m_deviceContext->OMSetDepthStencilState(m_depthStencilState, 1);
 
-	//Initalize the depth stencil view
+	// Initialize the depth stencil view.
 	ZeroMemory(&depthStencilViewDesc, sizeof(depthStencilViewDesc));
 
 	// Set up the depth stencil view description.
@@ -256,13 +285,13 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	depthStencilViewDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
 	depthStencilViewDesc.Texture2D.MipSlice = 0;
 
-	// Create the stencil depth view
+	// Create the depth stencil view.
 	if (FAILED(m_Device->CreateDepthStencilView(m_depthStencilBuffer, &depthStencilViewDesc, &m_depthStencilView))) {
 		return false;
 	}
 
 	// Bind the render target view and depth stencil to the output render pipeline
-	m_deviceContext->OMGetRenderTargets(1, &m_renderTargetView, &m_depthStencilView);
+	m_deviceContext->OMSetRenderTargets(1, &m_renderTargetView, m_depthStencilView);
 
 	// Setup the raster desc /// Controls how the polygons are drawn, wireframe etc
 	rasterDesc.AntialiasedLineEnable = false;
@@ -277,30 +306,32 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	rasterDesc.SlopeScaledDepthBias = 0.0f;
 
 	// Create the rasterizer state from the desc
-	if (FAILED(m_Device->CreateRasterizerState(&rasterDesc, &m_rasterState))){
+	result = m_Device->CreateRasterizerState(&rasterDesc, &m_rasterState);
+	if (FAILED(result))
+	{
 		return false;
 	}
 
-	// Set the rasterizer state
+	// Now set the rasterizer state.
 	m_deviceContext->RSSetState(m_rasterState);
 
 	// Viewport setup
-	Viewport.Width = (float)wWidth;
-	Viewport.Height = (float)wHeight;
-	Viewport.MinDepth = 0.0f;
-	Viewport.MaxDepth = 1.0f;
-	Viewport.TopLeftX = 0.0f;
-	Viewport.TopLeftY = 0.0f;
+	viewport.Width = (float)screenWidth;
+	viewport.Height = (float)screenHeight;
+	viewport.MinDepth = 0.0f;
+	viewport.MaxDepth = 1.0f;
+	viewport.TopLeftX = 0.0f;
+	viewport.TopLeftY = 0.0f;
 
-	// Create the viewport
-	m_deviceContext->RSSetViewports(1, &Viewport);
+	// Create the viewport.
+	m_deviceContext->RSSetViewports(1, &viewport);
 
 	// Projection matrix setup
-	fieldOfView = ((float)XM_PI / 4.0f);
-	screenAspect = ((float)wWidth / (float)wHeight);
+	fieldOfView = (float)XM_PI / 4.0f;
+	screenAspect = (float)screenWidth / (float)screenHeight;
 
 	// Create the projection matrix, enabling 3D rendering
-	XMStoreFloat4x4(&m_projectionMatrix, XMMatrixPerspectiveFovLH(fieldOfView, screenAspect, sNear, sDepth));
+	XMStoreFloat4x4(&m_projectionMatrix, XMMatrixPerspectiveFovLH(fieldOfView, screenAspect, screenNear, screenDepth));
 
 	// Init world matrix
 	XMStoreFloat4x4(&m_worldMatrix, XMMatrixIdentity());
@@ -308,21 +339,20 @@ bool direct3D::Init(int wWidth, int wHeight, bool vsync, HWND hwnd, bool fScreen
 	//TODO: init view matrix
 
 	//Create ortho matrix for 2D rendering
-	XMStoreFloat4x4(&m_orthoMatrix, XMMatrixOrthographicLH((float)wWidth, (float)wHeight, sNear, sDepth));
+	XMStoreFloat4x4(&m_orthoMatrix, XMMatrixOrthographicLH((float)screenWidth, (float)screenHeight, screenNear, screenDepth));
+
 
 	return true;
 }
 
+
 void direct3D::Shutdown()
 {
-	// Before shutdown switch to windowed mode to avoid exceptions
+	// Before shutting down set to windowed mode or when you release the swap chain it will throw an exception.
 	if (m_swapChain)
 	{
 		m_swapChain->SetFullscreenState(false, NULL);
 	}
-
-
-	// Cleanup all pointers
 
 	if (m_rasterState)
 	{
@@ -375,9 +405,11 @@ void direct3D::Shutdown()
 	return;
 }
 
+
 void direct3D::BeginScene(float red, float green, float blue, float alpha)
 {
 	float color[4];
+
 
 	// setup empty buffer colors.
 	color[0] = red;
@@ -385,60 +417,70 @@ void direct3D::BeginScene(float red, float green, float blue, float alpha)
 	color[2] = blue;
 	color[3] = alpha;
 
-	// Clear the back buffer
+	// Clear the back buffer.
 	m_deviceContext->ClearRenderTargetView(m_renderTargetView, color);
 
-	// Clear the depth buffer
+	// Clear the depth buffer.
 	m_deviceContext->ClearDepthStencilView(m_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 
 	return;
 }
 
+
 void direct3D::EndScene()
 {
-	// Present back buffer to screen
-	if (m_Vsync_enabled) {
-		// Lock refresh rate
+	// Present the back buffer to the screen
+	if (m_Vsync_enabled)
+	{
+		// Lock to screen refresh rate.
 		m_swapChain->Present(1, 0);
 	}
-	else {
+	else
+	{
 		// dont lock refresh rate
 		m_swapChain->Present(0, 0);
 	}
+
 	return;
 }
 
-ID3D11Device * direct3D::GetDevice()
+
+ID3D11Device* direct3D::GetDevice()
 {
 	return m_Device;
 }
 
-ID3D11DeviceContext * direct3D::GetDeviceContext()
+
+ID3D11DeviceContext* direct3D::GetDeviceContext()
 {
 	return m_deviceContext;
 }
 
-void direct3D::GetProjectionMatrix(XMFLOAT4X4& ProjectionMatrix)
+
+void direct3D::GetProjectionMatrix(XMFLOAT4X4& projectionMatrix)
 {
-	ProjectionMatrix = m_projectionMatrix;
+	projectionMatrix = m_projectionMatrix;
 	return;
 }
 
-void direct3D::GetWorldMatrix(XMFLOAT4X4& WorldMatrix)
+
+void direct3D::GetWorldMatrix(XMFLOAT4X4& worldMatrix)
 {
-	WorldMatrix = m_worldMatrix;
+	worldMatrix = m_worldMatrix;
 	return;
 }
 
-void direct3D::GetOrthoMatrix(XMFLOAT4X4& OrthoMatrix)
+
+void direct3D::GetOrthoMatrix(XMFLOAT4X4& orthoMatrix)
 {
-	OrthoMatrix = m_orthoMatrix;
+	orthoMatrix = m_orthoMatrix;
 	return;
 }
 
-void direct3D::GetVideoCardInfo(char * name, int & memory)
+
+void direct3D::GetVideoCardInfo(char* cardName, int& memory)
 {
-	strcpy_s(name, 128, m_videoCardDescription);
+	strcpy_s(cardName, 128, m_videoCardDescription);
 	memory = m_videoCardMemory;
 	return;
 }

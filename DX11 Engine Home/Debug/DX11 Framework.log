@@ -1,11 +1,4 @@
 ﻿  System.cpp
-  direct3D.cpp
-f:\local git\peboengine\dx11 engine home\direct3d.cpp(82): warning C4456: declaration of 'i' hides previous local declaration
-  f:\local git\peboengine\dx11 engine home\direct3d.cpp(29): note: see declaration of 'i'
-f:\local git\peboengine\dx11 engine home\direct3d.cpp(82): warning C4018: '<': signed/unsigned mismatch
-f:\local git\peboengine\dx11 engine home\direct3d.cpp(35): warning C4101: 'error': unreferenced local variable
-f:\local git\peboengine\dx11 engine home\direct3d.cpp(29): warning C4101: 'i': unreferenced local variable
-f:\local git\peboengine\dx11 engine home\direct3d.cpp(24): warning C4101: 'hResult': unreferenced local variable
   graphics.cpp
   main.cpp
 f:\local git\peboengine\dx11 engine home\main.cpp(13): warning C4100: 'iCmdshow': unreferenced formal parameter
@@ -13,7 +6,5 @@ f:\local git\peboengine\dx11 engine home\main.cpp(13): warning C4100: 'pScmdline
 f:\local git\peboengine\dx11 engine home\main.cpp(13): warning C4100: 'hPrevInstance': unreferenced formal parameter
 f:\local git\peboengine\dx11 engine home\main.cpp(13): warning C4100: 'hInstance': unreferenced formal parameter
   Generating Code...
-f:\local git\peboengine\dx11 engine home\direct3d.cpp(137): warning C4701: potentially uninitialized local variable 'numerator' used
-f:\local git\peboengine\dx11 engine home\direct3d.cpp(138): warning C4701: potentially uninitialized local variable 'denominator' used
 direct3D.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   DX11 Framework.vcxproj -> F:\Local Git\PeboEngine\DX11 Engine Home\Debug\DX11 Framework.exe
