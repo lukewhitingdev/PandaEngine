@@ -159,6 +159,7 @@ void System::InitWindows(int & wWidth, int & wHeight)
 	// Register the class
 	RegisterClassEx(&WndClass);
 
+
 	// Get the resolution of the current clients screen
 	wWidth = GetSystemMetrics(SM_CXSCREEN);
 	wHeight = GetSystemMetrics(SM_CYSCREEN);
@@ -189,12 +190,11 @@ void System::InitWindows(int & wWidth, int & wHeight)
 		posX = (GetSystemMetrics(SM_CXSCREEN) - wWidth) / 2;
 		posY = (GetSystemMetrics(SM_CYSCREEN) - wHeight) / 2;
 	}
-
 	// Create the window and get a handle from it
 	mHWnd = CreateWindowEx(WS_EX_APPWINDOW,
 						m_ApplicationName,
 						m_ApplicationName,
-						WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_POPUP,
+						WS_TILEDWINDOW,
 						posX,
 						posY,
 						wWidth,
