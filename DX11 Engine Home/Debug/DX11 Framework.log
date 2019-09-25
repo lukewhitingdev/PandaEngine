@@ -1,0 +1,9 @@
+﻿  System.cpp
+  graphics.cpp
+  main.cpp
+f:\local git\peboengine\dx11 engine home\main.cpp(13): warning C4100: 'iCmdshow': unreferenced formal parameter
+f:\local git\peboengine\dx11 engine home\main.cpp(13): warning C4100: 'pScmdline': unreferenced formal parameter
+f:\local git\peboengine\dx11 engine home\main.cpp(13): warning C4100: 'hPrevInstance': unreferenced formal parameter
+f:\local git\peboengine\dx11 engine home\main.cpp(13): warning C4100: 'hInstance': unreferenced formal parameter
+  Generating Code...
+  DX11 Framework.vcxproj -> F:\Local Git\PeboEngine\DX11 Engine Home\Debug\DX11 Framework.exe
