@@ -5,16 +5,63 @@
       <UniqueIdentifier>{8e114980-c1a3-4ada-ad7c-83caadf5daeb}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{a1f9c407-fef5-4899-8d1d-ed897f5dc708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{1bbf6a62-77a7-44db-b92c-38fd661f19fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Subsystems">
+      <UniqueIdentifier>{9daa2346-3370-4bd4-8a57-15c6561d6ca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Main">
+      <UniqueIdentifier>{ba54ac15-909f-4793-a91a-f68a13857dbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{5a6287ee-c0a1-4d9b-8752-d806d0ed75ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Subsystems\Direct3D">
+      <UniqueIdentifier>{7b08314d-dd51-4049-b5f9-acfdb57df8b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Subsystems\Model">
+      <UniqueIdentifier>{5402d67a-55ab-4bf7-986d-cbd4bf688a31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Subsystems\Camera">
+      <UniqueIdentifier>{1a5c018d-b852-4e24-a83a-b350617bb7fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{287d0d52-bdba-4347-bea1-1ad69453ebb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\ColorShader">
+      <UniqueIdentifier>{dac41a46-8183-4e85-b0e1-3c039b852896}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
       <Filter>Resource Files</Filter>
     </CLInclude>
     <ClInclude Include="main.h" />
-    <ClInclude Include="System.h" />
-    <ClInclude Include="input.h" />
-    <ClInclude Include="graphics.h" />
-    <ClInclude Include="direct3D.h" />
+    <ClInclude Include="input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics.h">
+      <Filter>Graphics\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="direct3D.h">
+      <Filter>Graphics\Subsystems\Direct3D</Filter>
+    </ClInclude>
+    <ClInclude Include="model.h">
+      <Filter>Graphics\Subsystems\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="colorShader.h">
+      <Filter>Shaders\ColorShader</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Graphics\Subsystems\Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX11 Framework.rc">
@@ -23,9 +70,34 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="System.cpp" />
-    <ClCompile Include="input.cpp" />
-    <ClCompile Include="graphics.cpp" />
-    <ClCompile Include="direct3D.cpp" />
+    <ClCompile Include="input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics.cpp">
+      <Filter>Graphics\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="direct3D.cpp">
+      <Filter>Graphics\Subsystems\Direct3D</Filter>
+    </ClCompile>
+    <ClCompile Include="model.cpp">
+      <Filter>Graphics\Subsystems\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="colorShader.cpp">
+      <Filter>Shaders\ColorShader</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Graphics\Subsystems\Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="PixelShader.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="VertexShader.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
