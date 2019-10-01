@@ -153,15 +153,15 @@ HRESULT Application::InitVertexBuffer()
     // Create vertex buffer
     SimpleVertex vertices[] =
     {
-        { XMFLOAT3( -1.0f, 1.0f, 0.0f ), XMFLOAT4( 0.0f, 0.0f, 1.0f, 1.0f ) },
-        { XMFLOAT3( 1.0f, 1.0f, 0.0f ), XMFLOAT4( 0.0f, 1.0f, 0.0f, 1.0f ) },
-        { XMFLOAT3( -1.0f, -1.0f, 0.0f ), XMFLOAT4( 0.0f, 1.0f, 1.0f, 1.0f ) },
-        { XMFLOAT3( 1.0f, -1.0f, 0.0f ), XMFLOAT4( 1.0f, 0.0f, 0.0f, 1.0f ) },
+        { XMFLOAT3( -1.0f, 1.0f, -1.0f ), XMFLOAT4( 0.0f, 0.0f, 1.0f, 1.0f ) },
+        { XMFLOAT3( 1.0f, 1.0f, -1.0f), XMFLOAT4( 0.0f, 1.0f, 0.0f, 1.0f ) },
+        { XMFLOAT3( -1.0f, -1.0f, -1.0f), XMFLOAT4( 0.0f, 1.0f, 1.0f, 1.0f ) },
+        { XMFLOAT3( 1.0f, -1.0f, -1.0f), XMFLOAT4( 1.0f, 0.0f, 0.0f, 1.0f ) },
 
-		{ XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) },
-		{ XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
-		{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT4(0.0f, 1.0f, 1.0f, 1.0f) },
-		{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, 1.0f, 0.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, 0.0f), XMFLOAT4(0.0f, 1.0f, 1.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
     };
 
     D3D11_BUFFER_DESC bd;
@@ -194,20 +194,20 @@ HRESULT Application::InitIndexBuffer()
         0,1,2,
         2,1,3,
 		// Back Face
-		4,5,6,
-		6,5,7,
+		4,0,6,
+		6,0,2,
 		// Top Face
+		7,5,6,
+		6,5,4,
+		// Bottom Face
+		3,1,7,
+		7,1,5,
+		// Side Face 1
 		4,5,0,
 		0,5,1,
-		// Bottom Face
-		2,3,6,
-		3,7,6,
-		// Side Face 1
-		1,5,3,
-		5,7,3,
 		// Side Face 2
-		0,4,2,
-		4,6,2,
+		3,7,2,
+		2,7,6,
     };
 
 	D3D11_BUFFER_DESC bd;
