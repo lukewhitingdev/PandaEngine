@@ -42,6 +42,7 @@ private:
 	ID3D11DepthStencilView* _depthStencilView;
 	ID3D11Texture2D*		_depthStencilBuffer;
 	ID3D11RasterizerState*	_wireFrame;
+	ID3D11RasterizerState*	_normalView;
 	XMFLOAT4X4              _world, _world2; // For the cubes in the world
 	XMFLOAT4X4              _view;
 	XMFLOAT4X4              _projection;

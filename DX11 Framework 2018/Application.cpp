@@ -419,11 +419,18 @@ HRESULT Application::InitDevice()
     hr = _pd3dDevice->CreateBuffer(&bd, nullptr, &_pConstantBuffer);
 
 	// RenderState setup
-	D3D11_RASTERIZER_DESC wfdesc;
-	ZeroMemory(&wfdesc, sizeof(D3D11_RASTERIZER_DESC));
-	wfdesc.FillMode = D3D11_FILL_WIREFRAME;
-	wfdesc.CullMode = D3D11_CULL_NONE;
-	hr = _pd3dDevice->CreateRasterizerState(&wfdesc, &_wireFrame);
+	// Wireframe
+	D3D11_RASTERIZER_DESC RenderDesc;
+	ZeroMemory(&RenderDesc, sizeof(D3D11_RASTERIZER_DESC));
+	RenderDesc.FillMode = D3D11_FILL_WIREFRAME;
+	RenderDesc.CullMode = D3D11_CULL_NONE;
+	hr = _pd3dDevice->CreateRasterizerState(&RenderDesc, &_wireFrame);
+
+	//Normal View
+	ZeroMemory(&RenderDesc, sizeof(D3D11_RASTERIZER_DESC));
+	RenderDesc.FillMode = D3D11_FILL_SOLID;
+	RenderDesc.CullMode = D3D11_CULL_BACK;
+	hr = _pd3dDevice->CreateRasterizerState(&RenderDesc, &_normalView);
 
     if (FAILED(hr))
         return hr;
@@ -448,6 +455,7 @@ void Application::Cleanup()
 	if (_depthStencilView) _depthStencilView->Release();
 	if (_depthStencilBuffer) _depthStencilBuffer->Release();
 	if (_wireFrame) _wireFrame->Release();
+	if (_normalView) _normalView->Release();
 }
 
 void Application::Update()
@@ -475,10 +483,10 @@ void Application::Update()
     //
 
 	// Cube 1
-	XMStoreFloat4x4(&_world, XMMatrixScaling(0.4f, 0.4f, 0.4f) * XMMatrixRotationX(t));
+	XMStoreFloat4x4(&_world, XMMatrixScaling(0.6f, 0.6f, 0.6f) * XMMatrixRotationX(t));
 
 	// Cube 2
-	XMStoreFloat4x4(&_world2, XMMatrixTranslation(4.0f, 0.0f, 0.0f) * XMMatrixScaling(0.2f, 0.2f, 0.2f) * XMMatrixRotationY(t));
+	XMStoreFloat4x4(&_world2, XMMatrixTranslation(6.0f, 0.0f, 0.0f) * XMMatrixScaling(0.3f, 0.3f, 0.3f) * XMMatrixRotationY(t));
 
 }
 
@@ -520,7 +528,13 @@ void Application::Draw()
 
 
 	// TODO: Make this key pressable
-	_pImmediateContext->RSSetState(_wireFrame);
+	if (GetAsyncKeyState(VK_F1)) {
+		_pImmediateContext->RSSetState(_wireFrame);
+	}
+	if (GetAsyncKeyState(VK_F2)) {
+		_pImmediateContext->RSSetState(_normalView);
+	}
+	
 
     //
     // Present our back buffer to our front buffer
