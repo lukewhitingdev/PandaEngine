@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "Timer.h"
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
@@ -6,6 +7,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     UNREFERENCED_PARAMETER(lpCmdLine);
 
 	Application * theApp = new Application();
+	Timer* frameTimer = new Timer();
 
 	if (FAILED(theApp->Initialise(hInstance, nCmdShow)))
 	{
@@ -14,6 +16,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
     // Main message loop
     MSG msg = {0};
+
+	// Reset the timer to initalize the prev frame var
+	frameTimer->Reset();
 
     while (WM_QUIT != msg.message)
     {
@@ -24,7 +29,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
         }
         else
         {
-			theApp->Update();
+			frameTimer->Tick();
+			theApp->CalculateFrameStats(frameTimer->GameTime());
+			theApp->Update(frameTimer->DeltaTime());
             theApp->Draw();
         }
     }

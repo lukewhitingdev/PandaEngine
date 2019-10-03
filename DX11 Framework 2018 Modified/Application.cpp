@@ -1,4 +1,5 @@
 #include "Application.h"
+#include <sstream>
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -227,6 +228,33 @@ HRESULT Application::InitIndexBuffer()
         return hr;
 
 	return S_OK;
+}
+
+void Application::CalculateFrameStats(float gameTime)
+{
+	// Computes the avg time between frames and the FPS and displays it to the window bar
+
+	static int frameCount = 0;
+	static int timeElasped = 0;
+
+	frameCount++;
+
+	// Get avg fps over one second and put it on the top of the window
+	if (gameTime - timeElasped >= 1.0f) {
+		float framesPerSecond = (float)frameCount; // fps = frameCount / 1
+		float FrameTime = 1000.0f / framesPerSecond; // Individual FrameTime
+
+		std::wostringstream output;
+		output.precision(6);
+		output << L"DX11 Framework" << L"  "
+			<< L"FPS: " << framesPerSecond << L" "
+			<< L"Frame Time: " << FrameTime << L" (ms) ";
+		SetWindowText(_hWnd, output.str().c_str());
+
+		// Reset for next average
+		frameCount = 0;
+		timeElasped += 1.0f;
+	}
 }
 
 HRESULT Application::InitWindow(HINSTANCE hInstance, int nCmdShow)
@@ -458,7 +486,7 @@ void Application::Cleanup()
 	if (_normalView) _normalView->Release();
 }
 
-void Application::Update()
+void Application::Update(float deltaTime)
 {
     // Update our time
     static float t = 0.0f;

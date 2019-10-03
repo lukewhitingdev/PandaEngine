@@ -65,7 +65,11 @@ public:
 
 	HRESULT Initialise(HINSTANCE hInstance, int nCmdShow);
 
-	void Update();
+	void Update(float deltaTime);
 	void Draw();
+
+	// Computes the avg time between frames and the FPS and displays it to the window bar
+	// Also called in the main loop in main func.
+	void CalculateFrameStats(float gameTime);
 };
 
