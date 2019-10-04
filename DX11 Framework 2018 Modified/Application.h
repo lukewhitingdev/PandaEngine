@@ -9,6 +9,8 @@
 
 using namespace DirectX;
 
+class mesh;
+
 struct SimpleVertex
 {
     XMFLOAT3 Pos;
@@ -46,6 +48,9 @@ private:
 	XMFLOAT4X4              _world, _world2; // For the cubes in the world
 	XMFLOAT4X4              _view;
 	XMFLOAT4X4              _projection;
+
+	// Refactored
+	mesh* MeshManager;
 
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);

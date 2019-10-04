@@ -377,6 +377,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="DX11 Framework.cpp" />
+    <ClCompile Include="mesh.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -384,6 +385,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="mesh.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="Timer.h" />
     <ResourceCompile Include="DX11 Framework.rc" />

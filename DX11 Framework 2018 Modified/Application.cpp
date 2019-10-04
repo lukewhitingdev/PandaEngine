@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "mesh.h"
 #include <sstream>
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -40,6 +41,9 @@ Application::Application()
 	_pVertexBuffer = nullptr;
 	_pIndexBuffer = nullptr;
 	_pConstantBuffer = nullptr;
+
+	// Refactor
+	MeshManager = new mesh();
 }
 
 Application::~Application()
@@ -498,7 +502,7 @@ void Application::Update(float deltaTime)
     else
     {
         static DWORD dwTimeStart = 0;
-        DWORD dwTimeCur = GetTickCount();
+        DWORD dwTimeCur = GetTickCount64();
 
         if (dwTimeStart == 0)
             dwTimeStart = dwTimeCur;
@@ -514,12 +518,14 @@ void Application::Update(float deltaTime)
 	XMStoreFloat4x4(&_world, XMMatrixScaling(0.6f, 0.6f, 0.6f) * XMMatrixRotationX(t));
 
 	// Cube 2
-	XMStoreFloat4x4(&_world2, XMMatrixTranslation(6.0f, 0.0f, 0.0f) * XMMatrixScaling(0.3f, 0.3f, 0.3f) * XMMatrixRotationY(t));
+	MeshManager->updateCube(t);
 
 }
 
 void Application::Draw()
 {
+	// Setup back buffer and default world matrices
+
     //
     // Clear the back buffer
     //
@@ -527,35 +533,47 @@ void Application::Draw()
     _pImmediateContext->ClearRenderTargetView(_pRenderTargetView, ClearColor);
 	_pImmediateContext->ClearDepthStencilView(_depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
+	/*
 	XMMATRIX world = XMLoadFloat4x4(&_world);
 	XMMATRIX view = XMLoadFloat4x4(&_view);
 	XMMATRIX projection = XMLoadFloat4x4(&_projection);
     //
     // Update variables
     //
+	/*
     ConstantBuffer cb;
 	cb.mWorld = XMMatrixTranspose(world);
 	cb.mView = XMMatrixTranspose(view);
 	cb.mProjection = XMMatrixTranspose(projection);
 
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
+	*/
 
+
+	// REFACTORING
     //
     // Renders first cube
     //
+	
 	_pImmediateContext->VSSetShader(_pVertexShader, nullptr, 0);
 	_pImmediateContext->VSSetConstantBuffers(0, 1, &_pConstantBuffer);
     _pImmediateContext->PSSetConstantBuffers(0, 1, &_pConstantBuffer);
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
-	_pImmediateContext->DrawIndexed(36, 0, 0);
+	//_pImmediateContext->DrawIndexed(36, 0, 0);
 
+	/*
+	// Refactor
 	world = XMLoadFloat4x4(&_world2);
 	cb.mWorld = XMMatrixTranspose(world);
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
 	_pImmediateContext->DrawIndexed(36, 0, 0);
+	*/
+	
+
+	MeshManager->drawCube(_pImmediateContext, _pConstantBuffer, _world, _view, _projection);
 
 
-	// TODO: Make this key pressable
+
 	if (GetAsyncKeyState(VK_F1)) {
 		_pImmediateContext->RSSetState(_wireFrame);
 	}
@@ -563,7 +581,6 @@ void Application::Draw()
 		_pImmediateContext->RSSetState(_normalView);
 	}
 	
-
     //
     // Present our back buffer to our front buffer
     //
