@@ -83,6 +83,8 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
     // Initialize the projection matrix
 	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _WindowWidth / (FLOAT) _WindowHeight, 0.01f, 100.0f));
 
+	initObjects();
+
 	return S_OK;
 }
 
@@ -232,6 +234,11 @@ HRESULT Application::InitIndexBuffer()
         return hr;
 
 	return S_OK;
+}
+
+void Application::initObjects()
+{
+	MeshManager->generateCubes(3);
 }
 
 void Application::CalculateFrameStats(float gameTime)
@@ -518,7 +525,9 @@ void Application::Update(float deltaTime)
 	XMStoreFloat4x4(&_world, XMMatrixScaling(0.6f, 0.6f, 0.6f) * XMMatrixRotationX(t));
 
 	// Cube 2
-	MeshManager->updateCube(t);
+	MeshManager->updateCube(0, 0, 0, 0, t);
+	MeshManager->updateCube(1, 0, 0, 2, t);
+	MeshManager->updateCube(2, 0, 3, 2, t);
 
 }
 
@@ -570,7 +579,7 @@ void Application::Draw()
 	*/
 	
 
-	MeshManager->drawCube(_pImmediateContext, _pConstantBuffer, _world, _view, _projection);
+	MeshManager->drawCubes(_pImmediateContext, _pConstantBuffer, _world, _view, _projection);
 
 
 

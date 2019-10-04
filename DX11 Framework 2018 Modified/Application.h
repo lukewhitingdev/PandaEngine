@@ -60,6 +60,7 @@ private:
 	HRESULT InitShadersAndInputLayout();
 	HRESULT InitVertexBuffer();
 	HRESULT InitIndexBuffer();
+	void initObjects();
 
 	UINT _WindowHeight;
 	UINT _WindowWidth;
