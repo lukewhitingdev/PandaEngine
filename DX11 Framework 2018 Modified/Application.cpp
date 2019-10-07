@@ -578,7 +578,6 @@ void Application::Draw()
 	_pImmediateContext->DrawIndexed(36, 0, 0);
 	*/
 	
-
 	MeshManager->drawCubes(_pImmediateContext, _pConstantBuffer, _world, _view, _projection);
 
 
