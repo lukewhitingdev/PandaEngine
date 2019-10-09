@@ -20,6 +20,7 @@ struct ConstantBuffer
 	XMMATRIX mWorld;
 	XMMATRIX mView;
 	XMMATRIX mProjection;
+	float time;
 };
 
 class Application
@@ -36,14 +37,14 @@ private:
 	ID3D11VertexShader*     _pVertexShader;
 	ID3D11PixelShader*      _pPixelShader;
 	ID3D11InputLayout*      _pVertexLayout;
-	ID3D11Buffer*           _pVertexBuffer;
-	ID3D11Buffer*           _pIndexBuffer;
+	ID3D11Buffer*			_pVertexBuffer; 
+	ID3D11Buffer*			_pIndexBuffer;
 	ID3D11Buffer*           _pConstantBuffer;
 	ID3D11DepthStencilView* _depthStencilView;
 	ID3D11Texture2D*		_depthStencilBuffer;
 	ID3D11RasterizerState*	_wireFrame;
 	ID3D11RasterizerState*	_normalView;
-	XMFLOAT4X4              _world, _world2; // For the cubes in the world
+	XMFLOAT4X4              _world, _world2, _world3; // For the cubes in the world
 	XMFLOAT4X4              _view;
 	XMFLOAT4X4              _projection;
 
@@ -53,8 +54,12 @@ private:
 	void Cleanup();
 	HRESULT CompileShaderFromFile(WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 	HRESULT InitShadersAndInputLayout();
-	HRESULT InitVertexBuffer();
-	HRESULT InitIndexBuffer();
+	HRESULT InitCubeVertexBuffer();
+	HRESULT InitPyramidVertexBuffer();
+	HRESULT InitCubeIndexBuffer();
+	HRESULT InitPyramidIndexBuffer();
+	HRESULT InitPlaneVertexBuffer(int height, int width);
+	HRESULT InitPlaneIndexBuffer();
 
 	UINT _WindowHeight;
 	UINT _WindowWidth;

@@ -39,6 +39,13 @@ Application::Application()
 	_pVertexBuffer = nullptr;
 	_pIndexBuffer = nullptr;
 	_pConstantBuffer = nullptr;
+	_WindowHeight = 0;
+	_WindowWidth = 0;
+	_depthStencilBuffer = nullptr;
+	_depthStencilView = nullptr;
+	_normalView = nullptr;
+	_wireFrame = nullptr;
+
 }
 
 Application::~Application()
@@ -146,12 +153,14 @@ HRESULT Application::InitShadersAndInputLayout()
 	return hr;
 }
 
-HRESULT Application::InitVertexBuffer()
+HRESULT Application::InitCubeVertexBuffer()
 {
 	HRESULT hr;
 
+	// Cube Buffer
+
     // Create vertex buffer
-    SimpleVertex vertices[] =
+    SimpleVertex CubeVertices[] =
     {
         { XMFLOAT3( -1.0f, 1.0f, -1.0f ), XMFLOAT4( 0.0f, 0.0f, 1.0f, 1.0f ) },
         { XMFLOAT3( 1.0f, 1.0f, -1.0f), XMFLOAT4( 0.0f, 1.0f, 0.0f, 1.0f ) },
@@ -173,7 +182,7 @@ HRESULT Application::InitVertexBuffer()
 
     D3D11_SUBRESOURCE_DATA InitData;
 	ZeroMemory(&InitData, sizeof(InitData));
-    InitData.pSysMem = vertices;
+    InitData.pSysMem = CubeVertices;
 
     hr = _pd3dDevice->CreateBuffer(&bd, &InitData, &_pVertexBuffer);
 
@@ -183,12 +192,106 @@ HRESULT Application::InitVertexBuffer()
 	return S_OK;
 }
 
-HRESULT Application::InitIndexBuffer()
+HRESULT Application::InitPyramidVertexBuffer() {
+
+	HRESULT hr;
+
+	// Pyramid Vertices
+
+	SimpleVertex PyramidVertices[] =
+	{
+		{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(0.0f, 1.0f, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
+	};
+	D3D11_BUFFER_DESC bd;
+	ZeroMemory(&bd, sizeof(bd));
+	bd.Usage = D3D11_USAGE_DEFAULT;
+	bd.ByteWidth = sizeof(SimpleVertex) * 5;
+	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	bd.CPUAccessFlags = 0;
+
+	D3D11_SUBRESOURCE_DATA InitData;
+	ZeroMemory(&InitData, sizeof(InitData));
+	InitData.pSysMem = PyramidVertices;
+
+	hr = _pd3dDevice->CreateBuffer(&bd, &InitData, &_pVertexBuffer);
+
+	if (FAILED(hr))
+		return hr;
+
+	return S_OK;
+}
+
+HRESULT Application::InitPlaneVertexBuffer(int height, int width) {
+	HRESULT hr;
+
+	// Pyramid Vertices
+
+	SimpleVertex PlaneVertices[] =
+	{
+		{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
+	};
+	D3D11_BUFFER_DESC bd;
+	ZeroMemory(&bd, sizeof(bd));
+	bd.Usage = D3D11_USAGE_DEFAULT;
+	bd.ByteWidth = sizeof(SimpleVertex) * 4;
+	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	bd.CPUAccessFlags = 0;
+
+	D3D11_SUBRESOURCE_DATA InitData;
+	ZeroMemory(&InitData, sizeof(InitData));
+	InitData.pSysMem = PlaneVertices;
+
+	hr = _pd3dDevice->CreateBuffer(&bd, &InitData, &_pVertexBuffer);
+
+	if (FAILED(hr))
+		return hr;
+
+	return S_OK;
+}
+
+HRESULT Application::InitPlaneIndexBuffer() {
+	HRESULT hr;
+
+	// Create index buffer
+	WORD PlaneIndices[] =
+	{
+		// First Face
+		0, 2, 1,
+		1, 2, 3,
+	};
+
+	D3D11_BUFFER_DESC bd;
+	ZeroMemory(&bd, sizeof(bd));
+
+	bd.Usage = D3D11_USAGE_DEFAULT;
+	bd.ByteWidth = sizeof(WORD) * 6; // Index buffer size
+	bd.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	bd.CPUAccessFlags = 0;
+
+	D3D11_SUBRESOURCE_DATA InitData;
+	ZeroMemory(&InitData, sizeof(InitData));
+	InitData.pSysMem = PlaneIndices;
+	hr = _pd3dDevice->CreateBuffer(&bd, &InitData, &_pIndexBuffer);
+
+	if (FAILED(hr))
+		return hr;
+
+	return S_OK;
+}
+
+HRESULT Application::InitCubeIndexBuffer()
 {
 	HRESULT hr;
 
     // Create index buffer
-    WORD indices[] =
+    WORD CubeIndices[] =
     {
 		// Front Face
         0,1,2,
@@ -220,11 +323,49 @@ HRESULT Application::InitIndexBuffer()
 
 	D3D11_SUBRESOURCE_DATA InitData;
 	ZeroMemory(&InitData, sizeof(InitData));
-    InitData.pSysMem = indices;
+    InitData.pSysMem = CubeIndices;
     hr = _pd3dDevice->CreateBuffer(&bd, &InitData, &_pIndexBuffer);
 
     if (FAILED(hr))
         return hr;
+
+	return S_OK;
+}
+
+HRESULT Application::InitPyramidIndexBuffer() {
+
+	HRESULT hr;
+
+	WORD PyramidIndices[] =
+	{
+		// Base
+		0, 1, 2,
+		1, 3, 2,
+
+		// Sides
+		0, 4, 1,
+		1, 4, 3,
+		2, 3, 4,
+		0, 2, 4,
+	};
+
+
+	D3D11_BUFFER_DESC bd;
+	ZeroMemory(&bd, sizeof(bd));
+
+	bd.Usage = D3D11_USAGE_DEFAULT;
+	bd.ByteWidth = sizeof(WORD) * 18; // Index buffer size
+	bd.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	bd.CPUAccessFlags = 0;
+
+
+	D3D11_SUBRESOURCE_DATA InitData;
+	ZeroMemory(&InitData, sizeof(InitData));
+	InitData.pSysMem = PyramidIndices;
+	hr = _pd3dDevice->CreateBuffer(&bd, &InitData, &_pIndexBuffer);
+
+	if (FAILED(hr))
+		return hr;
 
 	return S_OK;
 }
@@ -358,7 +499,9 @@ HRESULT Application::InitDevice()
         hr = D3D11CreateDeviceAndSwapChain(nullptr, _driverType, nullptr, createDeviceFlags, featureLevels, numFeatureLevels,
                                            D3D11_SDK_VERSION, &sd, &_pSwapChain, &_pd3dDevice, &_featureLevel, &_pImmediateContext);
 		_pd3dDevice->CreateTexture2D(&depthStencilDesc, nullptr, &_depthStencilBuffer);
-		_pd3dDevice->CreateDepthStencilView(_depthStencilBuffer, nullptr, &_depthStencilView);
+		if (_depthStencilBuffer != nullptr) {
+			_pd3dDevice->CreateDepthStencilView(_depthStencilBuffer, nullptr, &_depthStencilView);
+		}
         if (SUCCEEDED(hr))
             break;
     }
@@ -393,18 +536,6 @@ HRESULT Application::InitDevice()
     _pImmediateContext->RSSetViewports(1, &vp);
 
 	InitShadersAndInputLayout();
-
-	InitVertexBuffer();
-
-    // Set vertex buffer
-    UINT stride = sizeof(SimpleVertex);
-    UINT offset = 0;
-    _pImmediateContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &stride, &offset);
-
-	InitIndexBuffer();
-
-    // Set index buffer
-    _pImmediateContext->IASetIndexBuffer(_pIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
     // Set primitive topology
     _pImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
@@ -463,20 +594,24 @@ void Application::Update()
     // Update our time
     static float t = 0.0f;
 
+		ConstantBuffer cb;
+
     if (_driverType == D3D_DRIVER_TYPE_REFERENCE)
     {
         t += (float) XM_PI * 0.0125f;
     }
-    else
-    {
-        static DWORD dwTimeStart = 0;
-        DWORD dwTimeCur = GetTickCount();
+	else
+	{
+		static ULONGLONG dwTimeStart = 0;
+		ULONGLONG dwTimeCur = GetTickCount64();
 
-        if (dwTimeStart == 0)
-            dwTimeStart = dwTimeCur;
+		if (dwTimeStart == 0)
+			dwTimeStart = dwTimeCur;
 
-        t = (dwTimeCur - dwTimeStart) / 1000.0f;
-    }
+		t = (dwTimeCur - dwTimeStart) / 1000.0f;
+	}
+
+	cb.time = t;
 
     //
     // Animate the cube
@@ -485,8 +620,12 @@ void Application::Update()
 	// Cube 1
 	XMStoreFloat4x4(&_world, XMMatrixScaling(0.6f, 0.6f, 0.6f) * XMMatrixRotationX(t));
 
-	// Cube 2
+	// Pyramid 1
 	XMStoreFloat4x4(&_world2, XMMatrixTranslation(6.0f, 0.0f, 0.0f) * XMMatrixScaling(0.3f, 0.3f, 0.3f) * XMMatrixRotationY(t));
+
+
+	// Plane 1
+	XMStoreFloat4x4(&_world3, XMMatrixScaling(1.0f, 1.0f, 1.0f));
 
 }
 
@@ -512,6 +651,18 @@ void Application::Draw()
 
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
 
+	InitCubeVertexBuffer();
+
+	// Set vertex buffer
+	UINT stride = sizeof(SimpleVertex);
+	UINT offset = 0;
+	_pImmediateContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &stride, &offset);
+
+	InitCubeIndexBuffer();
+
+	// Set index buffer
+	_pImmediateContext->IASetIndexBuffer(_pIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+
     //
     // Renders first cube
     //
@@ -521,10 +672,37 @@ void Application::Draw()
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 	_pImmediateContext->DrawIndexed(36, 0, 0);
 
+	InitPyramidVertexBuffer();
+
+	// Set vertex buffer
+	_pImmediateContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &stride, &offset);
+
+	InitPyramidIndexBuffer();
+
+	// Set index buffer
+	_pImmediateContext->IASetIndexBuffer(_pIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+
 	world = XMLoadFloat4x4(&_world2);
 	cb.mWorld = XMMatrixTranspose(world);
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
-	_pImmediateContext->DrawIndexed(36, 0, 0);
+	_pImmediateContext->DrawIndexed(18, 0, 0);
+
+	// Plane
+
+	InitPlaneVertexBuffer();
+
+	// Set vertex buffer
+	_pImmediateContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &stride, &offset);
+
+	InitPlaneIndexBuffer();
+
+	// Set index buffer
+	_pImmediateContext->IASetIndexBuffer(_pIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+
+	world = XMLoadFloat4x4(&_world3);
+	cb.mWorld = XMMatrixTranspose(world);
+	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
+	_pImmediateContext->DrawIndexed(18, 0, 0);
 
 
 	// TODO: Make this key pressable
