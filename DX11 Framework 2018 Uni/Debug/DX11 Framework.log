@@ -1,2 +1,4 @@
 ﻿  Application.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(165): warning C4316: 'Cube': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(418): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

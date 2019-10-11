@@ -6,6 +6,7 @@
 #include <directxmath.h>
 #include <directxcolors.h>
 #include "resource.h"
+#include "Mesh.h"
 
 using namespace DirectX;
 
@@ -54,15 +55,12 @@ private:
 	void Cleanup();
 	HRESULT CompileShaderFromFile(WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 	HRESULT InitShadersAndInputLayout();
-	HRESULT InitCubeVertexBuffer();
-	HRESULT InitPyramidVertexBuffer();
-	HRESULT InitCubeIndexBuffer();
-	HRESULT InitPyramidIndexBuffer();
-	HRESULT InitPlaneVertexBuffer(int height, int width);
-	HRESULT InitPlaneIndexBuffer();
+	void InitObjects();
 
 	UINT _WindowHeight;
 	UINT _WindowWidth;
+
+	Mesh* meshManager[5];
 
 public:
 	Application();
