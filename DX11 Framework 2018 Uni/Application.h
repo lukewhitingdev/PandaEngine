@@ -12,7 +12,7 @@ using namespace DirectX;
 struct SimpleVertex
 {
     XMFLOAT3 Pos;
-    XMFLOAT4 Color;
+	XMFLOAT3 Normal;
 };
 
 struct ConstantBuffer
@@ -20,7 +20,19 @@ struct ConstantBuffer
 	XMMATRIX mWorld;
 	XMMATRIX mView;
 	XMMATRIX mProjection;
+
+
+	XMFLOAT4 DiffuseMtrl;
+	XMFLOAT4 DiffuseLight;
+	XMFLOAT3 LightVecW;
+	// Packing
 	float time;
+
+	XMFLOAT4 AmbientLight;
+	XMFLOAT4 AmbientMaterial;
+
+
+
 };
 
 class Application
@@ -47,6 +59,13 @@ private:
 	XMFLOAT4X4              _world, _world2, _world3; // For the cubes in the world
 	XMFLOAT4X4              _view;
 	XMFLOAT4X4              _projection;
+	// Lighting
+	XMFLOAT3 lightDirection;
+	XMFLOAT4 diffuseMaterial;
+	XMFLOAT4 diffuseLight;
+
+	XMFLOAT4 AmbientMaterial;
+	XMFLOAT4 AmbientLight;
 
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);
@@ -55,11 +74,11 @@ private:
 	HRESULT CompileShaderFromFile(WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 	HRESULT InitShadersAndInputLayout();
 	HRESULT InitCubeVertexBuffer();
-	HRESULT InitPyramidVertexBuffer();
+	//HRESULT InitPyramidVertexBuffer();
 	HRESULT InitCubeIndexBuffer();
-	HRESULT InitPyramidIndexBuffer();
-	HRESULT InitPlaneVertexBuffer(int height, int width);
-	HRESULT InitPlaneIndexBuffer();
+	//HRESULT InitPyramidIndexBuffer();
+	//HRESULT InitPlaneVertexBuffer(int height, int width);
+	//HRESULT InitPlaneIndexBuffer();
 
 	UINT _WindowHeight;
 	UINT _WindowWidth;

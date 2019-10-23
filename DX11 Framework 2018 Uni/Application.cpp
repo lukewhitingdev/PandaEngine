@@ -85,6 +85,13 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
     // Initialize the projection matrix
 	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _WindowWidth / (FLOAT) _WindowHeight, 0.01f, 100.0f));
 
+	lightDirection = XMFLOAT3(0.5f, 0.5f, -1.0f);
+	diffuseMaterial = XMFLOAT4(1.0f, 0.0f, 0.5f, 1.0f);
+	diffuseLight = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+
+	AmbientLight = XMFLOAT4(0.2f, 0.2f, 0.2f, 0.2f);
+	AmbientMaterial = XMFLOAT4(0.2f, 0.2f, 0.2f, 0.2f);
+
 	return S_OK;
 }
 
@@ -134,7 +141,7 @@ HRESULT Application::InitShadersAndInputLayout()
     D3D11_INPUT_ELEMENT_DESC layout[] =
     {
         { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        { "NORMAL", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
 	};
 
 	UINT numElements = ARRAYSIZE(layout);
@@ -162,15 +169,16 @@ HRESULT Application::InitCubeVertexBuffer()
     // Create vertex buffer
     SimpleVertex CubeVertices[] =
     {
-        { XMFLOAT3( -1.0f, 1.0f, -1.0f ), XMFLOAT4( 0.0f, 0.0f, 1.0f, 1.0f ) },
-        { XMFLOAT3( 1.0f, 1.0f, -1.0f), XMFLOAT4( 0.0f, 1.0f, 0.0f, 1.0f ) },
-        { XMFLOAT3( -1.0f, -1.0f, -1.0f), XMFLOAT4( 0.0f, 1.0f, 1.0f, 1.0f ) },
-        { XMFLOAT3( 1.0f, -1.0f, -1.0f), XMFLOAT4( 1.0f, 0.0f, 0.0f, 1.0f ) },
+		// Vertices							Normals
+		{ XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT3(-1.0f, 1.0f, -1.0f) },
+		{ XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT3(1.0f, 1.0f, -1.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT3(-1.0f, -1.0f, -1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT3(1.0f, -1.0f, -1.0f) },
 
-		{ XMFLOAT3(-1.0f, 1.0f, 0.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) },
-		{ XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
-		{ XMFLOAT3(-1.0f, -1.0f, 0.0f), XMFLOAT4(0.0f, 1.0f, 1.0f, 1.0f) },
-		{ XMFLOAT3(1.0f, -1.0f, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, 1.0f, 0.0f), XMFLOAT3(-1.0f, 1.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(1.0f, 1.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, 0.0f), XMFLOAT3(-1.0f, -1.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, 0.0f), XMFLOAT3(1.0f, -1.0f, 1.0f) },
     };
 
     D3D11_BUFFER_DESC bd;
@@ -191,6 +199,8 @@ HRESULT Application::InitCubeVertexBuffer()
 
 	return S_OK;
 }
+
+/*
 
 HRESULT Application::InitPyramidVertexBuffer() {
 
@@ -286,6 +296,8 @@ HRESULT Application::InitPlaneIndexBuffer() {
 	return S_OK;
 }
 
+*/
+
 HRESULT Application::InitCubeIndexBuffer()
 {
 	HRESULT hr;
@@ -332,6 +344,8 @@ HRESULT Application::InitCubeIndexBuffer()
 	return S_OK;
 }
 
+/*
+
 HRESULT Application::InitPyramidIndexBuffer() {
 
 	HRESULT hr;
@@ -369,6 +383,8 @@ HRESULT Application::InitPyramidIndexBuffer() {
 
 	return S_OK;
 }
+
+*/
 
 HRESULT Application::InitWindow(HINSTANCE hInstance, int nCmdShow)
 {
@@ -611,7 +627,7 @@ void Application::Update()
 		t = (dwTimeCur - dwTimeStart) / 1000.0f;
 	}
 
-	cb.time = t;
+	//cb.time = t;
 
     //
     // Animate the cube
@@ -631,6 +647,7 @@ void Application::Update()
 
 void Application::Draw()
 {
+
     //
     // Clear the back buffer
     //
@@ -648,6 +665,13 @@ void Application::Draw()
 	cb.mWorld = XMMatrixTranspose(world);
 	cb.mView = XMMatrixTranspose(view);
 	cb.mProjection = XMMatrixTranspose(projection);
+
+	cb.DiffuseLight = diffuseLight;
+	cb.DiffuseMtrl = diffuseMaterial;
+	cb.LightVecW = lightDirection;
+
+	cb.AmbientLight = AmbientLight;
+	cb.AmbientMaterial = AmbientMaterial;
 
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
 
@@ -672,7 +696,9 @@ void Application::Draw()
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 	_pImmediateContext->DrawIndexed(36, 0, 0);
 
-	InitPyramidVertexBuffer();
+	//InitPyramidVertexBuffer();
+
+	/*
 
 	// Set vertex buffer
 	_pImmediateContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &stride, &offset);
@@ -689,7 +715,7 @@ void Application::Draw()
 
 	// Plane
 
-	InitPlaneVertexBuffer();
+	InitPlaneVertexBuffer(1, 1);
 
 	// Set vertex buffer
 	_pImmediateContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &stride, &offset);
@@ -704,6 +730,7 @@ void Application::Draw()
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
 	_pImmediateContext->DrawIndexed(18, 0, 0);
 
+	*/
 
 	// TODO: Make this key pressable
 	if (GetAsyncKeyState(VK_F1)) {
