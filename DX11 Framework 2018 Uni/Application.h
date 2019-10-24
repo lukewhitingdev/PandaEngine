@@ -31,8 +31,10 @@ struct ConstantBuffer
 	XMFLOAT4 AmbientLight;
 	XMFLOAT4 AmbientMaterial;
 
-
-
+	XMFLOAT4 SpecularMtrl;
+	XMFLOAT4 SpecularLight;
+	float SpecularPower;
+	XMFLOAT3 EyePosW; // Camera Pos in World
 };
 
 class Application
@@ -67,6 +69,10 @@ private:
 	XMFLOAT4 AmbientMaterial;
 	XMFLOAT4 AmbientLight;
 
+	XMFLOAT4 SpecularMtrl;
+	XMFLOAT4 SpecularLight;
+	float SpecularPower;
+	XMFLOAT3 EyePosW; // Camera Pos in World
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);
 	HRESULT InitDevice();

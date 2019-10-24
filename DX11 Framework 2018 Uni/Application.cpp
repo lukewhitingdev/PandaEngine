@@ -45,7 +45,6 @@ Application::Application()
 	_depthStencilView = nullptr;
 	_normalView = nullptr;
 	_wireFrame = nullptr;
-
 }
 
 Application::~Application()
@@ -91,6 +90,11 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	AmbientLight = XMFLOAT4(0.2f, 0.2f, 0.2f, 0.2f);
 	AmbientMaterial = XMFLOAT4(0.2f, 0.2f, 0.2f, 0.2f);
+
+	SpecularMtrl = XMFLOAT4(0.8f, 0.8f, 0.8f, 1.0f);
+	SpecularLight = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
+	SpecularPower = 10.0f;
+	EyePosW = XMFLOAT3(0.0f, 0.0f, -3.0f);
 
 	return S_OK;
 }
@@ -610,7 +614,6 @@ void Application::Update()
     // Update our time
     static float t = 0.0f;
 
-		ConstantBuffer cb;
 
     if (_driverType == D3D_DRIVER_TYPE_REFERENCE)
     {
@@ -672,6 +675,11 @@ void Application::Draw()
 
 	cb.AmbientLight = AmbientLight;
 	cb.AmbientMaterial = AmbientMaterial;
+
+	cb.SpecularMtrl = SpecularMtrl;
+	cb.SpecularLight = SpecularLight;
+	cb.SpecularPower = SpecularPower;
+	cb.EyePosW = EyePosW;
 
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
 

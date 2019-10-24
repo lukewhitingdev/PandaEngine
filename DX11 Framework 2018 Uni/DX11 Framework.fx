@@ -20,6 +20,11 @@ cbuffer ConstantBuffer : register( b0 )
 
 	float4 AmbientLight;
 	float4 AmbientMaterial;
+
+	float4 SpecularMtrl;
+	float4 SpecularLight;
+	float SpecularPower;
+	float4 EyePosW;
 }
 
 //--------------------------------------------------------------------------------------
@@ -37,6 +42,9 @@ VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL )
 	VS_OUTPUT output = (VS_OUTPUT)0;
 
 	output.Pos = mul(Pos, World);
+
+	float3 toEye = normalize(EyePosW - output.Pos.xyz);
+
     output.Pos = mul( output.Pos, View );
     output.Pos = mul( output.Pos, Projection );
 
@@ -45,11 +53,19 @@ VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL )
 	float3 normalW = mul(float4(NormalL, 0.0f), World).xyz;
 	normalW = normalize(normalW);
 
+	//Compute Reflection Color
+	float3 r = reflect(-LightVecW, normalW);
+
+	float specularAmmount = pow(max(dot(r, toEye), 0.0f), SpecularPower);
+
 	//Compute new color with diffuse lighting enabled
 	float diffuseAmmount = max(dot(LightVecW, normalW), 0.0f);
 
 	float3 ambient = AmbientMaterial * AmbientLight;
-	output.Color.rbg = diffuseAmmount + ambient;
+
+	float3 specular = specularAmmount * (SpecularMtrl * SpecularLight).rgb;
+
+	output.Color.rbg = diffuseAmmount + ambient + specular;
 	output.Color.a = DiffuseMtrl.a;
 
     return output;
