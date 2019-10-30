@@ -375,6 +375,7 @@
   </ItemDefinitionGroup>
   <ItemGroup />
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="DX11 Framework.cpp" />
   </ItemGroup>
@@ -382,6 +383,7 @@
     <None Include="DX11 Framework.fx" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h" />
     <ClInclude Include="Application.h" />
     <CLInclude Include="resource.h" />
     <ResourceCompile Include="DX11 Framework.rc" />

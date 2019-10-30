@@ -1,8 +1,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DX11 Framework", "DX11 Framework.vcxproj", "{B8FF81B5-9B26-4931-8353-07795FDC4043}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{91A8E008-8EC1-4362-9EAB-8004986702B5}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp = ..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp
+		..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h = ..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,5 +35,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88A9DC4A-C83F-4271-AB75-FBAC632FCF88}
 	EndGlobalSection
 EndGlobal
