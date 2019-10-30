@@ -18,6 +18,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+<<<<<<< HEAD:DX11 Framework 2018 Uni - Copy/DX11 Framework.vcxproj.filters
     <ClInclude Include="DDSTextureLoader.h" />
     <ClInclude Include="Mesh.h">
       <Filter>ParentClasses</Filter>
@@ -30,10 +31,13 @@
     </ClInclude>
     <ClInclude Include="Pyramid.h" />
     <ClInclude Include="Plane.h" />
+=======
+>>>>>>> parent of eb0c75c... Texture development:DX11 Framework 2018 Uni/DX11 Framework.vcxproj.filters
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="DX11 Framework.cpp" />
+<<<<<<< HEAD:DX11 Framework 2018 Uni - Copy/DX11 Framework.vcxproj.filters
     <ClCompile Include="DDSTextureLoader.cpp" />
     <ClCompile Include="Mesh.cpp">
       <Filter>ParentClasses</Filter>
@@ -46,6 +50,8 @@
     </ClCompile>
     <ClCompile Include="Pyramid.cpp" />
     <ClCompile Include="Plane.cpp" />
+=======
+>>>>>>> parent of eb0c75c... Texture development:DX11 Framework 2018 Uni/DX11 Framework.vcxproj.filters
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

@@ -160,7 +160,6 @@ HRESULT Application::InitShadersAndInputLayout()
     {
         { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
         { "NORMAL", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 24, D3D11_INPUT_PER_VERTEX_DATA, 0 },
 	};
 
 	UINT numElements = ARRAYSIZE(layout);
@@ -181,7 +180,81 @@ HRESULT Application::InitShadersAndInputLayout()
 
 void Application::InitObjects()
 {
+<<<<<<< HEAD:DX11 Framework 2018 Uni - Copy/Application.cpp
 	meshManager[0] = new Cube(0, 1, 0);
+=======
+	HRESULT hr;
+
+	// Cube Buffer
+
+    // Create vertex buffer
+    SimpleVertex CubeVertices[] =
+    {
+		// Vertices							Normals
+		{ XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT3(-1.0f, 1.0f, -1.0f) },
+		{ XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT3(1.0f, 1.0f, -1.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT3(-1.0f, -1.0f, -1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT3(1.0f, -1.0f, -1.0f) },
+
+		{ XMFLOAT3(-1.0f, 1.0f, 0.0f), XMFLOAT3(-1.0f, 1.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(1.0f, 1.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, 0.0f), XMFLOAT3(-1.0f, -1.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, 0.0f), XMFLOAT3(1.0f, -1.0f, 1.0f) },
+    };
+
+    D3D11_BUFFER_DESC bd;
+	ZeroMemory(&bd, sizeof(bd));
+    bd.Usage = D3D11_USAGE_DEFAULT;
+    bd.ByteWidth = sizeof(SimpleVertex) * 8;
+    bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	bd.CPUAccessFlags = 0;
+
+    D3D11_SUBRESOURCE_DATA InitData;
+	ZeroMemory(&InitData, sizeof(InitData));
+    InitData.pSysMem = CubeVertices;
+
+    hr = _pd3dDevice->CreateBuffer(&bd, &InitData, &_pVertexBuffer);
+
+    if (FAILED(hr))
+        return hr;
+
+	return S_OK;
+}
+
+/*
+
+HRESULT Application::InitPyramidVertexBuffer() {
+
+	HRESULT hr;
+
+	// Pyramid Vertices
+
+	SimpleVertex PyramidVertices[] =
+	{
+		{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f) },
+		{ XMFLOAT3(0.0f, 1.0f, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
+	};
+	D3D11_BUFFER_DESC bd;
+	ZeroMemory(&bd, sizeof(bd));
+	bd.Usage = D3D11_USAGE_DEFAULT;
+	bd.ByteWidth = sizeof(SimpleVertex) * 5;
+	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	bd.CPUAccessFlags = 0;
+
+	D3D11_SUBRESOURCE_DATA InitData;
+	ZeroMemory(&InitData, sizeof(InitData));
+	InitData.pSysMem = PyramidVertices;
+
+	hr = _pd3dDevice->CreateBuffer(&bd, &InitData, &_pVertexBuffer);
+
+	if (FAILED(hr))
+		return hr;
+
+	return S_OK;
+>>>>>>> parent of eb0c75c... Texture development:DX11 Framework 2018 Uni/Application.cpp
 }
 
 HRESULT Application::InitWindow(HINSTANCE hInstance, int nCmdShow)

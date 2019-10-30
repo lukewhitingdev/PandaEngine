@@ -7,10 +7,6 @@
 //--------------------------------------------------------------------------------------
 // Constant Buffer Variables
 //--------------------------------------------------------------------------------------
-
-Texture2D txDiffuse : register(t0);
-SamplerState samLinear : register(s0);
-
 cbuffer ConstantBuffer : register( b0 )
 {
 	matrix World;
@@ -38,13 +34,12 @@ struct VS_OUTPUT
     float4 Color : COLOR0;
 	float3 Norm : NORMAL;
 	float3 PosW : POSITION;
-	float2 Tex : TEXCOORD0;
 };
 
 //--------------------------------------------------------------------------------------
 // Vertex Shader -- Gouraud Shading using Diffuse Lighting only
 //--------------------------------------------------------------------------------------
-VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TEXCOORD)
+VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL )
 {
 	VS_OUTPUT output = (VS_OUTPUT)0;
 
@@ -58,9 +53,6 @@ VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TEXCO
 	normalW = normalize(normalW);
 	output.Norm = normalW;
 
-	// just pass the texture from the input to the pixel shader.
-	output.Tex = Tex;
-
     return output;
 }
 
@@ -68,10 +60,8 @@ VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TEXCO
 //--------------------------------------------------------------------------------------
 // Pixel Shader
 //--------------------------------------------------------------------------------------
-float4 PS(VS_OUTPUT input) : SV_Target
+float4 PS( VS_OUTPUT input ) : SV_Target
 {
-
-	float4 textureColor = txDiffuse.Sample(samLinear, input.Tex);
 
 	float3 toEye = normalize(EyePosW - input.Pos.xyz);
 
