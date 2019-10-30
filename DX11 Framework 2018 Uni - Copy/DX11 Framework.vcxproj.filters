@@ -9,15 +9,43 @@
       <UniqueIdentifier>{2c3d4c8c-5d1a-459a-a05a-a4e4b608a44e}</UniqueIdentifier>
       <Extensions>fx;fxh;hlsl</Extensions>
     </Filter>
+    <Filter Include="ParentClasses">
+      <UniqueIdentifier>{0df5dc42-3741-46d1-bd3c-0f58e962284d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{b1dd50d5-dff6-4616-8e6a-49454b70142a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="DDSTextureLoader.h" />
+    <ClInclude Include="Mesh.h">
+      <Filter>ParentClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="emptyObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Pyramid.h" />
+    <ClInclude Include="Plane.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="DX11 Framework.cpp" />
     <ClCompile Include="DDSTextureLoader.cpp" />
+    <ClCompile Include="Mesh.cpp">
+      <Filter>ParentClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="emptyObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Pyramid.cpp" />
+    <ClCompile Include="Plane.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
