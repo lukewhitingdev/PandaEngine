@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "DDSTextureLoader.h"
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -45,6 +46,7 @@ Application::Application()
 	_depthStencilView = nullptr;
 	_normalView = nullptr;
 	_wireFrame = nullptr;
+	textureResourceView = nullptr;
 }
 
 Application::~Application()
@@ -95,6 +97,12 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	SpecularLight = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 	SpecularPower = 10.0f;
 	EyePosW = XMFLOAT3(0.0f, 0.0f, -3.0f);
+
+	// Loads texture
+	_pd3dDevice->CreateShaderResourceView(texture, NULL, &textureResourceView);
+	CreateDDSTextureFromFile(_pd3dDevice, L"texture.dds", nullptr, &textureResourceView);
+
+
 
 	return S_OK;
 }
@@ -521,6 +529,18 @@ HRESULT Application::InitDevice()
 	depthStencilDesc.CPUAccessFlags = 0;
 	depthStencilDesc.MiscFlags = 0;
 
+	//Sample state setup
+	D3D11_SAMPLER_DESC sampleDesc;
+	ZeroMemory(&sampleDesc, sizeof(sampleDesc));
+	sampleDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	sampleDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
+	sampleDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
+	sampleDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+	sampleDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
+	sampleDesc.MinLOD = 0;
+	sampleDesc.MaxLOD = D3D11_FLOAT32_MAX;
+
+
 
     for (UINT driverTypeIndex = 0; driverTypeIndex < numDriverTypes; driverTypeIndex++)
     {
@@ -591,6 +611,8 @@ HRESULT Application::InitDevice()
 	RenderDesc.FillMode = D3D11_FILL_SOLID;
 	RenderDesc.CullMode = D3D11_CULL_BACK;
 	hr = _pd3dDevice->CreateRasterizerState(&RenderDesc, &_normalView);
+
+	_pd3dDevice->CreateSamplerState(&sampleDesc, &textureSamplerState);
 
     if (FAILED(hr))
         return hr;
@@ -695,6 +717,8 @@ void Application::Draw()
 	_pImmediateContext->VSSetShader(_pVertexShader, nullptr, 0);
 	_pImmediateContext->VSSetConstantBuffers(0, 1, &_pConstantBuffer);
 	_pImmediateContext->PSSetConstantBuffers(0, 1, &_pConstantBuffer);
+	_pImmediateContext->PSSetSamplers(0, 1, &textureSamplerState);
+	_pImmediateContext->PSSetShaderResources(0, 1, &textureResourceView);
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 
 	// Set vertex buffer

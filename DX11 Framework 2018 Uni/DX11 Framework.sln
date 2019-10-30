@@ -6,6 +6,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DX11 Framework", "DX11 Fram
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{91A8E008-8EC1-4362-9EAB-8004986702B5}"
 	ProjectSection(SolutionItems) = preProject
+		DDSTextureLoader.cpp = DDSTextureLoader.cpp
+		DDSTextureLoader.h = DDSTextureLoader.h
 		..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp = ..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp
 		..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h = ..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h
 	EndProjectSection

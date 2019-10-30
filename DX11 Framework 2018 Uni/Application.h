@@ -6,6 +6,7 @@
 #include <directxmath.h>
 #include <directxcolors.h>
 #include "resource.h"
+#include "DDSTextureLoader.h"
 
 using namespace DirectX;
 
@@ -74,6 +75,13 @@ private:
 	XMFLOAT4 SpecularLight;
 	float SpecularPower;
 	XMFLOAT3 EyePosW; // Camera Pos in World
+
+
+	// Textures
+	ID3D11ShaderResourceView* textureResourceView;
+	ID3D11Texture2D* texture;
+	ID3D11SamplerState* textureSamplerState;
+
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);
 	HRESULT InitDevice();
