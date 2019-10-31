@@ -7,15 +7,10 @@
 #include <directxcolors.h>
 #include "resource.h"
 #include "DDSTextureLoader.h"
+#include "Structures.h"
+#include "OBJLoader.h"
 
 using namespace DirectX;
-
-struct SimpleVertex
-{
-    XMFLOAT3 Pos;
-	XMFLOAT3 Normal;
-	XMFLOAT2 TexC;
-};
 
 struct ConstantBuffer
 {
@@ -81,6 +76,8 @@ private:
 	ID3D11ShaderResourceView* textureResourceView;
 	ID3D11Texture2D* texture;
 	ID3D11SamplerState* textureSamplerState;
+
+	MeshData objMeshLoader;
 
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);

@@ -608,8 +608,10 @@ HRESULT Application::InitDevice()
 	hr = _pd3dDevice->CreateRasterizerState(&RenderDesc, &_normalView);
 
 	// Loads texture
-	CreateDDSTextureFromFile(_pd3dDevice, L"Assets/Crate_COLOR.dds", nullptr, &textureResourceView);
+	CreateDDSTextureFromFile(_pd3dDevice, L"Hercules_COLOR.dds", nullptr, &textureResourceView);
 	_pd3dDevice->CreateSamplerState(&sampleDesc, &textureSamplerState);
+
+	objMeshLoader = OBJLoader::Load("Hercules.obj", _pd3dDevice);
 
     if (FAILED(hr))
         return hr;
@@ -665,7 +667,7 @@ void Application::Update()
     //
 
 	// Cube 1
-	XMStoreFloat4x4(&_world, XMMatrixScaling(0.6f, 0.6f, 0.6f) * XMMatrixRotationX(t));
+	XMStoreFloat4x4(&_world, XMMatrixRotationY(t * 0.2) * XMMatrixTranslation(0.0f, 0.0f, 20.0f) * XMMatrixScaling(0.6f, 0.6f, 0.6f));
 
 	// Pyramid 1
 	XMStoreFloat4x4(&_world2, XMMatrixTranslation(6.0f, 0.0f, 0.0f) * XMMatrixScaling(0.3f, 0.3f, 0.3f) * XMMatrixRotationY(t));
@@ -719,16 +721,23 @@ void Application::Draw()
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 
 	// Set vertex buffer
-	UINT stride = sizeof(SimpleVertex);
-	UINT offset = 0;
+	//UINT stride = sizeof(SimpleVertex);
+	//UINT offset = 0;
 
-	InitCubeVertexBuffer();
-	InitCubeIndexBuffer();
+	//InitCubeVertexBuffer();
+	//InitCubeIndexBuffer();
+
+	// Set vertex buffer
+	UINT stride = objMeshLoader.VBStride;
+	UINT offset = objMeshLoader.VBOffset;
 
 	// Set  buffers
-	_pImmediateContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &stride, &offset);
-	_pImmediateContext->IASetIndexBuffer(_pIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
-	_pImmediateContext->DrawIndexed(36, 0, 0);
+	_pImmediateContext->IASetVertexBuffers(0, 1, &objMeshLoader.VertexBuffer, &stride, &offset);
+	_pImmediateContext->IASetIndexBuffer(objMeshLoader.IndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+	_pImmediateContext->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
+	//_pImmediateContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &stride, &offset);
+	//_pImmediateContext->IASetIndexBuffer(_pIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+	//_pImmediateContext->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
 
 
 

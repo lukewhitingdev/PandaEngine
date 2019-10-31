@@ -8,8 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		DDSTextureLoader.cpp = DDSTextureLoader.cpp
 		DDSTextureLoader.h = DDSTextureLoader.h
-		..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp = ..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp
-		..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h = ..\..\..\..\Desktop\OBJLoader Tutorial DX11\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h
+		C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp = C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp
+		C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h = C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h
 	EndProjectSection
 EndProject
 Global
