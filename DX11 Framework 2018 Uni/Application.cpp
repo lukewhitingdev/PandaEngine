@@ -777,7 +777,6 @@ void Application::Draw()
 
 	*/
 
-	// TODO: Make this key pressable
 	if (GetAsyncKeyState(VK_F1)) {
 		_pImmediateContext->RSSetState(_wireFrame);
 	}
