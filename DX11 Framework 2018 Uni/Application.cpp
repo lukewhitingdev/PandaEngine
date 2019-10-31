@@ -86,7 +86,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
     // Initialize the projection matrix
 	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _WindowWidth / (FLOAT) _WindowHeight, 0.01f, 100.0f));
 
-	lightDirection = XMFLOAT3(0.5f, 0.5f, -1.0f);
+	lightDirection = XMFLOAT3(0.5f, 0.0f, -1.0f);
 	diffuseMaterial = XMFLOAT4(1.0f, 0.0f, 0.5f, 1.0f);
 	diffuseLight = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -97,12 +97,6 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	SpecularLight = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 	SpecularPower = 10.0f;
 	EyePosW = XMFLOAT3(0.0f, 0.0f, -3.0f);
-
-	// Loads texture
-	_pd3dDevice->CreateShaderResourceView(texture, NULL, &textureResourceView);
-	CreateDDSTextureFromFile(_pd3dDevice, L"texture.dds", nullptr, &textureResourceView);
-
-
 
 	return S_OK;
 }
@@ -185,21 +179,22 @@ HRESULT Application::InitCubeVertexBuffer()
 
 		// Vertices							Normals						Texture
 		// Back top left
-		{ XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT2(0.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT2(0.0f, 0.0f) },
 		// Back top right
-		{ XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT2(1.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT2(1.0f, 0.0f) },
 		// Back bottom left
-		{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT2(0.0f, 0.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT2(0.0f, 1.0f) },
 		// Back bottom right
-		{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT2(1.0f, 0.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT2(1.0f, 1.0f) },
+
 		// Front top left
-		{ XMFLOAT3(-1.0f, 1.0f, 1.0f), XMFLOAT3(-1.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) },
+		{ XMFLOAT3(-1.0f, 1.0f, 1.0f), XMFLOAT3(-1.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) },
 		// Front top right
-		{ XMFLOAT3(1.0f, 1.0f, 1.0f), XMFLOAT3(1.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) },
+		{ XMFLOAT3(1.0f, 1.0f, 1.0f), XMFLOAT3(1.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 0.0f) },
 		// Front bottom left
-		{ XMFLOAT3(-1.0f, -1.0f, 1.0f), XMFLOAT3(-1.0f, -1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, 1.0f), XMFLOAT3(-1.0f, -1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) },
 		// Front bottom right
-		{ XMFLOAT3(1.0f, -1.0f, 1.0f), XMFLOAT3(1.0f, -1.0f, 1.0f), XMFLOAT2(1.0f, 0.0f) },
+		{ XMFLOAT3(1.0f, -1.0f, 1.0f), XMFLOAT3(1.0f, -1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) },
     };
 
     D3D11_BUFFER_DESC bd;
@@ -612,6 +607,8 @@ HRESULT Application::InitDevice()
 	RenderDesc.CullMode = D3D11_CULL_BACK;
 	hr = _pd3dDevice->CreateRasterizerState(&RenderDesc, &_normalView);
 
+	// Loads texture
+	CreateDDSTextureFromFile(_pd3dDevice, L"Assets/Crate_COLOR.dds", nullptr, &textureResourceView);
 	_pd3dDevice->CreateSamplerState(&sampleDesc, &textureSamplerState);
 
     if (FAILED(hr))
