@@ -1,5 +1,0 @@
-﻿  Application.cpp
-F:\Local Git\PeboEngine\DX11 Framework 2018 Modified\Application.cpp(267,22): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-F:\Local Git\PeboEngine\DX11 Framework 2018 Modified\Application.cpp(512,25): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
-F:\Local Git\PeboEngine\DX11 Framework 2018 Modified\Application.cpp(500,32): warning C4100: 'deltaTime': unreferenced formal parameter
-  DX11 Framework.vcxproj -> F:\Local Git\PeboEngine\DX11 Framework 2018 Modified\Debug\DX11 Framework.exe
