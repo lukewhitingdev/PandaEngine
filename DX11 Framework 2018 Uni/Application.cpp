@@ -365,7 +365,13 @@ HRESULT Application::InitCubeIndexBuffer()
 void Application::InitObjects()
 {
 	cubeMesh = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
+	meshVector.push_back(cubeMesh);
 	cubeMesh2 = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_NRM.dds");
+	meshVector.push_back(cubeMesh2);
+	sphereMesh = new sphere(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
+	meshVector.push_back(sphereMesh);
+	planeMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Hercules.obj");
+	meshVector.push_back(planeMesh);
 }
 
 /*
@@ -677,6 +683,8 @@ void Application::Update()
 
 	cubeMesh->Update(t, -4.0f, 0.0f, 0.1f);
 	cubeMesh2->Update(t, 4.0f, 0.0f, 0.1f);
+	sphereMesh->Update(t * 2, 0.0f, 2.0f, 0.1f);
+	planeMesh->Update(t * 0.2f, 0.0f, 2.0f, 20.0f);
 
 }
 
@@ -728,8 +736,9 @@ void Application::Draw()
 	_pImmediateContext->PSSetShaderResources(0, 1, &textureResourceView);
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 
-	cubeMesh->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);
-	cubeMesh2->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);
+	for (int i = 0; i < meshVector.size(); i++) {
+		meshVector[i]->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);
+	}
 
 
 

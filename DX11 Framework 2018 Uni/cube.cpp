@@ -2,7 +2,9 @@
 
 cube::cube(ID3D11Device* device, const wchar_t* texfileName)
 {
-	//XMStoreFloat4x4(&objectMatrix, XMMatrixIdentity());
+	// Reset the local matrix
+	XMStoreFloat4x4(&objectMatrix, XMMatrixIdentity());
+
 	// Get the texture and load the mesh
 	CreateDDSTextureFromFile(device, texfileName, nullptr, &textureResourceView);
 	objMeshLoader = OBJLoader::Load("Assets/Object Models/Primatives/cube.obj", device);
@@ -15,7 +17,7 @@ cube::cube(ID3D11Device* device, const wchar_t* texfileName)
 void cube::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb)
 {
 	
-	// Transpose the matrix and pass it to the constant buffer
+	// Transpose the local matrix and pass it to the constant buffer
 	XMMATRIX world = XMLoadFloat4x4(&objectMatrix);
 	cb.mWorld = XMMatrixTranspose(world);
 	context->UpdateSubresource(constantBuffer, 0, nullptr, &cb, 0, 0);

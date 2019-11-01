@@ -27,6 +27,18 @@
     <Filter Include="Objects\Primitives\Cube">
       <UniqueIdentifier>{dc1db176-4ce1-4994-8280-92eee5eae597}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\Primitives\Sphere">
+      <UniqueIdentifier>{edf6f4d2-4b78-4897-8a88-2b324c2564be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Primitives\Cylinder">
+      <UniqueIdentifier>{2e9ef549-ca25-4e67-b50d-57f367cbe506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Primitives\Torus">
+      <UniqueIdentifier>{72c2df5c-d482-429b-a215-7ca306f2b682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\customModel">
+      <UniqueIdentifier>{f8df712b-2992-4d77-9302-1582e3d78495}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h">
@@ -47,6 +59,21 @@
     <ClInclude Include="cube.h">
       <Filter>Objects\Primitives\Cube</Filter>
     </ClInclude>
+    <ClInclude Include="sphere.h">
+      <Filter>Objects\Primitives\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="cylinder.h">
+      <Filter>Objects\Primitives\Cylinder</Filter>
+    </ClInclude>
+    <ClInclude Include="torus.h">
+      <Filter>Objects\Primitives\Torus</Filter>
+    </ClInclude>
+    <ClInclude Include="objectIncludes.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="customModel.h">
+      <Filter>Objects\customModel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -66,6 +93,18 @@
     </ClCompile>
     <ClCompile Include="cube.cpp">
       <Filter>Objects\Primitives\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="sphere.cpp">
+      <Filter>Objects\Primitives\Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="cylinder.cpp">
+      <Filter>Objects\Primitives\Cylinder</Filter>
+    </ClCompile>
+    <ClCompile Include="torus.cpp">
+      <Filter>Objects\Primitives\Torus</Filter>
+    </ClCompile>
+    <ClCompile Include="customModel.cpp">
+      <Filter>Objects\customModel</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

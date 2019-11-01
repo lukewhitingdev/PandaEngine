@@ -5,12 +5,12 @@
 #include <d3dcompiler.h>
 #include <directxmath.h>
 #include <directxcolors.h>
+#include <vector>
 #include "resource.h"
 #include "DDSTextureLoader.h"
 #include "Structures.h"
 #include "OBJLoader.h"
-#include "Mesh.h"
-#include "cube.h"
+#include "objectIncludes.h"
 
 using namespace DirectX;
 
@@ -62,8 +62,13 @@ private:
 
 	MeshData objMeshLoader;
 
+
+	// Mesh's
+	std::vector<Mesh*> meshVector;
 	Mesh* cubeMesh;
 	Mesh* cubeMesh2;
+	Mesh* sphereMesh;
+	Mesh* planeMesh;
 
 
 private:
