@@ -1,3 +1,5 @@
 ﻿  Application.cpp
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(739,20): warning C4018: '<': signed/unsigned mismatch
+  DX11 Framework.cpp
+  Generating Code...
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(472,20): warning C4018: '<': signed/unsigned mismatch
   DX11 Framework.vcxproj -> F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

@@ -39,6 +39,15 @@
     <Filter Include="Objects\customModel">
       <UniqueIdentifier>{f8df712b-2992-4d77-9302-1582e3d78495}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Virtual Classes\Lighting">
+      <UniqueIdentifier>{e7ba6527-5786-48ea-82a6-c9c38696768a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lights">
+      <UniqueIdentifier>{565ced38-73c8-474e-84ff-e57face50611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lights\Directional">
+      <UniqueIdentifier>{82b5ce65-db47-400e-858b-01463b995074}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h">
@@ -74,6 +83,15 @@
     <ClInclude Include="customModel.h">
       <Filter>Objects\customModel</Filter>
     </ClInclude>
+    <ClInclude Include="LightingIncludes.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Virtual Classes\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="directionalLight.h">
+      <Filter>Lights\Directional</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -105,6 +123,12 @@
     </ClCompile>
     <ClCompile Include="customModel.cpp">
       <Filter>Objects\customModel</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Virtual Classes\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="directionalLight.cpp">
+      <Filter>Lights\Directional</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

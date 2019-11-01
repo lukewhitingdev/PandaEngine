@@ -381,7 +381,9 @@
     <ClCompile Include="customModel.cpp" />
     <ClCompile Include="cylinder.cpp" />
     <ClCompile Include="DDSTextureLoader.cpp" />
+    <ClCompile Include="directionalLight.cpp" />
     <ClCompile Include="DX11 Framework.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="torus.cpp" />
@@ -396,6 +398,9 @@
     <ClInclude Include="customModel.h" />
     <ClInclude Include="cylinder.h" />
     <ClInclude Include="DDSTextureLoader.h" />
+    <ClInclude Include="directionalLight.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="LightingIncludes.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="objectIncludes.h" />
     <CLInclude Include="resource.h" />

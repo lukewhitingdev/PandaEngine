@@ -11,6 +11,7 @@
 #include "Structures.h"
 #include "OBJLoader.h"
 #include "objectIncludes.h"
+#include "LightingIncludes.h"
 
 using namespace DirectX;
 
@@ -41,23 +42,9 @@ private:
 	XMFLOAT4X4              _world, _world2, _world3; // For the cubes in the world
 	XMFLOAT4X4              _view;
 	XMFLOAT4X4              _projection;
-	// Lighting
-	XMFLOAT3 lightDirection;
-	XMFLOAT4 diffuseMaterial;
-	XMFLOAT4 diffuseLight;
-
-	XMFLOAT4 AmbientMaterial;
-	XMFLOAT4 AmbientLight;
-
-	XMFLOAT4 SpecularMtrl;
-	XMFLOAT4 SpecularLight;
-	float SpecularPower;
-	XMFLOAT3 EyePosW; // Camera Pos in World
-
 
 	// Textures
 	ID3D11ShaderResourceView* textureResourceView;
-	ID3D11Texture2D* texture;
 	ID3D11SamplerState* textureSamplerState;
 
 	MeshData objMeshLoader;
@@ -70,6 +57,9 @@ private:
 	Mesh* sphereMesh;
 	Mesh* planeMesh;
 
+	// Lighting
+	Light* dirLight;
+
 
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);
@@ -77,13 +67,8 @@ private:
 	void Cleanup();
 	HRESULT CompileShaderFromFile(WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 	HRESULT InitShadersAndInputLayout();
-	HRESULT InitCubeVertexBuffer();
-	//HRESULT InitPyramidVertexBuffer();
-	HRESULT InitCubeIndexBuffer();
-	//HRESULT InitPyramidIndexBuffer();
-	//HRESULT InitPlaneVertexBuffer(int height, int width);
-	//HRESULT InitPlaneIndexBuffer();
 	void InitObjects();
+	void InitLighting();
 
 	UINT _WindowHeight;
 	UINT _WindowWidth;
