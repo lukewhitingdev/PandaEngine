@@ -87,7 +87,7 @@ float4 PS(VS_OUTPUT input) : SV_Target
 
 	float3 specular = specularAmmount * (SpecularMtrl * SpecularLight).rgb;
 
-	input.Color.rgb = textureColor + ambient + diffuseAmmount + specular;
+	input.Color.rgb = textureColor * (ambient + diffuseAmmount) + specular;
 	input.Color.a = DiffuseMtrl.a;
 
     return input.Color;
