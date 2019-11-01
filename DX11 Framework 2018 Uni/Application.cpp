@@ -98,6 +98,8 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	SpecularPower = 10.0f;
 	EyePosW = XMFLOAT3(0.0f, 0.0f, -3.0f);
 
+	InitObjects();
+
 	return S_OK;
 }
 
@@ -358,6 +360,12 @@ HRESULT Application::InitCubeIndexBuffer()
         return hr;
 
 	return S_OK;
+}
+
+void Application::InitObjects()
+{
+	cubeMesh = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
+	cubeMesh2 = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_NRM.dds");
 }
 
 /*
@@ -642,7 +650,7 @@ void Application::Cleanup()
 void Application::Update()
 {
     // Update our time
-    static float t = 0.0f;
+	float t = 0.0f;
 
 
     if (_driverType == D3D_DRIVER_TYPE_REFERENCE)
@@ -666,15 +674,9 @@ void Application::Update()
     // Animate the cube
     //
 
-	// Cube 1
-	XMStoreFloat4x4(&_world, XMMatrixRotationY(t * 0.2) * XMMatrixTranslation(0.0f, 0.0f, 20.0f) * XMMatrixScaling(0.6f, 0.6f, 0.6f));
 
-	// Pyramid 1
-	XMStoreFloat4x4(&_world2, XMMatrixTranslation(6.0f, 0.0f, 0.0f) * XMMatrixScaling(0.3f, 0.3f, 0.3f) * XMMatrixRotationY(t));
-
-
-	// Plane 1
-	XMStoreFloat4x4(&_world3, XMMatrixScaling(1.0f, 1.0f, 1.0f));
+	cubeMesh->Update(t, -4.0f, 0.0f, 0.1f);
+	cubeMesh2->Update(t, 4.0f, 0.0f, 0.1f);
 
 }
 
@@ -713,12 +715,23 @@ void Application::Draw()
 
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
 
+	/*
+	XMMATRIX world = XMLoadFloat4x4(&_world);
+	cb.mWorld = XMMatrixTranspose(world);
+	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
+	*/
+
 	_pImmediateContext->VSSetShader(_pVertexShader, nullptr, 0);
 	_pImmediateContext->VSSetConstantBuffers(0, 1, &_pConstantBuffer);
 	_pImmediateContext->PSSetConstantBuffers(0, 1, &_pConstantBuffer);
 	_pImmediateContext->PSSetSamplers(0, 1, &textureSamplerState);
 	_pImmediateContext->PSSetShaderResources(0, 1, &textureResourceView);
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
+
+	cubeMesh->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);
+	cubeMesh2->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);
+
+
 
 	// Set vertex buffer
 	//UINT stride = sizeof(SimpleVertex);
@@ -728,13 +741,15 @@ void Application::Draw()
 	//InitCubeIndexBuffer();
 
 	// Set vertex buffer
-	UINT stride = objMeshLoader.VBStride;
-	UINT offset = objMeshLoader.VBOffset;
+	//UINT stride = objMeshLoader.VBStride;
+	//UINT offset = objMeshLoader.VBOffset;
 
 	// Set  buffers
-	_pImmediateContext->IASetVertexBuffers(0, 1, &objMeshLoader.VertexBuffer, &stride, &offset);
-	_pImmediateContext->IASetIndexBuffer(objMeshLoader.IndexBuffer, DXGI_FORMAT_R16_UINT, 0);
-	_pImmediateContext->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
+	//_pImmediateContext->IASetVertexBuffers(0, 1, &objMeshLoader.VertexBuffer, &stride, &offset);
+	//_pImmediateContext->IASetIndexBuffer(objMeshLoader.IndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+	//_pImmediateContext->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
+
+
 	//_pImmediateContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &stride, &offset);
 	//_pImmediateContext->IASetIndexBuffer(_pIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 	//_pImmediateContext->DrawIndexed(objMeshLoader.IndexCount, 0, 0);

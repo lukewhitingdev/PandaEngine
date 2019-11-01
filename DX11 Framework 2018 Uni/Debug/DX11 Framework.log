@@ -1,3 +1,2 @@
 ﻿  Application.cpp
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(670,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   DX11 Framework.vcxproj -> F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

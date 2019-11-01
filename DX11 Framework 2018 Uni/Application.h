@@ -9,33 +9,16 @@
 #include "DDSTextureLoader.h"
 #include "Structures.h"
 #include "OBJLoader.h"
+#include "Mesh.h"
+#include "cube.h"
 
 using namespace DirectX;
 
-struct ConstantBuffer
-{
-	XMMATRIX mWorld;
-	XMMATRIX mView;
-	XMMATRIX mProjection;
 
-
-	XMFLOAT4 DiffuseMtrl;
-	XMFLOAT4 DiffuseLight;
-	XMFLOAT3 LightVecW;
-	// Packing
-	float time;
-
-	XMFLOAT4 AmbientLight;
-	XMFLOAT4 AmbientMaterial;
-
-	XMFLOAT4 SpecularMtrl;
-	XMFLOAT4 SpecularLight;
-	float SpecularPower;
-	XMFLOAT3 EyePosW; // Camera Pos in World
-};
 
 class Application
 {
+
 private:
 	HINSTANCE               _hInst;
 	HWND                    _hWnd;
@@ -79,6 +62,10 @@ private:
 
 	MeshData objMeshLoader;
 
+	Mesh* cubeMesh;
+	Mesh* cubeMesh2;
+
+
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);
 	HRESULT InitDevice();
@@ -91,6 +78,7 @@ private:
 	//HRESULT InitPyramidIndexBuffer();
 	//HRESULT InitPlaneVertexBuffer(int height, int width);
 	//HRESULT InitPlaneIndexBuffer();
+	void InitObjects();
 
 	UINT _WindowHeight;
 	UINT _WindowWidth;

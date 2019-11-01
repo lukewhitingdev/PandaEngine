@@ -9,18 +9,64 @@
       <UniqueIdentifier>{2c3d4c8c-5d1a-459a-a05a-a4e4b608a44e}</UniqueIdentifier>
       <Extensions>fx;fxh;hlsl</Extensions>
     </Filter>
+    <Filter Include="Code">
+      <UniqueIdentifier>{e307065d-9e83-4a33-806c-6f321a0b3ff2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Virtual Classes">
+      <UniqueIdentifier>{80f8d6cc-963e-41e1-8653-fde30d9258ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Virtual Classes\Mesh">
+      <UniqueIdentifier>{e1ad0d7c-3fde-4ce0-9cee-45d288c0bc82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{53dfe58f-01f8-4e48-b97f-94a8ecd79724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Primitives">
+      <UniqueIdentifier>{cef9fc10-a976-4b28-9171-9d7a9cd0c041}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Primitives\Cube">
+      <UniqueIdentifier>{dc1db176-4ce1-4994-8280-92eee5eae597}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h" />
-    <ClInclude Include="DDSTextureLoader.h" />
-    <ClInclude Include="C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h" />
-    <ClInclude Include="Structures.h" />
+    <ClInclude Include="C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="DDSTextureLoader.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Structures.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Virtual Classes\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="cube.h">
+      <Filter>Objects\Primitives\Cube</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
-    <ClCompile Include="DX11 Framework.cpp" />
-    <ClCompile Include="DDSTextureLoader.cpp" />
-    <ClCompile Include="C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp" />
+    <ClCompile Include="Application.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="DDSTextureLoader.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11 Framework.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Virtual Classes\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="cube.cpp">
+      <Filter>Objects\Primitives\Cube</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -28,13 +74,13 @@
     </CLInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DX11 Framework.fx">
-      <Filter>Shaders</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="DX11 Framework.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DX11 Framework.fx">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
