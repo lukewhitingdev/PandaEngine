@@ -50,9 +50,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.h">
-      <Filter>Code</Filter>
-    </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>Code</Filter>
     </ClInclude>
@@ -92,6 +89,9 @@
     <ClInclude Include="directionalLight.h">
       <Filter>Lights\Directional</Filter>
     </ClInclude>
+    <ClInclude Include="OBJLoader.h">
+      <Filter>Code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -101,9 +101,6 @@
       <Filter>Code</Filter>
     </ClCompile>
     <ClCompile Include="DX11 Framework.cpp">
-      <Filter>Code</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\Panda\Desktop\OBJLoader Tutorial\OBJLoader Tutorial\Code\OBJLoader.cpp">
       <Filter>Code</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
@@ -129,6 +126,9 @@
     </ClCompile>
     <ClCompile Include="directionalLight.cpp">
       <Filter>Lights\Directional</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJLoader.cpp">
+      <Filter>Code</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
