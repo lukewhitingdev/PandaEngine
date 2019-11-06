@@ -1,1 +1,8 @@
-﻿  DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe
+﻿  Application.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(171): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(486): warning C4018: '<': signed/unsigned mismatch
+  Camera.cpp
+  DX11 Framework.cpp
+  Generating Code...
+Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

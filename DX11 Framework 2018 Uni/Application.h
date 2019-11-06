@@ -12,6 +12,7 @@
 #include "OBJLoader.h"
 #include "objectIncludes.h"
 #include "LightingIncludes.h"
+#include "Camera.h"
 
 using namespace DirectX;
 
@@ -60,6 +61,8 @@ private:
 	// Lighting
 	Light* dirLight;
 
+	Camera* cam;
+
 
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);
@@ -67,6 +70,7 @@ private:
 	void Cleanup();
 	HRESULT CompileShaderFromFile(WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 	HRESULT InitShadersAndInputLayout();
+	void InitCamera();
 	void InitObjects();
 	void InitLighting();
 

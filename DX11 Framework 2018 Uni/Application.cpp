@@ -76,6 +76,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	// Initialize the world matrix
 	XMStoreFloat4x4(&_world, XMMatrixIdentity());
 
+	
     // Initialize the view matrix
 	XMVECTOR Eye = XMVectorSet(0.0f, 0.0f, -3.0f, 0.0f);
 	XMVECTOR At = XMVectorSet(0.0f, 0.0f, 0.0f, 0.0f);
@@ -85,7 +86,9 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
     // Initialize the projection matrix
 	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _WindowWidth / (FLOAT) _WindowHeight, 0.01f, 100.0f));
+	
 
+	InitCamera();
 	InitLighting();
 	InitObjects();
 
@@ -156,6 +159,17 @@ HRESULT Application::InitShadersAndInputLayout()
     _pImmediateContext->IASetInputLayout(_pVertexLayout);
 
 	return hr;
+}
+
+void Application::InitCamera()
+{
+	// Initialize the view matrix
+	XMFLOAT3 Eye = XMFLOAT3(0.0f, 0.0f, -3.0f);
+	XMFLOAT3 At = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
+
+	cam = new Camera(Eye, At, Up, _WindowWidth, _WindowHeight, 0.01f, 100.0f);
+	cam->Update();
 }
 
 void Application::InitObjects()

@@ -92,6 +92,7 @@
     <ClInclude Include="OBJLoader.h">
       <Filter>Code</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -130,6 +131,7 @@
     <ClCompile Include="OBJLoader.cpp">
       <Filter>Code</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
