@@ -483,7 +483,7 @@ void Application::Update()
 		out.z += 1.0f;
 		cam->setCameraPos(out.x, out.y, out.z);
 		cam->UpdateStoredFloats();
-		MessageBox(0, L"Fak", L"Fak u", 0);		
+		MessageBox(0, L"Move", L"Movement pressed", 0);		
 	}
 }
 
