@@ -12,7 +12,7 @@
 #include "OBJLoader.h"
 #include "objectIncludes.h"
 #include "LightingIncludes.h"
-#include "Camera.h"
+#include "cameraIncludes.h"
 
 using namespace DirectX;
 
@@ -61,7 +61,11 @@ private:
 	// Lighting
 	Light* dirLight;
 
-	Camera* cam;
+	Cam* cam;
+
+	// Cursor Input
+	// Last point recorded
+	POINT lastPoint = { NULL, NULL };
 
 
 private:
@@ -73,6 +77,9 @@ private:
 	void InitCamera();
 	void InitObjects();
 	void InitLighting();
+
+	//Input
+	void getCursorPos();
 
 	UINT _WindowHeight;
 	UINT _WindowWidth;

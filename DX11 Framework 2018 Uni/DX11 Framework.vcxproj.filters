@@ -48,6 +48,18 @@
     <Filter Include="Lights\Directional">
       <UniqueIdentifier>{82b5ce65-db47-400e-858b-01463b995074}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Includes">
+      <UniqueIdentifier>{2ad8538a-1495-42e5-8a5d-dc321ca76ab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Virtual Classes\Camera">
+      <UniqueIdentifier>{dcad8d52-832d-41ff-9ebb-1703dcb60bc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cameras">
+      <UniqueIdentifier>{e8fc1d50-3873-4706-bb01-0793a742651b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cameras\LookAt">
+      <UniqueIdentifier>{f2af1239-400f-4575-8127-f177abce3b4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -74,14 +86,8 @@
     <ClInclude Include="torus.h">
       <Filter>Objects\Primitives\Torus</Filter>
     </ClInclude>
-    <ClInclude Include="objectIncludes.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
     <ClInclude Include="customModel.h">
       <Filter>Objects\customModel</Filter>
-    </ClInclude>
-    <ClInclude Include="LightingIncludes.h">
-      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="Light.h">
       <Filter>Virtual Classes\Lighting</Filter>
@@ -92,7 +98,22 @@
     <ClInclude Include="OBJLoader.h">
       <Filter>Code</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h" />
+    <ClInclude Include="LightingIncludes.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="objectIncludes.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="cameraIncludes.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Cam.h">
+      <Filter>Virtual Classes\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="LookAtCam.h">
+      <Filter>Cameras\LookAt</Filter>
+    </ClInclude>
+    <ClInclude Include="LookToCam.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -131,7 +152,13 @@
     <ClCompile Include="OBJLoader.cpp">
       <Filter>Code</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Cam.cpp">
+      <Filter>Virtual Classes\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="LookAtCam.cpp">
+      <Filter>Cameras\LookAt</Filter>
+    </ClCompile>
+    <ClCompile Include="LookToCam.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

@@ -7,7 +7,7 @@ class directionalLight : public Light
 {
 
 public:
-	directionalLight();
+	directionalLight(XMFLOAT3 eyePos);
 	directionalLight(XMFLOAT3 dir, float specPow);
 
 

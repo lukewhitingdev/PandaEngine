@@ -75,17 +75,6 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	// Initialize the world matrix
 	XMStoreFloat4x4(&_world, XMMatrixIdentity());
-
-	
-    // Initialize the view matrix
-	XMVECTOR Eye = XMVectorSet(0.0f, 0.0f, -3.0f, 0.0f);
-	XMVECTOR At = XMVectorSet(0.0f, 0.0f, 0.0f, 0.0f);
-	XMVECTOR Up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
-
-	XMStoreFloat4x4(&_view, XMMatrixLookAtLH(Eye, At, Up));
-
-    // Initialize the projection matrix
-	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _WindowWidth / (FLOAT) _WindowHeight, 0.01f, 100.0f));
 	
 
 	InitCamera();
@@ -166,10 +155,11 @@ void Application::InitCamera()
 	// Initialize the view matrix
 	XMFLOAT3 Eye = XMFLOAT3(0.0f, 0.0f, -3.0f);
 	XMFLOAT3 At = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	XMFLOAT3 To = XMFLOAT3(0.0f, 1.0f, 1.0f);
 	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
 
-	cam = new Camera(Eye, At, Up, _WindowWidth, _WindowHeight, 0.01f, 100.0f);
-	cam->Update();
+	cam = new LookToCam(Eye, To, Up, _WindowWidth, _WindowHeight, 0.0f, 1000.0f);
+	cam->UpdateStoredFloats();
 }
 
 void Application::InitObjects()
@@ -187,7 +177,25 @@ void Application::InitObjects()
 
 void Application::InitLighting()
 {
-	dirLight = new directionalLight(XMFLOAT3(0.5f, 0.0f, -1.0f), 10.0f);
+	dirLight = new directionalLight(cam->getCameraPos());
+}
+
+void Application::getCursorPos()
+{
+
+	// Gets cursor pos
+	POINT point;
+	GetCursorPos(&point);
+	ScreenToClient(_hWnd, &point);
+
+	// If the difference has never been calculated
+	if (lastPoint.x == NULL) {
+		lastPoint = point;
+	}
+
+	float diffX = lastPoint.x - point.x;
+	float diffY = lastPoint.y - point.y;
+
 }
 
 
@@ -450,6 +458,38 @@ void Application::Update()
 	cubeMesh2->Update(t, 4.0f, 0.0f, 0.1f);
 	sphereMesh->Update(t * 2, 0.0f, 2.0f, 0.1f);
 	planeMesh->Update(t * 0.2f, 0.0f, 2.0f, 20.0f);
+	
+	getCursorPos();
+
+	if (GetAsyncKeyState(VK_LSHIFT)) {
+		XMFLOAT3 eye = cam->getCameraPos();
+		XMFLOAT3 at = cam->getLookToPos();
+		XMFLOAT3 out = XMFLOAT3(eye.x + at.x, eye.y + at.y, eye.z + at.z);
+		out.z += 0.001f;
+		cam->setCameraPos(out.x, out.y, out.z);
+		cam->UpdateStoredFloats();
+	}
+	if (GetAsyncKeyState(VK_SPACE)) {
+		XMFLOAT3 eye = cam->getCameraPos();
+		XMFLOAT3 at = cam->getLookToPos();
+		at.y += 0.01f;
+		cam->setLookToPos(at.x, at.y, at.z);
+		cam->UpdateStoredFloats();
+	}
+	if (GetAsyncKeyState(VK_UP)) {
+		XMFLOAT3 eye = cam->getCameraPos();
+		XMFLOAT3 at = cam->getLookToPos();
+		at.y += 0.01f;
+		cam->setLookToPos(at.x, at.y, at.z);
+		cam->UpdateStoredFloats();
+	}
+	if (GetAsyncKeyState(VK_DOWN)) {
+		XMFLOAT3 eye = cam->getCameraPos();
+		XMFLOAT3 at = cam->getLookToPos();
+		at.y -= 0.01f;
+		cam->setLookToPos(at.x, at.y, at.z);
+		cam->UpdateStoredFloats();
+	}
 
 }
 
@@ -464,8 +504,8 @@ void Application::Draw()
 	_pImmediateContext->ClearDepthStencilView(_depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
 	XMMATRIX world = XMLoadFloat4x4(&_world);
-	XMMATRIX view = XMLoadFloat4x4(&_view);
-	XMMATRIX projection = XMLoadFloat4x4(&_projection);
+	XMMATRIX view = XMLoadFloat4x4(&cam->getViewMatrix());
+	XMMATRIX projection = XMLoadFloat4x4(&cam->getProjectionMatrix());
     //
     // Update variables
     //

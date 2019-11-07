@@ -1,7 +1,7 @@
 #include "directionalLight.h"
 
 
-directionalLight::directionalLight()
+directionalLight::directionalLight(XMFLOAT3 eyePos)
 {
 
 	// Initializes light values

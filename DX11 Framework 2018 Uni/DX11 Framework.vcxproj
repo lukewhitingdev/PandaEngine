@@ -376,7 +376,8 @@
   <ItemGroup />
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Cam.cpp" />
+    <ClCompile Include="LookAtCam.cpp" />
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="customModel.cpp" />
     <ClCompile Include="cylinder.cpp" />
@@ -384,6 +385,7 @@
     <ClCompile Include="directionalLight.cpp" />
     <ClCompile Include="DX11 Framework.cpp" />
     <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LookToCam.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="sphere.cpp" />
@@ -394,7 +396,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
-    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Cam.h" />
+    <ClInclude Include="LookAtCam.h" />
+    <ClInclude Include="cameraIncludes.h" />
     <ClInclude Include="cube.h" />
     <ClInclude Include="customModel.h" />
     <ClInclude Include="cylinder.h" />
@@ -402,6 +406,7 @@
     <ClInclude Include="directionalLight.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightingIncludes.h" />
+    <ClInclude Include="LookToCam.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="objectIncludes.h" />
     <ClInclude Include="OBJLoader.h" />
