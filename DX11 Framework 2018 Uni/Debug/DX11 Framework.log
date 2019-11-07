@@ -1,12 +1,8 @@
 ﻿  Application.cpp
 C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(161): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(196): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
 C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(197): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(196): warning C4189: 'diffX': local variable is initialized but not referenced
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(197): warning C4189: 'diffY': local variable is initialized but not referenced
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(507): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(508): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(526): warning C4018: '<': signed/unsigned mismatch
-  DX11 Framework.cpp
-  Generating Code...
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(198): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(501): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(502): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(520): warning C4018: '<': signed/unsigned mismatch
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

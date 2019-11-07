@@ -180,9 +180,10 @@ void Application::InitLighting()
 	dirLight = new directionalLight(cam->getCameraPos());
 }
 
-void Application::getCursorPos()
+POINT Application::getCursorPos()
 {
 
+	POINT returnPoint;
 	// Gets cursor pos
 	POINT point;
 	GetCursorPos(&point);
@@ -196,6 +197,11 @@ void Application::getCursorPos()
 	float diffX = lastPoint.x - point.x;
 	float diffY = lastPoint.y - point.y;
 
+	lastPoint = point;
+
+	returnPoint = { (LONG)diffX, (LONG)diffY };
+
+	return returnPoint;
 }
 
 
@@ -227,6 +233,8 @@ HRESULT Application::InitWindow(HINSTANCE hInstance, int nCmdShow)
                          nullptr);
     if (!_hWnd)
 		return E_FAIL;
+
+	ShowCursor(false);
 
     ShowWindow(_hWnd, nCmdShow);
 
@@ -434,14 +442,14 @@ void Application::Cleanup()
 
 void Application::Update()
 {
-    // Update our time
+	// Update our time
 	float t = 0.0f;
 
 
-    if (_driverType == D3D_DRIVER_TYPE_REFERENCE)
-    {
-        t += (float) XM_PI * 0.0125f;
-    }
+	if (_driverType == D3D_DRIVER_TYPE_REFERENCE)
+	{
+		t += (float)XM_PI * 0.0125f;
+	}
 	else
 	{
 		static ULONGLONG dwTimeStart = 0;
@@ -458,39 +466,25 @@ void Application::Update()
 	cubeMesh2->Update(t, 4.0f, 0.0f, 0.1f);
 	sphereMesh->Update(t * 2, 0.0f, 2.0f, 0.1f);
 	planeMesh->Update(t * 0.2f, 0.0f, 2.0f, 20.0f);
-	
-	getCursorPos();
 
+	POINT cursorPoint = getCursorPos();
+	if (cursorPoint.x != lastPoint.x && cursorPoint.y != lastPoint.y) {
+		XMFLOAT3 eye = cam->getCameraPos();
+		XMFLOAT3 at = cam->getLookToPos();
+		at.x += -(float)cursorPoint.x / 100;
+		at.y += (float)cursorPoint.y / 100;
+		cam->setLookToPos(at.x, at.y, at.z);
+		cam->UpdateStoredFloats();
+	}
 	if (GetAsyncKeyState(VK_LSHIFT)) {
 		XMFLOAT3 eye = cam->getCameraPos();
 		XMFLOAT3 at = cam->getLookToPos();
 		XMFLOAT3 out = XMFLOAT3(eye.x + at.x, eye.y + at.y, eye.z + at.z);
-		out.z += 0.001f;
+		out.z += 1.0f;
 		cam->setCameraPos(out.x, out.y, out.z);
 		cam->UpdateStoredFloats();
+		MessageBox(0, L"Fak", L"Fak u", 0);		
 	}
-	if (GetAsyncKeyState(VK_SPACE)) {
-		XMFLOAT3 eye = cam->getCameraPos();
-		XMFLOAT3 at = cam->getLookToPos();
-		at.y += 0.01f;
-		cam->setLookToPos(at.x, at.y, at.z);
-		cam->UpdateStoredFloats();
-	}
-	if (GetAsyncKeyState(VK_UP)) {
-		XMFLOAT3 eye = cam->getCameraPos();
-		XMFLOAT3 at = cam->getLookToPos();
-		at.y += 0.01f;
-		cam->setLookToPos(at.x, at.y, at.z);
-		cam->UpdateStoredFloats();
-	}
-	if (GetAsyncKeyState(VK_DOWN)) {
-		XMFLOAT3 eye = cam->getCameraPos();
-		XMFLOAT3 at = cam->getLookToPos();
-		at.y -= 0.01f;
-		cam->setLookToPos(at.x, at.y, at.z);
-		cam->UpdateStoredFloats();
-	}
-
 }
 
 void Application::Draw()

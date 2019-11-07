@@ -79,7 +79,7 @@ private:
 	void InitLighting();
 
 	//Input
-	void getCursorPos();
+	POINT getCursorPos();
 
 	UINT _WindowHeight;
 	UINT _WindowWidth;
