@@ -7,8 +7,6 @@ using namespace DirectX;
 class Cam
 {
 public:
-	Cam();
-	~Cam();
 
 	virtual void UpdateStoredFloats();
 

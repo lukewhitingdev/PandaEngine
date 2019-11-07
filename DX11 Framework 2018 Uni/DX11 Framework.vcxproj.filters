@@ -60,6 +60,9 @@
     <Filter Include="Cameras\LookAt">
       <UniqueIdentifier>{f2af1239-400f-4575-8127-f177abce3b4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cameras\LookTo">
+      <UniqueIdentifier>{e2102078-3b9e-4f54-80b3-38237b96fe88}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -113,7 +116,9 @@
     <ClInclude Include="LookAtCam.h">
       <Filter>Cameras\LookAt</Filter>
     </ClInclude>
-    <ClInclude Include="LookToCam.h" />
+    <ClInclude Include="LookToCam.h">
+      <Filter>Cameras\LookTo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -158,7 +163,9 @@
     <ClCompile Include="LookAtCam.cpp">
       <Filter>Cameras\LookAt</Filter>
     </ClCompile>
-    <ClCompile Include="LookToCam.cpp" />
+    <ClCompile Include="LookToCam.cpp">
+      <Filter>Cameras\LookTo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
