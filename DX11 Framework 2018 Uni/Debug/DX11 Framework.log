@@ -1,8 +1,48 @@
 ﻿  Application.cpp
 C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(161): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(162): error C2248: 'Cam::UpdateStoredFloats': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(14): note: see declaration of 'Cam::UpdateStoredFloats'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(180): error C2248: 'Cam::getCameraPos': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(17): note: see declaration of 'Cam::getCameraPos'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
 C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(197): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
 C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(198): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(501): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(502): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(520): warning C4018: '<': signed/unsigned mismatch
-  DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(470): error C2248: 'Cam::getCameraPos': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(17): note: see declaration of 'Cam::getCameraPos'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(471): error C2248: 'Cam::getLookToPos': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(22): note: see declaration of 'Cam::getLookToPos'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(474): error C2248: 'Cam::setLookToPos': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(21): note: see declaration of 'Cam::setLookToPos'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(475): error C2248: 'Cam::UpdateStoredFloats': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(14): note: see declaration of 'Cam::UpdateStoredFloats'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(478): error C2248: 'Cam::getCameraPos': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(17): note: see declaration of 'Cam::getCameraPos'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(479): error C2248: 'Cam::getLookToPos': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(22): note: see declaration of 'Cam::getLookToPos'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(482): error C2248: 'Cam::setCameraPos': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(16): note: see declaration of 'Cam::setCameraPos'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(483): error C2248: 'Cam::UpdateStoredFloats': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(14): note: see declaration of 'Cam::UpdateStoredFloats'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(499): error C2248: 'Cam::getViewMatrix': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(26): note: see declaration of 'Cam::getViewMatrix'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(499): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(500): error C2248: 'Cam::getProjectionMatrix': cannot access protected member declared in class 'Cam'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(27): note: see declaration of 'Cam::getProjectionMatrix'
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Cam.h(7): note: see declaration of 'Cam'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(500): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(518): warning C4018: '<': signed/unsigned mismatch
+  Cam.cpp
+  DX11 Framework.cpp
+  LookAtCam.cpp
+  LookToCam.cpp
+  Generating Code...

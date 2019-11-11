@@ -234,8 +234,6 @@ HRESULT Application::InitWindow(HINSTANCE hInstance, int nCmdShow)
     if (!_hWnd)
 		return E_FAIL;
 
-	ShowCursor(false);
-
     ShowWindow(_hWnd, nCmdShow);
 
     return S_OK;
