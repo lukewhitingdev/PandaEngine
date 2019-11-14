@@ -6,7 +6,10 @@ using namespace DirectX;
 #pragma once
 class Cam
 {
+
 public:
+
+	Cam();
 
 	virtual void UpdateStoredFloats();
 

@@ -466,6 +466,7 @@ void Application::Update()
 	planeMesh->Update(t * 0.2f, 0.0f, 2.0f, 20.0f);
 
 	POINT cursorPoint = getCursorPos();
+
 	if (cursorPoint.x != lastPoint.x && cursorPoint.y != lastPoint.y) {
 		XMFLOAT3 eye = cam->getCameraPos();
 		XMFLOAT3 at = cam->getLookToPos();
@@ -474,14 +475,34 @@ void Application::Update()
 		cam->setLookToPos(at.x, at.y, at.z);
 		cam->UpdateStoredFloats();
 	}
-	if (GetAsyncKeyState(VK_LSHIFT)) {
+	if (GetAsyncKeyState('W')) {
 		XMFLOAT3 eye = cam->getCameraPos();
 		XMFLOAT3 at = cam->getLookToPos();
-		XMFLOAT3 out = XMFLOAT3(eye.x + at.x, eye.y + at.y, eye.z + at.z);
-		out.z += 1.0f;
-		cam->setCameraPos(out.x, out.y, out.z);
+
+		XMVECTOR speed = XMVectorReplicate(0.005f);
+		XMVECTOR look = XMLoadFloat3(&at);
+		XMVECTOR position = XMLoadFloat3(&eye);
+		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, look, position));
+		cam->setCameraPos(eye.x, eye.y, eye.z);
 		cam->UpdateStoredFloats();
-		MessageBox(0, L"Move", L"Movement pressed", 0);		
+		//MessageBox(0, L"Move", L"Movement pressed", 0);		
+	}
+	if (GetAsyncKeyState('S')) {
+
+		XMFLOAT3 eye = cam->getCameraPos();
+		XMFLOAT3 at = cam->getLookToPos();
+
+		XMVECTOR speed = XMVectorReplicate(-0.005f);
+		XMVECTOR look = XMLoadFloat3(&at);
+		XMVECTOR position = XMLoadFloat3(&eye);
+		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, look, position));
+		cam->setCameraPos(eye.x, eye.y, eye.z);
+		cam->UpdateStoredFloats();
+		//MessageBox(0, L"Move", L"Movement pressed", 0);
+	}
+
+	if (GetAsyncKeyState('A')) {
+		//TODO: Strafe	((PAGE 435 of Luna))
 	}
 }
 

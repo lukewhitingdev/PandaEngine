@@ -1,6 +1,10 @@
 #include "Cam.h"
 
 
+Cam::Cam()
+{
+}
+
 void Cam::UpdateStoredFloats()
 {
 	// Store the view matrix
