@@ -157,8 +157,9 @@ void Application::InitCamera()
 	XMFLOAT3 At = XMFLOAT3(0.0f, 0.0f, 0.0f);
 	XMFLOAT3 To = XMFLOAT3(0.0f, 1.0f, 1.0f);
 	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
+	XMFLOAT3 Right = XMFLOAT3(1.0f, 0.0f, 0.0f);
 
-	cam = new LookToCam(Eye, To, Up, _WindowWidth, _WindowHeight, 0.0f, 1000.0f);
+	cam = new LookToCam(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f);
 	cam->UpdateStoredFloats();
 }
 
@@ -503,6 +504,29 @@ void Application::Update()
 
 	if (GetAsyncKeyState('A')) {
 		//TODO: Strafe	((PAGE 435 of Luna))
+		XMFLOAT3 eye = cam->getCameraPos();
+		XMFLOAT3 camRight = cam->getRight();
+
+		XMVECTOR speed = XMVectorReplicate(-0.005f);
+		XMVECTOR right = XMLoadFloat3(&camRight);
+		XMVECTOR position = XMLoadFloat3(&eye);
+		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, right, position));
+		cam->setCameraPos(eye.x, eye.y, eye.z);
+		cam->UpdateStoredFloats();
+	}
+
+
+	if (GetAsyncKeyState('D')) {
+		//TODO: Strafe	((PAGE 435 of Luna))
+		XMFLOAT3 eye = cam->getCameraPos();
+		XMFLOAT3 camRight = cam->getRight();
+
+		XMVECTOR speed = XMVectorReplicate(0.005f);
+		XMVECTOR right = XMLoadFloat3(&camRight);
+		XMVECTOR position = XMLoadFloat3(&eye);
+		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, right, position));
+		cam->setCameraPos(eye.x, eye.y, eye.z);
+		cam->UpdateStoredFloats();
 	}
 }
 

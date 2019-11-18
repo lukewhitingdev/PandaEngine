@@ -9,7 +9,7 @@ class LookToCam : public Cam
 {
 
 public:
-	LookToCam(XMFLOAT3 pos, XMFLOAT3 to, XMFLOAT3 up, float wWidth, float wHeight, float nearDepth, float farDepth);
+	LookToCam(XMFLOAT3 pos, XMFLOAT3 to, XMFLOAT3 up, XMFLOAT3 right, float wWidth, float wHeight, float nearDepth, float farDepth);
 	~LookToCam();
 
 	void UpdateStoredFloats();

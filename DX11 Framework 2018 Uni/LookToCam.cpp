@@ -2,11 +2,12 @@
 
 
 
-LookToCam::LookToCam(XMFLOAT3 pos, XMFLOAT3 to, XMFLOAT3 up, float wWidth, float wHeight, float nearDepth, float farDepth)
+LookToCam::LookToCam(XMFLOAT3 pos, XMFLOAT3 to, XMFLOAT3 up, XMFLOAT3 right, float wWidth, float wHeight, float nearDepth, float farDepth)
 {
 	_eye = pos;
 	_to = to;
 	_up = up;
+	_right = right;
 
 	_windowWidth = wWidth;
 	_windowHeight = wHeight;
@@ -27,4 +28,5 @@ void LookToCam::UpdateStoredFloats()
 
 	// Store the projection matrix
 	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _windowWidth / (FLOAT)_windowHeight, 0.01f, 100.0f));
+
 }

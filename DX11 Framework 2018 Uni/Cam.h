@@ -16,12 +16,17 @@ public:
 	virtual void setCameraPos(float x, float y, float z);
 	virtual XMFLOAT3 getCameraPos();
 
-	virtual void setLookAtPos(float x, float y, float z);
 	virtual XMFLOAT3 getLookAtPos();
-	virtual void setLookToPos(float x, float y, float z);
+	virtual void setLookAtPos(float x, float y, float z);
+
 	virtual XMFLOAT3 getLookToPos();
-	virtual void setUpPos(float x, float y, float z);
+	virtual void setLookToPos(float x, float y, float z);
+
 	virtual XMFLOAT3 getUpPos();
+	virtual void setUpPos(float x, float y, float z);
+
+	virtual XMFLOAT3 getRight();
+
 
 	virtual XMFLOAT4X4 getViewMatrix();
 	virtual XMFLOAT4X4 getProjectionMatrix();
@@ -30,10 +35,11 @@ public:
 	virtual void Reshape(float wWidth, float wHeight, float nearDepth, float farDepth);
 
 protected:
-	XMFLOAT3 _eye;
+	XMFLOAT3 _eye; // Cam Position
 	XMFLOAT3 _at;
 	XMFLOAT3 _to;
-	XMFLOAT3 _up;
+	XMFLOAT3 _up; // viewspace y-axis
+	XMFLOAT3 _right; // viewspace x-axis
 
 	float _windowWidth;
 	float _windowHeight;

@@ -12,6 +12,7 @@ void Cam::UpdateStoredFloats()
 
 	// Store the projection matrix
 	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _windowWidth / (FLOAT)_windowHeight, 0.01f, 100.0f));
+
 }
 
 void Cam::setCameraPos(float x, float y, float z)
@@ -52,6 +53,17 @@ void Cam::setUpPos(float x, float y, float z)
 XMFLOAT3 Cam::getUpPos()
 {
 	return _up;
+}
+
+XMFLOAT3 Cam::getRight()
+{
+	XMVECTOR vUp = XMLoadFloat3(&_up);
+	XMVECTOR vTo = XMLoadFloat3(&_to);
+	XMVECTOR RightCross = XMVector3Cross(vUp, vTo);
+
+	XMStoreFloat3(&_right, RightCross);
+
+	return XMFLOAT3(_right.x, _right.y, _right.z);
 }
 
 XMFLOAT4X4 Cam::getViewMatrix()
