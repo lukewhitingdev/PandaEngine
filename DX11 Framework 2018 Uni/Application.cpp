@@ -73,10 +73,11 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
         return E_FAIL;
     }
 
+
 	// Initialize the world matrix
 	XMStoreFloat4x4(&_world, XMMatrixIdentity());
 	
-
+	InitTimer();
 	InitCamera();
 	InitLighting();
 	InitObjects();
@@ -148,6 +149,12 @@ HRESULT Application::InitShadersAndInputLayout()
     _pImmediateContext->IASetInputLayout(_pVertexLayout);
 
 	return hr;
+}
+
+void Application::InitTimer()
+{
+	gTimer = new GameTimer();
+	gTimer->ResetTimer();
 }
 
 void Application::InitCamera()
@@ -441,6 +448,14 @@ void Application::Cleanup()
 
 void Application::Update()
 {
+
+	gTimer->Tick();
+
+	gTimer->CalculateFrameStats(_hWnd);
+
+	float t = gTimer->getDeltaTime();
+
+	/*
 	// Update our time
 	float t = 0.0f;
 
@@ -459,12 +474,17 @@ void Application::Update()
 
 		t = (dwTimeCur - dwTimeStart) / 1000.0f;
 	}
-
+*/
 
 	cubeMesh->Update(t, -4.0f, 0.0f, 0.1f);
 	cubeMesh2->Update(t, 4.0f, 0.0f, 0.1f);
 	sphereMesh->Update(t * 2, 0.0f, 2.0f, 0.1f);
 	planeMesh->Update(t * 0.2f, 0.0f, 2.0f, 20.0f);
+
+
+
+	// TODO: Refactor
+	// Camera Movement
 
 	POINT cursorPoint = getCursorPos();
 
@@ -503,7 +523,6 @@ void Application::Update()
 	}
 
 	if (GetAsyncKeyState('A')) {
-		//TODO: Strafe	((PAGE 435 of Luna))
 		XMFLOAT3 eye = cam->getCameraPos();
 		XMFLOAT3 camRight = cam->getRight();
 
@@ -517,7 +536,6 @@ void Application::Update()
 
 
 	if (GetAsyncKeyState('D')) {
-		//TODO: Strafe	((PAGE 435 of Luna))
 		XMFLOAT3 eye = cam->getCameraPos();
 		XMFLOAT3 camRight = cam->getRight();
 

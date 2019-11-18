@@ -13,6 +13,7 @@
 #include "objectIncludes.h"
 #include "LightingIncludes.h"
 #include "cameraIncludes.h"
+#include "GameTimer.h"
 
 using namespace DirectX;
 
@@ -67,6 +68,10 @@ private:
 	// Last point recorded
 	POINT lastPoint = { NULL, NULL };
 
+	// GameTimer
+
+	GameTimer* gTimer;
+
 
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);
@@ -74,6 +79,7 @@ private:
 	void Cleanup();
 	HRESULT CompileShaderFromFile(WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 	HRESULT InitShadersAndInputLayout();
+	void InitTimer();
 	void InitCamera();
 	void InitObjects();
 	void InitLighting();

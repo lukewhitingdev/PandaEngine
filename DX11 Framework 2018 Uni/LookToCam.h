@@ -13,5 +13,7 @@ public:
 	~LookToCam();
 
 	void UpdateStoredFloats();
+
+	XMFLOAT3 getRight();
 };
 

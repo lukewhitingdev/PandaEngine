@@ -25,8 +25,7 @@ public:
 	virtual XMFLOAT3 getUpPos();
 	virtual void setUpPos(float x, float y, float z);
 
-	virtual XMFLOAT3 getRight();
-
+	virtual XMFLOAT3 getRight(); // Returns two different outcomes depending on which camera type you are using.
 
 	virtual XMFLOAT4X4 getViewMatrix();
 	virtual XMFLOAT4X4 getProjectionMatrix();
@@ -43,8 +42,11 @@ protected:
 
 	float _windowWidth;
 	float _windowHeight;
+
 	float _nearDepth;
 	float _farDepth;
+	float _aspect;
+	float _fovY;
 
 	XMFLOAT4X4 _view;
 	XMFLOAT4X4 _projection;

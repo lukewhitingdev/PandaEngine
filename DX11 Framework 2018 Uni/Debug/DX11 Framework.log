@@ -1,8 +1,13 @@
 ﻿  Application.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(162): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(198): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(199): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(544): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(545): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(563): warning C4018: '<': signed/unsigned mismatch
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(169): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(205): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(206): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(562): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(563): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(581): warning C4018: '<': signed/unsigned mismatch
+  GameTimer.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\GameTimer.cpp(15): warning C4244: '=': conversion from 'float' to '__int64', possible loss of data
+  DX11 Framework.cpp
+  Generating Code...
+Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

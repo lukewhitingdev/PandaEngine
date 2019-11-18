@@ -50,20 +50,14 @@ void Cam::setUpPos(float x, float y, float z)
 	_up = XMFLOAT3(x, y, z);
 }
 
+XMFLOAT3 Cam::getRight()
+{
+	return XMFLOAT3();
+}
+
 XMFLOAT3 Cam::getUpPos()
 {
 	return _up;
-}
-
-XMFLOAT3 Cam::getRight()
-{
-	XMVECTOR vUp = XMLoadFloat3(&_up);
-	XMVECTOR vTo = XMLoadFloat3(&_to);
-	XMVECTOR RightCross = XMVector3Cross(vUp, vTo);
-
-	XMStoreFloat3(&_right, RightCross);
-
-	return XMFLOAT3(_right.x, _right.y, _right.z);
 }
 
 XMFLOAT4X4 Cam::getViewMatrix()

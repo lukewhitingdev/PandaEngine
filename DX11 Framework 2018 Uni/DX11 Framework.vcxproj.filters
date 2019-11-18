@@ -119,6 +119,7 @@
     <ClInclude Include="LookToCam.h">
       <Filter>Cameras\LookTo</Filter>
     </ClInclude>
+    <ClInclude Include="GameTimer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -166,6 +167,7 @@
     <ClCompile Include="LookToCam.cpp">
       <Filter>Cameras\LookTo</Filter>
     </ClCompile>
+    <ClCompile Include="GameTimer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

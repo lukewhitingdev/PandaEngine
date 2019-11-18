@@ -30,3 +30,14 @@ void LookToCam::UpdateStoredFloats()
 	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _windowWidth / (FLOAT)_windowHeight, 0.01f, 100.0f));
 
 }
+
+XMFLOAT3 LookToCam::getRight()
+{
+	XMVECTOR vUp = XMLoadFloat3(&_up);
+	XMVECTOR vTo = XMLoadFloat3(&_to);
+	XMVECTOR RightCross = XMVector3Cross(vUp, vTo);
+
+	XMStoreFloat3(&_right, RightCross);
+
+	return XMFLOAT3(_right.x, _right.y, _right.z);
+}

@@ -1,11 +1,14 @@
 #include "Application.h"
 
+
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
 	Application * theApp = new Application();
+
+	GameTimer* gTimer = new GameTimer();
 
 	if (FAILED(theApp->Initialise(hInstance, nCmdShow)))
 	{
@@ -14,6 +17,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
     // Main message loop
     MSG msg = {0};
+	// Just make sure
+	gTimer->ResetTimer();
 
     while (WM_QUIT != msg.message)
     {
