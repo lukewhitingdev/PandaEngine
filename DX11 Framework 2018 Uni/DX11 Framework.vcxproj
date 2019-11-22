@@ -386,7 +386,7 @@
     <ClCompile Include="directionalLight.cpp" />
     <ClCompile Include="DX11 Framework.cpp" />
     <ClCompile Include="Light.cpp" />
-    <ClCompile Include="LookToCam.cpp" />
+    <ClCompile Include="debugCamera.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="sphere.cpp" />
@@ -408,7 +408,7 @@
     <ClInclude Include="directionalLight.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightingIncludes.h" />
-    <ClInclude Include="LookToCam.h" />
+    <ClInclude Include="debugCamera.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="objectIncludes.h" />
     <ClInclude Include="OBJLoader.h" />

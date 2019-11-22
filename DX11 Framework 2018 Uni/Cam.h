@@ -33,6 +33,8 @@ public:
 
 	virtual void Reshape(float wWidth, float wHeight, float nearDepth, float farDepth);
 
+	virtual void updateCameraMovement();
+
 protected:
 	XMFLOAT3 _eye; // Cam Position
 	XMFLOAT3 _at;

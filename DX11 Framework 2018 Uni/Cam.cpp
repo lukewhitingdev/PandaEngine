@@ -52,7 +52,13 @@ void Cam::setUpPos(float x, float y, float z)
 
 XMFLOAT3 Cam::getRight()
 {
-	return XMFLOAT3();
+	XMVECTOR vUp = XMLoadFloat3(&_up);
+	XMVECTOR vTo = XMLoadFloat3(&_to);
+	XMVECTOR RightCross = XMVector3Cross(vUp, vTo);
+
+	XMStoreFloat3(&_right, RightCross);
+
+	return XMFLOAT3(_right.x, _right.y, _right.z);
 }
 
 XMFLOAT3 Cam::getUpPos()
@@ -83,3 +89,8 @@ void Cam::Reshape(float wWidth, float wHeight, float nearDepth, float farDepth)
 	_nearDepth = nearDepth;
 	_farDepth = farDepth;
 }
+
+void Cam::updateCameraMovement()
+{
+}
+

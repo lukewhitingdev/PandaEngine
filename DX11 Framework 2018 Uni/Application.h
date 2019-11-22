@@ -64,9 +64,6 @@ private:
 
 	Cam* cam;
 
-	// Cursor Input
-	// Last point recorded
-	POINT lastPoint = { NULL, NULL };
 
 	// GameTimer
 

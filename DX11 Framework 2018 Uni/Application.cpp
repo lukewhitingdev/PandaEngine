@@ -167,7 +167,7 @@ void Application::InitCamera()
 	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
 	XMFLOAT3 Right = XMFLOAT3(1.0f, 0.0f, 0.0f);
 
-	cam = new LookToCam(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f);
+	cam = new debugCamera(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f);
 	cam->UpdateStoredFloats();
 }
 
@@ -187,30 +187,6 @@ void Application::InitObjects()
 void Application::InitLighting()
 {
 	dirLight = new directionalLight(cam->getCameraPos());
-}
-
-POINT Application::getCursorPos()
-{
-
-	POINT returnPoint;
-	// Gets cursor pos
-	POINT point;
-	GetCursorPos(&point);
-	ScreenToClient(_hWnd, &point);
-
-	// If the difference has never been calculated
-	if (lastPoint.x == NULL) {
-		lastPoint = point;
-	}
-
-	float diffX = lastPoint.x - point.x;
-	float diffY = lastPoint.y - point.y;
-
-	lastPoint = point;
-
-	returnPoint = { (LONG)diffX, (LONG)diffY };
-
-	return returnPoint;
 }
 
 
@@ -464,65 +440,7 @@ void Application::Update()
 	// TODO: Refactor
 	// Camera Movement
 
-	POINT cursorPoint = getCursorPos();
-
-	if (cursorPoint.x != lastPoint.x && cursorPoint.y != lastPoint.y) {
-		XMFLOAT3 eye = cam->getCameraPos();
-		XMFLOAT3 at = cam->getLookToPos();
-		at.x += -(float)cursorPoint.x / 100;
-		at.y += (float)cursorPoint.y / 100;
-		cam->setLookToPos(at.x, at.y, at.z);
-		cam->UpdateStoredFloats();
-	}
-	if (GetAsyncKeyState('W')) {
-		XMFLOAT3 eye = cam->getCameraPos();
-		XMFLOAT3 at = cam->getLookToPos();
-
-		XMVECTOR speed = XMVectorReplicate(0.005f);
-		XMVECTOR look = XMLoadFloat3(&at);
-		XMVECTOR position = XMLoadFloat3(&eye);
-		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, look, position));
-		cam->setCameraPos(eye.x, eye.y, eye.z);
-		cam->UpdateStoredFloats();
-		//MessageBox(0, L"Move", L"Movement pressed", 0);		
-	}
-	if (GetAsyncKeyState('S')) {
-
-		XMFLOAT3 eye = cam->getCameraPos();
-		XMFLOAT3 at = cam->getLookToPos();
-
-		XMVECTOR speed = XMVectorReplicate(-0.005f);
-		XMVECTOR look = XMLoadFloat3(&at);
-		XMVECTOR position = XMLoadFloat3(&eye);
-		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, look, position));
-		cam->setCameraPos(eye.x, eye.y, eye.z);
-		cam->UpdateStoredFloats();
-		//MessageBox(0, L"Move", L"Movement pressed", 0);
-	}
-
-	if (GetAsyncKeyState('A')) {
-		XMFLOAT3 eye = cam->getCameraPos();
-		XMFLOAT3 camRight = cam->getRight();
-
-		XMVECTOR speed = XMVectorReplicate(-0.005f);
-		XMVECTOR right = XMLoadFloat3(&camRight);
-		XMVECTOR position = XMLoadFloat3(&eye);
-		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, right, position));
-		cam->setCameraPos(eye.x, eye.y, eye.z);
-		cam->UpdateStoredFloats();
-	}
-
-	if (GetAsyncKeyState('D')) {
-		XMFLOAT3 eye = cam->getCameraPos();
-		XMFLOAT3 camRight = cam->getRight();
-
-		XMVECTOR speed = XMVectorReplicate(0.005f);
-		XMVECTOR right = XMLoadFloat3(&camRight);
-		XMVECTOR position = XMLoadFloat3(&eye);
-		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, right, position));
-		cam->setCameraPos(eye.x, eye.y, eye.z);
-		cam->UpdateStoredFloats();
-	}
+	cam->updateCameraMovement();
 }
 
 void Application::Draw()
