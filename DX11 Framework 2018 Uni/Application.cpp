@@ -453,35 +453,12 @@ void Application::Update()
 
 	gTimer->CalculateFrameStats(_hWnd);
 
-	float t = gTimer->getDeltaTime();
-
-	/*
-	// Update our time
-	float t = 0.0f;
-
-
-	if (_driverType == D3D_DRIVER_TYPE_REFERENCE)
-	{
-		t += (float)XM_PI * 0.0125f;
-	}
-	else
-	{
-		static ULONGLONG dwTimeStart = 0;
-		ULONGLONG dwTimeCur = GetTickCount64();
-
-		if (dwTimeStart == 0)
-			dwTimeStart = dwTimeCur;
-
-		t = (dwTimeCur - dwTimeStart) / 1000.0f;
-	}
-*/
+	float t = gTimer->getGameTime();
 
 	cubeMesh->Update(t, -4.0f, 0.0f, 0.1f);
 	cubeMesh2->Update(t, 4.0f, 0.0f, 0.1f);
 	sphereMesh->Update(t * 2, 0.0f, 2.0f, 0.1f);
 	planeMesh->Update(t * 0.2f, 0.0f, 2.0f, 20.0f);
-
-
 
 	// TODO: Refactor
 	// Camera Movement
@@ -534,7 +511,6 @@ void Application::Update()
 		cam->UpdateStoredFloats();
 	}
 
-
 	if (GetAsyncKeyState('D')) {
 		XMFLOAT3 eye = cam->getCameraPos();
 		XMFLOAT3 camRight = cam->getRight();
@@ -550,7 +526,6 @@ void Application::Update()
 
 void Application::Draw()
 {
-
     //
     // Clear the back buffer
     //

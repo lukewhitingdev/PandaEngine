@@ -1,13 +1,11 @@
 ﻿  Application.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(169): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(205): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(206): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(562): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(563): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(581): warning C4018: '<': signed/unsigned mismatch
-  GameTimer.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\GameTimer.cpp(15): warning C4244: '=': conversion from 'float' to '__int64', possible loss of data
-  DX11 Framework.cpp
-  Generating Code...
-Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(169,56): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(169,42): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(205,14): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(206,14): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(537): warning C4238: nonstandard extension used: class rvalue used as lvalue
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(538): warning C4238: nonstandard extension used: class rvalue used as lvalue
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(556,20): warning C4018: '<': signed/unsigned mismatch
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(537,52): warning C4238: nonstandard extension used: class rvalue used as lvalue
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(538,64): warning C4238: nonstandard extension used: class rvalue used as lvalue
+  DX11 Framework.vcxproj -> F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe
