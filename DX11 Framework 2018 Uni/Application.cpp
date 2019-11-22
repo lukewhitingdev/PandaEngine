@@ -155,6 +155,7 @@ void Application::InitTimer()
 {
 	gTimer = new GameTimer();
 	gTimer->ResetTimer();
+	gTimer->CalculateFrameStats(_hWnd);
 }
 
 void Application::InitCamera()
@@ -236,7 +237,7 @@ HRESULT Application::InitWindow(HINSTANCE hInstance, int nCmdShow)
     _hInst = hInstance;
     RECT rc = {0, 0, 640, 480};
     AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
-    _hWnd = CreateWindow(L"TutorialWindowClass", L"DX11 Framework", WS_OVERLAPPEDWINDOW,
+    _hWnd = CreateWindow(L"TutorialWindowClass", L"Engine", WS_OVERLAPPEDWINDOW,
                          CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
                          nullptr);
     if (!_hWnd)
