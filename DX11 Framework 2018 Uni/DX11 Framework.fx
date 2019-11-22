@@ -11,24 +11,30 @@
 Texture2D txDiffuse : register(t0);
 SamplerState samLinear : register(s0);
 
+struct DirectionLight
+{
+    float4 DiffuseMtrl;
+    float4 DiffuseLight;
+    float3 LightVecW;
+    float time;
+
+    float4 AmbientLight;
+    float4 AmbientMaterial;
+
+    float4 SpecularMtrl;
+    float4 SpecularLight;
+    float SpecularPower;
+    float4 EyePosW;
+};
+
 cbuffer ConstantBuffer : register( b0 )
 {
 	matrix World;
 	matrix View;
 	matrix Projection;
 
-	float4 DiffuseMtrl;
-	float4 DiffuseLight;
-	float3 LightVecW;
-	float time;
-
-	float4 AmbientLight;
-	float4 AmbientMaterial;
-
-	float4 SpecularMtrl;
-	float4 SpecularLight;
-	float SpecularPower;
-	float4 EyePosW;
+    DirectionLight dirLight;
+    
 }
 
 //--------------------------------------------------------------------------------------
@@ -73,22 +79,27 @@ float4 PS(VS_OUTPUT input) : SV_Target
 
 	float4 textureColor = txDiffuse.Sample(samLinear, input.Tex);
 
-	float3 toEye = normalize(EyePosW - input.Pos.xyz);
+    
 
-	//Compute Reflection Color
-	float3 r = reflect(-LightVecW, input.Norm);
+    float3 toEye = normalize(dirLight.EyePosW - input.Pos.xyz);
 
-	float specularAmmount = pow(max(dot(r, toEye), 0.0f), SpecularPower);
+	//Compute Reflection Color from the normal of the vertex
+	float3 r = reflect(-dirLight.LightVecW, input.Norm);
+
+    // Compute the specular ammount using the dot product of the reflection and the eye
+    // if its close to 1 then higher specular since your looking straight at it
+    float specularAmmount = pow(max(dot(r, toEye), 0.0f), dirLight.SpecularPower);
 
 	//Compute new color with diffuse lighting enabled
-	float diffuseAmmount = max(dot(LightVecW, input.Norm), 0.0f);
+    // Computes the shade with regard to the incoming light direction and nothing else
+    float diffuseAmmount = max(dot(dirLight.LightVecW, input.Norm), 0.0f);
 
-	float3 ambient = AmbientMaterial * AmbientLight;
+	float3 ambient = dirLight.AmbientMaterial * dirLight.AmbientLight;
 
-	float3 specular = specularAmmount * (SpecularMtrl * SpecularLight).rgb;
+	float3 specular = specularAmmount * (dirLight.SpecularMtrl * dirLight.SpecularLight).rgb;
 
 	input.Color.rgb = textureColor * (ambient + diffuseAmmount) + specular;
-	input.Color.a = DiffuseMtrl.a;
+	input.Color.a = dirLight.DiffuseMtrl.a;
 
     return input.Color;
 }

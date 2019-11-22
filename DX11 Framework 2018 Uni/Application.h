@@ -66,9 +66,7 @@ private:
 
 
 	// GameTimer
-
 	GameTimer* gTimer;
-
 
 private:
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);
@@ -80,9 +78,6 @@ private:
 	void InitCamera();
 	void InitObjects();
 	void InitLighting();
-
-	//Input
-	POINT getCursorPos();
 
 	UINT _WindowHeight;
 	UINT _WindowWidth;

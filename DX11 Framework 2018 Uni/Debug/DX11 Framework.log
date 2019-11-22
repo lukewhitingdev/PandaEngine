@@ -1,16 +1,9 @@
 ﻿  Application.cpp
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(170,58): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(170,44): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(456): warning C4238: nonstandard extension used: class rvalue used as lvalue
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(457): warning C4238: nonstandard extension used: class rvalue used as lvalue
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(475,20): warning C4018: '<': signed/unsigned mismatch
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(456,52): warning C4238: nonstandard extension used: class rvalue used as lvalue
-  Cam.cpp
-  DX11 Framework.cpp
-  LookAtCam.cpp
-  debugCamera.cpp
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(457,64): warning C4238: nonstandard extension used: class rvalue used as lvalue
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\debugCamera.cpp(108,14): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
-  Generating Code...
-F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\debugCamera.cpp(109,14): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(172,58): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(172,44): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(458): warning C4238: nonstandard extension used: class rvalue used as lvalue
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(459): warning C4238: nonstandard extension used: class rvalue used as lvalue
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(477,20): warning C4018: '<': signed/unsigned mismatch
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(458,52): warning C4238: nonstandard extension used: class rvalue used as lvalue
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(459,64): warning C4238: nonstandard extension used: class rvalue used as lvalue
   DX11 Framework.vcxproj -> F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

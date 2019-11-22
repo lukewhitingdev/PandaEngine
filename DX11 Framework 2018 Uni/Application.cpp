@@ -47,6 +47,8 @@ Application::Application()
 	_normalView = nullptr;
 	_wireFrame = nullptr;
 	textureResourceView = nullptr;
+
+	
 }
 
 Application::~Application()

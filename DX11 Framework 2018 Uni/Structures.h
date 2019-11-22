@@ -37,6 +37,7 @@ struct ConstantBuffer
 	XMMATRIX mProjection;
 
 	DirectionalLight dirLight;
+
 };
 
 struct Vector3 {
