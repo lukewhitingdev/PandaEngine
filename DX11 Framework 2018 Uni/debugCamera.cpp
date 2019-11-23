@@ -52,7 +52,6 @@ void debugCamera::updateCameraMovement()
 		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, look, position));
 		setCameraPos(eye.x, eye.y, eye.z);
 		UpdateStoredFloats();
-		//MessageBox(0, L"Move", L"Movement pressed", 0);		
 	}
 	if (GetAsyncKeyState('S')) {
 
@@ -65,7 +64,6 @@ void debugCamera::updateCameraMovement()
 		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, look, position));
 		setCameraPos(eye.x, eye.y, eye.z);
 		UpdateStoredFloats();
-		//MessageBox(0, L"Move", L"Movement pressed", 0);
 	}
 
 	if (GetAsyncKeyState('A')) {

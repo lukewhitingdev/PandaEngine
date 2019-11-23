@@ -472,7 +472,7 @@ void Application::Draw()
 	_pImmediateContext->PSSetShaderResources(0, 1, &textureResourceView);
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 
-	dirLight->Draw(_pImmediateContext, _pConstantBuffer, cb);
+	dirLight->Draw(_pImmediateContext, _pConstantBuffer, cb, cam->getCameraPos());
 
 	for (int i = 0; i < meshVector.size(); i++) {
 		meshVector[i]->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);

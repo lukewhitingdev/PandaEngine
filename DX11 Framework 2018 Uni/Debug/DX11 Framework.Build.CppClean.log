@@ -1,34 +1,44 @@
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\vc142.pdb
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\vc142.idb
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\torus.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\sphere.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\objloader.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\mesh.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\looktocam.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\light.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\directionallight.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\ddstextureloader.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\cylinder.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\custommodel.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\cube.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\lookatcam.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\cam.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\application.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.res
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.pdb
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\cl.command.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\cl.read.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\cl.write.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link-cvtres.read.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link-cvtres.write.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link-mt.read.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link-mt.write.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link-rc.read.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link-rc.write.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.command.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.read.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.write.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\rc.command.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\rc.read.1.tlog
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\rc.write.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\vc142.pdb
+f:\local git\peboengine\dx11 framework 2018 uni\debug\vc142.idb
+f:\local git\peboengine\dx11 framework 2018 uni\debug\torus.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\sphere.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\objloader.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\mesh.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\looktocam.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\light.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\directionallight.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\ddstextureloader.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\cylinder.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\custommodel.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\cube.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\lookatcam.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\gametimer.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\cam.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\application.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\debugcamera.obj
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.ilk
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.exe
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.pdb
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.res
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\cl.command.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\cl.read.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\cl.write.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.1220.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.12680.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.13624.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.16916.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.18436.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.19696.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.20336.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.2608.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.5228.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.6288.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.7048.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.command.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.delete.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.read.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\link.write.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\rc.command.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\rc.read.1.tlog
+f:\local git\peboengine\dx11 framework 2018 uni\debug\dx11 framework.tlog\rc.write.1.tlog

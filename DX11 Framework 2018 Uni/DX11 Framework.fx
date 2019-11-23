@@ -13,18 +13,25 @@ SamplerState samLinear : register(s0);
 
 struct DirectionLight
 {
-    float4 DiffuseMtrl;
+    float4 pad;
     float4 DiffuseLight;
     float3 LightVecW;
     float time;
 
     float4 AmbientLight;
-    float4 AmbientMaterial;
+    float4 pad2;
 
-    float4 SpecularMtrl;
+    float4 pad3;
     float4 SpecularLight;
     float SpecularPower;
-    float4 EyePosW;
+    float4 pad4;
+};
+
+struct Material
+{
+    float4 mSpecular;
+    float4 mAmbient;
+    float4 mDiffuse;
 };
 
 cbuffer ConstantBuffer : register( b0 )
@@ -34,6 +41,10 @@ cbuffer ConstantBuffer : register( b0 )
 	matrix Projection;
 
     DirectionLight dirLight;
+
+    Material globalMaterial;
+
+    float4 EyePosW;
     
 }
 
@@ -81,7 +92,7 @@ float4 PS(VS_OUTPUT input) : SV_Target
 
     
 
-    float3 toEye = normalize(dirLight.EyePosW - input.Pos.xyz);
+    float3 toEye = normalize(EyePosW.xyz - input.Pos.xyz);
 
 	//Compute Reflection Color from the normal of the vertex
 	float3 r = reflect(-dirLight.LightVecW, input.Norm);
@@ -94,12 +105,12 @@ float4 PS(VS_OUTPUT input) : SV_Target
     // Computes the shade with regard to the incoming light direction and nothing else
     float diffuseAmmount = max(dot(dirLight.LightVecW, input.Norm), 0.0f);
 
-	float3 ambient = dirLight.AmbientMaterial * dirLight.AmbientLight;
+    float3 ambient = globalMaterial.mAmbient.xyz * dirLight.AmbientLight.xyz;
 
-	float3 specular = specularAmmount * (dirLight.SpecularMtrl * dirLight.SpecularLight).rgb;
+    float3 specular = specularAmmount * (globalMaterial.mSpecular * dirLight.SpecularLight).rgb;
 
-	input.Color.rgb = textureColor * (ambient + diffuseAmmount) + specular;
-	input.Color.a = dirLight.DiffuseMtrl.a;
+    input.Color.rgb = textureColor.rgb * (ambient + diffuseAmmount) + specular;
+	input.Color.a = globalMaterial.mDiffuse.a;
 
     return input.Color;
 }

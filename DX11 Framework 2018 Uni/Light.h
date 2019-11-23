@@ -6,6 +6,6 @@
 class Light
 {
 public:
-	virtual void Draw(ID3D11DeviceContext*, ID3D11Buffer*, ConstantBuffer&);
+	virtual void Draw(ID3D11DeviceContext*, ID3D11Buffer*, ConstantBuffer&, XMFLOAT3);
 };
 
