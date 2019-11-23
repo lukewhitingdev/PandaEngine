@@ -16,18 +16,14 @@ struct SimpleVertex
 };
 
 struct DirectionalLight {
-	XMFLOAT4 pad1; // Padding for where materials used to be, fix later
-	XMFLOAT4 DiffuseLight;
-	XMFLOAT3 LightVecW;
-	float pad;
 
-	XMFLOAT4 AmbientLight;
-	XMFLOAT4 pad2;
+	// 12 + 4 = 16
+	XMFLOAT4 AmbientLight; // 16
+	XMFLOAT4 DiffuseLight; // 16
+	XMFLOAT4 SpecularLight; // 16
+	XMFLOAT3 LightVecW; // 12
+	float SpecularPower; // 4
 
-	XMFLOAT4 pad3;
-	XMFLOAT4 SpecularLight;
-	float SpecularPower;
-	XMFLOAT3 pad4;
 };
 
 struct Material {

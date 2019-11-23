@@ -13,18 +13,15 @@ SamplerState samLinear : register(s0);
 
 struct DirectionLight
 {
-    float4 pad;
-    float4 DiffuseLight;
-    float3 LightVecW;
-    float time;
+    float4 AmbientLight; // 16
+    float4 DiffuseLight; // 16
+    float4 SpecularLight; // 16
 
-    float4 AmbientLight;
-    float4 pad2;
+    // Packed together
+    float3 LightVecW; // 12
+    float SpecularPower; // 4
 
-    float4 pad3;
-    float4 SpecularLight;
-    float SpecularPower;
-    float4 pad4;
+
 };
 
 struct Material
