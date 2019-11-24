@@ -111,9 +111,54 @@ void ComputeDirectionalLightPS(Material inputMat, DirectionLight dirLight, float
 
 }
 
-void ComputePointLightPS(Material inputMat, DirectionLight dirLight, float3 normalW, float3 toEye,
+void ComputePointLightPS(Material inputMat, PointLight pointLight, float3 normalW, float3 pos, float3 toEye,
                                out float4 ambient, out float4 diffuse, out float4 specular)
 {
+
+    // Initialise outputs
+    ambient = float4(0.0f, 0.0f, 0.0f, 0.0f);
+    diffuse = float4(0.0f, 0.0f, 0.0f, 0.0f);
+    specular = float4(0.0f, 0.0f, 0.0f, 0.0f);
+
+    // Vector from world / object to light 
+    float3 lightVector = pointLight.LightPos - pos;
+
+    // Distance from world / object
+    float distance = length(lightVector);
+
+    // Make sure we arent out of range
+    if (distance > pointLight.LightRange)
+    {
+        return;
+    }
+
+    // Normalize the light vector
+    lightVector /= distance;
+
+    // Calculate the diffuse ammount
+    float diffuseAmmount = dot(lightVector, normalW);
+
+    //Compute Reflection Color from the normal of the vertex
+    float3 ref = reflect(-lightVector, normalW);
+
+    float specularAmmount = pow(max(dot(ref, toEye), 0.0f), globalMaterial.mSpecular.w);
+
+    ambient = globalMaterial.mAmbient * pointLight.AmbientLight;
+
+     // Avoid wierd bugs
+    if (diffuseAmmount > 0.0f)
+    {
+        diffuse = diffuseAmmount * inputMat.mDiffuse * pointLight.DiffuseLight;
+
+        specular = specularAmmount * inputMat.mSpecular * pointLight.SpecularLight;
+    }
+
+    // Attenuation
+
+    float attenuation = 1.0f / dot(pointLight.Attenuation, float3(1.0f, distance, distance * distance));
+
+    diffuse *= attenuation;
+    specular *= attenuation;
 }
 
 
@@ -165,12 +210,25 @@ float4 PS(VS_OUTPUT input) : SV_Target
     float4 diffuse;
     float4 specular;
 
+    float4 ambientSum = float4(0.0f, 0.0f, 0.0f, 0.0f);
+    float4 diffuseSum = float4(0.0f, 0.0f, 0.0f, 0.0f);
+    float4 specularSum = float4(0.0f, 0.0f, 0.0f, 0.0f);
+
     ComputeDirectionalLightPS(globalMaterial, dirLight, input.Norm, toEye, 
                               ambient, diffuse, specular);
 
+    ambientSum += ambient;
+    diffuseSum += diffuse;
+    specularSum += specular;
 
+    ComputePointLightPS(globalMaterial, pointLight, input.Norm, input.PosW, toEye,
+                        ambient, diffuse, specular);
 
-    input.Color.rgb = textureColor.rgb * (ambient.xyz + diffuse.xyz) + specular.xyz;
+    ambientSum += ambient;
+    diffuseSum += diffuse;
+    specularSum += specular;
+
+    input.Color.rgb = textureColor.rgb * (ambientSum.xyz + diffuseSum.xyz) + specularSum.xyz;
 	input.Color.a = globalMaterial.mDiffuse.a;
 
     return input.Color;

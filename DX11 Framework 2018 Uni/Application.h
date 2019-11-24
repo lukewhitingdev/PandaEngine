@@ -61,6 +61,7 @@ private:
 
 	// Lighting
 	Light* dirLight;
+	Light* pLight;
 
 	Cam* cam;
 

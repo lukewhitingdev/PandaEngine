@@ -189,6 +189,7 @@ void Application::InitObjects()
 void Application::InitLighting()
 {
 	dirLight = new directionalLight(cam->getCameraPos());
+	pLight = new pointLight(XMFLOAT3(0.5f, 1.0f, 0.1f), cam->getCameraPos());
 }
 
 
@@ -473,6 +474,7 @@ void Application::Draw()
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 
 	dirLight->Draw(_pImmediateContext, _pConstantBuffer, cb, cam->getCameraPos());
+	pLight->Draw(_pImmediateContext, _pConstantBuffer, cb, cam->getCameraPos());
 
 	for (int i = 0; i < meshVector.size(); i++) {
 		meshVector[i]->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);

@@ -120,6 +120,7 @@
     <ClInclude Include="debugCamera.h">
       <Filter>Cameras\DebugCamera</Filter>
     </ClInclude>
+    <ClInclude Include="pointLight.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -168,6 +169,7 @@
     <ClCompile Include="debugCamera.cpp">
       <Filter>Cameras\DebugCamera</Filter>
     </ClCompile>
+    <ClCompile Include="pointLight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
