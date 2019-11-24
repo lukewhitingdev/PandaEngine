@@ -21,7 +21,37 @@ struct DirectionLight
     float3 LightVecW; // 12
     float SpecularPower; // 4
 
+};
 
+struct PointLight
+{
+    float4 AmbientLight; // 16
+    float4 DiffuseLight; // 16
+    float4 SpecularLight; // 16
+
+    // Packed together
+    float3 LightPos; // 12
+    float LightRange; // 4
+
+    // Packet together
+    float3 Attenuation; // 12
+    float pad; // 4
+
+};
+
+struct SpotLight
+{
+    float4 AmbientLight; // 16
+    float4 DiffuseLight; // 16
+    float4 SpecularLight; // 16
+
+    // Packed Together
+    float3 lightDirection;
+    float spot;
+
+    // Packet together
+    float3 Attenuation; // 12
+    float pad; // 4
 };
 
 struct Material
@@ -39,6 +69,10 @@ cbuffer ConstantBuffer : register( b0 )
 
     DirectionLight dirLight;
 
+    PointLight pointLight;
+
+    SpotLight spotLight;
+
     Material globalMaterial;
 
     float4 EyePosW;
@@ -52,7 +86,6 @@ cbuffer ConstantBuffer : register( b0 )
 void ComputeDirectionalLightPS(Material inputMat, DirectionLight dirLight, float3 normalW, float3 toEye,
                                out float4 ambient, out float4 diffuse, out float4 specular)
 {
-
     // Initialise outputs
     ambient = float4(0.0f, 0.0f, 0.0f, 0.0f);
     diffuse = float4(0.0f, 0.0f, 0.0f, 0.0f);
@@ -75,6 +108,12 @@ void ComputeDirectionalLightPS(Material inputMat, DirectionLight dirLight, float
 
         specular = specularAmmount * inputMat.mSpecular * dirLight.SpecularLight;
     }
+
+}
+
+void ComputePointLightPS(Material inputMat, DirectionLight dirLight, float3 normalW, float3 toEye,
+                               out float4 ambient, out float4 diffuse, out float4 specular)
+{
 }
 
 

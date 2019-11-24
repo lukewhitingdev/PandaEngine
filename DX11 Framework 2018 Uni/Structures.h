@@ -25,6 +25,37 @@ struct DirectionalLight {
 	float SpecularPower; // 4
 };
 
+struct PointLight
+{
+	XMFLOAT4 AmbientLight; // 16
+	XMFLOAT4 DiffuseLight; // 16
+	XMFLOAT4 SpecularLight; // 16
+
+	// Packed together
+	XMFLOAT3 LightPos; // 12
+	float LightRange; // 4
+
+	// Packet together
+	XMFLOAT3 Attenuation; // 12
+	float pad; // 4
+
+};
+
+struct SpotLight {
+	XMFLOAT4 AmbientLight; // 16
+	XMFLOAT4 DiffuseLight; // 16
+	XMFLOAT4 SpecularLight; // 16
+
+	// Packed Together
+	XMFLOAT3 lightDirection;
+	float spot;
+
+	// Packet together
+	XMFLOAT3 Attenuation; // 12
+	float pad; // 4
+};
+
+
 struct Material {
 	XMFLOAT4 mSpecular;
 	XMFLOAT4 mAmbient;
@@ -47,6 +78,10 @@ struct ConstantBuffer
 	XMMATRIX mProjection;
 
 	DirectionalLight dirLight;
+
+	PointLight pointLight;
+
+	SpotLight spotLight;
 
 	Material globalMaterial;
 
