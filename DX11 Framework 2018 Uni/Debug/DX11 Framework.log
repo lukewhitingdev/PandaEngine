@@ -1,2 +1,9 @@
-﻿  pointLight.cpp
+﻿  Application.cpp
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(172,58): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(172,44): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(460): warning C4238: nonstandard extension used: class rvalue used as lvalue
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(461): warning C4238: nonstandard extension used: class rvalue used as lvalue
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(481,20): warning C4018: '<': signed/unsigned mismatch
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(460,52): warning C4238: nonstandard extension used: class rvalue used as lvalue
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(461,64): warning C4238: nonstandard extension used: class rvalue used as lvalue
   DX11 Framework.vcxproj -> F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

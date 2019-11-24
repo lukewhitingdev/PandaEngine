@@ -1,10 +1,12 @@
 Lighting:
 (Frank Luna)
-Add Point Lights
 Add Spotlights
-Add Directional Lights
 
 Texturing:
 Add specular maps
 Add Normal maps (Maybe)
 Add Texture filtering
+
+Notes:
+
+When disabling lighting types will have to do it in the shader not inside the cpp, or else other lights will corrupt and not compute properly

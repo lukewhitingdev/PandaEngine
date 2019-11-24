@@ -391,6 +391,7 @@
     <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="pointLight.cpp" />
+    <ClCompile Include="spotLight.cpp" />
     <ClCompile Include="torus.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -416,6 +417,7 @@
     <CLInclude Include="resource.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="pointLight.h" />
+    <ClInclude Include="spotLight.h" />
     <ClInclude Include="Structures.h" />
     <ClInclude Include="torus.h" />
     <ResourceCompile Include="DX11 Framework.rc" />

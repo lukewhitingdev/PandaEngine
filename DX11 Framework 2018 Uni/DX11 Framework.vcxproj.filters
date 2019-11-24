@@ -63,6 +63,9 @@
     <Filter Include="Cameras\DebugCamera">
       <UniqueIdentifier>{e2102078-3b9e-4f54-80b3-38237b96fe88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lights\Point">
+      <UniqueIdentifier>{75199493-ee95-4332-9932-031a11cc6806}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -120,7 +123,10 @@
     <ClInclude Include="debugCamera.h">
       <Filter>Cameras\DebugCamera</Filter>
     </ClInclude>
-    <ClInclude Include="pointLight.h" />
+    <ClInclude Include="pointLight.h">
+      <Filter>Lights\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="spotLight.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -169,7 +175,10 @@
     <ClCompile Include="debugCamera.cpp">
       <Filter>Cameras\DebugCamera</Filter>
     </ClCompile>
-    <ClCompile Include="pointLight.cpp" />
+    <ClCompile Include="pointLight.cpp">
+      <Filter>Lights\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="spotLight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

@@ -46,9 +46,13 @@ struct SpotLight {
 	XMFLOAT4 DiffuseLight; // 16
 	XMFLOAT4 SpecularLight; // 16
 
+	// Packed together
+	XMFLOAT3 LightPos; // 12
+	float LightRange; // 4
+
 	// Packed Together
-	XMFLOAT3 lightDirection;
-	float spot;
+	XMFLOAT3 lightDirection; // 12
+	float spotPower; // 4
 
 	// Packet together
 	XMFLOAT3 Attenuation; // 12
