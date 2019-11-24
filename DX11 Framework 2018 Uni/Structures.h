@@ -23,7 +23,6 @@ struct DirectionalLight {
 	XMFLOAT4 SpecularLight; // 16
 	XMFLOAT3 LightVecW; // 12
 	float SpecularPower; // 4
-
 };
 
 struct Material {

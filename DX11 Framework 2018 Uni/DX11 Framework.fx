@@ -45,6 +45,39 @@ cbuffer ConstantBuffer : register( b0 )
     
 }
 
+//--------------------------------------------------------------------------------------------------------------
+// Helper Functions
+//--------------------------------------------------------------------------------------------------------------
+
+void ComputeDirectionalLightPS(Material inputMat, DirectionLight dirLight, float3 normalW, float3 toEye,
+                               out float4 ambient, out float4 diffuse, out float4 specular)
+{
+
+    // Initialise outputs
+    ambient = float4(0.0f, 0.0f, 0.0f, 0.0f);
+    diffuse = float4(0.0f, 0.0f, 0.0f, 0.0f);
+    specular = float4(0.0f, 0.0f, 0.0f, 0.0f);
+
+    // Get the diffuse ammount
+    float diffuseAmmount = max(dot(dirLight.LightVecW, normalW), 0.0f);
+
+    //Compute Reflection Color from the normal of the vertex
+    float3 ref = reflect(-dirLight.LightVecW, normalW);
+
+    float specularAmmount = pow(max(dot(ref, toEye), 0.0f), dirLight.SpecularPower);
+
+    // Multiply the ambient material by the ammount of ambient light the directional light emmits
+    ambient = inputMat.mAmbient * dirLight.AmbientLight;
+    // Avoid wierd bugs
+    if (diffuseAmmount > 0.0f)
+    {
+        diffuse = diffuseAmmount * inputMat.mDiffuse * dirLight.DiffuseLight;
+
+        specular = specularAmmount * inputMat.mSpecular * dirLight.SpecularLight;
+    }
+}
+
+
 //--------------------------------------------------------------------------------------
 struct VS_OUTPUT
 {
@@ -87,27 +120,21 @@ float4 PS(VS_OUTPUT input) : SV_Target
 
 	float4 textureColor = txDiffuse.Sample(samLinear, input.Tex);
 
-    
-
     float3 toEye = normalize(EyePosW.xyz - input.Pos.xyz);
 
-	//Compute Reflection Color from the normal of the vertex
-	float3 r = reflect(-dirLight.LightVecW, input.Norm);
+    float4 ambient;
+    float4 diffuse;
+    float4 specular;
 
-    // Compute the specular ammount using the dot product of the reflection and the eye
-    // if its close to 1 then higher specular since your looking straight at it
-    float specularAmmount = pow(max(dot(r, toEye), 0.0f), dirLight.SpecularPower);
+    ComputeDirectionalLightPS(globalMaterial, dirLight, input.Norm, toEye, 
+                              ambient, diffuse, specular);
 
-	//Compute new color with diffuse lighting enabled
-    // Computes the shade with regard to the incoming light direction and nothing else
-    float diffuseAmmount = max(dot(dirLight.LightVecW, input.Norm), 0.0f);
 
-    float3 ambient = globalMaterial.mAmbient.xyz * dirLight.AmbientLight.xyz;
 
-    float3 specular = specularAmmount * (globalMaterial.mSpecular * dirLight.SpecularLight).rgb;
-
-    input.Color.rgb = textureColor.rgb * (ambient + diffuseAmmount) + specular;
+    input.Color.rgb = textureColor.rgb * (ambient.xyz + diffuse.xyz) + specular.xyz;
 	input.Color.a = globalMaterial.mDiffuse.a;
 
     return input.Color;
 }
+
+
