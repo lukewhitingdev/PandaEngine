@@ -168,12 +168,22 @@ void Application::InitCamera()
 	// Initialize the view matrix
 	XMFLOAT3 Eye = XMFLOAT3(0.0f, 0.0f, -3.0f);
 	XMFLOAT3 At = XMFLOAT3(0.0f, 0.0f, 0.0f);
-	XMFLOAT3 To = XMFLOAT3(0.0f, 1.0f, 1.0f);
+	XMFLOAT3 To = XMFLOAT3(0.0f, 0.0f, 1.0f);
 	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
 	XMFLOAT3 Right = XMFLOAT3(1.0f, 0.0f, 0.0f);
 
 	cameraVector.push_back(new debugCamera(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[0]->UpdateStoredFloats();
+
+	Eye = XMFLOAT3(0.0f, 2.0f, -3.0f);
+
+	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector[1]->UpdateStoredFloats();
+
+	Eye = XMFLOAT3(5.0f, 5.0f, 3.0f);
+
+	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector[2]->UpdateStoredFloats();
 
 	camManager->setDefaultCamera(cameraVector[0]);
 	camManager->setCurrentCamera(cameraVector[0]);
@@ -451,6 +461,19 @@ void Application::Update()
 	// Camera Movement
 
 	camManager->getCurrentCamera()->updateCameraMovement();
+
+	if (GetAsyncKeyState('1')) {
+		camManager->setCurrentCamera(cameraVector[1]);
+	}
+
+	if (GetAsyncKeyState('2')) {
+
+		camManager->setCurrentCamera(cameraVector[2]);
+	}
+	if (GetAsyncKeyState('0')) {
+
+		camManager->setCurrentCamera(cameraVector[0]);
+	}
 }
 
 void Application::Draw()

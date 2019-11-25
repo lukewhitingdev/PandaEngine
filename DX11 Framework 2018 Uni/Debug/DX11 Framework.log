@@ -1,9 +1,8 @@
 ﻿  Application.cpp
 C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(175): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(466): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(467): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(487): warning C4018: '<': signed/unsigned mismatch
-  cameraManager.cpp
-  Generating Code...
-Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(180): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(185): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(489): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(490): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(510): warning C4018: '<': signed/unsigned mismatch
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

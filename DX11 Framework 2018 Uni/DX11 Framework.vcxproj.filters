@@ -57,9 +57,6 @@
     <Filter Include="Cameras">
       <UniqueIdentifier>{e8fc1d50-3873-4706-bb01-0793a742651b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Cameras\LookAt">
-      <UniqueIdentifier>{f2af1239-400f-4575-8127-f177abce3b4e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Cameras\DebugCamera">
       <UniqueIdentifier>{e2102078-3b9e-4f54-80b3-38237b96fe88}</UniqueIdentifier>
     </Filter>
@@ -77,6 +74,12 @@
     </Filter>
     <Filter Include="Utility\CameraManager">
       <UniqueIdentifier>{7b2c5040-af96-4032-a67b-1a5a06f03c64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cameras\StaticCamera">
+      <UniqueIdentifier>{d77e78e4-d447-4ce3-9c9e-ab2679c215bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cameras\LookAtCamera">
+      <UniqueIdentifier>{f2af1239-400f-4575-8127-f177abce3b4e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -129,7 +132,7 @@
       <Filter>Virtual Classes\Camera</Filter>
     </ClInclude>
     <ClInclude Include="LookAtCam.h">
-      <Filter>Cameras\LookAt</Filter>
+      <Filter>Cameras\LookAtCamera</Filter>
     </ClInclude>
     <ClInclude Include="debugCamera.h">
       <Filter>Cameras\DebugCamera</Filter>
@@ -145,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="cameraManager.h">
       <Filter>Utility\CameraManager</Filter>
+    </ClInclude>
+    <ClInclude Include="staticCamera.h">
+      <Filter>Cameras\StaticCamera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -188,7 +194,7 @@
       <Filter>Virtual Classes\Camera</Filter>
     </ClCompile>
     <ClCompile Include="LookAtCam.cpp">
-      <Filter>Cameras\LookAt</Filter>
+      <Filter>Cameras\LookAtCamera</Filter>
     </ClCompile>
     <ClCompile Include="debugCamera.cpp">
       <Filter>Cameras\DebugCamera</Filter>
@@ -204,6 +210,9 @@
     </ClCompile>
     <ClCompile Include="cameraManager.cpp">
       <Filter>Utility\CameraManager</Filter>
+    </ClCompile>
+    <ClCompile Include="staticCamera.cpp">
+      <Filter>Cameras\StaticCamera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

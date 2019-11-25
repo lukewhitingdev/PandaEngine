@@ -3,3 +3,4 @@
 
 #include "LookAtCam.h"
 #include "debugCamera.h"
+#include "staticCamera.h"

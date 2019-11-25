@@ -68,7 +68,7 @@ private:
 	// Camera stuff
 	std::vector<Cam*> cameraVector;
 	cameraManager* camManager;
-
+	int currentCameraNumber;
 
 	// GameTimer
 	GameTimer* gTimer;
