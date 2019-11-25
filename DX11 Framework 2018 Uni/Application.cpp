@@ -162,6 +162,9 @@ void Application::InitTimer()
 
 void Application::InitCamera()
 {
+
+	camManager = new cameraManager();
+
 	// Initialize the view matrix
 	XMFLOAT3 Eye = XMFLOAT3(0.0f, 0.0f, -3.0f);
 	XMFLOAT3 At = XMFLOAT3(0.0f, 0.0f, 0.0f);
@@ -169,8 +172,11 @@ void Application::InitCamera()
 	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
 	XMFLOAT3 Right = XMFLOAT3(1.0f, 0.0f, 0.0f);
 
-	cam = new debugCamera(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f);
-	cam->UpdateStoredFloats();
+	cameraVector.push_back(new debugCamera(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector[0]->UpdateStoredFloats();
+
+	camManager->setDefaultCamera(cameraVector[0]);
+	camManager->setCurrentCamera(cameraVector[0]);
 }
 
 void Application::InitObjects()
@@ -188,9 +194,9 @@ void Application::InitObjects()
 
 void Application::InitLighting()
 {
-	dirLight = new directionalLight(cam->getCameraPos());
-	pLight = new pointLight(XMFLOAT3(0.5f, 1.0f, 0.1f), cam->getCameraPos());
-	sLight = new spotLight(XMFLOAT3(0.0f, 1.0f, 0.1f), XMFLOAT3(0.0f, -1.0f, -1.0f), cam->getCameraPos());
+	dirLight = new directionalLight(camManager->getCurrentCamera()->getCameraPos());
+	pLight = new pointLight(XMFLOAT3(0.5f, 1.0f, 0.1f), camManager->getCurrentCamera()->getCameraPos());
+	sLight = new spotLight(XMFLOAT3(0.0f, 1.0f, 0.1f), XMFLOAT3(0.0f, -1.0f, -1.0f), camManager->getCurrentCamera()->getCameraPos());
 }
 
 
@@ -444,7 +450,7 @@ void Application::Update()
 	// TODO: Refactor
 	// Camera Movement
 
-	cam->updateCameraMovement();
+	camManager->getCurrentCamera()->updateCameraMovement();
 }
 
 void Application::Draw()
@@ -457,8 +463,8 @@ void Application::Draw()
 	_pImmediateContext->ClearDepthStencilView(_depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
 	XMMATRIX world = XMLoadFloat4x4(&_world);
-	XMMATRIX view = XMLoadFloat4x4(&cam->getViewMatrix());
-	XMMATRIX projection = XMLoadFloat4x4(&cam->getProjectionMatrix());
+	XMMATRIX view = XMLoadFloat4x4(&camManager->getCurrentCamera()->getViewMatrix());
+	XMMATRIX projection = XMLoadFloat4x4(&camManager->getCurrentCamera()->getProjectionMatrix());
     //
     // Update variables
     //
@@ -474,9 +480,9 @@ void Application::Draw()
 	_pImmediateContext->PSSetShaderResources(0, 1, &textureResourceView);
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 
-	dirLight->Draw(_pImmediateContext, _pConstantBuffer, cb, cam->getCameraPos());
-	pLight->Draw(_pImmediateContext, _pConstantBuffer, cb, cam->getCameraPos());
-	sLight->Draw(_pImmediateContext, _pConstantBuffer, cb, cam->getCameraPos());
+	dirLight->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
+	pLight->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
+	sLight->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
 
 	for (int i = 0; i < meshVector.size(); i++) {
 		meshVector[i]->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);

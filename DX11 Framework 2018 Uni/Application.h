@@ -14,6 +14,7 @@
 #include "LightingIncludes.h"
 #include "cameraIncludes.h"
 #include "GameTimer.h"
+#include "cameraManager.h"
 
 using namespace DirectX;
 
@@ -64,7 +65,9 @@ private:
 	Light* pLight;
 	Light* sLight;
 
-	Cam* cam;
+	// Camera stuff
+	std::vector<Cam*> cameraVector;
+	cameraManager* camManager;
 
 
 	// GameTimer

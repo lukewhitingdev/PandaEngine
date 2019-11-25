@@ -66,6 +66,18 @@
     <Filter Include="Lights\Point">
       <UniqueIdentifier>{75199493-ee95-4332-9932-031a11cc6806}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lights\Spot">
+      <UniqueIdentifier>{85579843-829d-4b08-a5d6-8e6f1751aedc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{fbcbc59b-327a-45a0-ab39-816069823ba2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\GameTimer">
+      <UniqueIdentifier>{898c6894-667f-4af0-91de-367779ba9c90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\CameraManager">
+      <UniqueIdentifier>{7b2c5040-af96-4032-a67b-1a5a06f03c64}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -119,14 +131,21 @@
     <ClInclude Include="LookAtCam.h">
       <Filter>Cameras\LookAt</Filter>
     </ClInclude>
-    <ClInclude Include="GameTimer.h" />
     <ClInclude Include="debugCamera.h">
       <Filter>Cameras\DebugCamera</Filter>
     </ClInclude>
     <ClInclude Include="pointLight.h">
       <Filter>Lights\Point</Filter>
     </ClInclude>
-    <ClInclude Include="spotLight.h" />
+    <ClInclude Include="spotLight.h">
+      <Filter>Lights\Spot</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimer.h">
+      <Filter>Utility\GameTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="cameraManager.h">
+      <Filter>Utility\CameraManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -171,14 +190,21 @@
     <ClCompile Include="LookAtCam.cpp">
       <Filter>Cameras\LookAt</Filter>
     </ClCompile>
-    <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="debugCamera.cpp">
       <Filter>Cameras\DebugCamera</Filter>
     </ClCompile>
     <ClCompile Include="pointLight.cpp">
       <Filter>Lights\Point</Filter>
     </ClCompile>
-    <ClCompile Include="spotLight.cpp" />
+    <ClCompile Include="spotLight.cpp">
+      <Filter>Lights\Spot</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTimer.cpp">
+      <Filter>Utility\GameTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="cameraManager.cpp">
+      <Filter>Utility\CameraManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

@@ -377,6 +377,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Cam.cpp" />
+    <ClCompile Include="cameraManager.cpp" />
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="LookAtCam.cpp" />
     <ClCompile Include="cube.cpp" />
@@ -400,6 +401,7 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Cam.h" />
+    <ClInclude Include="cameraManager.h" />
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="LookAtCam.h" />
     <ClInclude Include="cameraIncludes.h" />
