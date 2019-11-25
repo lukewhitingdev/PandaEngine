@@ -32,7 +32,7 @@ void cylinder::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader
 	context->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
 }
 
-void cylinder::Update(float time, float x, float y, float z)
+void cylinder::Update(float time, float x, float y, float z, float scale)
 {
 	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(x, y, z) * XMMatrixScaling(0.6f, 0.6f, 0.6f));
 }

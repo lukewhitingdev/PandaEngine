@@ -5,7 +5,7 @@ class torus : public Mesh
 public:
 	torus(ID3D11Device* device, const wchar_t* texfileName);
 	void Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb);
-	void Update(float time, float x, float y, float z);
+	void Update(float time, float x, float y, float z, float scale);
 
 private:
 	ID3D11ShaderResourceView* textureResourceView;

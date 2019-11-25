@@ -8,6 +8,6 @@ class Mesh
 public:
 	// Load the obj files from a constructor and draw and update them from this virtual
 	virtual void Draw(ID3D11DeviceContext*, ID3D11PixelShader*, ID3D11Buffer*, ConstantBuffer&);
-	virtual void Update(float, float, float, float);
+	virtual void Update(float, float, float, float, float);
 };
 

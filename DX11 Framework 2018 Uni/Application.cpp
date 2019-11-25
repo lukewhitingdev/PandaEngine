@@ -178,7 +178,7 @@ void Application::InitObjects()
 	cubeMesh = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
 	cubeMesh2 = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_NRM.dds");
 	sphereMesh = new sphere(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
-	planeMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Hercules.obj");
+	planeMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Boat.obj");
 
 	meshVector.push_back(cubeMesh);
 	meshVector.push_back(cubeMesh2);
@@ -436,10 +436,10 @@ void Application::Update()
 
 	float t = gTimer->getGameTime();
 
-	cubeMesh->Update(t, -4.0f, 0.0f, 0.1f);
-	cubeMesh2->Update(t, 4.0f, 0.0f, 0.1f);
-	sphereMesh->Update(t * 2, 0.0f, 2.0f, 0.1f);
-	planeMesh->Update(t * 0.2f, 0.0f, 2.0f, 20.0f);
+	cubeMesh->Update(t, -4.0f, 0.0f, 0.1f, 0.3f);
+	cubeMesh2->Update(t, 4.0f, 0.0f, 0.1f, 0.3f);
+	sphereMesh->Update(t * 2, 0.0f, 2.0f, 0.1f, 0.3f);
+	planeMesh->Update(t * 0.2f, 0.0f, 2.0f, 20.0f, 0.3f);
 
 	// TODO: Refactor
 	// Camera Movement

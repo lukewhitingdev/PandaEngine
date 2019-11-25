@@ -32,7 +32,7 @@ void torus::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, I
 	context->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
 }
 
-void torus::Update(float time, float x, float y, float z)
+void torus::Update(float time, float x, float y, float z, float scale)
 {
-	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(x, y, z) * XMMatrixScaling(0.6f, 0.6f, 0.6f));
+	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(x, y, z) * XMMatrixScaling(scale, scale, scale));
 }
