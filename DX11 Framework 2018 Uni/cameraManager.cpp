@@ -40,6 +40,7 @@ void cameraManager::PairCameraToMesh(Mesh* parentMesh, Cam* camera, XMFLOAT3 off
 
 void cameraManager::updateParentedCameras()
 {
+	/*
 	for (int i = 0; i < parentedCameraVector.size(); i++) {
 		// If the camera and mesh are out of line
 		if (!Util::compareXMFLOAT3(parentedCameraVector[i]->camera->getCameraPos(), parentedCameraVector[i]->mesh->getPosition())) {
@@ -48,4 +49,5 @@ void cameraManager::updateParentedCameras()
 															parentedCameraVector[i]->mesh->getPosition().z);
 		}
 	}
+	*/
 }

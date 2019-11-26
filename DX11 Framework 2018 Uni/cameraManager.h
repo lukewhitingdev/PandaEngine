@@ -1,7 +1,6 @@
 #pragma once
 #include "Cam.h"
 #include "objectIncludes.h"
-#include "UtilityNamespace.h"
 #include <vector>
 
 class cameraManager
@@ -26,6 +25,6 @@ private:
 	Cam* defaultCamera;
 
 	std::vector<Cam*> cameraVector;
-	std::vector<CameraParentContainer*> parentedCameraVector;
+	//std::vector<CameraParentContainer*> parentedCameraVector;
 };
 

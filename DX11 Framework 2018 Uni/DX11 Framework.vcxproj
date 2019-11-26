@@ -397,7 +397,6 @@
     <ClCompile Include="staticCamera.cpp" />
     <ClCompile Include="staticGeneratedCamera.cpp" />
     <ClCompile Include="torus.cpp" />
-    <ClCompile Include="UtilityNamespace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DX11 Framework.fx" />
@@ -429,7 +428,6 @@
     <ClInclude Include="staticGeneratedCamera.h" />
     <ClInclude Include="Structures.h" />
     <ClInclude Include="torus.h" />
-    <ClInclude Include="UtilityNamespace.h" />
     <ResourceCompile Include="DX11 Framework.rc" />
   </ItemGroup>
   <ItemGroup>
