@@ -18,6 +18,7 @@ void Cam::UpdateStoredFloats()
 void Cam::setCameraPos(float x, float y, float z)
 {
 	_eye = XMFLOAT3(x, y, z);
+	UpdateStoredFloats();
 }
 
 XMFLOAT3 Cam::getCameraPos()

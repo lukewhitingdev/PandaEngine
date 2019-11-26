@@ -180,7 +180,7 @@ void Application::InitCamera()
 	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[1]->UpdateStoredFloats();
 
-	Eye = XMFLOAT3(5.0f, 5.0f, 3.0f);
+	Eye = XMFLOAT3(0.0f, 5.0f, 10.0f);
 
 	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[2]->UpdateStoredFloats();
@@ -195,6 +195,18 @@ void Application::InitObjects()
 	cubeMesh2 = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_NRM.dds");
 	sphereMesh = new sphere(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
 	planeMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Boat.obj");
+
+	cubeMesh->setPosition(XMFLOAT3(-4.0f, 0.0f, 0.1f));
+	cubeMesh->setScale(0.3f);
+
+	cubeMesh2->setPosition(XMFLOAT3(4.0f, 0.0f, 0.1f));
+	cubeMesh2->setScale(0.3f);
+
+	sphereMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 0.1f));
+	sphereMesh->setScale(0.3f);
+
+	planeMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 20.0f));
+	planeMesh->setScale(0.3f);
 
 	meshVector.push_back(cubeMesh);
 	meshVector.push_back(cubeMesh2);
@@ -452,27 +464,35 @@ void Application::Update()
 
 	float t = gTimer->getGameTime();
 
-	cubeMesh->Update(t, -4.0f, 0.0f, 0.1f, 0.3f);
-	cubeMesh2->Update(t, 4.0f, 0.0f, 0.1f, 0.3f);
-	sphereMesh->Update(t * 2, 0.0f, 2.0f, 0.1f, 0.3f);
-	planeMesh->Update(t * 0.2f, 0.0f, 2.0f, 20.0f, 0.3f);
+
 
 	// TODO: Refactor
 	// Camera Movement
 
+	for (int i = 0; i < meshVector.size(); i++) {
+		meshVector[i]->Update(gTimer->getGameTime());
+	}
+
+	planeMesh->UpdateMovement();
+
 	camManager->getCurrentCamera()->updateCameraMovement();
 
 	if (GetAsyncKeyState('1')) {
-		camManager->setCurrentCamera(cameraVector[1]);
+		planeMesh->setObjectPossesionState(true);
+		camManager->setCurrentCamera(cameraVector[1]); // Static Random
 	}
 
 	if (GetAsyncKeyState('2')) {
-
+		planeMesh->setObjectPossesionState(true);
 		camManager->setCurrentCamera(cameraVector[2]);
+		camManager->getCurrentCamera()->setCameraPos(0.0f, 20.0f, 1.0f); // Static Top Down
 	}
 	if (GetAsyncKeyState('0')) {
-
-		camManager->setCurrentCamera(cameraVector[0]);
+		// So we dont move objects whilst in debug
+		for (int i = 0; i < meshVector.size(); i++) {
+			meshVector[i]->setObjectPossesionState(false);
+		}
+		camManager->setCurrentCamera(cameraVector[0]); // Debug Camera
 	}
 }
 

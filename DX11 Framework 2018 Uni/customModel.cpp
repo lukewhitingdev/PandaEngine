@@ -46,7 +46,7 @@ void customModel::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelSha
 	context->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
 }
 
-void customModel::Update(float time, float x, float y, float z, float scale)
+void customModel::Update(float time)
 {
-	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(x, y, z) * XMMatrixScaling(scale, scale, scale));
+	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(yaw) * XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale, scale, scale));
 }

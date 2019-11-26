@@ -32,7 +32,7 @@ void sphere::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, 
 	context->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
 }
 
-void sphere::Update(float time, float x, float y, float z, float scale)
+void sphere::Update(float time)
 {
-	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(x, y, z) * XMMatrixScaling(0.6f, 0.6f, 0.6f));
+	XMStoreFloat4x4(&objectMatrix, XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale, scale, scale));
 }
