@@ -182,7 +182,7 @@ void Application::InitCamera()
 
 	Eye = XMFLOAT3(0.0f, 20.0f, 1.0f);
 
-	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector.push_back(new staticGeneratedCamera(Eye, To, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[2]->UpdateStoredFloats();
 
 	camManager->setDefaultCamera(cameraVector[0]);

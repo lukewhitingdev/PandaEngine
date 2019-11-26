@@ -1,4 +1,2 @@
-﻿  debugCamera.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\debugCamera.cpp(111): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\debugCamera.cpp(112): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+﻿Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

@@ -84,6 +84,9 @@
     <Filter Include="Cameras\StaticCamera\Static Static">
       <UniqueIdentifier>{c1aef57f-9063-41a0-8f07-c99a0f18303d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cameras\StaticCamera\Static Generated">
+      <UniqueIdentifier>{59316893-1e80-4e67-8513-2d69437bcc84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -152,9 +155,11 @@
     <ClInclude Include="cameraManager.h">
       <Filter>Utility\CameraManager</Filter>
     </ClInclude>
-    <ClInclude Include="staticGeneratedCamera.h" />
     <ClInclude Include="staticCamera.h">
       <Filter>Cameras\StaticCamera\Static Static</Filter>
+    </ClInclude>
+    <ClInclude Include="staticGeneratedCamera.h">
+      <Filter>Cameras\StaticCamera\Static Generated</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -215,9 +220,11 @@
     <ClCompile Include="cameraManager.cpp">
       <Filter>Utility\CameraManager</Filter>
     </ClCompile>
-    <ClCompile Include="staticGeneratedCamera.cpp" />
     <ClCompile Include="staticCamera.cpp">
       <Filter>Cameras\StaticCamera\Static Static</Filter>
+    </ClCompile>
+    <ClCompile Include="staticGeneratedCamera.cpp">
+      <Filter>Cameras\StaticCamera\Static Generated</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

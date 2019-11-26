@@ -92,7 +92,7 @@ void debugCamera::updateCameraMovement(std::vector<Cam*>& camVector)
 
 	if ((GetAsyncKeyState('8'))) {
 		camVector[2]->setCameraPos(getCameraPos().x, getCameraPos().y, getCameraPos().z);
-		camVector[2]->setLookAtPos(getLookToPos().x, getLookToPos().y, getLookToPos().z);
+		camVector[2]->setLookToPos(getLookToPos().x, getLookToPos().y, getLookToPos().z);
 	}
 }
 
