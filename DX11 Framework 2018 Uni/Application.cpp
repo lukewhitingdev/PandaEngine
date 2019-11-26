@@ -180,7 +180,7 @@ void Application::InitCamera()
 	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[1]->UpdateStoredFloats();
 
-	Eye = XMFLOAT3(0.0f, 5.0f, 10.0f);
+	Eye = XMFLOAT3(0.0f, 20.0f, 1.0f);
 
 	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[2]->UpdateStoredFloats();
@@ -475,7 +475,7 @@ void Application::Update()
 
 	planeMesh->UpdateMovement();
 
-	camManager->getCurrentCamera()->updateCameraMovement();
+	camManager->getCurrentCamera()->updateCameraMovement(cameraVector);
 
 	if (GetAsyncKeyState('1')) {
 		planeMesh->setObjectPossesionState(true);
@@ -485,7 +485,6 @@ void Application::Update()
 	if (GetAsyncKeyState('2')) {
 		planeMesh->setObjectPossesionState(true);
 		camManager->setCurrentCamera(cameraVector[2]);
-		camManager->getCurrentCamera()->setCameraPos(0.0f, 20.0f, 1.0f); // Static Top Down
 	}
 	if (GetAsyncKeyState('0')) {
 		// So we dont move objects whilst in debug

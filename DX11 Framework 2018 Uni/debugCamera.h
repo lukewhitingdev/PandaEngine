@@ -1,7 +1,3 @@
-#include <DirectXColors.h>
-#include <DirectXMath.h>
-#include <d3d11.h>
-#include <Windows.h>
 #include "Cam.h"
 using namespace DirectX;
 #pragma once
@@ -14,7 +10,7 @@ public:
 
 	void UpdateStoredFloats();
 
-	void updateCameraMovement();
+	void updateCameraMovement(std::vector<Cam*>&camVector);
 
 protected:
 	// Cursor Input, last point recorded

@@ -91,7 +91,7 @@ void Cam::Reshape(float wWidth, float wHeight, float nearDepth, float farDepth)
 	_farDepth = farDepth;
 }
 
-void Cam::updateCameraMovement()
+void Cam::updateCameraMovement(std::vector<Cam*>& camVector)
 {
 }
 

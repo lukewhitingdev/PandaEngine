@@ -2,6 +2,7 @@
 #include <DirectXColors.h>
 #include <d3d11.h>
 #include <Windows.h>
+#include <vector>
 using namespace DirectX;
 #pragma once
 class Cam
@@ -33,7 +34,7 @@ public:
 
 	virtual void Reshape(float wWidth, float wHeight, float nearDepth, float farDepth);
 
-	virtual void updateCameraMovement();
+	virtual void updateCameraMovement(std::vector<Cam*>& camVector);
 
 protected:
 	XMFLOAT3 _eye; // Cam Position
