@@ -1,2 +1,168 @@
-﻿Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe
+﻿  Application.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C2143: syntax error: missing ',' before '&'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(10): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cameraManager.h(29): error C2065: 'CameraParentContainer': undeclared identifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cameraManager.h(29): error C2059: syntax error: '>'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(177): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(182): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(187): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(192): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(203): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(204): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(205): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(206): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(481): warning C4018: '<': signed/unsigned mismatch
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(506): warning C4018: '<': signed/unsigned mismatch
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(523): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(524): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(544): warning C4018: '<': signed/unsigned mismatch
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(545): error C2660: 'Mesh::Draw': function does not take 4 arguments
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(10): note: see declaration of 'Mesh::Draw'
+  cameraManager.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cameraManager.h(29): error C2065: 'CameraParentContainer': undeclared identifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cameraManager.h(29): error C2059: syntax error: '>'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cameraManager.cpp(45): error C2660: 'Util::compareXMFLOAT3': function does not take 1 arguments
+  C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\UtilityNamespace.h(14): note: see declaration of 'Util::compareXMFLOAT3'
+  firstPersonCamera.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\firstPersonCamera.cpp(33): warning C4100: 'camVector': unreferenced formal parameter
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\firstPersonCamera.cpp(59): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\firstPersonCamera.cpp(60): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+  cube.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  customModel.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+  cylinder.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  DDSTextureLoader.cpp
+  directionalLight.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C2143: syntax error: missing ',' before '&'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(10): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  DX11 Framework.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C2143: syntax error: missing ',' before '&'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(10): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cameraManager.h(29): error C2065: 'CameraParentContainer': undeclared identifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cameraManager.h(29): error C2059: syntax error: '>'
+  Light.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C2143: syntax error: missing ',' before '&'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(10): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  debugCamera.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\debugCamera.cpp(111): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\debugCamera.cpp(112): warning C4244: 'initializing': conversion from 'LONG' to 'float', possible loss of data
+  Mesh.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  OBJLoader.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(10): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(15): error C2061: syntax error: identifier 'XMFLOAT3'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(16): error C3646: 'getPosition': unknown override specifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(16): error C2059: syntax error: ')'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(16): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(25): error C3646: 'objMeshLoader': unknown override specifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(28): error C3646: 'objectMatrix': unknown override specifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(33): error C3646: 'position': unknown override specifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(33): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(34): error C3646: 'posMatrix': unknown override specifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(35): error C3646: 'rotation': unknown override specifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(15): error C2065: 'position': undeclared identifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(15): error C2065: 'pos': undeclared identifier
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  sphere.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  pointLight.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C2143: syntax error: missing ',' before '&'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(10): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  spotLight.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\OBJLoader.h(28): error C2143: syntax error: missing ',' before '&'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.h(10): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  staticCamera.cpp
+  torus.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cube.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\sphere.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\cylinder.h(7): error C2061: syntax error: identifier 'ConstantBuffer'
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(4): error C2504: 'Mesh': base class undefined
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.h(8): error C2061: syntax error: identifier 'ConstantBuffer'
+  UtilityNamespace.cpp
+  Generating Code...

@@ -5,3 +5,4 @@
 #include "debugCamera.h"
 #include "staticCamera.h"
 #include "staticGeneratedCamera.h"
+#include "firstPersonCamera.h"

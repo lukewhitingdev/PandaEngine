@@ -80,9 +80,11 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	XMStoreFloat4x4(&_world, XMMatrixIdentity());
 	
 	InitTimer();
+	InitObjects();
 	InitCamera();
 	InitLighting();
-	InitObjects();
+
+
 
 	return S_OK;
 }
@@ -184,6 +186,13 @@ void Application::InitCamera()
 
 	cameraVector.push_back(new staticGeneratedCamera(Eye, To, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[2]->UpdateStoredFloats();
+
+	Eye = XMFLOAT3(0.0f, 20.0f, 1.0f);
+
+	cameraVector.push_back(new firstPersonCamera(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector[3]->UpdateStoredFloats();
+
+	camManager->PairCameraToMesh(planeMesh, cameraVector[3], XMFLOAT3(0.0f, 0.0f, 0.0f));
 
 	camManager->setDefaultCamera(cameraVector[0]);
 	camManager->setCurrentCamera(cameraVector[0]);
@@ -477,6 +486,8 @@ void Application::Update()
 
 	camManager->getCurrentCamera()->updateCameraMovement(cameraVector);
 
+	camManager->updateParentedCameras();
+
 	if (GetAsyncKeyState('1')) {
 		planeMesh->setObjectPossesionState(true);
 		camManager->setCurrentCamera(cameraVector[1]); // Static Random
@@ -485,6 +496,10 @@ void Application::Update()
 	if (GetAsyncKeyState('2')) {
 		planeMesh->setObjectPossesionState(true);
 		camManager->setCurrentCamera(cameraVector[2]);
+	}
+	if (GetAsyncKeyState('3')) {
+		planeMesh->setObjectPossesionState(false);
+		camManager->setCurrentCamera(cameraVector[3]);
 	}
 	if (GetAsyncKeyState('0')) {
 		// So we dont move objects whilst in debug
