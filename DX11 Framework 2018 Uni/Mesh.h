@@ -31,8 +31,8 @@ protected:
 	bool ObjectPossesed = false;
 	float scale;
 	XMFLOAT3 position;
+	XMFLOAT3 rotation;
 	XMMATRIX posMatrix;
-	XMMATRIX rotation;
 
 	float yaw = 0;
 	float pitch = 0;

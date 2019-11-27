@@ -3,6 +3,7 @@
 #include <d3d11.h>
 #include <Windows.h>
 #include <vector>
+#include "Mesh.h"
 using namespace DirectX;
 #pragma once
 class Cam
@@ -26,6 +27,10 @@ public:
 	virtual XMFLOAT3 getUpPos();
 	virtual void setUpPos(float x, float y, float z);
 
+	virtual void setDebugMesh(Mesh* mesh);
+	virtual Mesh* getDebugMesh();
+	virtual void setDebugMeshPos(XMFLOAT3 pos);
+
 	virtual XMFLOAT3 getRight(); // Returns two different outcomes depending on which camera type you are using.
 
 	virtual XMFLOAT4X4 getViewMatrix();
@@ -37,6 +42,8 @@ public:
 	virtual void updateCameraMovement(std::vector<Cam*>& camVector);
 
 protected:
+	Mesh* debugMesh = nullptr;
+
 	XMFLOAT3 _eye; // Cam Position
 	XMFLOAT3 _at;
 	XMFLOAT3 _to;

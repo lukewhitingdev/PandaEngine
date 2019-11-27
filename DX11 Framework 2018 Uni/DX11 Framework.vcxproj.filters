@@ -162,6 +162,7 @@
       <Filter>Cameras\StaticCamera\Static Generated</Filter>
     </ClInclude>
     <ClInclude Include="firstPersonCamera.h" />
+    <ClInclude Include="UtlilityClass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -228,6 +229,7 @@
       <Filter>Cameras\StaticCamera\Static Generated</Filter>
     </ClCompile>
     <ClCompile Include="firstPersonCamera.cpp" />
+    <ClCompile Include="UtlilityClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

@@ -34,5 +34,5 @@ void cube::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID
 
 void cube::Update(float time)
 {
-	XMStoreFloat4x4(&objectMatrix, XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale, scale, scale));
+	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale, scale, scale));
 }

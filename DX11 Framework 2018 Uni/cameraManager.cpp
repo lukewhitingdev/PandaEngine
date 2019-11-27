@@ -35,19 +35,19 @@ void cameraManager::PairCameraToMesh(Mesh* parentMesh, Cam* camera, XMFLOAT3 off
 {
 	XMFLOAT3 meshPos = parentMesh->getPosition();
 	camera->setCameraPos(meshPos.x + offset.x, meshPos.y + offset.y, meshPos.z + offset.z);
-	//parentedCameraVector.push_back(new CameraParentContainer(camera, parentMesh, offset));
+	parentedCameraVector.push_back(new CameraParentContainer(camera, parentMesh, offset));
 }
 
 void cameraManager::updateParentedCameras()
 {
-	/*
+	
 	for (int i = 0; i < parentedCameraVector.size(); i++) {
 		// If the camera and mesh are out of line
-		if (!Util::compareXMFLOAT3(parentedCameraVector[i]->camera->getCameraPos(), parentedCameraVector[i]->mesh->getPosition())) {
-			parentedCameraVector[i]->camera->setCameraPos(parentedCameraVector[i]->mesh->getPosition().x,
-															parentedCameraVector[i]->mesh->getPosition().y,
-															parentedCameraVector[i]->mesh->getPosition().z);
+		if (Util::compareXMFLOAT3(parentedCameraVector[i]->_cam->getCameraPos(), parentedCameraVector[i]->_mesh->getPosition())) {
+			parentedCameraVector[i]->_cam->setCameraPos(parentedCameraVector[i]->_mesh->getPosition().x,
+															parentedCameraVector[i]->_mesh->getPosition().y,
+															parentedCameraVector[i]->_mesh->getPosition().z);
 		}
 	}
-	*/
+	
 }

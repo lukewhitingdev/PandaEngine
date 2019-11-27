@@ -1,4 +1,3 @@
-﻿  torus.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\torus.cpp(35): warning C4100: 'time': unreferenced formal parameter
-Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+﻿  UtlilityClass.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\UtlilityClass.cpp(47): warning C4244: '=': conversion from 'std::streamoff' to 'int', possible loss of data
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

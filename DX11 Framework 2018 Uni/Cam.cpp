@@ -51,6 +51,27 @@ void Cam::setUpPos(float x, float y, float z)
 	_up = XMFLOAT3(x, y, z);
 }
 
+void Cam::setDebugMesh(Mesh* mesh)
+{
+	debugMesh = mesh;
+}
+
+Mesh* Cam::getDebugMesh()
+{
+	if (debugMesh != nullptr) {
+		return debugMesh;
+	}
+	else {
+		return nullptr;
+	}
+
+}
+
+void Cam::setDebugMeshPos(XMFLOAT3 pos)
+{
+	debugMesh->setPosition(pos);
+}
+
 XMFLOAT3 Cam::getRight()
 {
 	XMVECTOR vUp = XMLoadFloat3(&_up);

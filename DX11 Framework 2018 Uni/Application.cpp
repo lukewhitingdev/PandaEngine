@@ -84,7 +84,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	InitCamera();
 	InitLighting();
 
-
+	Util::SaveToCameraPositionsToFile("test123.txt");
 
 	return S_OK;
 }
@@ -181,13 +181,22 @@ void Application::InitCamera()
 
 	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[1]->UpdateStoredFloats();
+	cameraVector[1]->setDebugMesh(new sphere(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds"));
+	cameraVector[1]->getDebugMesh()->setScale(1.0f);
+	cameraVector[1]->setDebugMeshPos(cameraVector[1]->getCameraPos());
+
+	meshVector.push_back(cameraVector[1]->getDebugMesh());
 
 	Eye = XMFLOAT3(0.0f, 20.0f, 1.0f);
 
 	cameraVector.push_back(new staticGeneratedCamera(Eye, To, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[2]->UpdateStoredFloats();
+	cameraVector[2]->setDebugMesh(new sphere(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds"));
+	cameraVector[2]->getDebugMesh()->setScale(1.0f);
+	cameraVector[2]->setDebugMeshPos(cameraVector[2]->getCameraPos());
 
-	Eye = XMFLOAT3(0.0f, 20.0f, 1.0f);
+
+	Eye = XMFLOAT3(0.0f, 0.0f, -3.0f);
 
 	cameraVector.push_back(new firstPersonCamera(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[3]->UpdateStoredFloats();
@@ -211,7 +220,7 @@ void Application::InitObjects()
 	cubeMesh2->setPosition(XMFLOAT3(4.0f, 0.0f, 0.1f));
 	cubeMesh2->setScale(0.3f);
 
-	sphereMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 0.1f));
+	sphereMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 30.0f));
 	sphereMesh->setScale(0.3f);
 
 	planeMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 20.0f));
@@ -480,6 +489,12 @@ void Application::Update()
 
 	for (int i = 0; i < meshVector.size(); i++) {
 		meshVector[i]->Update(gTimer->getGameTime());
+	}
+
+	for (int i = 0; i < cameraVector.size(); i++) {
+		if (cameraVector[i]->getDebugMesh() != nullptr) {
+			cameraVector[i]->setDebugMeshPos(cameraVector[i]->getCameraPos());
+		}
 	}
 
 	planeMesh->UpdateMovement();

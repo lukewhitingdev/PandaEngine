@@ -10,6 +10,16 @@ void Mesh::Update(float)
 
 void Mesh::UpdateMovement()
 {
+	/*
+	rotation = XMFLOAT3(pitch, yaw, roll);
+	XMVECTOR speed = XMVectorReplicate(0.005f);
+	XMVECTOR vPos = XMLoadFloat3(&position);
+	XMVECTOR vRot = XMLoadFloat3(&rotation);
+
+	XMStoreFloat3(&position, XMVectorMultiplyAdd(speed, vRot, vPos));
+	*/
+
+
 	// Only do this if we have control
 	if (ObjectPossesed) {
 		if (GetAsyncKeyState('W')) {
