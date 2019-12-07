@@ -1,5 +1,7 @@
 #include <DirectXColors.h>
 #include <DirectXMath.h>
+#include <vector>
+#include "Cam.h"
 using namespace DirectX;
 #pragma once
 class UtlilityClass
@@ -12,7 +14,10 @@ public:
 namespace Util {
 	bool compareXMFLOAT3(XMFLOAT3 first, XMFLOAT3 second);
 
-	void SaveToCameraPositionsToFile(const char* fileName);
+	// Save Camera Positions
+
+	void SaveToCameraPositionsToFile(const char* fileName, std::vector<Cam*>& cVector);
 	void SaveToMeshPositionsToFile();
+
 }
 

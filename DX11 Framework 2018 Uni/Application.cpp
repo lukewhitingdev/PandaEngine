@@ -84,7 +84,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	InitCamera();
 	InitLighting();
 
-	Util::SaveToCameraPositionsToFile("test123.txt");
+	Util::SaveToCameraPositionsToFile("test123.txt", cameraVector);
 
 	return S_OK;
 }
