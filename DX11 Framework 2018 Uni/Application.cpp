@@ -78,13 +78,26 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	// Initialize the world matrix
 	XMStoreFloat4x4(&_world, XMMatrixIdentity());
+
+	fileManager = new saveToFileManager("test123.txt");
+
+	// Whether you would like to load from a file or not.
+	fileManager->setLoadObjectsFromFile(true);
 	
 	InitTimer();
-	InitObjects();
+
+	// If you would like to load objects from file or from hard coded values.
+	// Will not have this if statement here, instead put it inside the objects and set the positions either to hard coded or non hard coded depending on bool.
+	if (fileManager->getLoadObjectsFromFile()) {
+		fileManager->LoadPositionsFromFile();
+	}
+	else {
+		InitObjects();
+	}
+
+
 	InitCamera();
 	InitLighting();
-
-	Util::SaveToCameraPositionsToFile("test123.txt", cameraVector);
 
 	return S_OK;
 }
@@ -237,6 +250,9 @@ void Application::InitLighting()
 	dirLight = new directionalLight(camManager->getCurrentCamera()->getCameraPos());
 	pLight = new pointLight(XMFLOAT3(0.5f, 1.0f, 0.1f), camManager->getCurrentCamera()->getCameraPos());
 	sLight = new spotLight(XMFLOAT3(0.0f, 1.0f, 0.1f), XMFLOAT3(0.0f, -1.0f, -1.0f), camManager->getCurrentCamera()->getCameraPos());
+	lightVector.push_back(dirLight);
+	lightVector.push_back(pLight);
+	lightVector.push_back(sLight);
 }
 
 

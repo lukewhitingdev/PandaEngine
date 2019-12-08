@@ -28,7 +28,7 @@ void pointLight::Draw(ID3D11DeviceContext* context, ID3D11Buffer* cBuffer, Const
 	cb.pointLight.LightPos = lightPosition;
 	cb.pointLight.LightRange = Range;
 	cb.pointLight.Attenuation = Attenuation;
-	cb.EyePosW = eyePos;
+	cb.EyePosW = EyePosW;
 
 	cb.globalMaterial.mAmbient = lightMaterial.mAmbient;
 	cb.globalMaterial.mDiffuse = lightMaterial.mDiffuse;

@@ -391,6 +391,7 @@
     <ClCompile Include="debugCamera.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
+    <ClCompile Include="saveToFileManager.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="pointLight.cpp" />
     <ClCompile Include="spotLight.cpp" />
@@ -422,6 +423,7 @@
     <ClInclude Include="objectIncludes.h" />
     <ClInclude Include="OBJLoader.h" />
     <CLInclude Include="resource.h" />
+    <ClInclude Include="saveToFileManager.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="pointLight.h" />
     <ClInclude Include="spotLight.h" />

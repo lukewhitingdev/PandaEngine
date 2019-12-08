@@ -15,6 +15,7 @@
 #include "cameraIncludes.h"
 #include "GameTimer.h"
 #include "cameraManager.h"
+#include "saveToFileManager.h"
 
 using namespace DirectX;
 
@@ -24,6 +25,7 @@ class Application
 {
 
 private:
+	// DX11 and Windows API
 	HINSTANCE               _hInst;
 	HWND                    _hWnd;
 	D3D_DRIVER_TYPE         _driverType;
@@ -50,6 +52,7 @@ private:
 	ID3D11ShaderResourceView* textureResourceView;
 	ID3D11SamplerState* textureSamplerState;
 
+	// Loader
 	MeshData objMeshLoader;
 
 
@@ -61,6 +64,7 @@ private:
 	Mesh* planeMesh;
 
 	// Lighting
+	std::vector<Light*> lightVector;
 	Light* dirLight;
 	Light* pLight;
 	Light* sLight;
@@ -69,6 +73,8 @@ private:
 	std::vector<Cam*> cameraVector;
 	cameraManager* camManager;
 	int currentCameraNumber;
+
+	saveToFileManager* fileManager;
 
 	// GameTimer
 	GameTimer* gTimer;

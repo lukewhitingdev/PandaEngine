@@ -25,7 +25,6 @@ private:
 	XMFLOAT4 SpecularMtrl;
 	XMFLOAT4 SpecularLight;
 	float SpecularPower;
-	XMFLOAT3 EyePosW; // Camera Pos in World
 
 	Material lightMaterial;
 };

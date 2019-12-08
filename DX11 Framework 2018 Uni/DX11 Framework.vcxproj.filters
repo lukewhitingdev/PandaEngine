@@ -163,6 +163,7 @@
     </ClInclude>
     <ClInclude Include="firstPersonCamera.h" />
     <ClInclude Include="UtlilityClass.h" />
+    <ClInclude Include="saveToFileManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -230,6 +231,7 @@
     </ClCompile>
     <ClCompile Include="firstPersonCamera.cpp" />
     <ClCompile Include="UtlilityClass.cpp" />
+    <ClCompile Include="saveToFileManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

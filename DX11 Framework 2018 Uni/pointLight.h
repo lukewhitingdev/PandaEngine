@@ -21,7 +21,6 @@ private:
 
 	XMFLOAT3 Attenuation;
 
-	XMFLOAT3 EyePosW; // Camera Pos in World
 	Material lightMaterial;
 };
 
