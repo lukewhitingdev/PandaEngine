@@ -179,19 +179,11 @@ void Application::InitCamera()
 
 	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[1]->UpdateStoredFloats();
-	cameraVector[1]->setDebugMesh(new sphere(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds"));
-	cameraVector[1]->getDebugMesh()->setScale(1.0f);
-	cameraVector[1]->setDebugMeshPos(cameraVector[1]->getCameraPos());
-
-	meshVector.push_back(cameraVector[1]->getDebugMesh());
 
 	Eye = XMFLOAT3(0.0f, 20.0f, 1.0f);
 
 	cameraVector.push_back(new staticGeneratedCamera(Eye, To, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[2]->UpdateStoredFloats();
-	cameraVector[2]->setDebugMesh(new sphere(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds"));
-	cameraVector[2]->getDebugMesh()->setScale(1.0f);
-	cameraVector[2]->setDebugMeshPos(cameraVector[2]->getCameraPos());
 
 
 	Eye = XMFLOAT3(0.0f, 0.0f, -3.0f);
@@ -519,12 +511,6 @@ void Application::Update()
 		meshVector[i]->Update(gTimer->getGameTime());
 	}
 
-	for (int i = 0; i < cameraVector.size(); i++) {
-		if (cameraVector[i]->getDebugMesh() != nullptr) {
-			cameraVector[i]->setDebugMeshPos(cameraVector[i]->getCameraPos());
-		}
-	}
-
 	planeMesh->UpdateMovement();
 
 	camManager->getCurrentCamera()->updateCameraMovement(cameraVector);
@@ -578,6 +564,7 @@ void Application::Draw()
 	_pImmediateContext->PSSetShaderResources(0, 1, &textureResourceView);
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 
+	// Lighting
 	dirLight->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
 	pLight->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
 	sLight->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());

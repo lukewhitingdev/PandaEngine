@@ -27,9 +27,3 @@ bool Util::compareXMFLOAT3(XMFLOAT3 first, XMFLOAT3 second)
 	}
 	return false;
 }
-
-
-
-void Util::SaveToMeshPositionsToFile()
-{
-}

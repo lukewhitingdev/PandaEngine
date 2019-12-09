@@ -87,6 +87,12 @@
     <Filter Include="Cameras\StaticCamera\Static Generated">
       <UniqueIdentifier>{59316893-1e80-4e67-8513-2d69437bcc84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utility\Helper">
+      <UniqueIdentifier>{8529aa7f-665e-4249-9326-aa2be49e3e9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\FileManager">
+      <UniqueIdentifier>{fa786fdc-41a0-420b-9bb3-4d22ecab6a1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -162,8 +168,12 @@
       <Filter>Cameras\StaticCamera\Static Generated</Filter>
     </ClInclude>
     <ClInclude Include="firstPersonCamera.h" />
-    <ClInclude Include="UtlilityClass.h" />
-    <ClInclude Include="saveToFileManager.h" />
+    <ClInclude Include="UtlilityClass.h">
+      <Filter>Utility\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="saveToFileManager.h">
+      <Filter>Utility\FileManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -230,8 +240,12 @@
       <Filter>Cameras\StaticCamera\Static Generated</Filter>
     </ClCompile>
     <ClCompile Include="firstPersonCamera.cpp" />
-    <ClCompile Include="UtlilityClass.cpp" />
-    <ClCompile Include="saveToFileManager.cpp" />
+    <ClCompile Include="UtlilityClass.cpp">
+      <Filter>Utility\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="saveToFileManager.cpp">
+      <Filter>Utility\FileManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

@@ -14,10 +14,5 @@ public:
 namespace Util {
 	bool compareXMFLOAT3(XMFLOAT3 first, XMFLOAT3 second);
 
-	// Save Camera Positions
-
-	void SaveToCameraPositionsToFile(const char* fileName, std::vector<Cam*>& cVector);
-	void SaveToMeshPositionsToFile();
-
 }
 

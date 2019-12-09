@@ -270,29 +270,34 @@ float4 PS(VS_OUTPUT input) : SV_Target
     float4 diffuseSum = float4(0.0f, 0.0f, 0.0f, 0.0f);
     float4 specularSum = float4(0.0f, 0.0f, 0.0f, 0.0f);
 
-    
-    ComputeDirectionalLightPS(globalMaterial, dirLight, input.Norm, toEye, 
-                             ambient, diffuse, specular);
+	if (dirLight.AmbientLight.x >= 0.0f) {
+		ComputeDirectionalLightPS(globalMaterial, dirLight, input.Norm, toEye,
+			ambient, diffuse, specular);
 
-    ambientSum += ambient;
-    diffuseSum += diffuse;
-    specularSum += specular;
+		ambientSum += ambient;
+		diffuseSum += diffuse;
+		specularSum += specular;
 
-    ComputePointLightPS(globalMaterial, pointLight, input.Norm, input.PosW, toEye,
-                        ambient, diffuse, specular);
 
-    ambientSum += ambient;
-    diffuseSum += diffuse;
-    specularSum += specular;
+	}
 
-    
-    
-    ComputeSpotLightPS(globalMaterial, spotLight, input.Norm, input.PosW, toEye,
-                        ambient, diffuse, specular);
+	if (pointLight.AmbientLight.x >= 0.0f) {
+		ComputePointLightPS(globalMaterial, pointLight, input.Norm, input.PosW, toEye,
+			ambient, diffuse, specular);
 
-    ambientSum += ambient;
-    diffuseSum += diffuse;
-    specularSum += specular;
+		ambientSum += ambient;
+		diffuseSum += diffuse;
+		specularSum += specular;
+	}
+
+	if (spotLight.AmbientLight.x >= 0.0f) {
+		ComputeSpotLightPS(globalMaterial, spotLight, input.Norm, input.PosW, toEye,
+			ambient, diffuse, specular);
+
+		ambientSum += ambient;
+		diffuseSum += diffuse;
+		specularSum += specular;
+	}
 
     input.Color.rgb = textureColor.rgb * (ambientSum.xyz + diffuseSum.xyz) + specularSum.xyz;
 	input.Color.a = globalMaterial.mDiffuse.a;
