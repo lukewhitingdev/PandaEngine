@@ -105,8 +105,36 @@ XMFLOAT3 saveToFileManager::extractPositionalInfoFromLine(string Line)
 
 	string insideBracesString = Line.substr(firstBreakPos, secondBreakPos);
 
-	firstBreakPos = insideBracesString.find(',', 0);
+	XMFLOAT3 output;
 
+	vector<float> outputFloats;
 
-	return XMFLOAT3();
+	// Find the first value
+
+	firstBreakPos = 0;
+	secondBreakPos = 0;
+
+	for (int i = 0; i < 3; i++) {
+		firstBreakPos = insideBracesString.find(',', firstBreakPos + 1);
+
+		string ValueString = insideBracesString.substr(secondBreakPos, firstBreakPos);
+
+		secondBreakPos = ValueString.find('.', 0);
+
+		// We have got the first value to 1 decimal place.
+
+		string condencedValue = ValueString.substr(1, secondBreakPos + 2);
+
+		float Value = stof(condencedValue);
+
+		outputFloats.push_back(Value);
+
+		secondBreakPos = firstBreakPos;
+	}
+
+	output.x = outputFloats[0];
+	output.y = outputFloats[1];
+	output.z = outputFloats[2];
+
+	return output;
 }

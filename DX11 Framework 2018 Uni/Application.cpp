@@ -214,8 +214,6 @@ void Application::InitCamera()
 	cameraVector.push_back(new firstPersonCamera(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
 	cameraVector[3]->UpdateStoredFloats();
 
-	camManager->PairCameraToMesh(planeMesh, cameraVector[3], XMFLOAT3(0.0f, 0.0f, 0.0f));
-
 	camManager->setDefaultCamera(cameraVector[0]);
 	camManager->setCurrentCamera(cameraVector[0]);
 }
@@ -516,8 +514,6 @@ void Application::Update()
 	planeMesh->UpdateMovement();
 
 	camManager->getCurrentCamera()->updateCameraMovement(cameraVector);
-
-	camManager->updateParentedCameras();
 
 	if (GetAsyncKeyState('1')) {
 		planeMesh->setObjectPossesionState(true);

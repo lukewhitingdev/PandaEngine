@@ -29,10 +29,6 @@ public:
 	Cam* getDefaultCamera();
 	void setDefaultCamera(Cam* camera);
 
-	void PairCameraToMesh(Mesh* parentMesh, Cam* camera, XMFLOAT3 offset);
-
-	void updateParentedCameras();
-
 private:
 
 	Cam* currentCamera;
