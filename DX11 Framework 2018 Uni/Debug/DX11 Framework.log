@@ -1,36 +1,3 @@
-﻿  Application.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(175): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(180): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(185): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(191): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(206): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(207): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(208): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(209): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(222): warning C4018: '<': signed/unsigned mismatch
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(223): warning C4018: '<': signed/unsigned mismatch
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(231): warning C4018: '<': signed/unsigned mismatch
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(509): warning C4018: '<': signed/unsigned mismatch
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(532): warning C4018: '<': signed/unsigned mismatch
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(502): warning C4189: 't': local variable is initialized but not referenced
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(549): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(550): warning C4238: nonstandard extension used: class rvalue used as lvalue
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(575): warning C4018: '<': signed/unsigned mismatch
-  lightingManager.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\lightingManager.cpp(21): warning C4018: '<': signed/unsigned mismatch
-  directionalLight.cpp
-  DX11 Framework.cpp
-  Light.cpp
-  saveToFileManager.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\saveToFileManager.cpp(22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\saveToFileManager.cpp(15): warning C4100: 'lVector': unreferenced formal parameter
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\saveToFileManager.cpp(15): warning C4100: 'cVector': unreferenced formal parameter
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\saveToFileManager.cpp(18): warning C4101: 'length': unreferenced local variable
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\saveToFileManager.cpp(92): warning C4018: '<': signed/unsigned mismatch
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\saveToFileManager.cpp(77): warning C4101: 'length': unreferenced local variable
-  pointLight.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\pointLight.cpp(22): warning C4100: 'eyePos': unreferenced formal parameter
-  spotLight.cpp
-  Generating Code...
-Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+﻿  Mesh.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.cpp(11): warning C4100: 'deltaTime': unreferenced formal parameter
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

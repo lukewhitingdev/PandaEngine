@@ -62,7 +62,7 @@ private:
 	Mesh* cubeMesh;
 	Mesh* cubeMesh2;
 	Mesh* sphereMesh;
-	Mesh* planeMesh;
+	Mesh* shipMesh;
 
 	// Lighting
 

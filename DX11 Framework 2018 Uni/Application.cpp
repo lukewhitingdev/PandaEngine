@@ -206,12 +206,12 @@ void Application::InitObjects()
 	cubeMesh = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
 	cubeMesh2 = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_NRM.dds");
 	sphereMesh = new sphere(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
-	planeMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Boat.obj");
+	shipMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Boat.obj");
 
 	meshVector.push_back(cubeMesh);
 	meshVector.push_back(cubeMesh2);
 	meshVector.push_back(sphereMesh);
-	meshVector.push_back(planeMesh);
+	meshVector.push_back(shipMesh);
 
 	if (fileManager->getLoadObjectsFromFile()) {
 
@@ -244,8 +244,8 @@ void Application::InitObjects()
 		sphereMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 30.0f));
 		sphereMesh->setScale(0.3f);
 
-		planeMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 20.0f));
-		planeMesh->setScale(0.3f);
+		shipMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 20.0f));
+		shipMesh->setScale(0.3f);
 	}
 }
 
@@ -509,21 +509,21 @@ void Application::Update()
 		meshVector[i]->Update(gTimer->getGameTime());
 	}
 
-	planeMesh->UpdateMovement();
+	shipMesh->UpdateMovement(t);
 
 	camManager->getCurrentCamera()->updateCameraMovement(cameraVector);
 
 	if (GetAsyncKeyState('1')) {
-		planeMesh->setObjectPossesionState(true);
+		shipMesh->setObjectPossesionState(true);
 		camManager->setCurrentCamera(cameraVector[1]); // Static Random
 	}
 
 	if (GetAsyncKeyState('2')) {
-		planeMesh->setObjectPossesionState(true);
+		shipMesh->setObjectPossesionState(true);
 		camManager->setCurrentCamera(cameraVector[2]);
 	}
 	if (GetAsyncKeyState('3')) {
-		planeMesh->setObjectPossesionState(false);
+		shipMesh->setObjectPossesionState(false);
 		camManager->setCurrentCamera(cameraVector[3]);
 	}
 	if (GetAsyncKeyState('0')) {

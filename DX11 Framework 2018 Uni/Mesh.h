@@ -16,7 +16,7 @@ public:
 	virtual XMFLOAT3 getPosition() { return position; };
 	virtual void setScale(float s) { scale = s; };
 	virtual float getScale() { return scale; };
-	virtual void UpdateMovement();
+	virtual void UpdateMovement(float deltaTime);
 	virtual bool getObjectPossesionState() { return ObjectPossesed; };
 	virtual void setObjectPossesionState(bool state) { ObjectPossesed = state; };
 
@@ -34,6 +34,10 @@ protected:
 	XMFLOAT3 rotation;
 	XMMATRIX posMatrix;
 
+		
+	XMFLOAT3 lookDir = { 0.0f, 0.0f, 0.0f };
+	float speed = 0.000001f;
+	float acceleration = 0.0000005f;
 	float yaw = 0;
 	float pitch = 0;
 	float roll = 0;

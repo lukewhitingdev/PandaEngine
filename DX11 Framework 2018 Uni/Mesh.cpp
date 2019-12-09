@@ -8,31 +8,48 @@ void Mesh::Update(float)
 {
 }
 
-void Mesh::UpdateMovement()
+void Mesh::UpdateMovement(float deltaTime)
 {
-	/*
-	rotation = XMFLOAT3(pitch, yaw, roll);
-	XMVECTOR speed = XMVectorReplicate(0.005f);
-	XMVECTOR vPos = XMLoadFloat3(&position);
-	XMVECTOR vRot = XMLoadFloat3(&rotation);
-
-	XMStoreFloat3(&position, XMVectorMultiplyAdd(speed, vRot, vPos));
-	*/
+	lookDir.z = cos(yaw);
+	lookDir.x = sin(yaw);
 
 
 	// Only do this if we have control
 	if (ObjectPossesed) {
 		if (GetAsyncKeyState('W')) {
-			position.z -= 0.01f;
+			speed = 0.01f;
+
+			XMVECTOR vSpeed = XMVectorReplicate(speed);
+			XMVECTOR vLook = XMLoadFloat3(&lookDir);
+			XMVECTOR vPos = XMLoadFloat3(&position);
+
+			vLook = XMVector3Normalize(vLook);
+
+			XMStoreFloat3(&position, XMVectorMultiplyAdd(vSpeed, -vLook, vPos));
 		}
 		if (GetAsyncKeyState('S')) {
-			position.z += 0.01f;
+			speed = -0.01f;
+
+			XMVECTOR vSpeed = XMVectorReplicate(speed);
+			XMVECTOR vLook = XMLoadFloat3(&lookDir);
+			XMVECTOR vPos = XMLoadFloat3(&position);
+
+			vLook = XMVector3Normalize(vLook);
+
+			XMStoreFloat3(&position, XMVectorMultiplyAdd(vSpeed, -vLook, vPos));
 		}
 		if (GetAsyncKeyState('A')) {
 			yaw -= 0.001f;
+			if (yaw >= 360.0f) {
+				yaw = 0.0f;
+			}
 		}
 		if (GetAsyncKeyState('D')) {
 			yaw += 0.001;
+			if (yaw >= 360.0f) {
+				yaw = 0.0f;
+			}
 		}
+
 	}
 }
