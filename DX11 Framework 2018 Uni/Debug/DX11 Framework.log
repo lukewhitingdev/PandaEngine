@@ -1,3 +1,18 @@
-﻿  Mesh.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Mesh.cpp(11): warning C4100: 'deltaTime': unreferenced formal parameter
+﻿  Application.cpp
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(175): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(180): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(185): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(192): warning C4244: 'argument': conversion from 'UINT' to 'float', possible loss of data
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(210): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(211): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(212): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(213): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(226): warning C4018: '<': signed/unsigned mismatch
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(227): warning C4018: '<': signed/unsigned mismatch
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(235): warning C4018: '<': signed/unsigned mismatch
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(510): warning C4018: '<': signed/unsigned mismatch
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(538): warning C4018: '<': signed/unsigned mismatch
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(555): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(556): warning C4238: nonstandard extension used: class rvalue used as lvalue
+C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(575): warning C4018: '<': signed/unsigned mismatch
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

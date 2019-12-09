@@ -14,6 +14,8 @@ firstPersonCamera::firstPersonCamera(XMFLOAT3 pos, XMFLOAT3 to, XMFLOAT3 up, XMF
 	_nearDepth = nearDepth;
 	_farDepth = farDepth;
 
+	offset = { 0.0f, 5.0f, -20.0f };
+
 }
 
 
@@ -28,6 +30,11 @@ void firstPersonCamera::UpdateStoredFloats()
 
 	// Store the projection matrix
 	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _windowWidth / (FLOAT)_windowHeight, 0.01f, 100.0f));
+}
+
+void firstPersonCamera::UpdatePositionRelativeToMesh()
+{
+	this->setCameraPos(attachedMesh->getPosition().x, attachedMesh->getPosition().y + offset.y, attachedMesh->getPosition().z);
 }
 
 void firstPersonCamera::updateCameraMovement(std::vector<Cam*>& camVector)

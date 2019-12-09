@@ -13,7 +13,6 @@ void Mesh::UpdateMovement(float deltaTime)
 	lookDir.z = cos(yaw);
 	lookDir.x = sin(yaw);
 
-
 	// Only do this if we have control
 	if (ObjectPossesed) {
 		if (GetAsyncKeyState('W')) {

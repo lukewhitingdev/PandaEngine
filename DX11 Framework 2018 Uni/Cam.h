@@ -27,11 +27,14 @@ public:
 	virtual XMFLOAT3 getUpPos();
 	virtual void setUpPos(float x, float y, float z);
 
-	virtual void setDebugMesh(Mesh* mesh);
-	virtual Mesh* getDebugMesh();
-	virtual void setDebugMeshPos(XMFLOAT3 pos);
-
 	virtual XMFLOAT3 getRight(); // Returns two different outcomes depending on which camera type you are using.
+
+	// Attaching to mesh's
+	virtual void UpdatePositionRelativeToMesh();
+	virtual void setAttachedMesh(Mesh* mesh) { attachedMesh = mesh; };
+	virtual Mesh* getAttachedMesh() { return attachedMesh; };
+	virtual void setAttachedOffset(XMFLOAT3 offset) { attachOffset = offset; };
+	virtual XMFLOAT3 getAttachedOffset() { return attachOffset; };
 
 	virtual XMFLOAT4X4 getViewMatrix();
 	virtual XMFLOAT4X4 getProjectionMatrix();
@@ -42,7 +45,8 @@ public:
 	virtual void updateCameraMovement(std::vector<Cam*>& camVector);
 
 protected:
-	Mesh* debugMesh = nullptr;
+	Mesh* attachedMesh = nullptr;
+	XMFLOAT3 attachOffset = { 0.0f, 0.0f, 0.0f };
 
 	XMFLOAT3 _eye; // Cam Position
 	XMFLOAT3 _at;

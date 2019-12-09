@@ -167,7 +167,7 @@ void Application::InitCamera()
 
 	// Initialize the view matrix
 	XMFLOAT3 Eye = XMFLOAT3(0.0f, 0.0f, -3.0f);
-	XMFLOAT3 At = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	XMFLOAT3 At = XMFLOAT3(0.0f, 0.0f, 1.0f);
 	XMFLOAT3 To = XMFLOAT3(0.0f, 0.0f, 1.0f);
 	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
 	XMFLOAT3 Right = XMFLOAT3(1.0f, 0.0f, 0.0f);
@@ -186,9 +186,13 @@ void Application::InitCamera()
 	cameraVector[2]->UpdateStoredFloats();
 
 
-	Eye = XMFLOAT3(0.0f, 0.0f, -3.0f);
+	Eye = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	To = XMFLOAT3(0.0f, 0.0f, -1.0f);
 
-	cameraVector.push_back(new firstPersonCamera(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector.push_back(new LookAtCam(Eye, At, Up, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector[3]->setAttachedMesh(shipMesh);
+	cameraVector[3]->setAttachedOffset(XMFLOAT3(0, 2, 0));
+	cameraVector[3]->setCameraPos(0, 0, 0);
 	cameraVector[3]->UpdateStoredFloats();
 
 	camManager->setDefaultCamera(cameraVector[0]);
@@ -500,8 +504,6 @@ void Application::Update()
 
 	float t = gTimer->getGameTime();
 
-
-
 	// TODO: Refactor
 	// Camera Movement
 
@@ -510,6 +512,11 @@ void Application::Update()
 	}
 
 	shipMesh->UpdateMovement(t);
+
+	if (camManager->getCurrentCamera()->getAttachedMesh() != nullptr) {
+		camManager->getCurrentCamera()->setLookAtPos(camManager->getCurrentCamera()->getAttachedMesh()->getPosition().x, camManager->getCurrentCamera()->getAttachedMesh()->getPosition().y, camManager->getCurrentCamera()->getAttachedMesh()->getPosition().z);
+		//camManager->getCurrentCamera()->UpdatePositionRelativeToMesh();
+	}
 
 	camManager->getCurrentCamera()->updateCameraMovement(cameraVector);
 
@@ -523,7 +530,7 @@ void Application::Update()
 		camManager->setCurrentCamera(cameraVector[2]);
 	}
 	if (GetAsyncKeyState('3')) {
-		shipMesh->setObjectPossesionState(false);
+		shipMesh->setObjectPossesionState(true);
 		camManager->setCurrentCamera(cameraVector[3]);
 	}
 	if (GetAsyncKeyState('0')) {
