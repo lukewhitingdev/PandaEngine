@@ -3,7 +3,7 @@
 
 pointLight::pointLight(XMFLOAT3 lightPos, XMFLOAT3 eyePos)
 {
-
+	lightType = POINT;
 	// Initializes light values
 	lightPosition = lightPos;
 

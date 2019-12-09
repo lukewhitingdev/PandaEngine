@@ -3,7 +3,7 @@
 
 directionalLight::directionalLight(XMFLOAT3 eyePos)
 {
-
+	lightType = DIRECTIONAL;
 	// Initializes light values
 	lightDirection = XMFLOAT3(0.5f, 0.0f, -1.0f);
 

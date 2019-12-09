@@ -251,12 +251,10 @@ void Application::InitObjects()
 
 void Application::InitLighting()
 {
-	dirLight = new directionalLight(camManager->getCurrentCamera()->getCameraPos());
-	pLight = new pointLight(XMFLOAT3(0.5f, 1.0f, 0.1f), camManager->getCurrentCamera()->getCameraPos());
-	sLight = new spotLight(XMFLOAT3(0.0f, 1.0f, 0.1f), XMFLOAT3(0.0f, -1.0f, -1.0f), camManager->getCurrentCamera()->getCameraPos());
-	lightVector.push_back(dirLight);
-	lightVector.push_back(pLight);
-	lightVector.push_back(sLight);
+	lightManager = new lightingManager();
+	lightManager->addLight(new directionalLight(camManager->getCurrentCamera()->getCameraPos()));
+	lightManager->addLight(new pointLight(XMFLOAT3(0.5f, 1.0f, 0.1f), camManager->getCurrentCamera()->getCameraPos()));
+	lightManager->addLight(new spotLight(XMFLOAT3(0.0f, 1.0f, 0.1f), XMFLOAT3(0.0f, -1.0f, -1.0f), camManager->getCurrentCamera()->getCameraPos()));
 }
 
 
@@ -565,9 +563,7 @@ void Application::Draw()
 	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
 
 	// Lighting
-	dirLight->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
-	pLight->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
-	sLight->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
+	lightManager->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
 
 	for (int i = 0; i < meshVector.size(); i++) {
 		meshVector[i]->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);

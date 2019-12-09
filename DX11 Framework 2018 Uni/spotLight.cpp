@@ -3,6 +3,7 @@
 
 spotLight::spotLight(XMFLOAT3 lightPos, XMFLOAT3 lightDir, XMFLOAT3 eyePos)
 {
+	lightType = SPOT;
 
 	// Initializes light values
 

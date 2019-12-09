@@ -16,6 +16,7 @@
 #include "GameTimer.h"
 #include "cameraManager.h"
 #include "saveToFileManager.h"
+#include "lightingManager.h"
 
 using namespace DirectX;
 
@@ -64,10 +65,8 @@ private:
 	Mesh* planeMesh;
 
 	// Lighting
-	std::vector<Light*> lightVector;
-	Light* dirLight;
-	Light* pLight;
-	Light* sLight;
+
+	lightingManager* lightManager;
 
 	// Camera stuff
 	std::vector<Cam*> cameraVector;

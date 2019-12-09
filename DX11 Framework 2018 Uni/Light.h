@@ -5,11 +5,22 @@
 #include <d3d11.h>
 class Light
 {
+
 public:
+
+	enum LightingTypes {
+		DIRECTIONAL,
+		SPOT,
+		POINT,
+		NONE
+	};
+
 	virtual void Draw(ID3D11DeviceContext*, ID3D11Buffer*, ConstantBuffer&, XMFLOAT3);
 	XMFLOAT3 getPosition() { return EyePosW; };
 
 protected:
 	XMFLOAT3 EyePosW; // Camera Pos in World
+	LightingTypes lightType = NONE;
 };
+
 
