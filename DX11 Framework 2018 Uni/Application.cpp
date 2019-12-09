@@ -78,24 +78,9 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	// Initialize the world matrix
 	XMStoreFloat4x4(&_world, XMMatrixIdentity());
-
-	fileManager = new saveToFileManager("test123.txt");
-
-	// Whether you would like to load from a file or not.
-	fileManager->setLoadObjectsFromFile(true);
 	
 	InitTimer();
-
-	// If you would like to load objects from file or from hard coded values.
-	// Will not have this if statement here, instead put it inside the objects and set the positions either to hard coded or non hard coded depending on bool.
-	if (fileManager->getLoadObjectsFromFile()) {
-		fileManager->LoadPositionsFromFile();
-	}
-	else {
-		InitObjects();
-	}
-
-
+	InitObjects();
 	InitCamera();
 	InitLighting();
 
@@ -220,27 +205,56 @@ void Application::InitCamera()
 
 void Application::InitObjects()
 {
+
+	fileManager = new saveToFileManager("Assets/ObjectPositions/MeshPos.txt");
+
+	// Whether you would like to load from a file or not.
+	fileManager->setLoadObjectsFromFile(true);
+
 	cubeMesh = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
 	cubeMesh2 = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_NRM.dds");
 	sphereMesh = new sphere(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
 	planeMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Boat.obj");
 
-	cubeMesh->setPosition(XMFLOAT3(-4.0f, 0.0f, 0.1f));
-	cubeMesh->setScale(0.3f);
-
-	cubeMesh2->setPosition(XMFLOAT3(4.0f, 0.0f, 0.1f));
-	cubeMesh2->setScale(0.3f);
-
-	sphereMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 30.0f));
-	sphereMesh->setScale(0.3f);
-
-	planeMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 20.0f));
-	planeMesh->setScale(0.3f);
-
 	meshVector.push_back(cubeMesh);
 	meshVector.push_back(cubeMesh2);
 	meshVector.push_back(sphereMesh);
 	meshVector.push_back(planeMesh);
+
+	if (fileManager->getLoadObjectsFromFile()) {
+
+		// Get the loaded positions from the file.
+		vector<XMFLOAT3> loadedPositions = fileManager->LoadPositionsFromFile();
+
+		// Load all the positions currently saved, make sure that if some objects arent saved properly, then it will not overrun the vector.
+		for (int i = 0; i < loadedPositions.size(); i++) {
+			if (i < meshVector.size()) {
+				meshVector[i]->setPosition(loadedPositions[i]);
+				meshVector[i]->setScale(0.3f);
+			}
+		}
+
+		// Loop through the rest of the mesh vector to reset all the new objects positions to 0 so they can be aligned within the program.
+		if (meshVector.size() > loadedPositions.size()) {
+			for(int i = loadedPositions.size(); i < meshVector.size(); i++){
+				meshVector[i]->setPosition(XMFLOAT3(0, 0, 0));
+			}
+		}
+
+	}
+	else {
+		cubeMesh->setPosition(XMFLOAT3(-4.0f, 0.0f, 0.1f));
+		cubeMesh->setScale(0.3f);
+
+		cubeMesh2->setPosition(XMFLOAT3(4.0f, 0.0f, 0.1f));
+		cubeMesh2->setScale(0.3f);
+
+		sphereMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 30.0f));
+		sphereMesh->setScale(0.3f);
+
+		planeMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 20.0f));
+		planeMesh->setScale(0.3f);
+	}
 }
 
 void Application::InitLighting()

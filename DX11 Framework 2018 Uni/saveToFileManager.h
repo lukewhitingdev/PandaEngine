@@ -13,7 +13,7 @@ public:
 	~saveToFileManager();
 
 	void SavePositionsToFile(vector<Cam*>& cVector, vector<Mesh*>& mVector, vector<Light*>& lVector);
-	void LoadPositionsFromFile();
+	vector<XMFLOAT3> LoadPositionsFromFile();
 	void setLoadObjectsFromFile(bool value) { loadObjectsFromFile = value; };
 	bool getLoadObjectsFromFile() { return loadObjectsFromFile; };
 

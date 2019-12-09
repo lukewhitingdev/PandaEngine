@@ -70,7 +70,7 @@ void saveToFileManager::SavePositionsToFile(vector<Cam*>& cVector, vector<Mesh*>
 		} */
 }
 
-void saveToFileManager::LoadPositionsFromFile()
+vector<XMFLOAT3> saveToFileManager::LoadPositionsFromFile()
 {
 	// Read file.
 	ifstream inStream;
@@ -82,6 +82,7 @@ void saveToFileManager::LoadPositionsFromFile()
 
 	// Push inStream seek to beginning
 	inStream.seekg(0, ios_base::beg);
+	
 	// Save all input
 	while (std::getline(inStream, currentLine)) {
 		savedLines.push_back(currentLine);
@@ -92,9 +93,12 @@ void saveToFileManager::LoadPositionsFromFile()
 		readPositions.push_back(extractPositionalInfoFromLine(savedLines[i]));
 	}
 
-	// TODO: Output positions vector.
 
 	inStream.close();
+
+	// TODO: Output positions vector.
+
+	return readPositions;
 }
 
 XMFLOAT3 saveToFileManager::extractPositionalInfoFromLine(string Line)
@@ -115,10 +119,13 @@ XMFLOAT3 saveToFileManager::extractPositionalInfoFromLine(string Line)
 	secondBreakPos = 0;
 
 	for (int i = 0; i < 3; i++) {
+		// Find the comma in the text.
 		firstBreakPos = insideBracesString.find(',', firstBreakPos + 1);
 
+		// Finds the value starting from the last recorded comma.
 		string ValueString = insideBracesString.substr(secondBreakPos, firstBreakPos);
 
+		// Finds the decimal point.
 		secondBreakPos = ValueString.find('.', 0);
 
 		// We have got the first value to 1 decimal place.
