@@ -239,7 +239,7 @@ void Application::InitObjects()
 	cubeMesh = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
 	cubeMesh2 = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_NRM.dds");
 	sphereMesh = new sphere(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
-	shipMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Boat.obj");
+	shipMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Boat.obj", true);
 
 	meshVector.push_back(cubeMesh);
 	meshVector.push_back(cubeMesh2);
@@ -248,7 +248,7 @@ void Application::InitObjects()
 
 	// Generate Ocean
 	for (int i = 0; i < 1; i++) {
-		meshVector.push_back(new customModel(_pd3dDevice, "Assets/Object Models/Custom/Plane.obj", true, Mesh::meshType::WAVE));
+		meshVector.push_back(new customModel(_pd3dDevice, L"Assets/Textures/Water/Ocean.dds", "Assets/Object Models/Custom/Plane.obj", Mesh::meshType::WAVE));
 	}
 
 	if (fileManager->getLoadObjectsFromFile()) {

@@ -1,7 +1,8 @@
 #include "customModel.h"
 
-customModel::customModel(ID3D11Device* device, const wchar_t* texfileName, char* objfileName)
+customModel::customModel(ID3D11Device* device, const wchar_t* texfileName, char* objfileName, meshType meshType)
 {
+	mType = meshType;
 	// Reset the local matrix
 	XMStoreFloat4x4(&objectMatrix, XMMatrixIdentity());
 
