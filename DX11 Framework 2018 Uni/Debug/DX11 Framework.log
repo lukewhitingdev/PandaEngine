@@ -1,7 +1,7 @@
 ﻿  Application.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(219): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(220): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(221): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(222): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(231): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-  DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(239,76): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(240,75): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(241,80): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(242,126): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(251,121): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+  DX11 Framework.vcxproj -> F:\Local Git\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe

@@ -280,10 +280,6 @@ VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TEXCO
 {
 	VS_OUTPUT output = (VS_OUTPUT) 0;
 	
-	computeWaves(	5, 0.25, 
-					Pos, NormalL
-					,Pos, NormalL);
-	
 	output.Pos = mul(Pos, World);
     output.Pos = mul(output.Pos, View);
     output.Pos = mul(output.Pos, Projection);
@@ -296,6 +292,30 @@ VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TEXCO
 
 	// just pass the texture from the input to the pixel shader.
 	output.Tex = Tex;
+
+    return output;
+}
+
+VS_OUTPUT waveVS(float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TEXCOORD)
+{
+    VS_OUTPUT output = (VS_OUTPUT) 0;
+    
+    computeWaves(3, 0.1,
+					Pos, NormalL
+					, Pos, NormalL);
+	
+    output.Pos = mul(Pos, World);
+    output.Pos = mul(output.Pos, View);
+    output.Pos = mul(output.Pos, Projection);
+
+	// Convert from local space to world space
+	// W Component of vector is 0 as vectors cannot be translated cuz they are vectors
+    float3 normalW = mul(float4(NormalL, 0.0f), World).xyz;
+    normalW = normalize(normalW);
+    output.Norm = normalW;
+
+	// just pass the texture from the input to the pixel shader.
+    output.Tex = Tex;
 
     return output;
 }

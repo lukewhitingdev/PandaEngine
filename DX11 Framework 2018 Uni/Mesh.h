@@ -6,8 +6,15 @@
 class Mesh
 {
 public:
+
+	enum meshType {
+		WAVE,
+		STATIC,
+		NONE
+	};
+
 	// Load the obj files from a constructor and draw and update them from this virtual
-	virtual void Draw(ID3D11DeviceContext*, ID3D11PixelShader*, ID3D11Buffer*, ConstantBuffer&);
+	virtual void Draw(ID3D11DeviceContext*, ID3D11PixelShader*,ID3D11VertexShader* , ID3D11Buffer*, ConstantBuffer&);
 	virtual void Update(float);
 
 
@@ -19,6 +26,10 @@ public:
 	virtual void UpdateMovement(float deltaTime);
 	virtual bool getObjectPossesionState() { return ObjectPossesed; };
 	virtual void setObjectPossesionState(bool state) { ObjectPossesed = state; };
+	virtual meshType getMeshType() { return mType; };
+
+	// Mesh Type
+	meshType mType = NONE;
 
 protected:
 	ID3D11ShaderResourceView* textureResourceView;

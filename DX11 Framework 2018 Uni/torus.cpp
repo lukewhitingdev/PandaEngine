@@ -14,7 +14,7 @@ torus::torus(ID3D11Device* device, const wchar_t* texfileName)
 	offset = objMeshLoader.VBOffset;
 }
 
-void torus::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb)
+void torus::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11VertexShader* vertexShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb)
 {
 
 	// Transpose the local matrix and pass it to the constant buffer
@@ -25,6 +25,9 @@ void torus::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, I
 	// Reset the pixel shader texture.
 	context->PSSetShaderResources(0, 1, &textureResourceView);
 	context->PSSetShader(pixelShader, nullptr, 0);
+
+	// Set the vertex buffer
+	context->VSSetShader(vertexShader, nullptr, 0);
 
 	// Set buffers and draw.
 	context->IASetVertexBuffers(0, 1, &objMeshLoader.VertexBuffer, &stride, &offset);

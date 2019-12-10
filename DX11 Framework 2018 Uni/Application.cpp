@@ -34,8 +34,8 @@ Application::Application()
 	_pImmediateContext = nullptr;
 	_pSwapChain = nullptr;
 	_pRenderTargetView = nullptr;
-	_pVertexShader = nullptr;
-	_pPixelShader = nullptr;
+	_defaultVertexShader = nullptr;
+	_defaultPixelShader = nullptr;
 	_pVertexLayout = nullptr;
 	_pVertexBuffer = nullptr;
 	_pIndexBuffer = nullptr;
@@ -112,12 +112,32 @@ HRESULT Application::InitShadersAndInputLayout()
     }
 
 	// Create the vertex shader
-	hr = _pd3dDevice->CreateVertexShader(pVSBlob->GetBufferPointer(), pVSBlob->GetBufferSize(), nullptr, &_pVertexShader);
+	hr = _pd3dDevice->CreateVertexShader(pVSBlob->GetBufferPointer(), pVSBlob->GetBufferSize(), nullptr, &_defaultVertexShader);
 
 	if (FAILED(hr))
 	{	
 		pVSBlob->Release();
         return hr;
+	}
+
+	// Compile the wave vertex shader
+	ID3DBlob* pWaveVSBlob = nullptr;
+	hr = CompileShaderFromFile(L"DX11 Framework.fx", "waveVS", "vs_4_0", &pWaveVSBlob);
+
+	if (FAILED(hr))
+	{
+		MessageBox(nullptr,
+			L"The FX file cannot be compiled.  Please run this executable from the directory that contains the FX file.", L"Error", MB_OK);
+		return hr;
+	}
+
+	// Create the vertex shader
+	hr = _pd3dDevice->CreateVertexShader(pWaveVSBlob->GetBufferPointer(), pWaveVSBlob->GetBufferSize(), nullptr, &_waveVertexShader);
+
+	if (FAILED(hr))
+	{
+		pWaveVSBlob->Release();
+		return hr;
 	}
 
 	// Compile the pixel shader
@@ -132,7 +152,7 @@ HRESULT Application::InitShadersAndInputLayout()
     }
 
 	// Create the pixel shader
-	hr = _pd3dDevice->CreatePixelShader(pPSBlob->GetBufferPointer(), pPSBlob->GetBufferSize(), nullptr, &_pPixelShader);
+	hr = _pd3dDevice->CreatePixelShader(pPSBlob->GetBufferPointer(), pPSBlob->GetBufferSize(), nullptr, &_defaultPixelShader);
 	pPSBlob->Release();
 
     if (FAILED(hr))
@@ -228,7 +248,7 @@ void Application::InitObjects()
 
 	// Generate Ocean
 	for (int i = 0; i < 1; i++) {
-		meshVector.push_back(new customModel(_pd3dDevice, "Assets/Object Models/Custom/Plane.obj", true));
+		meshVector.push_back(new customModel(_pd3dDevice, "Assets/Object Models/Custom/Plane.obj", true, Mesh::meshType::WAVE));
 	}
 
 	if (fileManager->getLoadObjectsFromFile()) {
@@ -263,10 +283,10 @@ void Application::InitObjects()
 		sphereMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 30.0f));
 		sphereMesh->setScale(0.3f);
 
-		shipMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 20.0f));
+		shipMesh->setPosition(XMFLOAT3(0.0f, 0.0f, 20.0f));
 		shipMesh->setScale(0.3f);
 
-		meshVector[4]->setPosition(XMFLOAT3(0.0f, -1.1f, 5.0f));
+		meshVector[4]->setPosition(XMFLOAT3(0.0f, -0.8f, 5.0f));
 		meshVector[4]->setScale(1.0f);
 	}
 }
@@ -501,8 +521,8 @@ void Application::Cleanup()
     if (_pVertexBuffer) _pVertexBuffer->Release();
     if (_pIndexBuffer) _pIndexBuffer->Release();
     if (_pVertexLayout) _pVertexLayout->Release();
-    if (_pVertexShader) _pVertexShader->Release();
-    if (_pPixelShader) _pPixelShader->Release();
+    if (_defaultVertexShader) _defaultVertexShader->Release();
+    if (_defaultPixelShader) _defaultPixelShader->Release();
     if (_pRenderTargetView) _pRenderTargetView->Release();
     if (_pSwapChain) _pSwapChain->Release();
     if (_pImmediateContext) _pImmediateContext->Release();
@@ -584,12 +604,12 @@ void Application::Draw()
 	cb.mView = XMMatrixTranspose(view);
 	cb.mProjection = XMMatrixTranspose(projection);
 
-	_pImmediateContext->VSSetShader(_pVertexShader, nullptr, 0);
+	_pImmediateContext->VSSetShader(_defaultVertexShader, nullptr, 0);
 	_pImmediateContext->VSSetConstantBuffers(0, 1, &_pConstantBuffer);
 	_pImmediateContext->PSSetConstantBuffers(0, 1, &_pConstantBuffer);
 	_pImmediateContext->PSSetSamplers(0, 1, &textureSamplerState);
 	_pImmediateContext->PSSetShaderResources(0, 1, &textureResourceView);
-	_pImmediateContext->PSSetShader(_pPixelShader, nullptr, 0);
+	_pImmediateContext->PSSetShader(_defaultPixelShader, nullptr, 0);
 
 	cb.gTime = gTimer->getGameTime();
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
@@ -598,7 +618,12 @@ void Application::Draw()
 	lightManager->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
 
 	for (size_t i = 0; i < meshVector.size(); i++) {
-		meshVector[i]->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);
+		if (meshVector[i]->getMeshType() != Mesh::meshType::WAVE) {
+			meshVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _defaultVertexShader, _pConstantBuffer, cb);
+		}
+		else {
+			meshVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _waveVertexShader, _pConstantBuffer, cb);
+		}
 	}
 
 	if (GetAsyncKeyState(VK_F1)) {

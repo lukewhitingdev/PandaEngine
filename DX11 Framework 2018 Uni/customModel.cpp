@@ -28,8 +28,9 @@ customModel::customModel(ID3D11Device* device, const wchar_t* texfileName, char*
 	offset = objMeshLoader.VBOffset;
 }
 
-customModel::customModel(ID3D11Device* device, char* objfileName, bool rHand)
+customModel::customModel(ID3D11Device* device, char* objfileName, bool rHand, meshType meshType)
 {
+	mType = meshType;
 	// Reset the local matrix
 	XMStoreFloat4x4(&objectMatrix, XMMatrixIdentity());
 
@@ -42,7 +43,7 @@ customModel::customModel(ID3D11Device* device, char* objfileName, bool rHand)
 	offset = objMeshLoader.VBOffset;
 }
 
-void customModel::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb)
+void customModel::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11VertexShader* vertexShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb)
 {
 
 	// Transpose the local matrix and pass it to the constant buffer
@@ -53,6 +54,9 @@ void customModel::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelSha
 	// Reset the pixel shader texture.
 	context->PSSetShaderResources(0, 1, &textureResourceView);
 	context->PSSetShader(pixelShader, nullptr, 0);
+	
+	// Set the vertex buffer
+	context->VSSetShader(vertexShader, nullptr, 0);
 
 	// Set buffers and draw.
 	context->IASetVertexBuffers(0, 1, &objMeshLoader.VertexBuffer, &stride, &offset);
