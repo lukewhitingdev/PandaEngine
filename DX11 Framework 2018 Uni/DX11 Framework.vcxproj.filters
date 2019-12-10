@@ -93,12 +93,21 @@
     <Filter Include="Utility\FileManager">
       <UniqueIdentifier>{fa786fdc-41a0-420b-9bb3-4d22ecab6a1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utility\Loaders">
+      <UniqueIdentifier>{d7db4e89-ecd2-407e-a9a8-cef9977dd77c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\Loaders\MeshLoader">
+      <UniqueIdentifier>{527d8e48-4a00-44a5-8424-836023d1d1f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\Loaders\TextureLoader">
+      <UniqueIdentifier>{df35c7f8-8062-4292-9ffc-0f547a8180e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cameras\Static FPS">
+      <UniqueIdentifier>{ed4a633e-b000-4194-a3b6-a941b759af86}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
-      <Filter>Code</Filter>
-    </ClInclude>
-    <ClInclude Include="DDSTextureLoader.h">
       <Filter>Code</Filter>
     </ClInclude>
     <ClInclude Include="Structures.h">
@@ -127,9 +136,6 @@
     </ClInclude>
     <ClInclude Include="directionalLight.h">
       <Filter>Lights\Directional</Filter>
-    </ClInclude>
-    <ClInclude Include="OBJLoader.h">
-      <Filter>Code</Filter>
     </ClInclude>
     <ClInclude Include="LightingIncludes.h">
       <Filter>Includes</Filter>
@@ -167,7 +173,6 @@
     <ClInclude Include="staticGeneratedCamera.h">
       <Filter>Cameras\StaticCamera\Static Generated</Filter>
     </ClInclude>
-    <ClInclude Include="firstPersonCamera.h" />
     <ClInclude Include="UtlilityClass.h">
       <Filter>Utility\Helper</Filter>
     </ClInclude>
@@ -175,12 +180,18 @@
       <Filter>Utility\FileManager</Filter>
     </ClInclude>
     <ClInclude Include="lightingManager.h" />
+    <ClInclude Include="DDSTextureLoader.h">
+      <Filter>Utility\Loaders\TextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJLoader.h">
+      <Filter>Utility\Loaders\MeshLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="firstPersonCamera.h">
+      <Filter>Cameras\Static FPS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
-      <Filter>Code</Filter>
-    </ClCompile>
-    <ClCompile Include="DDSTextureLoader.cpp">
       <Filter>Code</Filter>
     </ClCompile>
     <ClCompile Include="DX11 Framework.cpp">
@@ -210,9 +221,6 @@
     <ClCompile Include="directionalLight.cpp">
       <Filter>Lights\Directional</Filter>
     </ClCompile>
-    <ClCompile Include="OBJLoader.cpp">
-      <Filter>Code</Filter>
-    </ClCompile>
     <ClCompile Include="Cam.cpp">
       <Filter>Virtual Classes\Camera</Filter>
     </ClCompile>
@@ -240,7 +248,6 @@
     <ClCompile Include="staticGeneratedCamera.cpp">
       <Filter>Cameras\StaticCamera\Static Generated</Filter>
     </ClCompile>
-    <ClCompile Include="firstPersonCamera.cpp" />
     <ClCompile Include="UtlilityClass.cpp">
       <Filter>Utility\Helper</Filter>
     </ClCompile>
@@ -248,6 +255,15 @@
       <Filter>Utility\FileManager</Filter>
     </ClCompile>
     <ClCompile Include="lightingManager.cpp" />
+    <ClCompile Include="DDSTextureLoader.cpp">
+      <Filter>Utility\Loaders\TextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJLoader.cpp">
+      <Filter>Utility\Loaders\MeshLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="firstPersonCamera.cpp">
+      <Filter>Cameras\Static FPS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

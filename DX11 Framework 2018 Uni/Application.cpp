@@ -214,7 +214,7 @@ void Application::InitObjects()
 	fileManager = new saveToFileManager("Assets/ObjectPositions/MeshPos.txt");
 
 	// Whether you would like to load from a file or not.
-	fileManager->setLoadObjectsFromFile(true);
+	fileManager->setLoadObjectsFromFile(false);
 
 	cubeMesh = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
 	cubeMesh2 = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_NRM.dds");
@@ -225,6 +225,11 @@ void Application::InitObjects()
 	meshVector.push_back(cubeMesh2);
 	meshVector.push_back(sphereMesh);
 	meshVector.push_back(shipMesh);
+
+	// Generate Ocean
+	for (int i = 0; i < 1; i++) {
+		meshVector.push_back(new customModel(_pd3dDevice, "Assets/Object Models/Custom/Plane.obj", true));
+	}
 
 	if (fileManager->getLoadObjectsFromFile()) {
 
@@ -248,6 +253,7 @@ void Application::InitObjects()
 
 	}
 	else {
+		// Use this to position objects and save them to the file for later.
 		cubeMesh->setPosition(XMFLOAT3(-4.0f, 0.0f, 0.1f));
 		cubeMesh->setScale(0.3f);
 
@@ -259,6 +265,9 @@ void Application::InitObjects()
 
 		shipMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 20.0f));
 		shipMesh->setScale(0.3f);
+
+		meshVector[4]->setPosition(XMFLOAT3(0.0f, -1.1f, 5.0f));
+		meshVector[4]->setScale(1.0f);
 	}
 }
 

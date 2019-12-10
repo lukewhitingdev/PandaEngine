@@ -28,6 +28,20 @@ customModel::customModel(ID3D11Device* device, const wchar_t* texfileName, char*
 	offset = objMeshLoader.VBOffset;
 }
 
+customModel::customModel(ID3D11Device* device, char* objfileName, bool rHand)
+{
+	// Reset the local matrix
+	XMStoreFloat4x4(&objectMatrix, XMMatrixIdentity());
+
+	// Get the texture and load the mesh
+	CreateDDSTextureFromFile(device, L"Assets/Textures/Debug/defaultTex.dds", nullptr, &textureResourceView);
+	objMeshLoader = OBJLoader::Load(objfileName, device, rHand);
+
+	// set stride and offsets for later
+	stride = objMeshLoader.VBStride;
+	offset = objMeshLoader.VBOffset;
+}
+
 void customModel::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb)
 {
 
