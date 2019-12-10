@@ -12,7 +12,7 @@ GameTimer::GameTimer()
 	previousTime = 0;
 	currentTime = 0;
 	timerStopped = false;
-	stopTime = 0.0f;
+	stopTime = (__int64)0.0f;
 
 	__int64 countsPerSec;
 	QueryPerformanceFrequency((LARGE_INTEGER*)&countsPerSec);

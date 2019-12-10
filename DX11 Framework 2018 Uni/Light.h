@@ -19,7 +19,7 @@ public:
 	XMFLOAT3 getPosition() { return EyePosW; };
 
 protected:
-	XMFLOAT3 EyePosW; // Camera Pos in World
+	XMFLOAT3 EyePosW = { 0, 0, 0 }; // Camera Pos in World
 	LightingTypes lightType = NONE;
 };
 

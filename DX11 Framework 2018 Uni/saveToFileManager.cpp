@@ -12,14 +12,13 @@ saveToFileManager::~saveToFileManager()
 {
 }
 
-void saveToFileManager::SavePositionsToFile(vector<Cam*>& cVector, vector<Mesh*>& mVector, vector<Light*>& lVector)
+void saveToFileManager::SavePositionsToFile(vector<Mesh*>& mVector)
 {
 	ofstream outStream;
-	int length;
 	outStream.open(savedFileName);
 
 	// Write all Mesh positions to the text file.
-	for (int i = 0; i < mVector.size(); i++) {
+	for (size_t i = 0; i < mVector.size(); i++) {
 		XMFLOAT3 currentMeshPos = mVector[i]->getPosition();
 		outStream << "mesh" + to_string(i) + " ";
 		outStream << "(" + to_string(currentMeshPos.x) + "," + to_string(currentMeshPos.y) + "," + to_string(currentMeshPos.z) + ")";
@@ -74,7 +73,6 @@ vector<XMFLOAT3> saveToFileManager::LoadPositionsFromFile()
 {
 	// Read file.
 	ifstream inStream;
-	int length;
 	vector<string> savedLines;
 	vector<XMFLOAT3> readPositions;
 	string currentLine;
@@ -89,7 +87,7 @@ vector<XMFLOAT3> saveToFileManager::LoadPositionsFromFile()
 	}
 
 	// Extract the positions from the file
-	for (int i = 0; i < savedLines.size(); i++) {
+	for (size_t i = 0; i < savedLines.size(); i++) {
 		readPositions.push_back(extractPositionalInfoFromLine(savedLines[i]));
 	}
 

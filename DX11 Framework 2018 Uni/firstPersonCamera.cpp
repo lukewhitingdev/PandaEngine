@@ -39,6 +39,7 @@ void firstPersonCamera::UpdatePositionRelativeToMesh()
 
 void firstPersonCamera::updateCameraMovement(std::vector<Cam*>& camVector)
 {
+	camVector = camVector;
 	POINT cursorPoint = getCursorPos();
 
 	if (cursorPoint.x != lastPoint.x && cursorPoint.y != lastPoint.y) {
@@ -63,8 +64,8 @@ POINT firstPersonCamera::getCursorPos()
 		lastPoint = point;
 	}
 
-	float diffX = lastPoint.x - point.x;
-	float diffY = lastPoint.y - point.y;
+	float diffX = (float)lastPoint.x - (float)point.x;
+	float diffY = (float)lastPoint.y - (float)point.y;
 
 	lastPoint = point;
 

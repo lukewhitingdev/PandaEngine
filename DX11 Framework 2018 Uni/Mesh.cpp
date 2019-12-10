@@ -50,5 +50,7 @@ void Mesh::UpdateMovement(float deltaTime)
 			}
 		}
 
+		deltaTime = deltaTime;
+
 	}
 }

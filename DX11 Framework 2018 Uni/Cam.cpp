@@ -3,6 +3,17 @@
 
 Cam::Cam()
 {
+	_aspect = 0;
+	_at = { 0, 0, 0 };
+	_eye = { 0, 0, 0 };
+	_farDepth = 1000.0f;
+	_fovY = 0;
+	_nearDepth = 0;
+	_right = { 0, 0, 0 };
+	_to = { 0, 0, 0 };
+	_up = { 0, 0, 0 };
+	_windowWidth = 0;
+	_windowHeight = 0;
 }
 
 void Cam::UpdateStoredFloats()
@@ -64,7 +75,7 @@ XMFLOAT3 Cam::getRight()
 
 void Cam::UpdatePositionRelativeToMesh()
 {
-	this->setCameraPos(attachedMesh->getPosition().x + attachOffset.x, attachedMesh->getPosition().y + attachOffset.y, attachedMesh->getPosition().z + attachOffset.z);
+	this->setCameraPos(attachedMesh->getPosition().x + 1.0f, attachedMesh->getPosition().y + 1.0f, attachedMesh->getPosition().z + attachOffset.z);
 }
 
 XMFLOAT3 Cam::getUpPos()
@@ -98,5 +109,6 @@ void Cam::Reshape(float wWidth, float wHeight, float nearDepth, float farDepth)
 
 void Cam::updateCameraMovement(std::vector<Cam*>& camVector)
 {
+	camVector = camVector;
 }
 

@@ -47,8 +47,17 @@ Application::Application()
 	_normalView = nullptr;
 	_wireFrame = nullptr;
 	textureResourceView = nullptr;
-
-	
+	camManager = nullptr;
+	cubeMesh = nullptr;
+	cubeMesh2 = nullptr;
+	currentCameraNumber = 0;
+	fileManager = nullptr;
+	gTimer = nullptr;
+	lightManager = nullptr;
+	objMeshLoader = MeshData();
+	shipMesh = nullptr;
+	sphereMesh = nullptr;
+	textureSamplerState = nullptr;
 }
 
 Application::~Application()
@@ -172,24 +181,24 @@ void Application::InitCamera()
 	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
 	XMFLOAT3 Right = XMFLOAT3(1.0f, 0.0f, 0.0f);
 
-	cameraVector.push_back(new debugCamera(Eye, To, Up, Right, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector.push_back(new debugCamera(Eye, To, Up, Right, (float)_WindowWidth, (float)_WindowHeight, 0.0f, 1000.0f));
 	cameraVector[0]->UpdateStoredFloats();
 
 	Eye = XMFLOAT3(0.0f, 2.0f, -3.0f);
 
-	cameraVector.push_back(new staticCamera(Eye, At, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector.push_back(new staticCamera(Eye, At, (float)_WindowWidth, (float)_WindowHeight, 0.0f, 1000.0f));
 	cameraVector[1]->UpdateStoredFloats();
 
 	Eye = XMFLOAT3(0.0f, 20.0f, 1.0f);
 
-	cameraVector.push_back(new staticGeneratedCamera(Eye, To, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector.push_back(new staticGeneratedCamera(Eye, To, (float)_WindowWidth, (float)_WindowHeight, 0.0f, 1000.0f));
 	cameraVector[2]->UpdateStoredFloats();
 
 
 	Eye = XMFLOAT3(0.0f, 0.0f, 0.0f);
 	To = XMFLOAT3(0.0f, 0.0f, -1.0f);
 
-	cameraVector.push_back(new LookAtCam(Eye, At, Up, _WindowWidth, _WindowHeight, 0.0f, 1000.0f));
+	cameraVector.push_back(new LookAtCam(Eye, At, Up, (float)_WindowWidth, (float)_WindowHeight, 0.0f, 1000.0f));
 	cameraVector[3]->setAttachedMesh(shipMesh);
 	cameraVector[3]->setAttachedOffset(XMFLOAT3(0, 2, 0));
 	cameraVector[3]->setCameraPos(0, 0, 0);
@@ -223,7 +232,7 @@ void Application::InitObjects()
 		vector<XMFLOAT3> loadedPositions = fileManager->LoadPositionsFromFile();
 
 		// Load all the positions currently saved, make sure that if some objects arent saved properly, then it will not overrun the vector.
-		for (int i = 0; i < loadedPositions.size(); i++) {
+		for (size_t i = 0; i < loadedPositions.size(); i++) {
 			if (i < meshVector.size()) {
 				meshVector[i]->setPosition(loadedPositions[i]);
 				meshVector[i]->setScale(0.3f);
@@ -232,7 +241,7 @@ void Application::InitObjects()
 
 		// Loop through the rest of the mesh vector to reset all the new objects positions to 0 so they can be aligned within the program.
 		if (meshVector.size() > loadedPositions.size()) {
-			for(int i = loadedPositions.size(); i < meshVector.size(); i++){
+			for(size_t i = loadedPositions.size(); i < meshVector.size(); i++){
 				meshVector[i]->setPosition(XMFLOAT3(0, 0, 0));
 			}
 		}
@@ -507,7 +516,7 @@ void Application::Update()
 	// TODO: Refactor
 	// Camera Movement
 
-	for (int i = 0; i < meshVector.size(); i++) {
+	for (size_t i = 0; i < meshVector.size(); i++) {
 		meshVector[i]->Update(gTimer->getGameTime());
 	}
 
@@ -535,7 +544,7 @@ void Application::Update()
 	}
 	if (GetAsyncKeyState('0')) {
 		// So we dont move objects whilst in debug
-		for (int i = 0; i < meshVector.size(); i++) {
+		for (size_t i = 0; i < meshVector.size(); i++) {
 			meshVector[i]->setObjectPossesionState(false);
 		}
 		camManager->setCurrentCamera(cameraVector[0]); // Debug Camera
@@ -551,9 +560,13 @@ void Application::Draw()
     _pImmediateContext->ClearRenderTargetView(_pRenderTargetView, ClearColor);
 	_pImmediateContext->ClearDepthStencilView(_depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
+
+	XMFLOAT4X4 camView = camManager->getCurrentCamera()->getViewMatrix();
+	XMFLOAT4X4 camProj = camManager->getCurrentCamera()->getProjectionMatrix();
+
 	XMMATRIX world = XMLoadFloat4x4(&_world);
-	XMMATRIX view = XMLoadFloat4x4(&camManager->getCurrentCamera()->getViewMatrix());
-	XMMATRIX projection = XMLoadFloat4x4(&camManager->getCurrentCamera()->getProjectionMatrix());
+	XMMATRIX view = XMLoadFloat4x4(&camView);
+	XMMATRIX projection = XMLoadFloat4x4(&camProj);
     //
     // Update variables
     //
@@ -572,7 +585,7 @@ void Application::Draw()
 	// Lighting
 	lightManager->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
 
-	for (int i = 0; i < meshVector.size(); i++) {
+	for (size_t i = 0; i < meshVector.size(); i++) {
 		meshVector[i]->Draw(_pImmediateContext, _pPixelShader, _pConstantBuffer, cb);
 	}
 

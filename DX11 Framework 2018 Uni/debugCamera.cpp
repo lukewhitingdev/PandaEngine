@@ -108,8 +108,8 @@ POINT debugCamera::getCursorPos()
 		lastPoint = point;
 	}
 
-	float diffX = lastPoint.x - point.x;
-	float diffY = lastPoint.y - point.y;
+	float diffX = (float)lastPoint.x - (float)point.x;
+	float diffY = (float)lastPoint.y - (float)point.y;
 
 	lastPoint = point;
 

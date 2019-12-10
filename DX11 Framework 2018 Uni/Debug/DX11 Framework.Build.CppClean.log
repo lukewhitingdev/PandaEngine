@@ -1,9 +1,8 @@
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\vc142.pdb
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\vc142.idb
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\torus.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\spotlight.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\pointlight.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\sphere.obj
+c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\savetofilemanager.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\objloader.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\mesh.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\debugcamera.obj
@@ -15,14 +14,17 @@ c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\cyli
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\custommodel.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\cube.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\lookatcam.obj
+c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\lightingmanager.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\gametimer.obj
+c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\firstpersoncamera.obj
+c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\cameramanager.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\cam.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\application.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\cameramanager.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\staticcamera.obj
+c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\utlilityclass.obj
+c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\torus.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\staticgeneratedcamera.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\firstpersoncamera.obj
-c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\utilitynamespace.obj
+c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\staticcamera.obj
+c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\spotlight.obj
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.exe
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.ilk
 c:\users\w019134i\documents\github\peboengine\dx11 framework 2018 uni\debug\dx11 framework.pdb

@@ -12,7 +12,7 @@ public:
 	saveToFileManager(const char* fileName);
 	~saveToFileManager();
 
-	void SavePositionsToFile(vector<Cam*>& cVector, vector<Mesh*>& mVector, vector<Light*>& lVector);
+	void SavePositionsToFile(vector<Mesh*>& mVector);
 	vector<XMFLOAT3> LoadPositionsFromFile();
 	void setLoadObjectsFromFile(bool value) { loadObjectsFromFile = value; };
 	bool getLoadObjectsFromFile() { return loadObjectsFromFile; };

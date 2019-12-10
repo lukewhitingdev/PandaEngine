@@ -49,4 +49,5 @@ void customModel::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelSha
 void customModel::Update(float time)
 {
 	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(yaw) * XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale, scale, scale));
+	time = time;
 }

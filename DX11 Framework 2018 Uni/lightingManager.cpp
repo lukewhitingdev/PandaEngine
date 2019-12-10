@@ -18,7 +18,7 @@ void lightingManager::addLight(Light* light)
 
 void lightingManager::Draw(ID3D11DeviceContext* context, ID3D11Buffer* cBuffer, ConstantBuffer& cb, XMFLOAT3 eyePos)
 {
-	for (int i = 0; i < lightVector.size(); i++) {
+	for (size_t i = 0; i < lightVector.size(); i++) {
 		lightVector[i]->Draw(context, cBuffer, cb, eyePos);
 	}
 }
