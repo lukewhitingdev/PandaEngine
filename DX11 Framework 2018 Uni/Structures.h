@@ -90,6 +90,7 @@ struct ConstantBuffer
 	Material globalMaterial;
 
 	XMFLOAT3 EyePosW; // Camera Pos in World
+	float gTime;
 
 };
 

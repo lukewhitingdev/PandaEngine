@@ -79,8 +79,9 @@ cbuffer ConstantBuffer : register( b0 )
 
     Material globalMaterial;
 
-    float4 EyePosW;
-    
+    float3 EyePosW;
+	float gTime;
+   
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -217,6 +218,50 @@ void ComputeSpotLightPS(Material inputMat, SpotLight spotLight, float3 normalW, 
 
 }
 
+void computeWaves(float waveLength, float steepness, float4 inputPos, float3 inputNorm,
+								out float4 outputPos, out float3 outputNorm)
+{
+	
+	float4 Pos = inputPos;
+	
+	float2 waveDir = { 1.0f, 1.0f };
+	
+	// Compute Wavelength  (k)
+	float WaveLength = 2 * 3.14 / waveLength;
+	
+	// Calculate phase speed (c)
+	float phaseSpeed = sqrt(9.8 / WaveLength);
+	
+	// Make the amplitude relative to the steepness to allow manipulation.
+	float amplitude = steepness / WaveLength;
+	
+	// Normalize the waveDirection (d)
+	float2 direction = normalize(waveDir);
+	
+	// Make the wavey ness (f)
+	float wave = WaveLength * (dot(direction, Pos.xz) - phaseSpeed * gTime);
+
+	// Compute xy
+	Pos.x += amplitude * cos(wave);
+	Pos.y = amplitude * sin(wave);
+	
+	// Compute normals
+	float3 tangent = float3(1 - direction.x * direction.x * (steepness * sin(wave)),
+							direction.x * (steepness * cos(wave)),
+							-direction.x * direction.y * (steepness * sin(wave)));
+	float3 binormal = float3(-direction.x * direction.y * (steepness * sin(wave)),
+							direction.y * (steepness * cos(wave)),
+							1 - direction.y * direction.y * (steepness * sin(wave)));
+	
+	float3 normal = normalize(cross(binormal, tangent));
+	
+	
+	// Output
+	outputPos = Pos;
+	outputNorm = normal;
+
+	}
+
 
 //--------------------------------------------------------------------------------------
 struct VS_OUTPUT
@@ -233,8 +278,12 @@ struct VS_OUTPUT
 //--------------------------------------------------------------------------------------
 VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TEXCOORD)
 {
-	VS_OUTPUT output = (VS_OUTPUT)0;
-
+	VS_OUTPUT output = (VS_OUTPUT) 0;
+	
+	computeWaves(	5, 0.25, 
+					Pos, NormalL
+					,Pos, NormalL);
+	
 	output.Pos = mul(Pos, World);
     output.Pos = mul(output.Pos, View);
     output.Pos = mul(output.Pos, Projection);
@@ -257,7 +306,6 @@ VS_OUTPUT VS( float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TEXCO
 //--------------------------------------------------------------------------------------
 float4 PS(VS_OUTPUT input) : SV_Target
 {
-
 	float4 textureColor = txDiffuse.Sample(samLinear, input.Tex);
 
     float3 toEye = normalize(EyePosW.xyz - input.Pos.xyz);

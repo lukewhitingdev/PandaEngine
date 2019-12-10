@@ -9,5 +9,8 @@ public:
 	void Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb);
 	void Update(float time);
 
+
+private:
+	int debugTime;
 };
 
