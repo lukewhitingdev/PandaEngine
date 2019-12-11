@@ -638,7 +638,7 @@ void Application::Draw()
 		lightManager->enableOnly(Light::DIRECTIONAL);
 	}
 	if (GetAsyncKeyState(VK_F5)) {
-		lightManager->enableOnly(Light::SPOT);
+		lightManager->enableOnly(Light::POINT);
 	}
 	if (GetAsyncKeyState(VK_F6)) {
 		lightManager->resetLighting();
