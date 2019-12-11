@@ -20,15 +20,9 @@ void Mesh::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID
 	context->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
 }
 
-void Mesh::Update(float time, bool rotate, bool translate)
+void Mesh::Update(float time)
 {
-	if (rotate) {
-		XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixScaling(scale.x, scale.y, scale.z));
-	}
-	if (translate) {
-		XMStoreFloat4x4(&objectMatrix, XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
-	}
-
+	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
 }
 
 void Mesh::UpdateMovement(float deltaTime)

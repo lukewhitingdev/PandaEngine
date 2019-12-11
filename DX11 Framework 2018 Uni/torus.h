@@ -4,5 +4,7 @@ class torus : public Mesh
 {
 public:
 	torus(ID3D11Device* device, const wchar_t* texfileName);
+
+	virtual void Update(float time);
 };
 

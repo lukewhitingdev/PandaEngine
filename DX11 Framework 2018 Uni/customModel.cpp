@@ -29,6 +29,11 @@ customModel::customModel(ID3D11Device* device, const wchar_t* texfileName, char*
 	offset = objMeshLoader.VBOffset;
 }
 
+void customModel::Update(float time)
+{
+	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(yaw) * XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
+}
+
 customModel::customModel(ID3D11Device* device, char* objfileName, bool rHand, meshType meshType)
 {
 	mType = meshType;

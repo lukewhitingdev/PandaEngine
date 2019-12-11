@@ -13,3 +13,8 @@ cylinder::cylinder(ID3D11Device* device, const wchar_t* texfileName)
 	stride = objMeshLoader.VBStride;
 	offset = objMeshLoader.VBOffset;
 }
+
+void cylinder::Update(float time)
+{
+	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
+}

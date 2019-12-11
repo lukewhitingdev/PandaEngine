@@ -562,7 +562,7 @@ void Application::Update()
 	// Camera Movement
 
 	for (size_t i = 0; i < meshVector.size(); i++) {
-		meshVector[i]->Update(gTimer->getGameTime(), false, true);
+		meshVector[i]->Update(gTimer->getGameTime());
 	}
 
 	shipMesh->UpdateMovement(t);
