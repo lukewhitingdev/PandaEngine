@@ -32,8 +32,6 @@ float GameTimer::getGameTime() const
 	else {
 		return(float)(((currentTime - pausedTime) - baseTime) * SecondsPerCount);
 	}
-
-
 }
 
 float GameTimer::getDeltaTime() const

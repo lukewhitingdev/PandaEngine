@@ -301,8 +301,8 @@ VS_OUTPUT waveVS(float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TE
     VS_OUTPUT output = (VS_OUTPUT) 0;
     
     computeWaves(3, 0.1,
-					Pos, NormalL
-					, Pos, NormalL);
+				Pos, NormalL
+				,Pos, NormalL);
 	
     output.Pos = mul(Pos, World);
     output.Pos = mul(output.Pos, View);
