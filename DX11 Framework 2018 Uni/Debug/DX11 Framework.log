@@ -6,21 +6,7 @@ C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Applicatio
 C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(248): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
 C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Application.cpp(251): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
   Cam.cpp
-  DX11 Framework.cpp
-  LookAtCam.cpp
-  Mesh.cpp
-  UtlilityClass.cpp
-  cameraManager.cpp
-  cube.cpp
-  customModel.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\customModel.cpp(32): warning C4100: 'time': unreferenced formal parameter
-  cylinder.cpp
-  debugCamera.cpp
-  firstPersonCamera.cpp
-  saveToFileManager.cpp
-  sphere.cpp
-  staticCamera.cpp
-  staticGeneratedCamera.cpp
+  spotLight.cpp
   torus.cpp
   Generating Code...
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\DX11 Framework 2018 Uni\Debug\DX11 Framework.exe
