@@ -245,7 +245,7 @@ void Application::InitObjects()
 	meshVector.push_back(cubeMesh2);
 	meshVector.push_back(sphereMesh);
 	meshVector.push_back(shipMesh);
-
+	meshVector.push_back(new customModel(_pd3dDevice, "Assets/Object Models/Custom/Box.obj", true, Mesh::meshType::NONE));
 	// Generate Ocean
 	for (int i = 0; i < 3; i++) {
 		tempMesh = new customModel(_pd3dDevice, L"Assets/Textures/Water/Ocean.dds", "Assets/Object Models/Custom/Plane.obj", Mesh::meshType::WAVE);
@@ -273,7 +273,16 @@ void Application::InitObjects()
 		}
 
 		// Hardset scale vars
-		meshVector[4]->setScale(5.0f);
+		for (size_t i = 0; i < meshVector.size(); i++) {
+			// Set the scale of the water
+			if (meshVector[i]->mType == Mesh::meshType::WAVE) {
+				meshVector[i]->setScale(5.0f);
+				meshVector[i]->setPosition(XMFLOAT3(0.0f, -0.2f, 5.0f));
+			}
+		}
+
+		meshVector[4]->setPosition(XMFLOAT3(10.0f, -20.0f, 0.0f));
+		meshVector[4]->setScale(1.25f);
 
 	}
 	else {
@@ -289,8 +298,6 @@ void Application::InitObjects()
 
 		shipMesh->setPosition(XMFLOAT3(0.0f, 0.0f, 20.0f));
 		shipMesh->setScale(0.3f);
-
-		meshVector[4]->setPosition(XMFLOAT3(0.0f, -0.2f, 5.0f));
 
 		fileManager->SavePositionsToFile(meshVector);
 	}

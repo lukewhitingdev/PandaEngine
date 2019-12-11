@@ -10,6 +10,7 @@ public:
 	enum meshType {
 		WAVE,
 		STATIC,
+		WALL,
 		NONE
 	};
 
