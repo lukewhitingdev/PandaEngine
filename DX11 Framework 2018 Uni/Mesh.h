@@ -15,15 +15,16 @@ public:
 	};
 
 	// Load the obj files from a constructor and draw and update them from this virtual
-	virtual void Draw(ID3D11DeviceContext*, ID3D11PixelShader*,ID3D11VertexShader* , ID3D11Buffer*, ConstantBuffer&);
-	virtual void Update(float);
+	virtual void Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11VertexShader* vertexShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb);
+	virtual void Update(float time, bool rotate, bool translate);
 
 
 	// Game related stuff should move out later
 	virtual void setPosition(XMFLOAT3 pos) { position = pos;};
 	virtual XMFLOAT3 getPosition() { return position; };
-	virtual void setScale(float s) { scale = s; };
-	virtual float getScale() { return scale; };
+	virtual void setScale(float s) { scale = XMFLOAT3(s, s, s); };
+	virtual void setScale(XMFLOAT3 s) { scale = s; };
+	virtual XMFLOAT3 getScale() { return scale; };
 	virtual void UpdateMovement(float deltaTime);
 	virtual bool getObjectPossesionState() { return ObjectPossesed; };
 	virtual void setObjectPossesionState(bool state) { ObjectPossesed = state; };
@@ -41,7 +42,7 @@ protected:
 
 
 	bool ObjectPossesed = false;
-	float scale;
+	XMFLOAT3 scale;
 	XMFLOAT3 position;
 	XMFLOAT3 rotation;
 	XMMATRIX posMatrix;

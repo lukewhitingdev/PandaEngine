@@ -276,14 +276,18 @@ void Application::InitObjects()
 		for (size_t i = 0; i < meshVector.size(); i++) {
 			// Set the scale of the water
 			if (meshVector[i]->mType == Mesh::meshType::WAVE) {
-				meshVector[i]->setScale(5.0f);
-				meshVector[i]->setPosition(XMFLOAT3(0.0f, -0.2f, 5.0f));
+				meshVector[i]->setScale(XMFLOAT3(1.8f, 2.5f, 3.0f));
+				meshVector[i]->setPosition(XMFLOAT3(1.5f, -0.2f, 1.8f));
 			}
 		}
 
 		meshVector[4]->setPosition(XMFLOAT3(10.0f, -20.0f, 0.0f));
 		meshVector[4]->setScale(1.25f);
 
+		shipMesh->setPosition(XMFLOAT3(0.0f, 0.9f, 20.0f));
+		shipMesh->setScale(0.3f);
+
+		fileManager->SavePositionsToFile(meshVector);
 	}
 	else {
 		// Use this to position objects and save them to the file for later.
@@ -296,7 +300,7 @@ void Application::InitObjects()
 		sphereMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 30.0f));
 		sphereMesh->setScale(0.3f);
 
-		shipMesh->setPosition(XMFLOAT3(0.0f, 0.0f, 20.0f));
+		shipMesh->setPosition(XMFLOAT3(0.0f, 0.2f, 20.0f));
 		shipMesh->setScale(0.3f);
 
 		fileManager->SavePositionsToFile(meshVector);
@@ -558,7 +562,7 @@ void Application::Update()
 	// Camera Movement
 
 	for (size_t i = 0; i < meshVector.size(); i++) {
-		meshVector[i]->Update(gTimer->getGameTime());
+		meshVector[i]->Update(gTimer->getGameTime(), false, true);
 	}
 
 	shipMesh->UpdateMovement(t);
