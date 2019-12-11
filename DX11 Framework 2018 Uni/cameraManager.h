@@ -6,19 +6,6 @@
 
 class cameraManager
 {
-
-	struct CameraParentContainer {
-		Cam* _cam = nullptr;
-		Mesh* _mesh = nullptr;
-		XMFLOAT3 _offset = XMFLOAT3(0.0f, 0.0f, 0.0f);
-
-		CameraParentContainer(Cam* camera, Mesh* mesh,  XMFLOAT3 offset) {
-			_cam = camera;
-			_mesh = mesh;
-			_offset = offset;
-		}
-	};
-
 public:
 	cameraManager();
 	~cameraManager();
@@ -35,6 +22,5 @@ private:
 	Cam* defaultCamera;
 
 	std::vector<Cam*> cameraVector;
-	std::vector<CameraParentContainer*> parentedCameraVector;
 };
 
