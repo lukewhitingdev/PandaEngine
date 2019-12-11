@@ -589,7 +589,6 @@ void Application::Draw()
     _pImmediateContext->ClearRenderTargetView(_pRenderTargetView, ClearColor);
 	_pImmediateContext->ClearDepthStencilView(_depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
-
 	XMFLOAT4X4 camView = camManager->getCurrentCamera()->getViewMatrix();
 	XMFLOAT4X4 camProj = camManager->getCurrentCamera()->getProjectionMatrix();
 
@@ -631,6 +630,18 @@ void Application::Draw()
 	}
 	if (GetAsyncKeyState(VK_F2)) {
 		_pImmediateContext->RSSetState(_normalView);
+	}
+	if (GetAsyncKeyState(VK_F3)) {
+		lightManager->enableOnly(Light::SPOT);
+	}
+	if (GetAsyncKeyState(VK_F4)) {
+		lightManager->enableOnly(Light::DIRECTIONAL);
+	}
+	if (GetAsyncKeyState(VK_F5)) {
+		lightManager->enableOnly(Light::SPOT);
+	}
+	if (GetAsyncKeyState(VK_F6)) {
+		lightManager->resetLighting();
 	}
 	
     //

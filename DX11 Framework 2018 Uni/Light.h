@@ -17,6 +17,7 @@ public:
 
 	virtual void Draw(ID3D11DeviceContext*, ID3D11Buffer*, ConstantBuffer&, XMFLOAT3);
 	XMFLOAT3 getPosition() { return EyePosW; };
+	virtual LightingTypes getLightType() { return lightType; };
 
 protected:
 	XMFLOAT3 EyePosW = { 0, 0, 0 }; // Camera Pos in World
