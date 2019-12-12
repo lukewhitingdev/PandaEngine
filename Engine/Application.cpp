@@ -160,6 +160,24 @@ HRESULT Application::InitShadersAndInputLayout()
 	if (FAILED(hr))
 		return hr;
 
+	// Compile the pixel shader
+	ID3DBlob* pnoTexPSBlob = nullptr;
+	hr = CompileShaderFromFile(L"DX11 Framework.fx", "noTexPS", "ps_4_0", &pnoTexPSBlob);
+
+	if (FAILED(hr))
+	{
+		MessageBox(nullptr,
+			L"The FX file cannot be compiled.  Please run this executable from the directory that contains the FX file.", L"Error", MB_OK);
+		return hr;
+	}
+
+	// Create the pixel shader
+	hr = _pd3dDevice->CreatePixelShader(pnoTexPSBlob->GetBufferPointer(), pnoTexPSBlob->GetBufferSize(), nullptr, &_defaultNoTexPixelShader);
+	pnoTexPSBlob->Release();
+
+	if (FAILED(hr))
+		return hr;
+
 	// Define the input layout
 	D3D11_INPUT_ELEMENT_DESC layout[] =
 	{
@@ -617,11 +635,21 @@ void Application::Draw()
 	lightManager->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
 
 	for (size_t i = 0; i < meshVector.size(); i++) {
-		if (meshVector[i]->getMeshType() != Mesh::meshType::WAVE) {
-			meshVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _defaultVertexShader, _pConstantBuffer, cb);
+		if (drawTextures) {
+			if (meshVector[i]->getMeshType() != Mesh::meshType::WAVE) {
+				meshVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _defaultVertexShader, _pConstantBuffer, cb);
+			}
+			else {
+				meshVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _waveVertexShader, _pConstantBuffer, cb);
+			}
 		}
 		else {
-			meshVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _waveVertexShader, _pConstantBuffer, cb);
+			if (meshVector[i]->getMeshType() != Mesh::meshType::WAVE) {
+				meshVector[i]->Draw(_pImmediateContext, _defaultNoTexPixelShader, _defaultVertexShader, _pConstantBuffer, cb);
+			}
+			else {
+				meshVector[i]->Draw(_pImmediateContext, _defaultNoTexPixelShader, _waveVertexShader, _pConstantBuffer, cb);
+			}
 		}
 	}
 
@@ -642,6 +670,12 @@ void Application::Draw()
 	}
 	if (GetAsyncKeyState(VK_F6)) {
 		lightManager->resetLighting();
+	}
+	if (GetAsyncKeyState(VK_F7)) {
+		drawTextures = true;
+	}
+	if (GetAsyncKeyState(VK_F8)) {
+		drawTextures = false;
 	}
 	
     //

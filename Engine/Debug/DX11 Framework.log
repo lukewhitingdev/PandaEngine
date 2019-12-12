@@ -1,38 +1,8 @@
 ﻿  Application.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(457): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(458): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(459): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(460): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(466): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(469): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-  Cam.cpp
-  cameraManager.cpp
-  firstPersonCamera.cpp
-  GameTimer.cpp
-  lightingManager.cpp
-  LookAtCam.cpp
-  cube.cpp
-  customModel.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\customModel.cpp(32): warning C4100: 'time': unreferenced formal parameter
-  cylinder.cpp
-  DDSTextureLoader.cpp
-  directionalLight.cpp
-  DX11 Framework.cpp
-  Light.cpp
-  debugCamera.cpp
-  Mesh.cpp
-  OBJLoader.cpp
-  saveToFileManager.cpp
-  sphere.cpp
-  pointLight.cpp
-  Generating Code...
-  Compiling...
-  spotLight.cpp
-  staticCamera.cpp
-  staticGeneratedCamera.cpp
-  torus.cpp
-  UtlilityClass.cpp
-  Generating Code...
-  LINK : C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Debug\DX11 Framework.exe not found or not built by the last incremental link; performing full link
-Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(475): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(476): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(477): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(478): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(484): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(487): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
   DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Debug\DX11 Framework.exe

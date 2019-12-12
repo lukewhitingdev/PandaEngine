@@ -88,6 +88,8 @@ cbuffer ConstantBuffer : register( b0 )
 // Helper Functions
 //--------------------------------------------------------------------------------------------------------------
 
+// Lighting
+
 void ComputeDirectionalLightPS(Material inputMat, DirectionLight dirLight, float3 normalW, float3 toEye,
                                out float4 ambient, out float4 diffuse, out float4 specular)
 {
@@ -218,6 +220,8 @@ void ComputeSpotLightPS(Material inputMat, SpotLight spotLight, float3 normalW, 
 
 }
 
+
+// Mesh Manipulation
 void computeWaves(float waveLength, float steepness, float4 inputPos, float3 inputNorm,
 								out float4 outputPos, out float3 outputNorm)
 {
@@ -322,7 +326,7 @@ VS_OUTPUT waveVS(float4 Pos : POSITION, float3 NormalL : NORMAL, float2 Tex : TE
 
 
 //--------------------------------------------------------------------------------------
-// Pixel Shader
+// Pixel Shader -- Textured
 //--------------------------------------------------------------------------------------
 float4 PS(VS_OUTPUT input) : SV_Target
 {
@@ -371,6 +375,54 @@ float4 PS(VS_OUTPUT input) : SV_Target
 	input.Color.a = globalMaterial.mDiffuse.a;
 
     return input.Color;
+}
+
+float4 noTexPS(VS_OUTPUT input) : SV_Target
+{
+
+	float3 toEye = normalize(EyePosW.xyz - input.Pos.xyz);
+
+	float4 ambient;
+	float4 diffuse;
+	float4 specular;
+
+	float4 ambientSum = float4(0.0f, 0.0f, 0.0f, 0.0f);
+	float4 diffuseSum = float4(0.0f, 0.0f, 0.0f, 0.0f);
+	float4 specularSum = float4(0.0f, 0.0f, 0.0f, 0.0f);
+
+	if (dirLight.AmbientLight.x >= 0.0f) {
+		ComputeDirectionalLightPS(globalMaterial, dirLight, input.Norm, toEye,
+			ambient, diffuse, specular);
+
+		ambientSum += ambient;
+		diffuseSum += diffuse;
+		specularSum += specular;
+
+
+	}
+
+	if (pointLight.AmbientLight.x >= 0.0f) {
+		ComputePointLightPS(globalMaterial, pointLight, input.Norm, input.PosW, toEye,
+			ambient, diffuse, specular);
+
+		ambientSum += ambient;
+		diffuseSum += diffuse;
+		specularSum += specular;
+	}
+
+	if (spotLight.AmbientLight.x >= 0.0f) {
+		ComputeSpotLightPS(globalMaterial, spotLight, input.Norm, input.PosW, toEye,
+			ambient, diffuse, specular);
+
+		ambientSum += ambient;
+		diffuseSum += diffuse;
+		specularSum += specular;
+	}
+
+	input.Color.rgb = ambientSum.xyz + diffuseSum.xyz + specularSum.xyz;
+	input.Color.a = globalMaterial.mDiffuse.a;
+
+	return input.Color;
 }
 
 
