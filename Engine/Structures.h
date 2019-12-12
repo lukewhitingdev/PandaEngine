@@ -64,12 +64,14 @@ struct Material {
 	XMFLOAT4 mSpecular;
 	XMFLOAT4 mAmbient;
 	XMFLOAT4 mDiffuse;
+	XMFLOAT4 mReflect;
 
 	Material getDefaultMaterial() {
 		Material output;
 		output.mSpecular = XMFLOAT4(0.8f, 0.8f, 0.8f, 1.0f);
 		output.mAmbient = XMFLOAT4(0.2f, 0.2f, 0.2f, 0.2f);
 		output.mDiffuse = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+		output.mReflect = XMFLOAT4(0.0f, 0.0f, 0.0f, 0.0f);
 
 		return output;
 	}

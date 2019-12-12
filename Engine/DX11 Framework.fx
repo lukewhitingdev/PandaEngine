@@ -63,6 +63,7 @@ struct Material
     float4 mSpecular;
     float4 mAmbient;
     float4 mDiffuse;
+	float4 mReflect;
 };
 
 cbuffer ConstantBuffer : register( b0 )
