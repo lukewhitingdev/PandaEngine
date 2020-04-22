@@ -1,34 +1,12 @@
 ﻿  Application.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(475): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(476): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(477): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(478): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(484): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Application.cpp(487): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-  Cam.cpp
-  DX11 Framework.cpp
-  Light.cpp
-  LookAtCam.cpp
+D:\Local Git\PeboEngine\Engine\Application.cpp(475,76): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(476,75): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(477,80): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(478,132): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(484,118): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(488,141): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+  GameObject.cpp
   Mesh.cpp
-  OBJLoader.cpp
-  UtlilityClass.cpp
-  cameraManager.cpp
-  cube.cpp
-  customModel.cpp
-C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\customModel.cpp(32): warning C4100: 'time': unreferenced formal parameter
-  cylinder.cpp
-  debugCamera.cpp
-  directionalLight.cpp
-  firstPersonCamera.cpp
-  lightingManager.cpp
-  pointLight.cpp
-  saveToFileManager.cpp
-  sphere.cpp
-  spotLight.cpp
   Generating Code...
-  Compiling...
-  staticCamera.cpp
-  staticGeneratedCamera.cpp
-  torus.cpp
-  Generating Code...
-  DX11 Framework.vcxproj -> C:\Users\w019134i\Documents\GitHub\PeboEngine\Engine\Debug\DX11 Framework.exe
+Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  DX11 Framework.vcxproj -> D:\Local Git\PeboEngine\Engine\Debug\DX11 Framework.exe

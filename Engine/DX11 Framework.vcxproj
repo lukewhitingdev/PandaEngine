@@ -379,6 +379,7 @@
     <ClCompile Include="Cam.cpp" />
     <ClCompile Include="cameraManager.cpp" />
     <ClCompile Include="firstPersonCamera.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="lightingManager.cpp" />
     <ClCompile Include="LookAtCam.cpp" />
@@ -409,6 +410,7 @@
     <ClInclude Include="Cam.h" />
     <ClInclude Include="cameraManager.h" />
     <ClInclude Include="firstPersonCamera.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="lightingManager.h" />
     <ClInclude Include="LookAtCam.h" />

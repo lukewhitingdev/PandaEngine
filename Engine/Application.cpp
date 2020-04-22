@@ -482,6 +482,7 @@ void Application::InitObjects()
 	meshVector.push_back(sphereMesh);
 	meshVector.push_back(shipMesh);
 	meshVector.push_back(new customModel(_pd3dDevice, "Assets/Object Models/Custom/Box.obj", true, Mesh::meshType::NONE));
+
 	// Generate Ocean
 	for (int i = 0; i < 3; i++) {
 		tempMesh = new customModel(_pd3dDevice, L"Assets/Textures/Water/Ocean.dds", "Assets/Object Models/Custom/Plane.obj", Mesh::meshType::WAVE);

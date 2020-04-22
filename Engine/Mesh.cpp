@@ -27,6 +27,9 @@ void Mesh::Update(float time)
 
 void Mesh::UpdateMovement(float deltaTime)
 {
+
+	// ------------------------- MOVE TO TRANSFORM..... ---------------------------------- //
+
 	lookDir.z = cos(yaw);
 	lookDir.x = sin(yaw);
 
