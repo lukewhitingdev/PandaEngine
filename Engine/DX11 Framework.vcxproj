@@ -378,7 +378,9 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Cam.cpp" />
     <ClCompile Include="cameraManager.cpp" />
+    <ClCompile Include="Debug.cpp" />
     <ClCompile Include="firstPersonCamera.cpp" />
+    <ClCompile Include="ForceGenerator.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="lightingManager.cpp" />
@@ -397,6 +399,7 @@
     <ClCompile Include="saveToFileManager.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="pointLight.cpp" />
+    <ClCompile Include="sphereCollider.cpp" />
     <ClCompile Include="spotLight.cpp" />
     <ClCompile Include="staticCamera.cpp" />
     <ClCompile Include="staticGeneratedCamera.cpp" />
@@ -412,7 +415,9 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Cam.h" />
     <ClInclude Include="cameraManager.h" />
+    <ClInclude Include="Debug.h" />
     <ClInclude Include="firstPersonCamera.h" />
+    <ClInclude Include="ForceGenerator.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="lightingManager.h" />
@@ -429,11 +434,13 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="objectIncludes.h" />
     <ClInclude Include="OBJLoader.h" />
+    <ClInclude Include="Quaternion.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="saveToFileManager.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="pointLight.h" />
+    <ClInclude Include="sphereCollider.h" />
     <ClInclude Include="spotLight.h" />
     <ClInclude Include="staticCamera.h" />
     <ClInclude Include="staticGeneratedCamera.h" />

@@ -117,6 +117,27 @@
     <Filter Include="Utility">
       <UniqueIdentifier>{d9ac4b18-6a79-41a6-b97c-70e2ed41502b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Physics and Particles\Transform">
+      <UniqueIdentifier>{2410e956-7708-4e67-b27c-9e5c37f1ca6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics and Particles\RigidBody Particle">
+      <UniqueIdentifier>{a5c34c3f-e2af-4982-ac48-65b15d6d496f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics and Particles\Colliders">
+      <UniqueIdentifier>{d721097c-a1d5-464d-87f3-734fb3a9272b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics and Particles\Colliders\Sphere">
+      <UniqueIdentifier>{cb27dbcc-92b9-4c08-8441-f21b6f0067cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics and Particles\Force Generator">
+      <UniqueIdentifier>{d11a898b-d887-45ad-9952-5f1320d234e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\Vector3D">
+      <UniqueIdentifier>{2f7d1f40-d290-48f2-a45e-70e8e393925f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\Debug">
+      <UniqueIdentifier>{e649b8fb-dfd7-4861-b149-60d417579f4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -205,12 +226,24 @@
     </ClInclude>
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Transform.h">
-      <Filter>Physics and Particles</Filter>
+      <Filter>Physics and Particles\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Physics and Particles\RigidBody Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="sphereCollider.h">
+      <Filter>Physics and Particles\Colliders\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="ForceGenerator.h">
+      <Filter>Physics and Particles\Force Generator</Filter>
     </ClInclude>
     <ClInclude Include="Vector3D.h">
-      <Filter>Utility</Filter>
+      <Filter>Utility\Vector3D</Filter>
     </ClInclude>
-    <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="Debug.h">
+      <Filter>Utility\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -289,12 +322,23 @@
       <Filter>Graphics and Mechanics\Utility\LightingManager</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Vector3D.cpp">
-      <Filter>Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="Transform.cpp">
-      <Filter>Physics and Particles</Filter>
+      <Filter>Physics and Particles\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBody.cpp">
+      <Filter>Physics and Particles\RigidBody Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="sphereCollider.cpp">
+      <Filter>Physics and Particles\Colliders\Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="ForceGenerator.cpp">
+      <Filter>Physics and Particles\Force Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3D.cpp">
+      <Filter>Utility\Vector3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Utility\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
