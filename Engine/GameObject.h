@@ -1,6 +1,7 @@
 #pragma once
 #include "Mesh.h"
 #include "Transform.h"
+#include "RigidBody.h"
 
 class GameObject
 {
