@@ -1,5 +1,6 @@
 #pragma once
 #include "Mesh.h"
+#include "Transform.h"
 
 class GameObject
 {
@@ -17,7 +18,6 @@ public:
 
 private:
 	Mesh* _mesh = nullptr;								// Handles Appearance and Mesh generation.
-
-
+	Transform* _transform = nullptr;					// Handles position in world space and scale of the GameObject.
 };
 
