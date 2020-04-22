@@ -12,14 +12,14 @@ saveToFileManager::~saveToFileManager()
 {
 }
 
-void saveToFileManager::SavePositionsToFile(vector<Mesh*>& mVector)
+void saveToFileManager::SavePositionsToFile(vector<GameObject*>& gVector)
 {
 	ofstream outStream;
 	outStream.open(savedFileName);
 
 	// Write all Mesh positions to the text file.
-	for (size_t i = 0; i < mVector.size(); i++) {
-		XMFLOAT3 currentMeshPos = mVector[i]->getPosition();
+	for (size_t i = 0; i < gVector.size(); i++) {
+		XMFLOAT3 currentMeshPos = gVector[i]->getTransformComponent()->getPosition();
 		outStream << "mesh" + to_string(i) + " ";
 		outStream << "(" + to_string(currentMeshPos.x) + "," + to_string(currentMeshPos.y) + "," + to_string(currentMeshPos.z) + ")";
 		outStream << "\n";
@@ -28,45 +28,6 @@ void saveToFileManager::SavePositionsToFile(vector<Mesh*>& mVector)
 	// TODO: Add Camera and Light Loading.
 
 	outStream.close();
-
-	/*	else { // If there is already a file then duplicate it
-		// Get the length
-		inStream.seekg(0, ios_base::beg);
-		inStream.seekg(0, ios_base::end);
-		length = inStream.tellg();
-
-		// File is empty
-		if (length <= 0) {
-			// Write it to the file (duplicate)
-			inStream.close();
-			outStream.open(savedFileName);
-			// Write all camera positions to the text file.
-			for (int i = 0; i < cVector.size(); i++) {
-				XMFLOAT3 currentCamPos = cVector[i]->getCameraPos();
-				outStream << "camera" + to_string(i) + " ";
-				outStream << "(" + to_string(currentCamPos.x) + "," + to_string(currentCamPos.y) + "," + to_string(currentCamPos.z) + ")";
-				outStream << "\n";
-			}
-			outStream.close();
-		}
-		else {
-			// Save the current files lines.
-			vector<string> savedLines;
-			string currentLine;
-			inStream.seekg(0, ios_base::beg);
-			// Save all input
-			while (std::getline(inStream, currentLine)) {
-				savedLines.push_back(currentLine);
-			}
-			// Start to write the backup
-			inStream.close();
-			outStream.open("backupPositions.txt");
-			// Write all camera positions to the text file.
-			for (int i = 0; i < savedLines.size(); i++) {
-				outStream << savedLines[i] + "\n";
-			}
-			outStream.close();
-		} */
 }
 
 vector<XMFLOAT3> saveToFileManager::LoadPositionsFromFile()

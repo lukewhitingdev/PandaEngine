@@ -14,7 +14,7 @@ cylinder::cylinder(ID3D11Device* device, const wchar_t* texfileName)
 	offset = objMeshLoader.VBOffset;
 }
 
-void cylinder::Update(float time)
+void cylinder::Update(float time, XMFLOAT3 pos, XMFLOAT3 scale, float yaw)
 {
-	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
+	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(pos.x, pos.y, pos.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
 }

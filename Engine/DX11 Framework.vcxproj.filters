@@ -114,6 +114,9 @@
     <Filter Include="Physics and Particles">
       <UniqueIdentifier>{0efdcf24-4a4d-48bf-af60-8ed75fe31a1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{d9ac4b18-6a79-41a6-b97c-70e2ed41502b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -201,7 +204,13 @@
       <Filter>Graphics and Mechanics\Utility\LightingManager</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Transform.h" />
+    <ClInclude Include="Transform.h">
+      <Filter>Physics and Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -280,7 +289,13 @@
       <Filter>Graphics and Mechanics\Utility\LightingManager</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Vector3D.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="Transform.cpp">
+      <Filter>Physics and Particles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

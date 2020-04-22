@@ -59,13 +59,8 @@ private:
 	MeshData objMeshLoader;
 
 
-	// Mesh's
-	std::vector<Mesh*> meshVector;
-	Mesh* cubeMesh;
-	Mesh* cubeMesh2;
-	Mesh* sphereMesh;
-	Mesh* shipMesh;
-	Mesh* tempMesh;
+	// Objects's
+	std::vector<GameObject*> objectVector;
 
 	// Lighting
 

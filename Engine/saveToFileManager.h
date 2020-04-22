@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include "Cam.h"
-#include "Mesh.h"
+#include "GameObject.h"
 #include "Light.h"
 using namespace std;
 class saveToFileManager
@@ -12,7 +12,7 @@ public:
 	saveToFileManager(const char* fileName);
 	~saveToFileManager();
 
-	void SavePositionsToFile(vector<Mesh*>& mVector);
+	void SavePositionsToFile(vector<GameObject*>& gVector);
 	vector<XMFLOAT3> LoadPositionsFromFile();
 	void setLoadObjectsFromFile(bool value) { loadObjectsFromFile = value; };
 	bool getLoadObjectsFromFile() { return loadObjectsFromFile; };

@@ -73,11 +73,6 @@ XMFLOAT3 Cam::getRight()
 	return XMFLOAT3(_right.x, _right.y, _right.z);
 }
 
-void Cam::UpdatePositionRelativeToMesh()
-{
-	this->setCameraPos(attachedMesh->getPosition().x + 1.0f, attachedMesh->getPosition().y + 1.0f, attachedMesh->getPosition().z + attachOffset.z);
-}
-
 XMFLOAT3 Cam::getUpPos()
 {
 	return _up;

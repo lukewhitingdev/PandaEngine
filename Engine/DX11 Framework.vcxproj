@@ -393,6 +393,7 @@
     <ClCompile Include="debugCamera.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
+    <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="saveToFileManager.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="pointLight.cpp" />
@@ -402,6 +403,7 @@
     <ClCompile Include="torus.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UtlilityClass.cpp" />
+    <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DX11 Framework.fx" />
@@ -428,6 +430,7 @@
     <ClInclude Include="objectIncludes.h" />
     <ClInclude Include="OBJLoader.h" />
     <CLInclude Include="resource.h" />
+    <ClInclude Include="RigidBody.h" />
     <ClInclude Include="saveToFileManager.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="pointLight.h" />
@@ -438,6 +441,7 @@
     <ClInclude Include="torus.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UtlilityClass.h" />
+    <ClInclude Include="Vector3D.h" />
     <ResourceCompile Include="DX11 Framework.rc" />
   </ItemGroup>
   <ItemGroup>

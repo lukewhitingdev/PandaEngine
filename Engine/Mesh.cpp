@@ -20,57 +20,7 @@ void Mesh::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID
 	context->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
 }
 
-void Mesh::Update(float time)
+void Mesh::Update(float time, XMFLOAT3 pos, XMFLOAT3 scale, float yaw)
 {
-	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(position.x, position.y, position.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
-}
-
-void Mesh::UpdateMovement(float deltaTime)
-{
-
-	// ------------------------- MOVE TO TRANSFORM..... ---------------------------------- //
-
-	lookDir.z = cos(yaw);
-	lookDir.x = sin(yaw);
-
-	// Only do this if we have control
-	if (ObjectPossesed) {
-		if (GetAsyncKeyState('W')) {
-			speed = 0.01f;
-
-			XMVECTOR vSpeed = XMVectorReplicate(speed);
-			XMVECTOR vLook = XMLoadFloat3(&lookDir);
-			XMVECTOR vPos = XMLoadFloat3(&position);
-
-			vLook = XMVector3Normalize(vLook);
-
-			XMStoreFloat3(&position, XMVectorMultiplyAdd(vSpeed, -vLook, vPos));
-		}
-		if (GetAsyncKeyState('S')) {
-			speed = -0.01f;
-
-			XMVECTOR vSpeed = XMVectorReplicate(speed);
-			XMVECTOR vLook = XMLoadFloat3(&lookDir);
-			XMVECTOR vPos = XMLoadFloat3(&position);
-
-			vLook = XMVector3Normalize(vLook);
-
-			XMStoreFloat3(&position, XMVectorMultiplyAdd(vSpeed, -vLook, vPos));
-		}
-		if (GetAsyncKeyState('A')) {
-			yaw -= 0.001f;
-			if (yaw >= 360.0f) {
-				yaw = 0.0f;
-			}
-		}
-		if (GetAsyncKeyState('D')) {
-			yaw += 0.001;
-			if (yaw >= 360.0f) {
-				yaw = 0.0f;
-			}
-		}
-
-		deltaTime = deltaTime;
-
-	}
+	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(pos.x, pos.y, pos.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
 }

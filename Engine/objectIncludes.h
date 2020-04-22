@@ -1,4 +1,5 @@
 #pragma once
+#include "GameObject.h"
 #include "Mesh.h"
 // Primatives
 #include "cube.h"

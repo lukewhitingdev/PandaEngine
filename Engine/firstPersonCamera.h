@@ -8,8 +8,6 @@ public:
 	firstPersonCamera(XMFLOAT3 pos, XMFLOAT3 to, XMFLOAT3 up, XMFLOAT3 right, float wWidth, float wHeight, float nearDepth, float farDepth);
 	~firstPersonCamera();
 
-	void UpdatePositionRelativeToMesh();
-
 	void UpdateStoredFloats();
 
 	void updateCameraMovement(std::vector<Cam*>& camVector);

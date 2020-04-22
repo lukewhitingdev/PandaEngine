@@ -50,15 +50,11 @@ Application::Application()
 	_wireFrame = nullptr;
 	textureResourceView = nullptr;
 	camManager = nullptr;
-	cubeMesh = nullptr;
-	cubeMesh2 = nullptr;
 	currentCameraNumber = 0;
 	fileManager = nullptr;
 	gTimer = nullptr;
 	lightManager = nullptr;
 	objMeshLoader = MeshData();
-	shipMesh = nullptr;
-	sphereMesh = nullptr;
 	textureSamplerState = nullptr;
 }
 
@@ -454,12 +450,6 @@ void Application::InitCamera()
 	Eye = XMFLOAT3(0.0f, 0.0f, 0.0f);
 	To = XMFLOAT3(0.0f, 0.0f, -1.0f);
 
-	cameraVector.push_back(new LookAtCam(Eye, At, Up, (float)_WindowWidth, (float)_WindowHeight, 0.0f, 1000.0f));
-	cameraVector[3]->setAttachedMesh(shipMesh);
-	cameraVector[3]->setAttachedOffset(XMFLOAT3(0, 2, 0));
-	cameraVector[3]->setCameraPos(0, 0, 0);
-	cameraVector[3]->UpdateStoredFloats();
-
 	camManager->setDefaultCamera(cameraVector[0]);
 	camManager->setCurrentCamera(cameraVector[0]);
 }
@@ -472,21 +462,25 @@ void Application::InitObjects()
 	// Whether you would like to load from a file or not.
 	fileManager->setLoadObjectsFromFile(true);
 
-	cubeMesh = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
-	cubeMesh2 = new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_NRM.dds");
-	sphereMesh = new sphere(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds");
-	shipMesh = new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Boat.obj", true);
+	objectVector.push_back(new GameObject(new Transform(), new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds")));
+	GameObject* cubeMesh = objectVector[objectVector.size() - 1];
 
-	meshVector.push_back(cubeMesh);
-	meshVector.push_back(cubeMesh2);
-	meshVector.push_back(sphereMesh);
-	meshVector.push_back(shipMesh);
-	meshVector.push_back(new customModel(_pd3dDevice, "Assets/Object Models/Custom/Box.obj", true, Mesh::meshType::NONE));
+	objectVector.push_back(new GameObject(new Transform(), new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds")));
+	GameObject* cubeMesh2 = objectVector[objectVector.size() - 1];
+
+	objectVector.push_back(new GameObject(new Transform(), new sphere(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds")));
+	GameObject* sphereMesh = objectVector[objectVector.size() - 1];
+
+	objectVector.push_back(new GameObject(new Transform(), new customModel(_pd3dDevice, L"Assets/Textures/Plane/Hercules_COLOR.dds", "Assets/Object Models/Custom/Boat.obj", true)));
+	GameObject* shipMesh = objectVector[objectVector.size() - 1];
+
+	objectVector.push_back(new GameObject(new Transform(), new customModel(_pd3dDevice, L"Assets/Textures/Debug/defaultTex.dds", "Assets/Object Models/Custom/Box.obj", true)));
+	GameObject* enclosureMesh = objectVector[objectVector.size() - 1];
+
 
 	// Generate Ocean
 	for (int i = 0; i < 3; i++) {
-		tempMesh = new customModel(_pd3dDevice, L"Assets/Textures/Water/Ocean.dds", "Assets/Object Models/Custom/Plane.obj", Mesh::meshType::WAVE);
-		meshVector.push_back(tempMesh);
+		objectVector.push_back(new GameObject(new Transform(), new customModel(_pd3dDevice, L"Assets/Textures/Water/Ocean.dds", "Assets/Object Models/Custom/Plane.obj", Mesh::meshType::WAVE)));
 	}
 
 	if (fileManager->getLoadObjectsFromFile()) {
@@ -496,51 +490,51 @@ void Application::InitObjects()
 
 		// Load all the positions currently saved, make sure that if some objects arent saved properly, then it will not overrun the vector.
 		for (size_t i = 0; i < loadedPositions.size(); i++) {
-			if (i < meshVector.size()) {
-				meshVector[i]->setPosition(loadedPositions[i]);
-				meshVector[i]->setScale(0.3f);
+			if (i < objectVector.size()) {
+				objectVector[i]->getTransformComponent()->setPosition(loadedPositions[i]);
+				objectVector[i]->getTransformComponent()->setScale(0.3f);
 			}
 		}
 
 		// Loop through the rest of the mesh vector to reset all the new objects positions to 0 so they can be aligned within the program.
-		if (meshVector.size() > loadedPositions.size()) {
-			for (size_t i = loadedPositions.size(); i < meshVector.size(); i++) {
-				meshVector[i]->setPosition(XMFLOAT3(0, 0, 0));
+		if (objectVector.size() > loadedPositions.size()) {
+			for (size_t i = loadedPositions.size(); i < objectVector.size(); i++) {
+				objectVector[i]->getTransformComponent()->setPosition(XMFLOAT3(0, 0, 0));
 			}
 		}
 
 		// Hardset scale vars
-		for (size_t i = 0; i < meshVector.size(); i++) {
+		for (size_t i = 0; i < objectVector.size(); i++) {
 			// Set the scale of the water
-			if (meshVector[i]->mType == Mesh::meshType::WAVE) {
-				meshVector[i]->setScale(XMFLOAT3(1.8f, 2.5f, 3.0f));
-				meshVector[i]->setPosition(XMFLOAT3(1.5f, -0.2f, 1.8f));
+			if (objectVector[i]->getMeshComponent()->getMeshType() == Mesh::meshType::WAVE) {
+				objectVector[i]->getTransformComponent()->setScale(XMFLOAT3(1.8f, 2.5f, 3.0f));
+				objectVector[i]->getTransformComponent()->setPosition(XMFLOAT3(1.5f, -0.2f, 1.8f));
 			}
 		}
 
-		meshVector[4]->setPosition(XMFLOAT3(10.0f, -20.0f, 0.0f));
-		meshVector[4]->setScale(1.25f);
+		enclosureMesh->getTransformComponent()->setPosition(XMFLOAT3(10.0f, -20.0f, 0.0f));
+		enclosureMesh->getTransformComponent()->setScale(XMFLOAT3(1.25f, 1.25f, 1.25f));
 
-		shipMesh->setPosition(XMFLOAT3(0.0f, 0.9f, 20.0f));
-		shipMesh->setScale(0.3f);
+		shipMesh->getTransformComponent()->setPosition(XMFLOAT3(0.0f, 0.9f, 20.0f));
+		shipMesh->getTransformComponent()->setScale(0.3f);
 
-		fileManager->SavePositionsToFile(meshVector);
+		fileManager->SavePositionsToFile(objectVector);
 	}
 	else {
 		// Use this to position objects and save them to the file for later.
-		cubeMesh->setPosition(XMFLOAT3(-4.0f, 0.0f, 0.1f));
-		cubeMesh->setScale(0.3f);
+		cubeMesh->getTransformComponent()->setPosition(XMFLOAT3(-4.0f, 0.0f, 0.1f));
+		cubeMesh->getTransformComponent()->setScale(0.3f);
 
-		cubeMesh2->setPosition(XMFLOAT3(4.0f, 0.0f, 0.1f));
-		cubeMesh2->setScale(0.3f);
+		cubeMesh2->getTransformComponent()->setPosition(XMFLOAT3(4.0f, 0.0f, 0.1f));
+		cubeMesh2->getTransformComponent()->setScale(0.3f);
 
-		sphereMesh->setPosition(XMFLOAT3(0.0f, 2.0f, 30.0f));
-		sphereMesh->setScale(0.3f);
+		sphereMesh->getTransformComponent()->setPosition(XMFLOAT3(0.0f, 2.0f, 30.0f));
+		sphereMesh->getTransformComponent()->setScale(0.3f);
 
-		shipMesh->setPosition(XMFLOAT3(0.0f, 0.2f, 20.0f));
-		shipMesh->setScale(0.3f);
+		shipMesh->getTransformComponent()->setPosition(XMFLOAT3(0.0f, 0.2f, 20.0f));
+		shipMesh->getTransformComponent()->setScale(0.3f);
 
-		fileManager->SavePositionsToFile(meshVector);
+		fileManager->SavePositionsToFile(objectVector);
 	}
 }
 
@@ -564,36 +558,23 @@ void Application::Update()
 	// TODO: Refactor
 	// Camera Movement
 
-	for (size_t i = 0; i < meshVector.size(); i++) {
-		meshVector[i]->Update(gTimer->getGameTime());
-	}
-
-	shipMesh->UpdateMovement(t);
-
-	if (camManager->getCurrentCamera()->getAttachedMesh() != nullptr) {
-		camManager->getCurrentCamera()->setLookAtPos(camManager->getCurrentCamera()->getAttachedMesh()->getPosition().x, camManager->getCurrentCamera()->getAttachedMesh()->getPosition().y, camManager->getCurrentCamera()->getAttachedMesh()->getPosition().z);
-		//camManager->getCurrentCamera()->UpdatePositionRelativeToMesh();
+	for (size_t i = 0; i < objectVector.size(); i++) {
+		objectVector[i]->Update(gTimer->getGameTime());
 	}
 
 	camManager->getCurrentCamera()->updateCameraMovement(cameraVector);
 
 	if (GetAsyncKeyState('1')) {
-		shipMesh->setObjectPossesionState(true);
 		camManager->setCurrentCamera(cameraVector[1]); // Static Random
 	}
-
 	if (GetAsyncKeyState('2')) {
-		shipMesh->setObjectPossesionState(true);
 		camManager->setCurrentCamera(cameraVector[2]);
 	}
-	if (GetAsyncKeyState('3')) {
-		shipMesh->setObjectPossesionState(true);
-		camManager->setCurrentCamera(cameraVector[3]);
-	}
+
 	if (GetAsyncKeyState('0')) {
 		// So we dont move objects whilst in debug
-		for (size_t i = 0; i < meshVector.size(); i++) {
-			meshVector[i]->setObjectPossesionState(false);
+		for (size_t i = 0; i < objectVector.size(); i++) {
+			objectVector[i]->getTransformComponent()->setCanMove(false);
 		}
 		camManager->setCurrentCamera(cameraVector[0]); // Debug Camera
 	}
@@ -635,21 +616,21 @@ void Application::Draw()
 	// Lighting
 	lightManager->Draw(_pImmediateContext, _pConstantBuffer, cb, camManager->getCurrentCamera()->getCameraPos());
 
-	for (size_t i = 0; i < meshVector.size(); i++) {
+	for (size_t i = 0; i < objectVector.size(); i++) {
 		if (drawTextures) {
-			if (meshVector[i]->getMeshType() != Mesh::meshType::WAVE) {
-				meshVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _defaultVertexShader, _pConstantBuffer, cb);
+			if (objectVector[i]->getMeshComponent()->getMeshType() != Mesh::meshType::WAVE) {
+				objectVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _defaultVertexShader, _pConstantBuffer, cb);
 			}
 			else {
-				meshVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _waveVertexShader, _pConstantBuffer, cb);
+				objectVector[i]->Draw(_pImmediateContext, _defaultPixelShader, _waveVertexShader, _pConstantBuffer, cb);
 			}
 		}
 		else {
-			if (meshVector[i]->getMeshType() != Mesh::meshType::WAVE) {
-				meshVector[i]->Draw(_pImmediateContext, _defaultNoTexPixelShader, _defaultVertexShader, _pConstantBuffer, cb);
+			if (objectVector[i]->getMeshComponent()->getMeshType() != Mesh::meshType::WAVE) {
+				objectVector[i]->Draw(_pImmediateContext, _defaultNoTexPixelShader, _defaultVertexShader, _pConstantBuffer, cb);
 			}
 			else {
-				meshVector[i]->Draw(_pImmediateContext, _defaultNoTexPixelShader, _waveVertexShader, _pConstantBuffer, cb);
+				objectVector[i]->Draw(_pImmediateContext, _defaultNoTexPixelShader, _waveVertexShader, _pConstantBuffer, cb);
 			}
 		}
 	}

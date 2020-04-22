@@ -29,13 +29,6 @@ public:
 
 	virtual XMFLOAT3 getRight(); // Returns two different outcomes depending on which camera type you are using.
 
-	// Attaching to mesh's
-	virtual void UpdatePositionRelativeToMesh();
-	virtual void setAttachedMesh(Mesh* mesh) { attachedMesh = mesh; };
-	virtual Mesh* getAttachedMesh() { return attachedMesh; };
-	virtual void setAttachedOffset(XMFLOAT3 offset) { attachOffset = offset; };
-	virtual XMFLOAT3 getAttachedOffset() { return attachOffset; };
-
 	virtual XMFLOAT4X4 getViewMatrix();
 	virtual XMFLOAT4X4 getProjectionMatrix();
 	virtual XMFLOAT4X4 getViewProjMatrix();
