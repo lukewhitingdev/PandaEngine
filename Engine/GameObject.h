@@ -25,11 +25,15 @@ public:
 	void changeMeshComponent(Mesh mesh) { _mesh = &mesh; };
 	void changeTransformComponent(Transform transform) { _transform = &transform; };
 
+	// Used to add a rigidBody to the current GameObject (REQUIRES TRANSFORM);
+	void addRigidBody() { _rigidBody = new RigidBody(_transform); };
+
 	Mesh* getMeshComponent() { return _mesh; };
 	Transform* getTransformComponent() { return _transform; };
 
 private:
 	Mesh* _mesh = nullptr;								// Handles Appearance and Mesh generation (REQUIRES A TRANSFORM).
 	Transform* _transform = nullptr;					// Handles position in world space and scale of the GameObject.
+	RigidBody* _rigidBody = nullptr;					// Handles physics and collision between physics objects.
 };
 

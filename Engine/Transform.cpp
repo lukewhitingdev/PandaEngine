@@ -1,5 +1,18 @@
 #include "Transform.h"
 
+Transform::Transform()
+{
+	_previousVelocity = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	_previousPosition = XMFLOAT3(0.0f, 0.0f, 0.0f); 
+	_position = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	_rotation = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	_scale = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	_world = XMFLOAT4X4();
+	_centreOfMass = Vector3D(0.0f, 0.0f, 0.0f);
+
+
+}
+
 void Transform::updateMovement(float deltaTime) {
 
 	// -------------------------- UPDATE TO NEW PHYSICS BASED SYSTEM ----------------------------- //

@@ -477,6 +477,15 @@ void Application::InitObjects()
 	objectVector.push_back(new GameObject(new Transform(), new customModel(_pd3dDevice, L"Assets/Textures/Debug/defaultTex.dds", "Assets/Object Models/Custom/Box.obj", true)));
 	GameObject* enclosureMesh = objectVector[objectVector.size() - 1];
 
+	objectVector.push_back(new GameObject(new Transform(), new customModel(_pd3dDevice, L"Assets/Textures/Debug/defaultTex.dds", "Assets/Object Models/Custom/Wall.obj", true)));
+	GameObject* floorCube = objectVector[objectVector.size() - 1];
+
+	objectVector.push_back(new GameObject(new Transform(), new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds")));
+	GameObject* physCube = objectVector[objectVector.size() - 1];
+
+	objectVector.push_back(new GameObject(new Transform(), new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds")));
+	GameObject* physCube2 = objectVector[objectVector.size() - 1];
+
 
 	// Generate Ocean
 	for (int i = 0; i < 3; i++) {
@@ -515,8 +524,13 @@ void Application::InitObjects()
 		enclosureMesh->getTransformComponent()->setPosition(XMFLOAT3(10.0f, -20.0f, 0.0f));
 		enclosureMesh->getTransformComponent()->setScale(XMFLOAT3(1.25f, 1.25f, 1.25f));
 
-		shipMesh->getTransformComponent()->setPosition(XMFLOAT3(0.0f, 0.9f, 20.0f));
-		shipMesh->getTransformComponent()->setScale(0.3f);
+		shipMesh->getTransformComponent()->setPosition(XMFLOAT3(0.0f, 2.0f, 15.0f));
+		shipMesh->getTransformComponent()->setYaw(1.0f);
+		shipMesh->getTransformComponent()->setScale(0.6f);
+
+		floorCube->getTransformComponent()->setPosition(XMFLOAT3(0, 0, 0));
+		floorCube->getTransformComponent()->setScale(XMFLOAT3(1.0f, 1.0f, 1.0f));
+		floorCube->getTransformComponent()->setRotation(XMFLOAT3(XMConvertToRadians(-90.0f), 0.0f, 0.0f));
 
 		fileManager->SavePositionsToFile(objectVector);
 	}

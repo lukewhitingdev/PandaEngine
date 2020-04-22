@@ -244,6 +244,7 @@
       <Filter>Utility\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="Collision.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -340,6 +341,7 @@
     <ClCompile Include="Debug.cpp">
       <Filter>Utility\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="Collision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

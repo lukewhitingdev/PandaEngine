@@ -1,15 +1,23 @@
 ﻿  Application.cpp
-D:\Local Git\PeboEngine\Engine\Application.cpp(556,8): warning C4189: 't': local variable is initialized but not referenced
-  cameraManager.cpp
-  Debug.cpp
-  ForceGenerator.cpp
-D:\Local Git\PeboEngine\Engine\ForceGenerator.cpp(53,132): warning C4100: 'restLength': unreferenced formal parameter
-  GameObject.cpp
+D:\Local Git\PeboEngine\Engine\Application.cpp(465,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(468,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(471,122): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(474,176): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(477,171): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(480,172): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(483,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(486,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(492,185): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(487,14): warning C4189: 'physCube2': local variable is initialized but not referenced
+D:\Local Git\PeboEngine\Engine\Application.cpp(484,14): warning C4189: 'physCube': local variable is initialized but not referenced
+D:\Local Git\PeboEngine\Engine\Application.cpp(570,8): warning C4189: 't': local variable is initialized but not referenced
+  Collision.cpp
   DX11 Framework.cpp
+  GameObject.cpp
   RigidBody.cpp
+  Transform.cpp
+  cameraManager.cpp
   saveToFileManager.cpp
-  sphereCollider.cpp
   Generating Code...
-D:\Local Git\PeboEngine\Engine\ForceGenerator.cpp(16): warning C4715: 'ForceGenerator::getInstance': not all control paths return a value
 Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   DX11 Framework.vcxproj -> D:\Local Git\PeboEngine\Engine\Debug\DX11 Framework.exe

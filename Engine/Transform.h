@@ -8,7 +8,7 @@ class Transform
 {
 public:
 
-	Transform() { _previousVelocity, _previousPosition, _position, _rotation, _scale = XMFLOAT3(0.0f, 0.0f, 0.0f); _world = XMFLOAT4X4(); _centreOfMass = Vector3D(); };
+	Transform();
 
 	XMFLOAT3 getPrevVelocity() { return _previousVelocity; };
 	XMFLOAT3 getPrevPosition() { return _previousPosition; };

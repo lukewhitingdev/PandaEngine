@@ -3,7 +3,7 @@
 cube::cube(ID3D11Device* device, const wchar_t* texfileName)
 {
 	// Reset the local matrix
-	XMStoreFloat4x4(&objectMatrix, XMMatrixIdentity());
+	XMStoreFloat4x4(&objectFloatMatrix, XMMatrixIdentity());
 
 	// Get the texture and load the mesh
 	CreateDDSTextureFromFile(device, texfileName, nullptr, &textureResourceView);
@@ -16,5 +16,6 @@ cube::cube(ID3D11Device* device, const wchar_t* texfileName)
 
 void cube::Update(float time, XMFLOAT3 pos, XMFLOAT3 scale, float yaw)
 {
-	XMStoreFloat4x4(&objectMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(pos.x, pos.y, pos.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
+	XMStoreFloat4x4(&objectFloatMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(pos.x, pos.y, pos.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
+	yaw = yaw;
 }

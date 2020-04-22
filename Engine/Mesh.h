@@ -22,13 +22,17 @@ public:
 	virtual meshType getMeshType() { return mType; };
 	virtual void setMeshType(meshType value) { mType = value; };
 
+	// Used to transfer the objectMatrix from transform to mesh.
+	void setObjectMatrix(XMMATRIX value) { objectMatrix = value; };
+
 
 protected:
 	ID3D11ShaderResourceView* textureResourceView;
 	MeshData objMeshLoader;
 	UINT stride;
 	UINT offset;
-	XMFLOAT4X4 objectMatrix;
+	XMMATRIX objectMatrix;
+	XMFLOAT4X4 objectFloatMatrix;
 
 	// Mesh Type
 	meshType mType = NONE;
