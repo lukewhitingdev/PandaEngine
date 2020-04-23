@@ -1,8 +1,3 @@
-﻿  cube.cpp
-  customModel.cpp
-  Mesh.cpp
-  torus.cpp
-  UtlilityClass.cpp
-  Generating Code...
-Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+﻿  GameObject.cpp
+D:\Local Git\PeboEngine\Engine\GameObject.cpp(86): warning C4715: 'GameObject::getKey': not all control paths return a value
   DX11 Framework.vcxproj -> D:\Local Git\PeboEngine\Engine\Debug\DX11 Framework.exe

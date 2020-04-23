@@ -540,7 +540,6 @@ void Application::InitObjects()
 		physCube2->getTransformComponent()->setPosition(XMFLOAT3(3.0f, 1.25f, -10.0f));
 		physCube2->getTransformComponent()->setScale(1.0f);
 
-
 		fileManager->SavePositionsToFile(objectVector);
 	}
 	else {
@@ -582,7 +581,7 @@ void Application::Update()
 	// Camera Movement
 
 	for (size_t i = 0; i < objectVector.size(); i++) {
-		objectVector[i]->Update(gTimer->getGameTime());
+		objectVector[i]->Update(gTimer->getDeltaTime());
 	}
 
 	camManager->getCurrentCamera()->updateCameraMovement(cameraVector);
@@ -590,14 +589,23 @@ void Application::Update()
 	if (GetAsyncKeyState('1')) {
 		camManager->setCurrentCamera(cameraVector[1]); // Static Random
 	}
+
 	if (GetAsyncKeyState('2')) {
 		camManager->setCurrentCamera(cameraVector[2]);
+		// So the particles can be controlled
+		for (size_t i = 0; i < objectVector.size(); i++) {
+			objectVector[i]->getTransformComponent()->setCanMove(false);
+			if(objectVector[i]->getRigidbodyComponent() != nullptr)
+				objectVector[i]->getRigidbodyComponent()->setCanPhysMove(true);
+		}
 	}
 
 	if (GetAsyncKeyState('0')) {
 		// So we dont move objects whilst in debug
 		for (size_t i = 0; i < objectVector.size(); i++) {
 			objectVector[i]->getTransformComponent()->setCanMove(false);
+			if (objectVector[i]->getRigidbodyComponent() != nullptr)
+				objectVector[i]->getRigidbodyComponent()->setCanPhysMove(false);
 		}
 		camManager->setCurrentCamera(cameraVector[0]); // Debug Camera
 	}

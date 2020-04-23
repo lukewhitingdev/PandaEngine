@@ -7,6 +7,7 @@ RigidBody::RigidBody(Transform* transform)
 	_sphereCollider = nullptr;							// null until a collider is assigned.
 	damping = 0.995f;
 	position = transform->getVector3Position();
+	setMass(1.0f);										// Default value to allow for missed implementation when creating objects.
 }
 
 void RigidBody::setCollisionSphere(sphereCollider* collider)

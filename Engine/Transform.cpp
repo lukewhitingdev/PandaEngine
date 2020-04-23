@@ -21,7 +21,7 @@ void Transform::Update(float deltaTime)
 	XMMATRIX translation = XMMatrixTranslation(getPosition().x, getPosition().y, getPosition().z);
 	XMStoreFloat4x4(&_world, scale * rotation * translation);
 
-	updateMovement(deltaTime);
+	//updateMovement(deltaTime);
 }
 
 void Transform::updateMovement(float deltaTime) {

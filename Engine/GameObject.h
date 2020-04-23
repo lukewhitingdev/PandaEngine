@@ -2,6 +2,7 @@
 #include "Mesh.h"
 #include "Transform.h"
 #include "RigidBody.h"
+#include "Debug.h"
 
 class GameObject
 {
@@ -26,11 +27,20 @@ public:
 
 	// Used to add a rigidBody to the current GameObject (REQUIRES TRANSFORM);
 	void addRigidBody() { _rigidBody = new RigidBody(_transform); };
+	void removeRigidBody() { _rigidBody = nullptr; };
 
 	Mesh* getMeshComponent() { return _mesh; };
 	Transform* getTransformComponent() { return _transform; };
+	RigidBody* getRigidbodyComponent() { return _rigidBody; };
 
 private:
+
+	bool keyPressed = false;
+	bool getKey(char key);
+	bool getKeyDown(char key);
+	bool getKeyUp(char key);
+
+
 	Mesh* _mesh = nullptr;								// Handles Appearance and Mesh generation (REQUIRES A TRANSFORM).
 	Transform* _transform = nullptr;					// Handles position in world space and scale of the GameObject.
 	RigidBody* _rigidBody = nullptr;					// Handles physics and collision between physics objects.
