@@ -10,6 +10,8 @@ public:
 
 	Transform();
 
+	void Update(float deltaTime);
+
 	XMFLOAT3 getPrevVelocity() { return _previousVelocity; };
 	XMFLOAT3 getPrevPosition() { return _previousPosition; };
 	XMFLOAT3 getPosition() { return _position; };
@@ -36,8 +38,10 @@ public:
 
 						/* Movement Commands */
 
-	void updateMovement(float deltaTime);
 	void setCanMove(bool value) { _canMove = value; };
+
+protected:
+	void updateMovement(float deltaTime);
 
 private:
 	XMFLOAT3 _previousVelocity;

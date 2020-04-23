@@ -13,6 +13,17 @@ Transform::Transform()
 
 }
 
+void Transform::Update(float deltaTime)
+{
+	// Calculate world matrix
+	XMMATRIX scale = XMMatrixScaling(getScale().x, getScale().y, getScale().z);
+	XMMATRIX rotation = XMMatrixRotationX(getRotation().x) * XMMatrixRotationY(getRotation().y) * XMMatrixRotationZ(getRotation().z);
+	XMMATRIX translation = XMMatrixTranslation(getPosition().x, getPosition().y, getPosition().z);
+	XMStoreFloat4x4(&_world, scale * rotation * translation);
+
+	updateMovement(deltaTime);
+}
+
 void Transform::updateMovement(float deltaTime) {
 
 	// -------------------------- UPDATE TO NEW PHYSICS BASED SYSTEM ----------------------------- //
