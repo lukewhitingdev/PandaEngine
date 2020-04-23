@@ -524,13 +524,13 @@ void Application::InitObjects()
 		enclosureMesh->getTransformComponent()->setPosition(XMFLOAT3(10.0f, -20.0f, 0.0f));
 		enclosureMesh->getTransformComponent()->setScale(XMFLOAT3(1.25f, 1.25f, 1.25f));
 
-		shipMesh->getTransformComponent()->setPosition(XMFLOAT3(0.0f, 2.0f, 15.0f));
-		shipMesh->getTransformComponent()->setYaw(1.0f);
+		shipMesh->getTransformComponent()->setPosition(XMFLOAT3(0.0f, 2.0f, 12.0f));
+		shipMesh->getTransformComponent()->setRotation(XMFLOAT3(0.0f, XMConvertToRadians(45.0f), 0.0f));
 		shipMesh->getTransformComponent()->setScale(0.6f);
 
-		floorCube->getTransformComponent()->setPosition(XMFLOAT3(0, 0, 0));
-		floorCube->getTransformComponent()->setScale(XMFLOAT3(1.0f, 1.0f, 1.0f));
-		floorCube->getTransformComponent()->setRotation(XMFLOAT3(XMConvertToRadians(-90.0f), 0.0f, 0.0f));
+		floorCube->getTransformComponent()->setPosition(XMFLOAT3(-3.5f, 0.0f, -5.0f));
+		floorCube->getTransformComponent()->setScale(XMFLOAT3(1.0f, 0.7f, 0.5f));
+		floorCube->getTransformComponent()->setRotation(XMFLOAT3(0.0f, 0.0f, XMConvertToRadians(90.0f)));
 
 		fileManager->SavePositionsToFile(objectVector);
 	}
