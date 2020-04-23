@@ -8,10 +8,9 @@ void GameObject::Update(float deltaTime)
 		XMMATRIX rotation = XMMatrixRotationX(_transform->getRotation().x) * XMMatrixRotationY(_transform->getRotation().y) * XMMatrixRotationZ(_transform->getRotation().z);
 		XMMATRIX translation = XMMatrixTranslation(_transform->getPosition().x, _transform->getPosition().y, _transform->getPosition().z);
 		XMFLOAT4X4 worldMatrix;
-
 		XMStoreFloat4x4(&worldMatrix, scale * rotation * translation);
-
 		_transform->setWorldMatrix(worldMatrix);
+
 		_mesh->setObjectMatrix(_transform->getWorldMatrix());
 
 		_mesh->Update(deltaTime, _transform->getPosition(), _transform->getScale(), _transform->getYaw());
