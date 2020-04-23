@@ -532,9 +532,11 @@ void Application::InitObjects()
 		floorCube->getTransformComponent()->setScale(XMFLOAT3(1.0f, 0.7f, 0.5f));
 		floorCube->getTransformComponent()->setRotation(XMFLOAT3(0.0f, 0.0f, XMConvertToRadians(90.0f)));
 
+		physCube->addRigidBody();
 		physCube->getTransformComponent()->setPosition(XMFLOAT3(-7.0f, 1.25f, -10.0f));
 		physCube->getTransformComponent()->setScale(1.0f);
 
+		physCube->addRigidBody();
 		physCube2->getTransformComponent()->setPosition(XMFLOAT3(3.0f, 1.25f, -10.0f));
 		physCube2->getTransformComponent()->setScale(1.0f);
 

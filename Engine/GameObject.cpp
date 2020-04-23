@@ -3,15 +3,16 @@
 void GameObject::Update(float deltaTime)
 {
 	if (_mesh && _transform) {
+
+		// Set world matrix to align with transform.
 		_mesh->setObjectMatrix(_transform->getWorldMatrix());
 
-		_mesh->Update(deltaTime, _transform->getPosition(), _transform->getScale(), _transform->getYaw());
+		// Update
 		_transform->Update(deltaTime);
-
-
 	}
 
 	if (_rigidBody) {
+		// Update
 		_rigidBody->move(deltaTime);
 	}
 }

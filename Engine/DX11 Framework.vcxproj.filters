@@ -123,12 +123,6 @@
     <Filter Include="Physics and Particles\RigidBody Particle">
       <UniqueIdentifier>{a5c34c3f-e2af-4982-ac48-65b15d6d496f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Physics and Particles\Colliders">
-      <UniqueIdentifier>{d721097c-a1d5-464d-87f3-734fb3a9272b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles\Colliders\Sphere">
-      <UniqueIdentifier>{cb27dbcc-92b9-4c08-8441-f21b6f0067cc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Physics and Particles\Force Generator">
       <UniqueIdentifier>{d11a898b-d887-45ad-9952-5f1320d234e5}</UniqueIdentifier>
     </Filter>
@@ -137,6 +131,18 @@
     </Filter>
     <Filter Include="Utility\Debug">
       <UniqueIdentifier>{e649b8fb-dfd7-4861-b149-60d417579f4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\Quaternion">
+      <UniqueIdentifier>{6f8d548a-e989-4919-b2ae-f5fb2ed4acd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics and Particles\Collision and Colliders">
+      <UniqueIdentifier>{d721097c-a1d5-464d-87f3-734fb3a9272b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics and Particles\Collision and Colliders\Sphere">
+      <UniqueIdentifier>{cb27dbcc-92b9-4c08-8441-f21b6f0067cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics and Particles\Collision">
+      <UniqueIdentifier>{1ddd4531-39da-4946-af78-6a223876a5c2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -232,7 +238,7 @@
       <Filter>Physics and Particles\RigidBody Particle</Filter>
     </ClInclude>
     <ClInclude Include="sphereCollider.h">
-      <Filter>Physics and Particles\Colliders\Sphere</Filter>
+      <Filter>Physics and Particles\Collision and Colliders\Sphere</Filter>
     </ClInclude>
     <ClInclude Include="ForceGenerator.h">
       <Filter>Physics and Particles\Force Generator</Filter>
@@ -243,8 +249,12 @@
     <ClInclude Include="Debug.h">
       <Filter>Utility\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="Quaternion.h" />
-    <ClInclude Include="Collision.h" />
+    <ClInclude Include="Quaternion.h">
+      <Filter>Utility\Quaternion</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Physics and Particles\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -330,7 +340,7 @@
       <Filter>Physics and Particles\RigidBody Particle</Filter>
     </ClCompile>
     <ClCompile Include="sphereCollider.cpp">
-      <Filter>Physics and Particles\Colliders\Sphere</Filter>
+      <Filter>Physics and Particles\Collision and Colliders\Sphere</Filter>
     </ClCompile>
     <ClCompile Include="ForceGenerator.cpp">
       <Filter>Physics and Particles\Force Generator</Filter>
@@ -341,7 +351,9 @@
     <ClCompile Include="Debug.cpp">
       <Filter>Utility\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="Collision.cpp">
+      <Filter>Physics and Particles\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

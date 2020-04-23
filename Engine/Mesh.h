@@ -17,7 +17,6 @@ public:
 
 	// Load the obj files from a constructor and draw and update them from this virtual
 	virtual void Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11VertexShader* vertexShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb);
-	virtual void Update(float time, XMFLOAT3 pos, XMFLOAT3 scale, float yaw);
 
 	virtual meshType getMeshType() { return mType; };
 	virtual void setMeshType(meshType value) { mType = value; };

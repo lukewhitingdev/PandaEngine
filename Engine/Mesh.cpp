@@ -19,8 +19,3 @@ void Mesh::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID
 	context->IASetIndexBuffer(objMeshLoader.IndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 	context->DrawIndexed(objMeshLoader.IndexCount, 0, 0);
 }
-
-void Mesh::Update(float time, XMFLOAT3 pos, XMFLOAT3 scale, float yaw)
-{
-	XMStoreFloat4x4(&objectFloatMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(pos.x, pos.y, pos.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
-}

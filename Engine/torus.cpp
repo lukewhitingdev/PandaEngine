@@ -13,9 +13,3 @@ torus::torus(ID3D11Device* device, const wchar_t* texfileName)
 	stride = objMeshLoader.VBStride;
 	offset = objMeshLoader.VBOffset;
 }
-
-void torus::Update(float time, XMFLOAT3 pos, XMFLOAT3 scale, float yaw)
-{
-	XMStoreFloat4x4(&objectFloatMatrix, XMMatrixRotationY(time) * XMMatrixTranslation(pos.x, pos.y, pos.z) * XMMatrixScaling(scale.x, scale.y, scale.z));
-	yaw = yaw;
-}

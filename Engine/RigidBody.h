@@ -39,6 +39,7 @@ public:
 protected:
 
 	float inverseMass;		// 1/mass used to calculate acceleration, inversed to simplify defining infinite mass objects and avoiding zero mass ones.
+	bool canMove;			// Used to control whether the physics object can move or not.
 
 
 };

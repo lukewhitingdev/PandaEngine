@@ -18,7 +18,6 @@ public:
 	// Used to draw the GameObject's mesh and other visual components.
 	void Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11VertexShader* vertexShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb);
 
-
 				/* Getters and Setters */
 
 	// Used to change or in the current GameObject's mesh.

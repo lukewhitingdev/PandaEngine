@@ -1,20 +1,8 @@
-﻿  Application.cpp
-D:\Local Git\PeboEngine\Engine\Application.cpp(465,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\Application.cpp(468,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\Application.cpp(471,122): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\Application.cpp(474,176): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\Application.cpp(477,171): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\Application.cpp(480,172): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\Application.cpp(483,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\Application.cpp(486,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\Application.cpp(492,185): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\Application.cpp(577,8): warning C4189: 't': local variable is initialized but not referenced
-  Collision.cpp
-  DX11 Framework.cpp
-  GameObject.cpp
-  RigidBody.cpp
-  Transform.cpp
-  cameraManager.cpp
-  saveToFileManager.cpp
+﻿  cube.cpp
+  customModel.cpp
+  Mesh.cpp
+  torus.cpp
+  UtlilityClass.cpp
   Generating Code...
+Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   DX11 Framework.vcxproj -> D:\Local Git\PeboEngine\Engine\Debug\DX11 Framework.exe
