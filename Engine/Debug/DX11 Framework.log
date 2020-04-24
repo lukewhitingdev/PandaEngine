@@ -1,3 +1,12 @@
-﻿  GameObject.cpp
-D:\Local Git\PeboEngine\Engine\GameObject.cpp(86): warning C4715: 'GameObject::getKey': not all control paths return a value
+﻿  Application.cpp
+D:\Local Git\PeboEngine\Engine\Application.cpp(465,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(468,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(471,122): warning C4316: 'sphere': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(474,176): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(477,171): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(480,172): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(483,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(486,120): warning C4316: 'cube': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(492,185): warning C4316: 'customModel': object allocated on the heap may not be aligned 16
+D:\Local Git\PeboEngine\Engine\Application.cpp(581,8): warning C4189: 't': local variable is initialized but not referenced
   DX11 Framework.vcxproj -> D:\Local Git\PeboEngine\Engine\Debug\DX11 Framework.exe

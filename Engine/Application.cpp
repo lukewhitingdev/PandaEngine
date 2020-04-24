@@ -533,10 +533,13 @@ void Application::InitObjects()
 		floorCube->getTransformComponent()->setRotation(XMFLOAT3(0.0f, 0.0f, XMConvertToRadians(90.0f)));
 
 		physCube->addRigidBody();
+		physCube->getRigidbodyComponent()->setCollisionSphere(new sphereCollider(physCube->getTransformComponent()->getVector3Position(), 1.0f));
 		physCube->getTransformComponent()->setPosition(XMFLOAT3(-7.0f, 1.25f, -10.0f));
 		physCube->getTransformComponent()->setScale(1.0f);
 
-		physCube->addRigidBody();
+		physCube2->addRigidBody();
+		physCube2->getRigidbodyComponent()->setCollisionSphere(new sphereCollider(physCube2->getTransformComponent()->getVector3Position(), 1.0f));
+		physCube2->makeGameObjectStatic(true);
 		physCube2->getTransformComponent()->setPosition(XMFLOAT3(3.0f, 1.25f, -10.0f));
 		physCube2->getTransformComponent()->setScale(1.0f);
 
@@ -580,8 +583,17 @@ void Application::Update()
 	// TODO: Refactor
 	// Camera Movement
 
+
+
 	for (size_t i = 0; i < objectVector.size(); i++) {
 		objectVector[i]->Update(gTimer->getDeltaTime());
+
+		for (size_t j = 0; j < objectVector.size(); j++)
+		{
+			if (objectVector[i] != objectVector[j])														// Make sure we dont get collisions on ourself duh.
+				objectVector[i]->updateCollisions(objectVector[i], objectVector[j]);					// Check collisions with the current gameObject will all other gameObject in scene.
+		}
+
 	}
 
 	camManager->getCurrentCamera()->updateCameraMovement(cameraVector);

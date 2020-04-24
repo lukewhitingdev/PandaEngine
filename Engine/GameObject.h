@@ -3,6 +3,7 @@
 #include "Transform.h"
 #include "RigidBody.h"
 #include "Debug.h"
+#include "Collision.h"
 
 class GameObject
 {
@@ -19,6 +20,8 @@ public:
 	// Used to draw the GameObject's mesh and other visual components.
 	void Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11VertexShader* vertexShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb);
 
+	void updateCollisions(GameObject* object1, GameObject* object2);
+
 				/* Getters and Setters */
 
 	// Used to change or in the current GameObject's mesh.
@@ -27,7 +30,13 @@ public:
 
 	// Used to add a rigidBody to the current GameObject (REQUIRES TRANSFORM);
 	void addRigidBody() { _rigidBody = new RigidBody(_transform); };
+
+	// Used to remove Rigidbody from a GameObject, (WILL DISABLE COLLISIONS AS PHYSICS IS NEEDED FOR RESOLUTION)
 	void removeRigidBody() { _rigidBody = nullptr; };
+	
+	// Used to remove movement controls from the object.
+	void makeGameObjectStatic(bool value) { isStaticObject = value; };
+	bool getIsGameObjectStatis() { return isStaticObject; };
 
 	Mesh* getMeshComponent() { return _mesh; };
 	Transform* getTransformComponent() { return _transform; };
@@ -40,9 +49,12 @@ private:
 	bool getKeyDown(char key);
 	bool getKeyUp(char key);
 
+	bool isStaticObject = false;
+
 
 	Mesh* _mesh = nullptr;								// Handles Appearance and Mesh generation (REQUIRES A TRANSFORM).
 	Transform* _transform = nullptr;					// Handles position in world space and scale of the GameObject.
 	RigidBody* _rigidBody = nullptr;					// Handles physics and collision between physics objects.
+	Collision* _collision = nullptr;					// Handles collisions once physics are enabled (REQUIRES A RIGIDBODY).
 };
 

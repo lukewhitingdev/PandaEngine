@@ -35,6 +35,7 @@ public:
 	Vector3D operator/(const float value);
 	Vector3D operator/=(const Vector3D& vec);
 	Vector3D operator=(const Vector3D& vec);
+	bool operator!=(const Vector3D& vec);
 
 	float dot(const Vector3D& vec);
 	Vector3D cross(const Vector3D& vec);

@@ -173,6 +173,13 @@ Vector3D Vector3D::operator=(const Vector3D& vec)
 	return Vector3D(x = vec.x, y = vec.y, z = vec.z);
 }
 
+bool Vector3D::operator!=(const Vector3D& vec)
+{
+	if (x == vec.x && y == vec.y && z == vec.z)
+		return true;
+	return false;
+}
+
 #pragma endregion
 
 #pragma region Calculations

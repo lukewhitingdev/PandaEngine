@@ -5,7 +5,7 @@ RigidBody::RigidBody(Transform* transform)
 	_forceGenerator = _forceGenerator->getInstance();	// Singleton.
 	_transform = transform;
 	_sphereCollider = nullptr;							// null until a collider is assigned.
-	damping = 0.995f;
+	damping = 0.5f;
 	position = transform->getVector3Position();
 	setMass(1.0f);										// Default value to allow for missed implementation when creating objects.
 }
