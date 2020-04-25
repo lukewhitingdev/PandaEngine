@@ -1,6 +1,7 @@
 #pragma once
 #include "sphereCollider.h"
 #include "RigidBody.h"
+#include "Debug.h"
 
 class Collision
 {

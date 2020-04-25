@@ -45,15 +45,6 @@ void Collision::resolveCollision(RigidBody* particle1, RigidBody* particle2)
 	Vector3D invDist = dist;
 	invDist.invert();
 
-	Vector3D trueDist1 = (particle1->_sphereCollider->getColliderPosition() - particle1->_sphereCollider->getColliderRadius());
-	Vector3D trueDist2 = (particle2->_sphereCollider->getColliderPosition() - particle2->_sphereCollider->getColliderRadius());
-
-	Vector3D pen = trueDist1 - trueDist2;
-
-	if (pen < 0) {
-		Vector3D fuckoff;
-	}
-
 	Vector3D relativeVelocity = particle1->velocity - particle2->velocity;
 
 	if ((relativeVelocity + dist) >= 0) {
@@ -76,5 +67,9 @@ void Collision::resolveCollision(RigidBody* particle1, RigidBody* particle2)
 
 		particle1->setVelocity(finalVelo1);
 		particle2->setVelocity(finalVelo2);
+
+		Debug::DebugToOutput("VeloX: ", finalVelo1.x);
+		Debug::DebugToOutput("VeloY: ", finalVelo1.y);
+		Debug::DebugToOutput("VeloZ: ", finalVelo1.z);
 	}
 }
