@@ -4,6 +4,8 @@
 #include "RigidBody.h"
 #include "Debug.h"
 #include "Collision.h"
+#include "inputManager.h"
+#include "playerController.h"
 
 class GameObject
 {
@@ -30,6 +32,12 @@ public:
 
 	// Used to add a rigidBody to the current GameObject (REQUIRES TRANSFORM);
 	void addRigidBody() { _rigidBody = new RigidBody(_transform); };
+	
+	// Used to add a input manager to the current GameObject.
+	void addInputManager() { _inputManager = inputManager::getInstance(); };
+
+	// Used to add a player controller to the current GameObject.
+	void addPlayerController() { _playerController = new playerController(); };
 
 	// Used to remove Rigidbody from a GameObject, (WILL DISABLE COLLISIONS AS PHYSICS IS NEEDED FOR RESOLUTION)
 	void removeRigidBody() { _rigidBody = nullptr; };
@@ -46,10 +54,12 @@ private:
 
 	bool isStaticObject = false;
 
-
+										/* Components. */
 	Mesh* _mesh = nullptr;								// Handles Appearance and Mesh generation (REQUIRES A TRANSFORM).
 	Transform* _transform = nullptr;					// Handles position in world space and scale of the GameObject.
 	RigidBody* _rigidBody = nullptr;					// Handles physics and collision between physics objects.
 	Collision* _collision = nullptr;					// Handles collisions once physics are enabled (REQUIRES A RIGIDBODY).
+	inputManager* _inputManager = nullptr;				// Handles keypresses and general input from the player (SINGLETON).
+	playerController* _playerController = nullptr;		// Handles player movement mainly for demo purposes (REQUIRES A RIGIDBODY).
 };
 
