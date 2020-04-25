@@ -1,2 +1,4 @@
-﻿  RigidBody.cpp
+﻿  GameObject.cpp
+D:\Local Git\PeboEngine\Engine\GameObject.cpp(54,23): warning C4456: declaration of 'force' hides previous local declaration
+D:\Local Git\PeboEngine\Engine\GameObject.cpp(23,11): message : see declaration of 'force'
   DX11 Framework.vcxproj -> D:\Local Git\PeboEngine\Engine\Debug\DX11 Framework.exe
