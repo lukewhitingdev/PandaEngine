@@ -14,11 +14,11 @@ public:
 
 	void setInverseMass(float value) { inverseMass = value; };
 	void setMass(float value) { inverseMass = 1 / value; };
-	float getMass() { return inverseMass; };
+	float getMass() { return 1 / inverseMass; };
 	void setVelocity(Vector3D value) { velocity = value; };
 
 	// Collision
-	void setCollisionSphere(sphereCollider* collider);						// Might want to change this to accept any collider later.
+	void setCollisionSphere(sphereCollider* collider);												// Might want to change this to accept any collider later.
 	void updateColliderPosition(Vector3D pos) { _sphereCollider->setColliderPosition(pos); };
 
 	void integrate(float deltaTime);
@@ -42,7 +42,7 @@ public:
 
 protected:
 
-	float inverseMass;		// 1/mass used to calculate acceleration, inversed to simplify defining infinite mass objects and avoiding zero mass ones.
+	float inverseMass;					// 1/mass used to calculate acceleration, inversed to simplify defining infinite mass objects and avoiding zero mass ones.
 	bool canPhysMove = false;			// Used to control whether the physics object can move or not.
 
 

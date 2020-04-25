@@ -17,42 +17,49 @@ void GameObject::Update(float deltaTime)
 
 			ForceGenerator* forceGen = ForceGenerator::getInstance();								// Get the singleton instance of the force generator.
 			if (_rigidBody->getCanPhysMove() && isStaticObject == false) {							// If we can move then allow keyboard inputs.
-				Vector3D movementForce = Vector3D();
-				float force = 1.0f * _rigidBody->getMass();
+				static Vector3D* movementForce = nullptr;
+				if (movementForce != nullptr) {
+				
 
-				if (getKeyDown('A'))
-				{
-					movementForce.x -= force;
+					float force = 0.2f * _rigidBody->getMass();
+
+					if (getKeyDown('A'))
+					{
+						movementForce->x -= force;
+					}
+					if (getKeyDown('D'))
+					{
+						movementForce->x += force;
+					}
+					if (getKeyDown('W'))
+					{
+						movementForce->z += force;
+					}
+					if (getKeyDown('S'))
+					{
+						movementForce->z -= force;
+					}
+
+					if (getKeyDown('F')) {
+						_rigidBody->addForce(forceGen->generateAnchoredBungieSpringForce(_transform->getVector3Position(), new Vector3D(0, 10, 0), 1.0f, 1.0f));
+					}
+
+					if (getKeyDown('G')) {
+						//_rigidBody->addForce(forceGen->generateAnchoredSpringForce(_transform->getVector3Position(), new Vector3D(-5, 5, 0), 1.0f, 1.0f));
+
+						// Fix this maybe later something funny going on here??
+						Vector3D force = forceGen->generateBuoyancyForce(_transform->getVector3Position(), 4.0f, 10.0f, 2.0f, 1.0f);
+						force.invert();
+						_rigidBody->addForce(force);
+					}
+
+
+					Debug::DebugToOutput(movementForce->x);
+					Debug::DebugToOutput(movementForce->y);
+					Debug::DebugToOutput(movementForce->z);
+
+					_rigidBody->addForce(*movementForce);
 				}
-				if (getKeyDown('D'))
-				{
-					movementForce.x += force;
-				}
-				if (getKeyDown('W'))
-				{
-					movementForce.z += force;
-				}
-				if (getKeyDown('S'))
-				{
-					movementForce.z -= force;
-				}
-
-				if (getKeyDown('F')) {
-					_rigidBody->addForce(forceGen->generateAnchoredBungieSpringForce(_transform->getVector3Position(), new Vector3D(0, 10, 0), 1.0f, 1.0f));
-				}
-
-				if (getKeyDown('G')) {
-					//_rigidBody->addForce(forceGen->generateAnchoredSpringForce(_transform->getVector3Position(), new Vector3D(-5, 5, 0), 1.0f, 1.0f));
-
-					// Fix this maybe later something funny going on here??
-					Vector3D force = forceGen->generateBuoyancyForce(_transform->getVector3Position(), 4.0f, 10.0f, 2.0f, 1.0f);
-					force.invert();
-					_rigidBody->addForce(force);
-				}
-
-
-
-				_rigidBody->addForce(movementForce);
 			}
 
 			if(_transform->getPosition().y > 1.5f)
@@ -65,8 +72,6 @@ void GameObject::Update(float deltaTime)
 
 
 			_rigidBody->move(fixedDeltaTime);																		// Update
-
-			Debug::DebugToOutput(_transform->getPosition().y);
 		}
 	}
 }
@@ -101,48 +106,4 @@ void GameObject::updateCollisions(GameObject* object1, GameObject* object2)
 			_collision->resolveCollision(rigidBody1, rigidBody2);
 		}
 	}
-
 }
-
-#pragma region Functions for key presses
-
-// Allows the user to get one output for the duration the key is pressed.
-bool GameObject::getKey(char key)
-{
-	if (getKeyDown(key)) {
-		// If we are not holding a key already.
-		if (keyPressed == false) {
-			keyPressed = true;
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	if (getKeyUp(key)) {
-		keyPressed = false;
-		return false;
-	}
-}
-
-bool GameObject::getKeyDown(char key)
-{
-	if (GetKeyState(key) & 0x8000) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-bool GameObject::getKeyUp(char key)
-{
-	if (GetKeyState(key) & 0x8000) {
-		return false;
-	}
-	else {
-		return true;
-	}
-}
-
-#pragma endregion

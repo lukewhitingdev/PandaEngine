@@ -533,6 +533,7 @@ void Application::InitObjects()
 		floorCube->getTransformComponent()->setRotation(XMFLOAT3(0.0f, 0.0f, XMConvertToRadians(90.0f)));
 
 		physCube->addRigidBody();
+		physCube->getRigidbodyComponent()->setMass(100.0f);
 		physCube->getRigidbodyComponent()->setCollisionSphere(new sphereCollider(physCube->getTransformComponent()->getVector3Position(), 1.0f));
 		physCube->getTransformComponent()->setPosition(XMFLOAT3(-7.0f, 1.25f, -10.0f));
 		physCube->getTransformComponent()->setScale(1.0f);

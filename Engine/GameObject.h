@@ -44,11 +44,6 @@ public:
 
 private:
 
-	bool keyPressed = false;
-	bool getKey(char key);
-	bool getKeyDown(char key);
-	bool getKeyUp(char key);
-
 	bool isStaticObject = false;
 
 
