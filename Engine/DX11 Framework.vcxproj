@@ -384,6 +384,7 @@
     <ClCompile Include="ForceGenerator.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameTimer.cpp" />
+    <ClCompile Include="inputManager.cpp" />
     <ClCompile Include="lightingManager.cpp" />
     <ClCompile Include="LookAtCam.cpp" />
     <ClCompile Include="cube.cpp" />
@@ -396,6 +397,7 @@
     <ClCompile Include="debugCamera.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
+    <ClCompile Include="playerController.cpp" />
     <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="saveToFileManager.cpp" />
     <ClCompile Include="sphere.cpp" />
@@ -422,6 +424,7 @@
     <ClInclude Include="ForceGenerator.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameTimer.h" />
+    <ClInclude Include="inputManager.h" />
     <ClInclude Include="lightingManager.h" />
     <ClInclude Include="LookAtCam.h" />
     <ClInclude Include="cameraIncludes.h" />
@@ -436,6 +439,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="objectIncludes.h" />
     <ClInclude Include="OBJLoader.h" />
+    <ClInclude Include="playerController.h" />
     <ClInclude Include="Quaternion.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="RigidBody.h" />

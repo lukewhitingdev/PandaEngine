@@ -9,10 +9,13 @@ class playerController
 public:
 	playerController();
 
-	void updateMovement(Vector3D force);
+	void addToMovement(Vector3D force);
+	void subtractFromMovement(Vector3D force);
+
+	Vector3D getMovementVector() { return _movementVector; };
 
 private:
-	Vector3D movementVector;
+	Vector3D _movementVector;
 
 };
 

@@ -2,10 +2,15 @@
 
 playerController::playerController()
 {
-	movementVector = Vector3D();
+	_movementVector = Vector3D();
 }
 
-void playerController::updateMovement(Vector3D force)
+void playerController::addToMovement(Vector3D force)
 {
-	movementVector += force;
+	_movementVector += force;
+}
+
+void playerController::subtractFromMovement(Vector3D force)
+{
+	_movementVector -= force;
 }

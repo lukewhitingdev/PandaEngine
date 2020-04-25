@@ -144,6 +144,12 @@
     <Filter Include="Physics and Particles\Collision">
       <UniqueIdentifier>{1ddd4531-39da-4946-af78-6a223876a5c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game Files">
+      <UniqueIdentifier>{94e15032-e87a-4fe2-9257-41328a5d7cb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\Input Manager">
+      <UniqueIdentifier>{9a2f4e98-a314-4a15-af87-c2f75da972e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -255,6 +261,12 @@
     <ClInclude Include="Collision.h">
       <Filter>Physics and Particles\Collision</Filter>
     </ClInclude>
+    <ClInclude Include="playerController.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inputManager.h">
+      <Filter>Utility\Input Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -353,6 +365,12 @@
     </ClCompile>
     <ClCompile Include="Collision.cpp">
       <Filter>Physics and Particles\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="playerController.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="inputManager.cpp">
+      <Filter>Utility\Input Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

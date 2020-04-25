@@ -532,11 +532,17 @@ void Application::InitObjects()
 		floorCube->getTransformComponent()->setScale(XMFLOAT3(1.0f, 0.7f, 0.5f));
 		floorCube->getTransformComponent()->setRotation(XMFLOAT3(0.0f, 0.0f, XMConvertToRadians(90.0f)));
 
+		// Player Cube
+
 		physCube->addRigidBody();
-		physCube->getRigidbodyComponent()->setMass(100.0f);
+		physCube->addInputManager();
+		physCube->addPlayerController();
+		physCube->getRigidbodyComponent()->setMass(1.0f);
 		physCube->getRigidbodyComponent()->setCollisionSphere(new sphereCollider(physCube->getTransformComponent()->getVector3Position(), 1.0f));
 		physCube->getTransformComponent()->setPosition(XMFLOAT3(-7.0f, 1.25f, -10.0f));
 		physCube->getTransformComponent()->setScale(1.0f);
+
+		// Debug Phys Cube
 
 		physCube2->addRigidBody();
 		physCube2->getRigidbodyComponent()->setCollisionSphere(new sphereCollider(physCube2->getTransformComponent()->getVector3Position(), 1.0f));

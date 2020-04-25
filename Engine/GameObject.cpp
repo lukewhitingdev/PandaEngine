@@ -16,50 +16,42 @@ void GameObject::Update(float deltaTime)
 			float fixedDeltaTime = 0.016f;															// Fixes the deltaTime to 60fps to allow the physics to run nicer.
 
 			ForceGenerator* forceGen = ForceGenerator::getInstance();								// Get the singleton instance of the force generator.
+
 			if (_rigidBody->getCanPhysMove() && isStaticObject == false) {							// If we can move then allow keyboard inputs.
-				static Vector3D* movementForce = nullptr;
-				if (movementForce != nullptr) {
-				
 
-					float force = 0.2f * _rigidBody->getMass();
+				float force = 0.001f;
 
-					if (getKeyDown('A'))
-					{
-						movementForce->x -= force;
-					}
-					if (getKeyDown('D'))
-					{
-						movementForce->x += force;
-					}
-					if (getKeyDown('W'))
-					{
-						movementForce->z += force;
-					}
-					if (getKeyDown('S'))
-					{
-						movementForce->z -= force;
-					}
-
-					if (getKeyDown('F')) {
-						_rigidBody->addForce(forceGen->generateAnchoredBungieSpringForce(_transform->getVector3Position(), new Vector3D(0, 10, 0), 1.0f, 1.0f));
-					}
-
-					if (getKeyDown('G')) {
-						//_rigidBody->addForce(forceGen->generateAnchoredSpringForce(_transform->getVector3Position(), new Vector3D(-5, 5, 0), 1.0f, 1.0f));
-
-						// Fix this maybe later something funny going on here??
-						Vector3D force = forceGen->generateBuoyancyForce(_transform->getVector3Position(), 4.0f, 10.0f, 2.0f, 1.0f);
-						force.invert();
-						_rigidBody->addForce(force);
-					}
-
-
-					Debug::DebugToOutput(movementForce->x);
-					Debug::DebugToOutput(movementForce->y);
-					Debug::DebugToOutput(movementForce->z);
-
-					_rigidBody->addForce(*movementForce);
+				if (_inputManager->getKeyDown('A'))
+				{
+					_playerController->subtractFromMovement(Vector3D(force, 0, 0));
 				}
+				if (_inputManager->getKeyDown('D'))
+				{
+					_playerController->addToMovement(Vector3D(force, 0, 0));
+				}
+				if (_inputManager->getKeyDown('W'))
+				{
+					_playerController->addToMovement(Vector3D(0, 0, force));
+				}
+				if (_inputManager->getKeyDown('S'))
+				{
+					_playerController->subtractFromMovement(Vector3D(0, 0, force));
+				}
+
+				if (_inputManager->getKeyDown('F')) {
+					_rigidBody->addForce(forceGen->generateAnchoredBungieSpringForce(_transform->getVector3Position(), new Vector3D(0, 10, 0), 1.0f, 1.0f));
+				}
+
+				if (_inputManager->getKeyDown('G')) {
+					//_rigidBody->addForce(forceGen->generateAnchoredSpringForce(_transform->getVector3Position(), new Vector3D(-5, 5, 0), 1.0f, 1.0f));
+
+					// Fix this maybe later something funny going on here??
+					Vector3D force = forceGen->generateBuoyancyForce(_transform->getVector3Position(), 4.0f, 10.0f, 2.0f, 1.0f);
+					force.invert();
+					_rigidBody->addForce(force);
+				}
+
+				_rigidBody->addForce(_playerController->getMovementVector());
 			}
 
 			if(_transform->getPosition().y > 1.5f)
