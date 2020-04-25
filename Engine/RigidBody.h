@@ -13,6 +13,7 @@ public:
 	RigidBody(Transform* transform);
 
 	void setInverseMass(float value) { inverseMass = value; };
+	float getInveseMass() { return inverseMass; };													// Not supposed to be used normally, just used to debug.
 	void setMass(float value) { inverseMass = 1 / value; };
 	float getMass() { return 1 / inverseMass; };
 	void setVelocity(Vector3D value) { velocity = value; };

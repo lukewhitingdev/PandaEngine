@@ -61,5 +61,8 @@ private:
 	Collision* _collision = nullptr;					// Handles collisions once physics are enabled (REQUIRES A RIGIDBODY).
 	inputManager* _inputManager = nullptr;				// Handles keypresses and general input from the player (SINGLETON).
 	playerController* _playerController = nullptr;		// Handles player movement mainly for demo purposes (REQUIRES A RIGIDBODY).
+
+	// Debug
+	bool physDebug = true;								// Hard coded value to allow physics to skip the 60fps cap when debugging.
 };
 

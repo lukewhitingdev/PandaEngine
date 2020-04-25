@@ -12,30 +12,35 @@ void GameObject::Update(float deltaTime)
 	}
 
 	if (_rigidBody) {
-		if (deltaTime < 0.016f) {																	// Quick fix so that if the game lags below 60fps the physics dont die.
+		if (deltaTime < 0.016f || physDebug) {														// Quick fix so that if the game lags below 60fps the physics dont die.
 			float fixedDeltaTime = 0.016f;															// Fixes the deltaTime to 60fps to allow the physics to run nicer.
 
 			ForceGenerator* forceGen = ForceGenerator::getInstance();								// Get the singleton instance of the force generator.
 
 			if (_rigidBody->getCanPhysMove() && isStaticObject == false) {							// If we can move then allow keyboard inputs.
 
-				float force = 0.001f;
+				_playerController->setMovementVector(Vector3D());
+				float force = 1.0f;
 
 				if (_inputManager->getKeyDown('A'))
 				{
 					_playerController->subtractFromMovement(Vector3D(force, 0, 0));
+					_rigidBody->addForce(_playerController->getMovementVector());
 				}
 				if (_inputManager->getKeyDown('D'))
 				{
 					_playerController->addToMovement(Vector3D(force, 0, 0));
+					_rigidBody->addForce(_playerController->getMovementVector());
 				}
 				if (_inputManager->getKeyDown('W'))
 				{
 					_playerController->addToMovement(Vector3D(0, 0, force));
+					_rigidBody->addForce(_playerController->getMovementVector());
 				}
 				if (_inputManager->getKeyDown('S'))
 				{
 					_playerController->subtractFromMovement(Vector3D(0, 0, force));
+					_rigidBody->addForce(_playerController->getMovementVector());
 				}
 
 				if (_inputManager->getKeyDown('F')) {
@@ -50,8 +55,6 @@ void GameObject::Update(float deltaTime)
 					force.invert();
 					_rigidBody->addForce(force);
 				}
-
-				_rigidBody->addForce(_playerController->getMovementVector());
 			}
 
 			if(_transform->getPosition().y > 1.5f)
@@ -66,6 +69,7 @@ void GameObject::Update(float deltaTime)
 			_rigidBody->move(fixedDeltaTime);																		// Update
 		}
 	}
+
 }
 
 void GameObject::Draw(ID3D11DeviceContext* context, ID3D11PixelShader* pixelShader, ID3D11VertexShader* vertexShader, ID3D11Buffer* constantBuffer, ConstantBuffer& cb)
