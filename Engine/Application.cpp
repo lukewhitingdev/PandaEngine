@@ -486,6 +486,9 @@ void Application::InitObjects()
 	objectVector.push_back(new GameObject(new Transform(), new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds")));
 	GameObject* physCube2 = objectVector[objectVector.size() - 1];
 
+	objectVector.push_back(new GameObject(new Transform(), new cube(_pd3dDevice, L"Assets/Textures/Crate/Crate_COLOR.dds")));
+	GameObject* physCube3 = objectVector[objectVector.size() - 1];
+
 
 	// Generate Ocean
 	for (int i = 0; i < 3; i++) {
@@ -549,6 +552,16 @@ void Application::InitObjects()
 		physCube2->makeGameObjectStatic(true);
 		physCube2->getTransformComponent()->setPosition(XMFLOAT3(3.0f, 1.25f, -10.0f));
 		physCube2->getTransformComponent()->setScale(1.0f);
+
+		// Spinning Phys Cube
+
+		physCube3->addRigidBody();
+		physCube3->addRotator(1.0f);
+		physCube3->addInputManager();
+		physCube3->getRigidbodyComponent()->setCollisionSphere(new sphereCollider(physCube3->getTransformComponent()->getVector3Position(), 1.0f));
+		physCube3->makeGameObjectStatic(true);
+		physCube3->getTransformComponent()->setPosition(XMFLOAT3(0.0f, 3.0f, 0.0f));
+		physCube3->getTransformComponent()->setScale(1.0f);
 
 		fileManager->SavePositionsToFile(objectVector);
 	}

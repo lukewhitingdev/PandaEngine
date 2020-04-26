@@ -9,6 +9,8 @@ Transform::Transform()
 	_scale = XMFLOAT3(0.0f, 0.0f, 0.0f);
 	_world = XMFLOAT4X4();
 	_centreOfMass = Vector3D(0.0f, 0.0f, 0.0f);
+	_quaternionRotation = XMMATRIX();
+	_usingQuaternionRotation = false;
 
 
 }
@@ -19,7 +21,14 @@ void Transform::Update(float deltaTime)
 	XMMATRIX scale = XMMatrixScaling(getScale().x, getScale().y, getScale().z);
 	XMMATRIX rotation = XMMatrixRotationX(getRotation().x) * XMMatrixRotationY(getRotation().y) * XMMatrixRotationZ(getRotation().z);
 	XMMATRIX translation = XMMatrixTranslation(getPosition().x, getPosition().y, getPosition().z);
-	XMStoreFloat4x4(&_world, scale * rotation * translation);
+
+	if (_usingQuaternionRotation) {
+		XMStoreFloat4x4(&_world, scale * _quaternionRotation * translation);
+	}
+	else {
+		XMStoreFloat4x4(&_world, scale * rotation * translation);
+	}
+
 
 	//updateMovement(deltaTime);
 }

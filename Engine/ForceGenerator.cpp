@@ -13,6 +13,7 @@ ForceGenerator* ForceGenerator::getInstance()
 		instance = new ForceGenerator();
 		return instance;
 	}
+	return instance;
 }
 
 Vector3D ForceGenerator::generateGravityForce(float mass, float ammount)

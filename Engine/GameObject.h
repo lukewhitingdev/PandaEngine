@@ -6,6 +6,7 @@
 #include "Collision.h"
 #include "inputManager.h"
 #include "playerController.h"
+#include "Rotator.h"
 
 class GameObject
 {
@@ -39,6 +40,9 @@ public:
 	// Used to add a player controller to the current GameObject.
 	void addPlayerController() { _playerController = new playerController(); };
 
+	// Used to add a rotator that uses quaternions and ang velocity to rotate rather than a tranditional euler implementation.
+	void addRotator(float radius) { _rotator = new Rotator(_rigidBody->getMass(), radius); };
+
 	// Used to remove Rigidbody from a GameObject, (WILL DISABLE COLLISIONS AS PHYSICS IS NEEDED FOR RESOLUTION)
 	void removeRigidBody() { _rigidBody = nullptr; };
 	
@@ -49,6 +53,7 @@ public:
 	Mesh* getMeshComponent() { return _mesh; };
 	Transform* getTransformComponent() { return _transform; };
 	RigidBody* getRigidbodyComponent() { return _rigidBody; };
+	Rotator* getRotatorComponent() { return _rotator; };
 
 private:
 
@@ -61,6 +66,7 @@ private:
 	Collision* _collision = nullptr;					// Handles collisions once physics are enabled (REQUIRES A RIGIDBODY).
 	inputManager* _inputManager = nullptr;				// Handles keypresses and general input from the player (SINGLETON).
 	playerController* _playerController = nullptr;		// Handles player movement mainly for demo purposes (REQUIRES A RIGIDBODY).
+	Rotator* _rotator = nullptr;						// Handles rotation using angluar momentum and Quaternions (REQUIRES A RIGIDBODY).
 
 	// Debug
 	bool physDebug = true;								// Hard coded value to allow physics to skip the 60fps cap when debugging.

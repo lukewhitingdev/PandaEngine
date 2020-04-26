@@ -11,6 +11,10 @@ void GameObject::Update(float deltaTime)
 		_transform->Update(deltaTime);
 	}
 
+	if (_rotator) {
+		_transform->setQuaternionRotation(_rotator->updateRotation(deltaTime));
+	}
+
 	if (_rigidBody) {
 		if (deltaTime < 0.016f || physDebug) {														// Quick fix so that if the game lags below 60fps the physics dont die.
 			float fixedDeltaTime = 0.016f;															// Fixes the deltaTime to 60fps to allow the physics to run nicer.
@@ -52,10 +56,10 @@ void GameObject::Update(float deltaTime)
 
 					// Fix this maybe later something funny going on here??
 					Vector3D force = forceGen->generateBuoyancyForce(_transform->getVector3Position(),
-																							2.0f,
-																							10.0f,
-																							2.0f,
-																							1.0f
+																							2.0f,										// Depth
+																							10.0f,										// Volume
+																							2.0f,										// Water Height
+																							1.0f										// Liquid Density
 						);
 
 					force.invert();
@@ -65,7 +69,8 @@ void GameObject::Update(float deltaTime)
 
 			if(_transform->getPosition().y > 1.5f)
 				_rigidBody->addForce(forceGen->generateGravityForce(_rigidBody->getMass(), 1.0f));					// Apply gravity if not a ground level to prevent jittering.
-				
+			
+
 			if (_transform->getPosition().y < 1.5f)
 				_transform->setPosition(XMFLOAT3(_transform->getPosition().x, 1.25f, _transform->getPosition().z));	// Make sure that if the gravity pushes too hard between frames it resets. 
 
@@ -73,6 +78,14 @@ void GameObject::Update(float deltaTime)
 
 
 			_rigidBody->move(fixedDeltaTime);																		// Update
+		}
+
+		if (_rotator) {
+			if (_inputManager->getKeyDown('T'))
+				_rotator->generateTorgueVector(Vector3D(0.5f, 0.0f, 0.0f), Vector3D(0, 0.25f, 0.0f));
+
+			if (_inputManager->getKeyDown('Y'))
+				_rotator->generateTorgueVector(Vector3D(-0.5f, 0.0f, 0.0f), Vector3D(0.0f, 0.25f, 0.0f));
 		}
 	}
 

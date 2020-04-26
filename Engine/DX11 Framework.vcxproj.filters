@@ -150,6 +150,9 @@
     <Filter Include="Utility\Input Manager">
       <UniqueIdentifier>{9a2f4e98-a314-4a15-af87-c2f75da972e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Physics and Particles\Rotator %28Quat%29">
+      <UniqueIdentifier>{f9d8992a-b8d3-4893-8093-7ab354bd9bf7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -267,6 +270,9 @@
     <ClInclude Include="inputManager.h">
       <Filter>Utility\Input Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Rotator.h">
+      <Filter>Physics and Particles\Rotator %28Quat%29</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -371,6 +377,9 @@
     </ClCompile>
     <ClCompile Include="inputManager.cpp">
       <Filter>Utility\Input Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotator.cpp">
+      <Filter>Physics and Particles\Rotator %28Quat%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

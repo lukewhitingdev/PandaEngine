@@ -399,6 +399,7 @@
     <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="playerController.cpp" />
     <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="Rotator.cpp" />
     <ClCompile Include="saveToFileManager.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="pointLight.cpp" />
@@ -443,6 +444,7 @@
     <ClInclude Include="Quaternion.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="Rotator.h" />
     <ClInclude Include="saveToFileManager.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="pointLight.h" />

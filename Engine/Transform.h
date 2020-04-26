@@ -21,6 +21,8 @@ public:
 	XMMATRIX getWorldMatrix() { return XMLoadFloat4x4(&_world); };
 	Vector3D getCenterOfMass() { return _centreOfMass; };
 
+	void setQuaternionRotation(XMMATRIX value) { _quaternionRotation = value; setUsingQuaternionRotation(true); };	// Used to set the transform Update() to use the quaternion rotator rather than euler angles.
+	void setUsingQuaternionRotation(bool value) { _usingQuaternionRotation = value; };								// Used in-class to allow the update to use the quat instead of the euler angles. Should not be used explicitly unless a quaternion has been defined previously.
 	void setPrevVelocity(XMFLOAT3 value) { _previousVelocity = value; };
 	void setPrevPosition(XMFLOAT3 value) { _previousPosition = value; };
 	void setPosition(XMFLOAT3 value) { _position = value; setPrevPosition(_position); };
@@ -51,6 +53,9 @@ private:
 	XMFLOAT3 _scale;
 	XMFLOAT4X4 _world;
 	Vector3D _centreOfMass;
+	XMMATRIX _quaternionRotation;
+
+	bool _usingQuaternionRotation;
 
 
 	// Movement
