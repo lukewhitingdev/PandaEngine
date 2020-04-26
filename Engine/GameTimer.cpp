@@ -124,7 +124,8 @@ void GameTimer::CalculateFrameStats(HWND& hwnd)
 		outs.precision(6);
 		outs << L"Engine" << L" "
 			<< L"FPS: " << fps << L" "
-			<< L"Frame Time: " << msPerFrame << L" (ms)";
+			<< L"Frame Time: " << msPerFrame << L" (ms)" 
+			<< L" " << L"(Physics capped at 60fps)";
 		SetWindowText(hwnd, outs.str().c_str());
 
 		frameCount = 0;
