@@ -44,15 +44,15 @@ void RigidBody::integrate(float deltaTime)
 
 void RigidBody::move(float deltaTime)
 {
-
 	_transform->setPrevVelocity(velocity);
 
 	// Update accel.
 	acceleration = combinedForce * inverseMass;  // Accel = force / mass.
 
-	Vector3D movedPosition;
-	movedPosition = Vector3D::fromXMFLOAT3(_transform->getPrevPosition()) + Vector3D::fromXMFLOAT3(_transform->getPrevVelocity()) * deltaTime + acceleration * 0.5f * deltaTime * deltaTime;
-
+	//|----------s-------| = |------------------------------------------ut---------------------------------------------------------------------------| + |-------------0.5at^2 (Re-arranged)--------|
+	Vector3D movedPosition = Vector3D::fromXMFLOAT3(_transform->getPrevPosition()) + Vector3D::fromXMFLOAT3(_transform->getPrevVelocity()) * deltaTime + acceleration * 0.5f * deltaTime * deltaTime;
+	
+	// |-v-| = |------------------------u--------------------------| + |----------at----------|
 	velocity = Vector3D::fromXMFLOAT3(_transform->getPrevVelocity()) + acceleration * deltaTime;
 
 	velocity *= powf(damping, deltaTime);
