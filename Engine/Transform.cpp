@@ -11,8 +11,6 @@ Transform::Transform()
 	_centreOfMass = Vector3D(0.0f, 0.0f, 0.0f);
 	_quaternionRotation = XMMATRIX();
 	_usingQuaternionRotation = false;
-
-
 }
 
 void Transform::Update(float deltaTime)
@@ -29,7 +27,7 @@ void Transform::Update(float deltaTime)
 		XMStoreFloat4x4(&_world, scale * rotation * translation);
 	}
 
-
+	deltaTime = deltaTime;
 	//updateMovement(deltaTime);
 }
 

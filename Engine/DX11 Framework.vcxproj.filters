@@ -275,6 +275,10 @@
     <ClInclude Include="GameObject.h">
       <Filter>Physics and Particles\Game Object</Filter>
     </ClInclude>
+    <ClInclude Include="window.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="renderer.h" />
+    <ClInclude Include="objectManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -385,6 +389,10 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Physics and Particles\Game Object</Filter>
     </ClCompile>
+    <ClCompile Include="window.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="renderer.cpp" />
+    <ClCompile Include="objectManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

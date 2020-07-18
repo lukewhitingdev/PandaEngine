@@ -12,7 +12,7 @@ saveToFileManager::~saveToFileManager()
 {
 }
 
-void saveToFileManager::SavePositionsToFile(vector<GameObject*>& gVector)
+void saveToFileManager::SavePositionsToFile(vector<GameObject*> gVector)
 {
 	ofstream outStream;
 	outStream.open(savedFileName);

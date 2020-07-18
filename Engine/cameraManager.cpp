@@ -2,31 +2,44 @@
 
 
 
-cameraManager::cameraManager()
+PandaEngine::cameraManager::cameraManager()
 {
+	cameraVector = std::vector<Cam*>();
+	currentCamera = nullptr;
+	defaultCamera = nullptr;
 }
 
 
-cameraManager::~cameraManager()
+PandaEngine::cameraManager::~cameraManager()
 {
 }
 
-Cam* cameraManager::getCurrentCamera()
+Cam* PandaEngine::cameraManager::getCurrentCamera()
 {
 	return currentCamera;
 }
 
-void cameraManager::setCurrentCamera(Cam* camera)
+void PandaEngine::cameraManager::setCurrentCamera(Cam* camera)
 {
 	currentCamera = camera;
 }
 
-Cam* cameraManager::getDefaultCamera()
+Cam* PandaEngine::cameraManager::getDefaultCamera()
 {
 	return currentCamera;
 }
 
-void cameraManager::setDefaultCamera(Cam* camera)
+void PandaEngine::cameraManager::setDefaultCamera(Cam* camera)
 {
 	defaultCamera = camera;
+}
+
+void PandaEngine::cameraManager::addCamera(Cam* camera)
+{
+	cameraVector.push_back(camera);
+}
+
+Cam* PandaEngine::cameraManager::getCameraAtIndex(int index)
+{
+	return cameraVector[index];
 }

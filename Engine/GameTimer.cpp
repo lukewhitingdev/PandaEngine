@@ -2,7 +2,7 @@
 #include <d3d11.h>
 #include <sstream>
 
-GameTimer::GameTimer()
+PandaEngine::GameTimer::GameTimer()
 {
 	// Init
 	SecondsPerCount = 0.0f;
@@ -20,11 +20,11 @@ GameTimer::GameTimer()
 }
 
 
-GameTimer::~GameTimer()
+PandaEngine::GameTimer::~GameTimer()
 {
 }
 
-float GameTimer::getGameTime() const
+float PandaEngine::GameTimer::getGameTime() const
 {
 	if (timerStopped) {
 		return(float)(((stopTime - pausedTime) - baseTime) * SecondsPerCount);
@@ -34,12 +34,12 @@ float GameTimer::getGameTime() const
 	}
 }
 
-float GameTimer::getDeltaTime() const
+float PandaEngine::GameTimer::getDeltaTime() const
 {
 	return (float)deltaTime;
 }
 
-void GameTimer::ResetTimer()
+void PandaEngine::GameTimer::ResetTimer()
 {
 	__int64 currTime;
 	QueryPerformanceCounter((LARGE_INTEGER*)& currTime);
@@ -50,7 +50,7 @@ void GameTimer::ResetTimer()
 	timerStopped = false;
 }
 
-void GameTimer::StartTimer()
+void PandaEngine::GameTimer::StartTimer()
 {
 	__int64 startTime;
 	QueryPerformanceCounter((LARGE_INTEGER*)& startTime);
@@ -69,7 +69,7 @@ void GameTimer::StartTimer()
 	}
 }
 
-void GameTimer::StopTimer()
+void PandaEngine::GameTimer::StopTimer()
 {
 	// Check if we are already stopped
 	if (!timerStopped) {
@@ -82,7 +82,7 @@ void GameTimer::StopTimer()
 	}
 }
 
-void GameTimer::Tick()
+void PandaEngine::GameTimer::Tick()
 {
 	// If the timer is stopped dont tick
 	if (timerStopped) {
@@ -109,7 +109,7 @@ void GameTimer::Tick()
 
 }
 
-void GameTimer::CalculateFrameStats(HWND& hwnd)
+void PandaEngine::GameTimer::CalculateFrameStats(HWND& hwnd)
 {
 	static int frameCount = 0;
 	static float timeElapsed = 0.0f;

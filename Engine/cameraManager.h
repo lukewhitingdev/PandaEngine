@@ -4,23 +4,30 @@
 #include "UtlilityClass.h"
 #include <vector>
 
-class cameraManager
-{
-public:
-	cameraManager();
-	~cameraManager();
+namespace PandaEngine {
+	class cameraManager
+	{
+	public:
+		cameraManager();
+		~cameraManager();
 
-	Cam* getCurrentCamera();
-	void setCurrentCamera(Cam* camera);
+		Cam* getCurrentCamera();
+		void setCurrentCamera(Cam* camera);
 
-	Cam* getDefaultCamera();
-	void setDefaultCamera(Cam* camera);
+		Cam* getDefaultCamera();
+		void setDefaultCamera(Cam* camera);
 
-private:
+		void addCamera(Cam* camera);
+		Cam* getCameraAtIndex(int index);
 
-	Cam* currentCamera;
-	Cam* defaultCamera;
+		std::vector<Cam*> getCameraVector() { return cameraVector; };
 
-	std::vector<Cam*> cameraVector;
-};
+	private:
+
+		Cam* currentCamera;
+		Cam* defaultCamera;
+
+		std::vector<Cam*> cameraVector;
+	};
+}
 

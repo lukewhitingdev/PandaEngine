@@ -3,10 +3,22 @@
 #include "Quaternion.h"
 #include "Debug.h"
 
-class Rotator
+__declspec(align(16)) class Rotator
 {
 
 public:
+
+	// Fix to align to 16 on heap so directX is happy.
+	void* operator new(size_t i)
+	{
+		return _mm_malloc(i, 16);
+	}
+
+	void operator delete(void* p)
+	{
+		_mm_free(p);
+	}
+
 	Rotator(float mass, float radius);
 
 	Vector3D generateTorgueVector(Vector3D force, Vector3D point);

@@ -55,15 +55,15 @@ void GameObject::Update(float deltaTime)
 					//_rigidBody->addForce(forceGen->generateAnchoredSpringForce(_transform->getVector3Position(), new Vector3D(-5, 5, 0), 1.0f, 1.0f));
 
 					// Fix this maybe later something funny going on here??
-					Vector3D force = forceGen->generateBuoyancyForce(_transform->getVector3Position(),
+					Vector3D Force = forceGen->generateBuoyancyForce(_transform->getVector3Position(),
 																							2.0f,										// Depth
 																							10.0f,										// Volume
 																							2.0f,										// Water Height
 																							1.0f										// Liquid Density
 						);
 
-					force.invert();
-					_rigidBody->addForce(force);
+					Force.invert();
+					_rigidBody->addForce(Force);
 				}
 			}
 

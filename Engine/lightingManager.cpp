@@ -2,22 +2,22 @@
 
 
 
-lightingManager::lightingManager()
+PandaEngine::lightingManager::lightingManager()
 {
 	resetLighting();
 }
 
 
-lightingManager::~lightingManager()
+PandaEngine::lightingManager::~lightingManager()
 {
 }
 
-void lightingManager::addLight(Light* light)
+void PandaEngine::lightingManager::addLight(Light* light)
 {
 	lightVector.push_back(light);
 }
 
-void lightingManager::Draw(ID3D11DeviceContext* context, ID3D11Buffer* cBuffer, ConstantBuffer& cb, XMFLOAT3 eyePos)
+void PandaEngine::lightingManager::Draw(ID3D11DeviceContext* context, ID3D11Buffer* cBuffer, ConstantBuffer& cb, XMFLOAT3 eyePos)
 {
 	for (size_t i = 0; i < lightVector.size(); i++) {
 		if (lightVector[i]->getLightType() == currentLightingType || currentLightingType == Light::NONE) {
@@ -26,12 +26,12 @@ void lightingManager::Draw(ID3D11DeviceContext* context, ID3D11Buffer* cBuffer, 
 	}
 }
 
-void lightingManager::enableOnly(Light::LightingTypes type)
+void PandaEngine::lightingManager::enableOnly(Light::LightingTypes type)
 {
 	currentLightingType = type;
 }
 
-void lightingManager::resetLighting()
+void PandaEngine::lightingManager::resetLighting()
 {
 	currentLightingType = Light::NONE;
 }

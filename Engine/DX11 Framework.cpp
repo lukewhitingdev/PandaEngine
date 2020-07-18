@@ -8,8 +8,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	Application * theApp = new Application();
 
-	GameTimer* gTimer = new GameTimer();
-
 	if (FAILED(theApp->Initialise(hInstance, nCmdShow)))
 	{
 		return -1;
@@ -17,8 +15,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
     // Main message loop
     MSG msg = {0};
-	// Just make sure
-	gTimer->ResetTimer();
 
     while (WM_QUIT != msg.message)
     {

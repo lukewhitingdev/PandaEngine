@@ -1,9 +1,5 @@
-﻿  GameObject.cpp
-D:\Local Git\PeboEngine\Engine\GameObject.h(44,32): warning C4316: 'Rotator': object allocated on the heap may not be aligned 16
-D:\Local Git\PeboEngine\Engine\GameObject.cpp(58,23): warning C4456: declaration of 'force' hides previous local declaration
-D:\Local Git\PeboEngine\Engine\GameObject.cpp(27,11): message : see declaration of 'force'
-  GameTimer.cpp
-  RigidBody.cpp
+﻿  Application.cpp
+  DX11 Framework.cpp
+  Engine.cpp
   Generating Code...
-Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  DX11 Framework.vcxproj -> D:\Local Git\PeboEngine\Engine\Debug\DX11 Framework.exe
+  DX11 Framework.vcxproj -> D:\Local Git\PandaEngine\Engine\Debug\DX11 Framework.exe

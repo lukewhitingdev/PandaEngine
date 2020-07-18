@@ -380,6 +380,7 @@
     <ClCompile Include="cameraManager.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="firstPersonCamera.cpp" />
     <ClCompile Include="ForceGenerator.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -396,8 +397,10 @@
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="debugCamera.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="objectManager.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="playerController.cpp" />
+    <ClCompile Include="renderer.cpp" />
     <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="Rotator.cpp" />
     <ClCompile Include="saveToFileManager.cpp" />
@@ -411,6 +414,7 @@
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UtlilityClass.cpp" />
     <ClCompile Include="Vector3D.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DX11 Framework.fx" />
@@ -421,6 +425,7 @@
     <ClInclude Include="cameraManager.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Debug.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="firstPersonCamera.h" />
     <ClInclude Include="ForceGenerator.h" />
     <ClInclude Include="GameObject.h" />
@@ -439,9 +444,11 @@
     <ClInclude Include="debugCamera.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="objectIncludes.h" />
+    <ClInclude Include="objectManager.h" />
     <ClInclude Include="OBJLoader.h" />
     <ClInclude Include="playerController.h" />
     <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="renderer.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="Rotator.h" />
@@ -457,6 +464,7 @@
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UtlilityClass.h" />
     <ClInclude Include="Vector3D.h" />
+    <ClInclude Include="window.h" />
     <ResourceCompile Include="DX11 Framework.rc" />
   </ItemGroup>
   <ItemGroup>

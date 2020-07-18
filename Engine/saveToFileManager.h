@@ -12,7 +12,7 @@ public:
 	saveToFileManager(const char* fileName);
 	~saveToFileManager();
 
-	void SavePositionsToFile(vector<GameObject*>& gVector);
+	void SavePositionsToFile(vector<GameObject*> gVector);
 	vector<XMFLOAT3> LoadPositionsFromFile();
 	void setLoadObjectsFromFile(bool value) { loadObjectsFromFile = value; };
 	bool getLoadObjectsFromFile() { return loadObjectsFromFile; };

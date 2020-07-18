@@ -1,26 +1,30 @@
 #pragma once
 #include <vector>
-#include "Light.h"
-class lightingManager
-{
-public:
+#include "LightingIncludes.h"
+#include "cameraManager.h"
 
-	lightingManager();
-	~lightingManager();
+namespace PandaEngine {
+	class lightingManager
+	{
+	public:
 
-	void addLight(Light* light);
+		lightingManager();
+		~lightingManager();
 
-	void Draw(ID3D11DeviceContext* context, ID3D11Buffer* cBuffer, ConstantBuffer& cb, XMFLOAT3 eyePos);
+		void addLight(Light* light);
 
-	void enableOnly(Light::LightingTypes type);
+		void addDirectionalLight(cameraManager* camManager) { new directionalLight(camManager->getCurrentCamera()->getCameraPos()); };
 
-	void resetLighting();
+		void Draw(ID3D11DeviceContext* context, ID3D11Buffer* cBuffer, ConstantBuffer& cb, XMFLOAT3 eyePos);
 
+		void enableOnly(Light::LightingTypes type);
 
+		void resetLighting();
 
-private: 
-	std::vector<Light*> lightVector;
+	private:
+		std::vector<Light*> lightVector;
 
-	Light::LightingTypes currentLightingType;
-};
+		Light::LightingTypes currentLightingType;
+	};
+}
 

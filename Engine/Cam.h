@@ -35,7 +35,7 @@ public:
 
 	virtual void Reshape(float wWidth, float wHeight, float nearDepth, float farDepth);
 
-	virtual void updateCameraMovement(std::vector<Cam*>& camVector);
+	virtual void updateCameraMovement(std::vector<Cam*> camVector);
 
 protected:
 	Mesh* attachedMesh = nullptr;
