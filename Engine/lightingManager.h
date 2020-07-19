@@ -13,7 +13,7 @@ namespace PandaEngine {
 
 		void addLight(Light* light);
 
-		void addDirectionalLight(cameraManager* camManager) { new directionalLight(camManager->getCurrentCamera()->getCameraPos()); };
+		void addDirectionalLight(cameraManager* camManager) { lightVector.push_back(new directionalLight(camManager->getCurrentCamera()->getCameraPos())); };
 
 		void Draw(ID3D11DeviceContext* context, ID3D11Buffer* cBuffer, ConstantBuffer& cb, XMFLOAT3 eyePos);
 

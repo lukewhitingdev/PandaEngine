@@ -30,7 +30,6 @@ void PandaEngine::Engine::initGameTimer(HWND _hWnd)
 {
 	addGameTimer();
 	gameTimer->ResetTimer();
-	gameTimer->CalculateFrameStats(_hWnd);
 }
 
 void PandaEngine::Engine::update()
@@ -50,6 +49,12 @@ void PandaEngine::Engine::update()
 
 	if(CameraManager)
 		CameraManager->getCurrentCamera()->updateCameraMovement(CameraManager->getCameraVector());
+
+	if (gameTimer) {
+		gameTimer->Tick();
+		HWND hwnd = Window->gethWnd();
+		gameTimer->CalculateFrameStats(hwnd);
+	}
 }
 
 void PandaEngine::Engine::draw()

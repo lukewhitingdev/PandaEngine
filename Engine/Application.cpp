@@ -10,7 +10,13 @@ Application::Application()
 
 HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 {
-	return Engine->Init(hInstance, nCmdShow);
+	HRESULT result = Engine->Init(hInstance, nCmdShow);
+	if (result == S_OK) {
+		InitCamera();
+		InitObjects();
+		InitLighting();
+	}
+	return result;
 }
 
 void Application::InitCamera()
@@ -21,7 +27,7 @@ void Application::InitCamera()
 	PandaEngine::cameraManager* camManager = Engine->getCameraManager();
 
 	// Initialize the view matrix
-	XMFLOAT3 Eye = XMFLOAT3(0.0f, 0.0f, -3.0f);
+	XMFLOAT3 Eye = XMFLOAT3(0.0f, 2.0f, -3.0f);
 	XMFLOAT3 At = XMFLOAT3(0.0f, 0.0f, 1.0f);
 	XMFLOAT3 To = XMFLOAT3(0.0f, 0.0f, 1.0f);
 	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
