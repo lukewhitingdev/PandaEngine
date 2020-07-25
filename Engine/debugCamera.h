@@ -10,7 +10,7 @@ public:
 
 	void UpdateStoredFloats();
 
-	void updateCameraMovement(std::vector<Cam*>&camVector);
+	void updateCameraMovement();
 
 protected:
 	// Cursor Input, last point recorded

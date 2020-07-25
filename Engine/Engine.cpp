@@ -48,7 +48,7 @@ void PandaEngine::Engine::update()
 	}
 
 	if(CameraManager)
-		CameraManager->getCurrentCamera()->updateCameraMovement(CameraManager->getCameraVector());
+		CameraManager->getCurrentCamera()->updateCameraMovement();
 
 	if (gameTimer) {
 		gameTimer->Tick();

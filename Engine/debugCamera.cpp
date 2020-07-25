@@ -30,7 +30,7 @@ void debugCamera::UpdateStoredFloats()
 	XMStoreFloat4x4(&_projection, XMMatrixPerspectiveFovLH(XM_PIDIV2, _windowWidth / (FLOAT)_windowHeight, 0.01f, 100.0f));
 }
 
-void debugCamera::updateCameraMovement(std::vector<Cam*>& camVector)
+void debugCamera::updateCameraMovement()
 {
 	POINT cursorPoint = getCursorPos();
 
@@ -88,11 +88,6 @@ void debugCamera::updateCameraMovement(std::vector<Cam*>& camVector)
 		XMStoreFloat3(&eye, XMVectorMultiplyAdd(speed, right, position));
 		setCameraPos(eye.x, eye.y, eye.z);
 		UpdateStoredFloats();
-	}
-
-	if ((GetAsyncKeyState('8'))) {
-		camVector[2]->setCameraPos(getCameraPos().x, getCameraPos().y, getCameraPos().z);
-		camVector[2]->setLookToPos(getLookToPos().x, getLookToPos().y, getLookToPos().z);
 	}
 }
 
