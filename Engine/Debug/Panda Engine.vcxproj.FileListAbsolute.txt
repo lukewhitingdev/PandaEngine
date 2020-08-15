@@ -1,0 +1,2 @@
+D:\Local Git\PandaEngine\Engine\Debug\Panda Engine.exe
+D:\Local Git\PandaEngine\Engine\Debug\Panda Engine.pdb

@@ -1,4 +1,57 @@
-﻿  renderer.cpp
-  main.cpp
+﻿D:\Applications\VS\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (DX11 Framework.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Application.cpp
+  Cam.cpp
+  cameraManager.cpp
+  Collision.cpp
+  Debug.cpp
+  Engine.cpp
+D:\Local Git\PandaEngine\Engine\Engine\Engine.cpp(29,46): warning C4100: '_hWnd': unreferenced formal parameter
+  firstPersonCamera.cpp
+  ForceGenerator.cpp
+D:\Local Git\PandaEngine\Engine\Engine\ForceGenerator.cpp(54,132): warning C4100: 'restLength': unreferenced formal parameter
+  GameObject.cpp
+  GameTimer.cpp
+  inputManager.cpp
+  lightingManager.cpp
+  LookAtCam.cpp
+  cube.cpp
+  customModel.cpp
+  cylinder.cpp
+  DDSTextureLoader.cpp
+  directionalLight.cpp
+  imgui.cpp
+  imgui_draw.cpp
   Generating Code...
-  DX11 Framework.vcxproj -> D:\Local Git\PandaEngine\Engine\Debug\DX11 Framework.exe
+D:\Local Git\PandaEngine\Engine\Engine\inputManager.cpp(36): warning C4715: 'inputManager::getKey': not all control paths return a value
+D:\Local Git\PandaEngine\Engine\Engine\inputManager.cpp(17): warning C4715: 'inputManager::getInstance': not all control paths return a value
+  Compiling...
+  imgui_impl_dx11.cpp
+  imgui_impl_win32.cpp
+  imgui_widgets.cpp
+  main.cpp
+  Light.cpp
+  debugCamera.cpp
+  Mesh.cpp
+  objectManager.cpp
+  OBJLoader.cpp
+  playerController.cpp
+  renderer.cpp
+  RigidBody.cpp
+  Rotator.cpp
+  saveToFileManager.cpp
+  sphere.cpp
+  pointLight.cpp
+  sphereCollider.cpp
+  spotLight.cpp
+  staticCamera.cpp
+  staticGeneratedCamera.cpp
+  Generating Code...
+  Compiling...
+  torus.cpp
+  Transform.cpp
+  UtlilityClass.cpp
+  Vector3D.cpp
+  window.cpp
+  Generating Code...
+Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  DX11 Framework.vcxproj -> D:\Local Git\PandaEngine\Engine\Debug\Panda Engine.exe
