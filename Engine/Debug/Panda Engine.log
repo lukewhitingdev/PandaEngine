@@ -1,2 +1,4 @@
-﻿  window.cpp
+﻿  main.cpp
+  renderer.cpp
+  Generating Code...
   Panda Engine.vcxproj -> D:\Local Git\PandaEngine\Engine\Debug\Panda Engine.exe

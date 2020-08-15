@@ -37,6 +37,7 @@ namespace PandaEngine {
 		DirectX::XMFLOAT4X4		_projection;
 		D3D_DRIVER_TYPE         _driverType;
 		D3D_FEATURE_LEVEL       _featureLevel;
+		ID3D11Texture2D*		_sceneTexture;
 
 		bool drawTextures;
 
