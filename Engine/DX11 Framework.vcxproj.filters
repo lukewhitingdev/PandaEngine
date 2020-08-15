@@ -1,405 +1,429 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Graphics and Mechanics">
-      <UniqueIdentifier>{96c70480-f93c-4d38-8c87-e1ee9941a803}</UniqueIdentifier>
+    <Filter Include="Game">
+      <UniqueIdentifier>{e2e7cd43-1217-4a50-a179-2a499f5b1e89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Cameras">
-      <UniqueIdentifier>{e8fc1d50-3873-4706-bb01-0793a742651b}</UniqueIdentifier>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{8c7920f4-1a87-4aae-8499-336fc7961392}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Cameras\DebugCamera">
-      <UniqueIdentifier>{e2102078-3b9e-4f54-80b3-38237b96fe88}</UniqueIdentifier>
+    <Filter Include="Engine\Window">
+      <UniqueIdentifier>{7c959612-d385-4714-8d62-b00335de438c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Cameras\StaticCamera">
-      <UniqueIdentifier>{d77e78e4-d447-4ce3-9c9e-ab2679c215bd}</UniqueIdentifier>
+    <Filter Include="Engine\Rendering">
+      <UniqueIdentifier>{3e07477c-0fb5-4a81-9c01-3b9e98cd6b81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Cameras\StaticCamera\Static Static">
-      <UniqueIdentifier>{c1aef57f-9063-41a0-8f07-c99a0f18303d}</UniqueIdentifier>
+    <Filter Include="Engine\Utility">
+      <UniqueIdentifier>{d9ac4b18-6a79-41a6-b97c-70e2ed41502b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Cameras\StaticCamera\Static Generated">
-      <UniqueIdentifier>{59316893-1e80-4e67-8513-2d69437bcc84}</UniqueIdentifier>
+    <Filter Include="Engine\Utility\Vector3D">
+      <UniqueIdentifier>{2f7d1f40-d290-48f2-a45e-70e8e393925f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Cameras\LookAtCamera">
-      <UniqueIdentifier>{f2af1239-400f-4575-8127-f177abce3b4e}</UniqueIdentifier>
+    <Filter Include="Engine\Utility\Debug">
+      <UniqueIdentifier>{e649b8fb-dfd7-4861-b149-60d417579f4d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Cameras\Static FPS">
-      <UniqueIdentifier>{ed4a633e-b000-4194-a3b6-a941b759af86}</UniqueIdentifier>
+    <Filter Include="Engine\Utility\Quaternion">
+      <UniqueIdentifier>{6f8d548a-e989-4919-b2ae-f5fb2ed4acd7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Code">
-      <UniqueIdentifier>{e307065d-9e83-4a33-806c-6f321a0b3ff2}</UniqueIdentifier>
+    <Filter Include="Engine\Utility\GameTimer">
+      <UniqueIdentifier>{898c6894-667f-4af0-91de-367779ba9c90}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Includes">
+    <Filter Include="Engine\Utility\Helper">
+      <UniqueIdentifier>{8529aa7f-665e-4249-9326-aa2be49e3e9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utility\Loaders">
+      <UniqueIdentifier>{d7db4e89-ecd2-407e-a9a8-cef9977dd77c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utility\Loaders\MeshLoader">
+      <UniqueIdentifier>{527d8e48-4a00-44a5-8424-836023d1d1f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utility\Loaders\TextureLoader">
+      <UniqueIdentifier>{df35c7f8-8062-4292-9ffc-0f547a8180e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utility\Includes">
       <UniqueIdentifier>{2ad8538a-1495-42e5-8a5d-dc321ca76ab0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Lights">
+    <Filter Include="Engine\Utility\Managers">
+      <UniqueIdentifier>{2aeab633-8000-48df-8d54-d7de513eaa7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utility\Managers\LightingManager">
+      <UniqueIdentifier>{b1d208a0-839c-4ce9-8974-2281492118f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utility\Managers\Input Manager">
+      <UniqueIdentifier>{9a2f4e98-a314-4a15-af87-c2f75da972e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utility\Managers\CameraManager">
+      <UniqueIdentifier>{7b2c5040-af96-4032-a67b-1a5a06f03c64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utility\Managers\FileManager">
+      <UniqueIdentifier>{fa786fdc-41a0-420b-9bb3-4d22ecab6a1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics and Particles">
+      <UniqueIdentifier>{0efdcf24-4a4d-48bf-af60-8ed75fe31a1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics and Particles\Transform">
+      <UniqueIdentifier>{2410e956-7708-4e67-b27c-9e5c37f1ca6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics and Particles\Force Generator">
+      <UniqueIdentifier>{d11a898b-d887-45ad-9952-5f1320d234e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics and Particles\Collision and Colliders">
+      <UniqueIdentifier>{d721097c-a1d5-464d-87f3-734fb3a9272b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics and Particles\Collision and Colliders\Sphere">
+      <UniqueIdentifier>{cb27dbcc-92b9-4c08-8441-f21b6f0067cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics and Particles\Collision">
+      <UniqueIdentifier>{1ddd4531-39da-4946-af78-6a223876a5c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics and Particles\Rotator %28Quat%29">
+      <UniqueIdentifier>{f9d8992a-b8d3-4893-8093-7ab354bd9bf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics and Particles\Game Object">
+      <UniqueIdentifier>{654549d4-bab0-4f01-98b2-ce3184cea629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics and Particles\RigidBody %28Particle Model%29">
+      <UniqueIdentifier>{a5c34c3f-e2af-4982-ac48-65b15d6d496f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities">
+      <UniqueIdentifier>{042d21af-a793-4eb6-9ffb-7f2163026b97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Cameras">
+      <UniqueIdentifier>{e8fc1d50-3873-4706-bb01-0793a742651b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Cameras\DebugCamera">
+      <UniqueIdentifier>{e2102078-3b9e-4f54-80b3-38237b96fe88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Cameras\StaticCamera">
+      <UniqueIdentifier>{d77e78e4-d447-4ce3-9c9e-ab2679c215bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Cameras\StaticCamera\Static Static">
+      <UniqueIdentifier>{c1aef57f-9063-41a0-8f07-c99a0f18303d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Cameras\StaticCamera\Static Generated">
+      <UniqueIdentifier>{59316893-1e80-4e67-8513-2d69437bcc84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Cameras\LookAtCamera">
+      <UniqueIdentifier>{f2af1239-400f-4575-8127-f177abce3b4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Cameras\Static FPS">
+      <UniqueIdentifier>{ed4a633e-b000-4194-a3b6-a941b759af86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Lights">
       <UniqueIdentifier>{565ced38-73c8-474e-84ff-e57face50611}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Lights\Directional">
+    <Filter Include="Engine\Base Entities\Lights\Directional">
       <UniqueIdentifier>{82b5ce65-db47-400e-858b-01463b995074}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Lights\Point">
+    <Filter Include="Engine\Base Entities\Lights\Point">
       <UniqueIdentifier>{75199493-ee95-4332-9932-031a11cc6806}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Lights\Spot">
+    <Filter Include="Engine\Base Entities\Lights\Spot">
       <UniqueIdentifier>{85579843-829d-4b08-a5d6-8e6f1751aedc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Objects">
+    <Filter Include="Engine\Base Entities\Objects">
       <UniqueIdentifier>{53dfe58f-01f8-4e48-b97f-94a8ecd79724}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Objects\Primitives">
+    <Filter Include="Engine\Base Entities\Objects\Primitives">
       <UniqueIdentifier>{cef9fc10-a976-4b28-9171-9d7a9cd0c041}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Objects\Primitives\Cube">
+    <Filter Include="Engine\Base Entities\Objects\Primitives\Cube">
       <UniqueIdentifier>{dc1db176-4ce1-4994-8280-92eee5eae597}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Objects\Primitives\Sphere">
+    <Filter Include="Engine\Base Entities\Objects\Primitives\Sphere">
       <UniqueIdentifier>{edf6f4d2-4b78-4897-8a88-2b324c2564be}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Objects\Primitives\Cylinder">
+    <Filter Include="Engine\Base Entities\Objects\Primitives\Cylinder">
       <UniqueIdentifier>{2e9ef549-ca25-4e67-b50d-57f367cbe506}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Objects\Primitives\Torus">
+    <Filter Include="Engine\Base Entities\Objects\Primitives\Torus">
       <UniqueIdentifier>{72c2df5c-d482-429b-a215-7ca306f2b682}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Objects\customModel">
+    <Filter Include="Engine\Base Entities\Objects\customModel">
       <UniqueIdentifier>{f8df712b-2992-4d77-9302-1582e3d78495}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Resource Files">
+    <Filter Include="Engine\Base Entities\Virtual Classes">
+      <UniqueIdentifier>{80f8d6cc-963e-41e1-8653-fde30d9258ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Virtual Classes\Mesh">
+      <UniqueIdentifier>{e1ad0d7c-3fde-4ce0-9cee-45d288c0bc82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Virtual Classes\Lighting">
+      <UniqueIdentifier>{e7ba6527-5786-48ea-82a6-c9c38696768a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base Entities\Virtual Classes\Camera">
+      <UniqueIdentifier>{dcad8d52-832d-41ff-9ebb-1703dcb60bc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Other">
       <UniqueIdentifier>{8e114980-c1a3-4ada-ad7c-83caadf5daeb}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
-    <Filter Include="Graphics and Mechanics\Shaders">
-      <UniqueIdentifier>{2c3d4c8c-5d1a-459a-a05a-a4e4b608a44e}</UniqueIdentifier>
-      <Extensions>fx;fxh;hlsl</Extensions>
-    </Filter>
-    <Filter Include="Graphics and Mechanics\Virtual Classes">
-      <UniqueIdentifier>{80f8d6cc-963e-41e1-8653-fde30d9258ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics and Mechanics\Virtual Classes\Mesh">
-      <UniqueIdentifier>{e1ad0d7c-3fde-4ce0-9cee-45d288c0bc82}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics and Mechanics\Virtual Classes\Lighting">
-      <UniqueIdentifier>{e7ba6527-5786-48ea-82a6-c9c38696768a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics and Mechanics\Virtual Classes\Camera">
-      <UniqueIdentifier>{dcad8d52-832d-41ff-9ebb-1703dcb60bc2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles">
-      <UniqueIdentifier>{0efdcf24-4a4d-48bf-af60-8ed75fe31a1c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility">
-      <UniqueIdentifier>{d9ac4b18-6a79-41a6-b97c-70e2ed41502b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles\Transform">
-      <UniqueIdentifier>{2410e956-7708-4e67-b27c-9e5c37f1ca6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles\Force Generator">
-      <UniqueIdentifier>{d11a898b-d887-45ad-9952-5f1320d234e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\Vector3D">
-      <UniqueIdentifier>{2f7d1f40-d290-48f2-a45e-70e8e393925f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\Debug">
-      <UniqueIdentifier>{e649b8fb-dfd7-4861-b149-60d417579f4d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\Quaternion">
-      <UniqueIdentifier>{6f8d548a-e989-4919-b2ae-f5fb2ed4acd7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles\Collision and Colliders">
-      <UniqueIdentifier>{d721097c-a1d5-464d-87f3-734fb3a9272b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles\Collision and Colliders\Sphere">
-      <UniqueIdentifier>{cb27dbcc-92b9-4c08-8441-f21b6f0067cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles\Collision">
-      <UniqueIdentifier>{1ddd4531-39da-4946-af78-6a223876a5c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game Files">
-      <UniqueIdentifier>{94e15032-e87a-4fe2-9257-41328a5d7cb4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\Input Manager">
-      <UniqueIdentifier>{9a2f4e98-a314-4a15-af87-c2f75da972e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles\Rotator %28Quat%29">
-      <UniqueIdentifier>{f9d8992a-b8d3-4893-8093-7ab354bd9bf7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles\Game Object">
-      <UniqueIdentifier>{654549d4-bab0-4f01-98b2-ce3184cea629}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Physics and Particles\RigidBody %28Particle Model%29">
-      <UniqueIdentifier>{a5c34c3f-e2af-4982-ac48-65b15d6d496f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\CameraManager">
-      <UniqueIdentifier>{7b2c5040-af96-4032-a67b-1a5a06f03c64}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\FileManager">
-      <UniqueIdentifier>{fa786fdc-41a0-420b-9bb3-4d22ecab6a1d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\GameTimer">
-      <UniqueIdentifier>{898c6894-667f-4af0-91de-367779ba9c90}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\Helper">
-      <UniqueIdentifier>{8529aa7f-665e-4249-9326-aa2be49e3e9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\LightingManager">
-      <UniqueIdentifier>{b1d208a0-839c-4ce9-8974-2281492118f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\Loaders">
-      <UniqueIdentifier>{d7db4e89-ecd2-407e-a9a8-cef9977dd77c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\Loaders\MeshLoader">
-      <UniqueIdentifier>{527d8e48-4a00-44a5-8424-836023d1d1f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility\Loaders\TextureLoader">
-      <UniqueIdentifier>{df35c7f8-8062-4292-9ffc-0f547a8180e2}</UniqueIdentifier>
+    <Filter Include="Engine\Utility\Managers\ObjectManager">
+      <UniqueIdentifier>{9f84fbfb-687d-42e0-ab79-c62c8bdb1b4f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h">
-      <Filter>Graphics and Mechanics\Code</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\window.h" />
-    <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\firstPersonCamera.h">
-      <Filter>Graphics and Mechanics\Cameras\Static FPS</Filter>
+      <Filter>Engine\Base Entities\Cameras\Static FPS</Filter>
     </ClInclude>
     <ClInclude Include="Engine\ForceGenerator.h">
-      <Filter>Physics and Particles\Force Generator</Filter>
+      <Filter>Engine\Physics and Particles\Force Generator</Filter>
     </ClInclude>
     <ClInclude Include="Engine\GameObject.h">
-      <Filter>Physics and Particles\Game Object</Filter>
+      <Filter>Engine\Physics and Particles\Game Object</Filter>
     </ClInclude>
     <ClInclude Include="Engine\GameTimer.h">
-      <Filter>Utility\GameTimer</Filter>
+      <Filter>Engine\Utility\GameTimer</Filter>
     </ClInclude>
     <ClInclude Include="Engine\inputManager.h">
-      <Filter>Utility\Input Manager</Filter>
+      <Filter>Engine\Utility\Managers\Input Manager</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Light.h">
-      <Filter>Graphics and Mechanics\Virtual Classes\Lighting</Filter>
+      <Filter>Engine\Base Entities\Virtual Classes\Lighting</Filter>
     </ClInclude>
     <ClInclude Include="Engine\LightingIncludes.h">
-      <Filter>Graphics and Mechanics\Includes</Filter>
+      <Filter>Engine\Utility\Includes</Filter>
     </ClInclude>
     <ClInclude Include="Engine\lightingManager.h">
-      <Filter>Utility\LightingManager</Filter>
+      <Filter>Engine\Utility\Managers\LightingManager</Filter>
     </ClInclude>
     <ClInclude Include="Engine\LookAtCam.h">
-      <Filter>Graphics and Mechanics\Cameras\LookAtCamera</Filter>
+      <Filter>Engine\Base Entities\Cameras\LookAtCamera</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Mesh.h">
-      <Filter>Graphics and Mechanics\Virtual Classes\Mesh</Filter>
+      <Filter>Engine\Base Entities\Virtual Classes\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="Engine\objectIncludes.h">
-      <Filter>Graphics and Mechanics\Includes</Filter>
+      <Filter>Engine\Utility\Includes</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\objectManager.h" />
     <ClInclude Include="Engine\OBJLoader.h">
-      <Filter>Utility\Loaders\MeshLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\playerController.h">
-      <Filter>Game Files</Filter>
+      <Filter>Engine\Utility\Loaders\MeshLoader</Filter>
     </ClInclude>
     <ClInclude Include="Engine\pointLight.h">
-      <Filter>Graphics and Mechanics\Lights\Point</Filter>
+      <Filter>Engine\Base Entities\Lights\Point</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Quaternion.h">
-      <Filter>Utility\Quaternion</Filter>
+      <Filter>Engine\Utility\Quaternion</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\renderer.h" />
     <ClInclude Include="Engine\RigidBody.h">
-      <Filter>Physics and Particles\RigidBody %28Particle Model%29</Filter>
+      <Filter>Engine\Physics and Particles\RigidBody %28Particle Model%29</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Rotator.h">
-      <Filter>Physics and Particles\Rotator %28Quat%29</Filter>
+      <Filter>Engine\Physics and Particles\Rotator %28Quat%29</Filter>
     </ClInclude>
     <ClInclude Include="Engine\saveToFileManager.h">
-      <Filter>Utility\FileManager</Filter>
+      <Filter>Engine\Utility\Managers\FileManager</Filter>
     </ClInclude>
     <ClInclude Include="Engine\sphere.h">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Sphere</Filter>
+      <Filter>Engine\Base Entities\Objects\Primitives\Sphere</Filter>
     </ClInclude>
     <ClInclude Include="Engine\sphereCollider.h">
-      <Filter>Physics and Particles\Collision and Colliders\Sphere</Filter>
+      <Filter>Engine\Physics and Particles\Collision and Colliders\Sphere</Filter>
     </ClInclude>
     <ClInclude Include="Engine\spotLight.h">
-      <Filter>Graphics and Mechanics\Lights\Spot</Filter>
+      <Filter>Engine\Base Entities\Lights\Spot</Filter>
     </ClInclude>
     <ClInclude Include="Engine\staticCamera.h">
-      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Static</Filter>
+      <Filter>Engine\Base Entities\Cameras\StaticCamera\Static Static</Filter>
     </ClInclude>
     <ClInclude Include="Engine\staticGeneratedCamera.h">
-      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Generated</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Structures.h">
-      <Filter>Graphics and Mechanics\Code</Filter>
+      <Filter>Engine\Base Entities\Cameras\StaticCamera\Static Generated</Filter>
     </ClInclude>
     <ClInclude Include="Engine\torus.h">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Torus</Filter>
+      <Filter>Engine\Base Entities\Objects\Primitives\Torus</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Transform.h">
-      <Filter>Physics and Particles\Transform</Filter>
+      <Filter>Engine\Physics and Particles\Transform</Filter>
     </ClInclude>
     <ClInclude Include="Engine\UtlilityClass.h">
-      <Filter>Utility\Helper</Filter>
+      <Filter>Engine\Utility\Helper</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Vector3D.h">
-      <Filter>Utility\Vector3D</Filter>
+      <Filter>Engine\Utility\Vector3D</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Cam.h">
-      <Filter>Graphics and Mechanics\Virtual Classes\Camera</Filter>
+      <Filter>Engine\Base Entities\Virtual Classes\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Engine\cameraIncludes.h">
-      <Filter>Graphics and Mechanics\Includes</Filter>
+      <Filter>Engine\Utility\Includes</Filter>
     </ClInclude>
     <ClInclude Include="Engine\cameraManager.h">
-      <Filter>Utility\CameraManager</Filter>
+      <Filter>Engine\Utility\Managers\CameraManager</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Collision.h">
-      <Filter>Physics and Particles\Collision</Filter>
+      <Filter>Engine\Physics and Particles\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Engine\cube.h">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Cube</Filter>
+      <Filter>Engine\Base Entities\Objects\Primitives\Cube</Filter>
     </ClInclude>
     <ClInclude Include="Engine\customModel.h">
-      <Filter>Graphics and Mechanics\Objects\customModel</Filter>
+      <Filter>Engine\Base Entities\Objects\customModel</Filter>
     </ClInclude>
     <ClInclude Include="Engine\cylinder.h">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Cylinder</Filter>
+      <Filter>Engine\Base Entities\Objects\Primitives\Cylinder</Filter>
     </ClInclude>
     <ClInclude Include="Engine\DDSTextureLoader.h">
-      <Filter>Utility\Loaders\TextureLoader</Filter>
+      <Filter>Engine\Utility\Loaders\TextureLoader</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Debug.h">
-      <Filter>Utility\Debug</Filter>
+      <Filter>Engine\Utility\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Engine\debugCamera.h">
-      <Filter>Graphics and Mechanics\Cameras\DebugCamera</Filter>
+      <Filter>Engine\Base Entities\Cameras\DebugCamera</Filter>
     </ClInclude>
     <ClInclude Include="Engine\directionalLight.h">
-      <Filter>Graphics and Mechanics\Lights\Directional</Filter>
+      <Filter>Engine\Base Entities\Lights\Directional</Filter>
     </ClInclude>
     <CLInclude Include="resource.h">
-      <Filter>Graphics and Mechanics\Resource Files</Filter>
+      <Filter>Engine\Other</Filter>
     </CLInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\playerController.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\renderer.h">
+      <Filter>Engine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Structures.h">
+      <Filter>Engine\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\objectManager.h">
+      <Filter>Engine\Utility\Managers\ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\window.h">
+      <Filter>Engine\Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp">
-      <Filter>Graphics and Mechanics\Code</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\window.cpp" />
-    <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Engine\firstPersonCamera.cpp">
-      <Filter>Graphics and Mechanics\Cameras\Static FPS</Filter>
+      <Filter>Engine\Base Entities\Cameras\Static FPS</Filter>
     </ClCompile>
     <ClCompile Include="Engine\ForceGenerator.cpp">
-      <Filter>Physics and Particles\Force Generator</Filter>
+      <Filter>Engine\Physics and Particles\Force Generator</Filter>
     </ClCompile>
     <ClCompile Include="Engine\GameObject.cpp">
-      <Filter>Physics and Particles\Game Object</Filter>
+      <Filter>Engine\Physics and Particles\Game Object</Filter>
     </ClCompile>
     <ClCompile Include="Engine\GameTimer.cpp">
-      <Filter>Utility\GameTimer</Filter>
+      <Filter>Engine\Utility\GameTimer</Filter>
     </ClCompile>
     <ClCompile Include="Engine\inputManager.cpp">
-      <Filter>Utility\Input Manager</Filter>
+      <Filter>Engine\Utility\Managers\Input Manager</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Light.cpp">
-      <Filter>Graphics and Mechanics\Virtual Classes\Lighting</Filter>
+      <Filter>Engine\Base Entities\Virtual Classes\Lighting</Filter>
     </ClCompile>
     <ClCompile Include="Engine\lightingManager.cpp">
-      <Filter>Utility\LightingManager</Filter>
+      <Filter>Engine\Utility\Managers\LightingManager</Filter>
     </ClCompile>
     <ClCompile Include="Engine\LookAtCam.cpp">
-      <Filter>Graphics and Mechanics\Cameras\LookAtCamera</Filter>
+      <Filter>Engine\Base Entities\Cameras\LookAtCamera</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Mesh.cpp">
-      <Filter>Graphics and Mechanics\Virtual Classes\Mesh</Filter>
+      <Filter>Engine\Base Entities\Virtual Classes\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\objectManager.cpp" />
     <ClCompile Include="Engine\OBJLoader.cpp">
-      <Filter>Utility\Loaders\MeshLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\playerController.cpp">
-      <Filter>Game Files</Filter>
+      <Filter>Engine\Utility\Loaders\MeshLoader</Filter>
     </ClCompile>
     <ClCompile Include="Engine\pointLight.cpp">
-      <Filter>Graphics and Mechanics\Lights\Point</Filter>
+      <Filter>Engine\Base Entities\Lights\Point</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\renderer.cpp" />
     <ClCompile Include="Engine\RigidBody.cpp">
-      <Filter>Physics and Particles\RigidBody %28Particle Model%29</Filter>
+      <Filter>Engine\Physics and Particles\RigidBody %28Particle Model%29</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Rotator.cpp">
-      <Filter>Physics and Particles\Rotator %28Quat%29</Filter>
+      <Filter>Engine\Physics and Particles\Rotator %28Quat%29</Filter>
     </ClCompile>
     <ClCompile Include="Engine\saveToFileManager.cpp">
-      <Filter>Utility\FileManager</Filter>
+      <Filter>Engine\Utility\Managers\FileManager</Filter>
     </ClCompile>
     <ClCompile Include="Engine\sphere.cpp">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Sphere</Filter>
+      <Filter>Engine\Base Entities\Objects\Primitives\Sphere</Filter>
     </ClCompile>
     <ClCompile Include="Engine\sphereCollider.cpp">
-      <Filter>Physics and Particles\Collision and Colliders\Sphere</Filter>
+      <Filter>Engine\Physics and Particles\Collision and Colliders\Sphere</Filter>
     </ClCompile>
     <ClCompile Include="Engine\spotLight.cpp">
-      <Filter>Graphics and Mechanics\Lights\Spot</Filter>
+      <Filter>Engine\Base Entities\Lights\Spot</Filter>
     </ClCompile>
     <ClCompile Include="Engine\staticCamera.cpp">
-      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Static</Filter>
+      <Filter>Engine\Base Entities\Cameras\StaticCamera\Static Static</Filter>
     </ClCompile>
     <ClCompile Include="Engine\staticGeneratedCamera.cpp">
-      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Generated</Filter>
+      <Filter>Engine\Base Entities\Cameras\StaticCamera\Static Generated</Filter>
     </ClCompile>
     <ClCompile Include="Engine\torus.cpp">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Torus</Filter>
+      <Filter>Engine\Base Entities\Objects\Primitives\Torus</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Transform.cpp">
-      <Filter>Physics and Particles\Transform</Filter>
+      <Filter>Engine\Physics and Particles\Transform</Filter>
     </ClCompile>
     <ClCompile Include="Engine\UtlilityClass.cpp">
-      <Filter>Utility\Helper</Filter>
+      <Filter>Engine\Utility\Helper</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Vector3D.cpp">
-      <Filter>Utility\Vector3D</Filter>
+      <Filter>Engine\Utility\Vector3D</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Cam.cpp">
-      <Filter>Graphics and Mechanics\Virtual Classes\Camera</Filter>
+      <Filter>Engine\Base Entities\Virtual Classes\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Engine\cameraManager.cpp">
-      <Filter>Utility\CameraManager</Filter>
+      <Filter>Engine\Utility\Managers\CameraManager</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Collision.cpp">
-      <Filter>Physics and Particles\Collision</Filter>
+      <Filter>Engine\Physics and Particles\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Engine\cube.cpp">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Cube</Filter>
+      <Filter>Engine\Base Entities\Objects\Primitives\Cube</Filter>
     </ClCompile>
     <ClCompile Include="Engine\customModel.cpp">
-      <Filter>Graphics and Mechanics\Objects\customModel</Filter>
+      <Filter>Engine\Base Entities\Objects\customModel</Filter>
     </ClCompile>
     <ClCompile Include="Engine\cylinder.cpp">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Cylinder</Filter>
+      <Filter>Engine\Base Entities\Objects\Primitives\Cylinder</Filter>
     </ClCompile>
     <ClCompile Include="Engine\DDSTextureLoader.cpp">
-      <Filter>Utility\Loaders\TextureLoader</Filter>
+      <Filter>Engine\Utility\Loaders\TextureLoader</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Debug.cpp">
-      <Filter>Utility\Debug</Filter>
+      <Filter>Engine\Utility\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Engine\debugCamera.cpp">
-      <Filter>Graphics and Mechanics\Cameras\DebugCamera</Filter>
+      <Filter>Engine\Base Entities\Cameras\DebugCamera</Filter>
     </ClCompile>
     <ClCompile Include="Engine\directionalLight.cpp">
-      <Filter>Graphics and Mechanics\Lights\Directional</Filter>
+      <Filter>Engine\Base Entities\Lights\Directional</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\playerController.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\renderer.cpp">
+      <Filter>Engine\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Graphics and Mechanics\Code</Filter>
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\objectManager.cpp">
+      <Filter>Engine\Utility\Managers\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\window.cpp">
+      <Filter>Engine\Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.fx">
-      <Filter>Graphics and Mechanics\Shaders</Filter>
+      <Filter>Engine\Rendering</Filter>
     </None>
   </ItemGroup>
 </Project>
