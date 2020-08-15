@@ -1,5 +1,2 @@
-﻿  Engine.cpp
-D:\Local Git\PandaEngine\Engine\Engine.cpp(29,46): warning C4100: '_hWnd': unreferenced formal parameter
-  staticGeneratedCamera.cpp
-  Generating Code...
+﻿  renderer.cpp
   DX11 Framework.vcxproj -> D:\Local Git\PandaEngine\Engine\Debug\DX11 Framework.exe

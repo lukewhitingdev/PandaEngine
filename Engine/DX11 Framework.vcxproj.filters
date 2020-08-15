@@ -158,254 +158,247 @@
     <ClInclude Include="Application.h">
       <Filter>Graphics and Mechanics\Code</Filter>
     </ClInclude>
-    <ClInclude Include="Structures.h">
-      <Filter>Graphics and Mechanics\Code</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Graphics and Mechanics\Virtual Classes\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="cube.h">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Cube</Filter>
-    </ClInclude>
-    <ClInclude Include="sphere.h">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Sphere</Filter>
-    </ClInclude>
-    <ClInclude Include="cylinder.h">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Cylinder</Filter>
-    </ClInclude>
-    <ClInclude Include="torus.h">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Torus</Filter>
-    </ClInclude>
-    <ClInclude Include="customModel.h">
-      <Filter>Graphics and Mechanics\Objects\customModel</Filter>
-    </ClInclude>
-    <ClInclude Include="Light.h">
-      <Filter>Graphics and Mechanics\Virtual Classes\Lighting</Filter>
-    </ClInclude>
-    <ClInclude Include="directionalLight.h">
-      <Filter>Graphics and Mechanics\Lights\Directional</Filter>
-    </ClInclude>
-    <ClInclude Include="LightingIncludes.h">
-      <Filter>Graphics and Mechanics\Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="objectIncludes.h">
-      <Filter>Graphics and Mechanics\Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="cameraIncludes.h">
-      <Filter>Graphics and Mechanics\Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="Cam.h">
-      <Filter>Graphics and Mechanics\Virtual Classes\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="LookAtCam.h">
-      <Filter>Graphics and Mechanics\Cameras\LookAtCamera</Filter>
-    </ClInclude>
-    <ClInclude Include="debugCamera.h">
-      <Filter>Graphics and Mechanics\Cameras\DebugCamera</Filter>
-    </ClInclude>
-    <ClInclude Include="pointLight.h">
-      <Filter>Graphics and Mechanics\Lights\Point</Filter>
-    </ClInclude>
-    <ClInclude Include="spotLight.h">
-      <Filter>Graphics and Mechanics\Lights\Spot</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTimer.h">
-      <Filter>Utility\GameTimer</Filter>
-    </ClInclude>
-    <ClInclude Include="cameraManager.h">
-      <Filter>Utility\CameraManager</Filter>
-    </ClInclude>
-    <ClInclude Include="staticCamera.h">
-      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Static</Filter>
-    </ClInclude>
-    <ClInclude Include="staticGeneratedCamera.h">
-      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Generated</Filter>
-    </ClInclude>
-    <ClInclude Include="UtlilityClass.h">
-      <Filter>Utility\Helper</Filter>
-    </ClInclude>
-    <ClInclude Include="saveToFileManager.h">
-      <Filter>Utility\FileManager</Filter>
-    </ClInclude>
-    <ClInclude Include="DDSTextureLoader.h">
-      <Filter>Utility\Loaders\TextureLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="OBJLoader.h">
-      <Filter>Utility\Loaders\MeshLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="firstPersonCamera.h">
+    <ClInclude Include="Engine\window.h" />
+    <ClInclude Include="Engine\Engine.h" />
+    <ClInclude Include="Engine\firstPersonCamera.h">
       <Filter>Graphics and Mechanics\Cameras\Static FPS</Filter>
     </ClInclude>
-    <ClInclude Include="lightingManager.h">
-      <Filter>Utility\LightingManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Physics and Particles\Transform</Filter>
-    </ClInclude>
-    <ClInclude Include="RigidBody.h">
-      <Filter>Physics and Particles\RigidBody %28Particle Model%29</Filter>
-    </ClInclude>
-    <ClInclude Include="sphereCollider.h">
-      <Filter>Physics and Particles\Collision and Colliders\Sphere</Filter>
-    </ClInclude>
-    <ClInclude Include="ForceGenerator.h">
+    <ClInclude Include="Engine\ForceGenerator.h">
       <Filter>Physics and Particles\Force Generator</Filter>
     </ClInclude>
-    <ClInclude Include="Vector3D.h">
-      <Filter>Utility\Vector3D</Filter>
+    <ClInclude Include="Engine\GameObject.h">
+      <Filter>Physics and Particles\Game Object</Filter>
     </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>Utility\Debug</Filter>
+    <ClInclude Include="Engine\GameTimer.h">
+      <Filter>Utility\GameTimer</Filter>
     </ClInclude>
-    <ClInclude Include="Quaternion.h">
+    <ClInclude Include="Engine\inputManager.h">
+      <Filter>Utility\Input Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Light.h">
+      <Filter>Graphics and Mechanics\Virtual Classes\Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\LightingIncludes.h">
+      <Filter>Graphics and Mechanics\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\lightingManager.h">
+      <Filter>Utility\LightingManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\LookAtCam.h">
+      <Filter>Graphics and Mechanics\Cameras\LookAtCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Mesh.h">
+      <Filter>Graphics and Mechanics\Virtual Classes\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\objectIncludes.h">
+      <Filter>Graphics and Mechanics\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\objectManager.h" />
+    <ClInclude Include="Engine\OBJLoader.h">
+      <Filter>Utility\Loaders\MeshLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\playerController.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\pointLight.h">
+      <Filter>Graphics and Mechanics\Lights\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Quaternion.h">
       <Filter>Utility\Quaternion</Filter>
     </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Physics and Particles\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="playerController.h">
-      <Filter>Game Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inputManager.h">
-      <Filter>Utility\Input Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Rotator.h">
-      <Filter>Physics and Particles\Rotator %28Quat%29</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Physics and Particles\Game Object</Filter>
-    </ClInclude>
-    <ClInclude Include="window.h" />
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="renderer.h" />
-    <ClInclude Include="objectManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Application.cpp">
-      <Filter>Graphics and Mechanics\Code</Filter>
-    </ClCompile>
-    <ClCompile Include="DX11 Framework.cpp">
-      <Filter>Graphics and Mechanics\Code</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Graphics and Mechanics\Virtual Classes\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="cube.cpp">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Cube</Filter>
-    </ClCompile>
-    <ClCompile Include="sphere.cpp">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Sphere</Filter>
-    </ClCompile>
-    <ClCompile Include="cylinder.cpp">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Cylinder</Filter>
-    </ClCompile>
-    <ClCompile Include="torus.cpp">
-      <Filter>Graphics and Mechanics\Objects\Primitives\Torus</Filter>
-    </ClCompile>
-    <ClCompile Include="customModel.cpp">
-      <Filter>Graphics and Mechanics\Objects\customModel</Filter>
-    </ClCompile>
-    <ClCompile Include="Light.cpp">
-      <Filter>Graphics and Mechanics\Virtual Classes\Lighting</Filter>
-    </ClCompile>
-    <ClCompile Include="directionalLight.cpp">
-      <Filter>Graphics and Mechanics\Lights\Directional</Filter>
-    </ClCompile>
-    <ClCompile Include="Cam.cpp">
-      <Filter>Graphics and Mechanics\Virtual Classes\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="LookAtCam.cpp">
-      <Filter>Graphics and Mechanics\Cameras\LookAtCamera</Filter>
-    </ClCompile>
-    <ClCompile Include="debugCamera.cpp">
-      <Filter>Graphics and Mechanics\Cameras\DebugCamera</Filter>
-    </ClCompile>
-    <ClCompile Include="pointLight.cpp">
-      <Filter>Graphics and Mechanics\Lights\Point</Filter>
-    </ClCompile>
-    <ClCompile Include="spotLight.cpp">
-      <Filter>Graphics and Mechanics\Lights\Spot</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTimer.cpp">
-      <Filter>Utility\GameTimer</Filter>
-    </ClCompile>
-    <ClCompile Include="cameraManager.cpp">
-      <Filter>Utility\CameraManager</Filter>
-    </ClCompile>
-    <ClCompile Include="staticCamera.cpp">
-      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Static</Filter>
-    </ClCompile>
-    <ClCompile Include="staticGeneratedCamera.cpp">
-      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Generated</Filter>
-    </ClCompile>
-    <ClCompile Include="UtlilityClass.cpp">
-      <Filter>Utility\Helper</Filter>
-    </ClCompile>
-    <ClCompile Include="saveToFileManager.cpp">
-      <Filter>Utility\FileManager</Filter>
-    </ClCompile>
-    <ClCompile Include="DDSTextureLoader.cpp">
-      <Filter>Utility\Loaders\TextureLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="OBJLoader.cpp">
-      <Filter>Utility\Loaders\MeshLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="firstPersonCamera.cpp">
-      <Filter>Graphics and Mechanics\Cameras\Static FPS</Filter>
-    </ClCompile>
-    <ClCompile Include="lightingManager.cpp">
-      <Filter>Utility\LightingManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Physics and Particles\Transform</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidBody.cpp">
+    <ClInclude Include="Engine\renderer.h" />
+    <ClInclude Include="Engine\RigidBody.h">
       <Filter>Physics and Particles\RigidBody %28Particle Model%29</Filter>
-    </ClCompile>
-    <ClCompile Include="sphereCollider.cpp">
-      <Filter>Physics and Particles\Collision and Colliders\Sphere</Filter>
-    </ClCompile>
-    <ClCompile Include="ForceGenerator.cpp">
-      <Filter>Physics and Particles\Force Generator</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector3D.cpp">
-      <Filter>Utility\Vector3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Utility\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Physics and Particles\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="playerController.cpp">
-      <Filter>Game Files</Filter>
-    </ClCompile>
-    <ClCompile Include="inputManager.cpp">
-      <Filter>Utility\Input Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Rotator.cpp">
+    </ClInclude>
+    <ClInclude Include="Engine\Rotator.h">
       <Filter>Physics and Particles\Rotator %28Quat%29</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Physics and Particles\Game Object</Filter>
-    </ClCompile>
-    <ClCompile Include="window.cpp" />
-    <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="renderer.cpp" />
-    <ClCompile Include="objectManager.cpp" />
-  </ItemGroup>
-  <ItemGroup>
+    </ClInclude>
+    <ClInclude Include="Engine\saveToFileManager.h">
+      <Filter>Utility\FileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sphere.h">
+      <Filter>Graphics and Mechanics\Objects\Primitives\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sphereCollider.h">
+      <Filter>Physics and Particles\Collision and Colliders\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\spotLight.h">
+      <Filter>Graphics and Mechanics\Lights\Spot</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\staticCamera.h">
+      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Static</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\staticGeneratedCamera.h">
+      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Structures.h">
+      <Filter>Graphics and Mechanics\Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\torus.h">
+      <Filter>Graphics and Mechanics\Objects\Primitives\Torus</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Transform.h">
+      <Filter>Physics and Particles\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\UtlilityClass.h">
+      <Filter>Utility\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Vector3D.h">
+      <Filter>Utility\Vector3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Cam.h">
+      <Filter>Graphics and Mechanics\Virtual Classes\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\cameraIncludes.h">
+      <Filter>Graphics and Mechanics\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\cameraManager.h">
+      <Filter>Utility\CameraManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Collision.h">
+      <Filter>Physics and Particles\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\cube.h">
+      <Filter>Graphics and Mechanics\Objects\Primitives\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\customModel.h">
+      <Filter>Graphics and Mechanics\Objects\customModel</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\cylinder.h">
+      <Filter>Graphics and Mechanics\Objects\Primitives\Cylinder</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\DDSTextureLoader.h">
+      <Filter>Utility\Loaders\TextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug.h">
+      <Filter>Utility\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\debugCamera.h">
+      <Filter>Graphics and Mechanics\Cameras\DebugCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\directionalLight.h">
+      <Filter>Graphics and Mechanics\Lights\Directional</Filter>
+    </ClInclude>
     <CLInclude Include="resource.h">
       <Filter>Graphics and Mechanics\Resource Files</Filter>
     </CLInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="DX11 Framework.rc">
-      <Filter>Graphics and Mechanics\Resource Files</Filter>
-    </ResourceCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Graphics and Mechanics\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\window.cpp" />
+    <ClCompile Include="Engine\Engine.cpp" />
+    <ClCompile Include="Engine\firstPersonCamera.cpp">
+      <Filter>Graphics and Mechanics\Cameras\Static FPS</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ForceGenerator.cpp">
+      <Filter>Physics and Particles\Force Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameObject.cpp">
+      <Filter>Physics and Particles\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameTimer.cpp">
+      <Filter>Utility\GameTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\inputManager.cpp">
+      <Filter>Utility\Input Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Light.cpp">
+      <Filter>Graphics and Mechanics\Virtual Classes\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\lightingManager.cpp">
+      <Filter>Utility\LightingManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\LookAtCam.cpp">
+      <Filter>Graphics and Mechanics\Cameras\LookAtCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Mesh.cpp">
+      <Filter>Graphics and Mechanics\Virtual Classes\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\objectManager.cpp" />
+    <ClCompile Include="Engine\OBJLoader.cpp">
+      <Filter>Utility\Loaders\MeshLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\playerController.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\pointLight.cpp">
+      <Filter>Graphics and Mechanics\Lights\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\renderer.cpp" />
+    <ClCompile Include="Engine\RigidBody.cpp">
+      <Filter>Physics and Particles\RigidBody %28Particle Model%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rotator.cpp">
+      <Filter>Physics and Particles\Rotator %28Quat%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\saveToFileManager.cpp">
+      <Filter>Utility\FileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sphere.cpp">
+      <Filter>Graphics and Mechanics\Objects\Primitives\Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sphereCollider.cpp">
+      <Filter>Physics and Particles\Collision and Colliders\Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\spotLight.cpp">
+      <Filter>Graphics and Mechanics\Lights\Spot</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\staticCamera.cpp">
+      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\staticGeneratedCamera.cpp">
+      <Filter>Graphics and Mechanics\Cameras\StaticCamera\Static Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\torus.cpp">
+      <Filter>Graphics and Mechanics\Objects\Primitives\Torus</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Transform.cpp">
+      <Filter>Physics and Particles\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UtlilityClass.cpp">
+      <Filter>Utility\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Vector3D.cpp">
+      <Filter>Utility\Vector3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Cam.cpp">
+      <Filter>Graphics and Mechanics\Virtual Classes\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\cameraManager.cpp">
+      <Filter>Utility\CameraManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Collision.cpp">
+      <Filter>Physics and Particles\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\cube.cpp">
+      <Filter>Graphics and Mechanics\Objects\Primitives\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\customModel.cpp">
+      <Filter>Graphics and Mechanics\Objects\customModel</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\cylinder.cpp">
+      <Filter>Graphics and Mechanics\Objects\Primitives\Cylinder</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\DDSTextureLoader.cpp">
+      <Filter>Utility\Loaders\TextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Debug.cpp">
+      <Filter>Utility\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\debugCamera.cpp">
+      <Filter>Graphics and Mechanics\Cameras\DebugCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\directionalLight.cpp">
+      <Filter>Graphics and Mechanics\Lights\Directional</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Graphics and Mechanics\Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DX11 Framework.fx">
+    <None Include="shader.fx">
       <Filter>Graphics and Mechanics\Shaders</Filter>
     </None>
   </ItemGroup>

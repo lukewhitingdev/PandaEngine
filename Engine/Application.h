@@ -7,17 +7,17 @@
 #include <directxcolors.h>
 #include <vector>
 #include "resource.h"
-#include "DDSTextureLoader.h"
-#include "Structures.h"
-#include "OBJLoader.h"
-#include "objectIncludes.h"
-#include "LightingIncludes.h"
-#include "cameraIncludes.h"
-#include "GameTimer.h"
-#include "cameraManager.h"
-#include "saveToFileManager.h"
-#include "lightingManager.h"
-#include "Engine.h"
+#include "Engine/DDSTextureLoader.h"
+#include "Engine/Structures.h"
+#include "Engine/OBJLoader.h"
+#include "Engine/objectIncludes.h"
+#include "Engine/LightingIncludes.h"
+#include "Engine/cameraIncludes.h"
+#include "Engine/GameTimer.h"
+#include "Engine/cameraManager.h"
+#include "Engine/saveToFileManager.h"
+#include "Engine/lightingManager.h"
+#include "Engine/Engine.h"
 using namespace DirectX;
 
 
