@@ -8,6 +8,9 @@
 #include "lightingManager.h"
 #include "objectManager.h"
 #include "GameTimer.h"
+#include "../ImGUI/imgui.h"
+#include "../ImGUI/imgui_impl_win32.h"
+#include "../ImGUI/imgui_impl_dx11.h"
 
 namespace PandaEngine {
 	class renderer
@@ -60,6 +63,7 @@ namespace PandaEngine {
 		void addGameTimer(GameTimer* timer) { _gameTimer = timer; };
 
 		HRESULT Initialise();
+		HRESULT initUI(HWND _hWnd);
 		void Draw();
 	};
 }

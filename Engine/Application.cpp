@@ -33,8 +33,11 @@ void Application::InitCamera()
 	XMFLOAT3 Up = XMFLOAT3(0.0f, 1.0f, 0.0f);
 	XMFLOAT3 Right = XMFLOAT3(1.0f, 0.0f, 0.0f);
 
-	camManager->addCamera(new debugCamera(Eye, To, Up, Right, (float)Engine->Window->getWindowWidth(), (float)Engine->Window->getWindowHeight(), 0.0f, 1000.0f));
+	camManager->addCamera(new staticCamera(Eye, To, (float)Engine->Window->getWindowWidth(), (float)Engine->Window->getWindowHeight(), 0.0f, 1000.0f));
 	camManager->getCameraAtIndex(0)->UpdateStoredFloats();
+
+	//camManager->addCamera(new debugCamera(Eye, To, Up, Right, (float)Engine->Window->getWindowWidth(), (float)Engine->Window->getWindowHeight(), 0.0f, 1000.0f));
+	//camManager->getCameraAtIndex(0)->UpdateStoredFloats();
 
 	camManager->setDefaultCamera(camManager->getCameraAtIndex(0));
 	camManager->setCurrentCamera(camManager->getCameraAtIndex(0));

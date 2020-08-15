@@ -1,2 +1,2 @@
-﻿D:\Applications\VS\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (DX11 Framework.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿  window.cpp
   Panda Engine.vcxproj -> D:\Local Git\PandaEngine\Engine\Debug\Panda Engine.exe

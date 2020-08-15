@@ -1,4 +1,0 @@
-D:\Local Git\PeboEngine\Engine\Debug\DX11 Framework.exe
-D:\Local Git\PeboEngine\Engine\Debug\DX11 Framework.pdb
-D:\Local Git\PandaEngine\Engine\Debug\Panda Engine.exe
-D:\Local Git\PandaEngine\Engine\Debug\Panda Engine.pdb

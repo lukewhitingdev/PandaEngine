@@ -21,12 +21,12 @@ HRESULT PandaEngine::Engine::Init(HINSTANCE hInstance, int nCmdShow)
 {
 	HRESULT result;
 	result = Window->Initialise(hInstance, nCmdShow);
-	initGameTimer(Window->gethWnd());
+	initGameTimer();
 	result = Renderer->Initialise();
 	return result;
 }
 
-void PandaEngine::Engine::initGameTimer(HWND _hWnd)
+void PandaEngine::Engine::initGameTimer()
 {
 	addGameTimer();
 	gameTimer->ResetTimer();

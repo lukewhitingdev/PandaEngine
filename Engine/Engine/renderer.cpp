@@ -59,7 +59,21 @@ HRESULT PandaEngine::renderer::Initialise()
 	HRESULT result;
 	result = InitDevice();
 	result = InitShadersAndInputLayout();
+	result = initUI(_window->gethWnd());
 	return result;
+}
+
+
+HRESULT PandaEngine::renderer::initUI(HWND _hWnd)
+{
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO();
+	ImGui_ImplWin32_Init(_hWnd);
+	ImGui_ImplDX11_Init(_pd3dDevice, _pImmediateContext);
+	ImGui::StyleColorsDark();
+
+	return S_OK;
 }
 
 HRESULT PandaEngine::renderer::CompileShaderFromFile(WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut)
@@ -440,6 +454,20 @@ void PandaEngine::renderer::Draw()
 	}
 
 	_pImmediateContext->UpdateSubresource(_pConstantBuffer, 0, nullptr, &cb, 0, 0);
+
+	// Update GUI
+// Start the frame
+	ImGui_ImplDX11_NewFrame();
+	ImGui_ImplWin32_NewFrame();
+	ImGui::NewFrame();
+
+	// Create window and compile together
+	ImGui::Begin("Test");
+	ImGui::End();
+	ImGui::Render();
+
+	// Render
+	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
 	//
 	// Present our back buffer to our front buffer

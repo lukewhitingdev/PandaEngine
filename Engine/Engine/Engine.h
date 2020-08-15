@@ -34,7 +34,7 @@
 		GameTimer*			gameTimer;
 
 	private:
-		void initGameTimer(HWND _hWnd);
+		void initGameTimer();
 	};
 }
 

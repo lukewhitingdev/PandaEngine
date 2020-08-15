@@ -1,7 +1,14 @@
 #include "window.h"
 
+extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+
+	// Route our messages trough the ImGui Handler
+	if (ImGui_ImplWin32_WndProcHandler(hWnd, message, wParam, lParam))
+		return true;
+
 	PAINTSTRUCT ps;
 	HDC hdc;
 
