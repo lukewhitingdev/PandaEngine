@@ -45,6 +45,10 @@ d:\local git\pandaengine\engine\debug\vector3d.obj
 d:\local git\pandaengine\engine\debug\utlilityclass.obj
 d:\local git\pandaengine\engine\debug\transform.obj
 d:\local git\pandaengine\engine\debug\torus.obj
+d:\local git\pandaengine\engine\debug\ui.obj
+d:\local git\pandaengine\engine\debug\uimanager.obj
+d:\local git\pandaengine\engine\debug\inspectorui.obj
+d:\local git\pandaengine\engine\debug\dockingui.obj
 d:\local git\pandaengine\engine\debug\panda engine.tlog\cl.command.1.tlog
 d:\local git\pandaengine\engine\debug\panda engine.tlog\cl.read.1.tlog
 d:\local git\pandaengine\engine\debug\panda engine.tlog\cl.write.1.tlog
@@ -54,14 +58,14 @@ d:\local git\pandaengine\engine\debug\panda engine.tlog\link-mt.read.1.tlog
 d:\local git\pandaengine\engine\debug\panda engine.tlog\link-mt.write.1.tlog
 d:\local git\pandaengine\engine\debug\panda engine.tlog\link-rc.read.1.tlog
 d:\local git\pandaengine\engine\debug\panda engine.tlog\link-rc.write.1.tlog
-d:\local git\pandaengine\engine\debug\panda engine.tlog\link.1784-cvtres.read.1.tlog
-d:\local git\pandaengine\engine\debug\panda engine.tlog\link.1784-cvtres.write.1.tlog
-d:\local git\pandaengine\engine\debug\panda engine.tlog\link.1784-mt.read.1.tlog
-d:\local git\pandaengine\engine\debug\panda engine.tlog\link.1784-mt.write.1.tlog
-d:\local git\pandaengine\engine\debug\panda engine.tlog\link.1784-rc.read.1.tlog
-d:\local git\pandaengine\engine\debug\panda engine.tlog\link.1784-rc.write.1.tlog
-d:\local git\pandaengine\engine\debug\panda engine.tlog\link.1784.read.1.tlog
-d:\local git\pandaengine\engine\debug\panda engine.tlog\link.1784.write.1.tlog
+d:\local git\pandaengine\engine\debug\panda engine.tlog\link.14548-cvtres.read.1.tlog
+d:\local git\pandaengine\engine\debug\panda engine.tlog\link.14548-cvtres.write.1.tlog
+d:\local git\pandaengine\engine\debug\panda engine.tlog\link.14548-mt.read.1.tlog
+d:\local git\pandaengine\engine\debug\panda engine.tlog\link.14548-mt.write.1.tlog
+d:\local git\pandaengine\engine\debug\panda engine.tlog\link.14548-rc.read.1.tlog
+d:\local git\pandaengine\engine\debug\panda engine.tlog\link.14548-rc.write.1.tlog
+d:\local git\pandaengine\engine\debug\panda engine.tlog\link.14548.read.1.tlog
+d:\local git\pandaengine\engine\debug\panda engine.tlog\link.14548.write.1.tlog
 d:\local git\pandaengine\engine\debug\panda engine.tlog\link.command.1.tlog
 d:\local git\pandaengine\engine\debug\panda engine.tlog\link.read.1.tlog
 d:\local git\pandaengine\engine\debug\panda engine.tlog\link.write.1.tlog

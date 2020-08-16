@@ -7,10 +7,8 @@
 #include "cameraManager.h"
 #include "lightingManager.h"
 #include "objectManager.h"
+#include "uiIncludes.h"
 #include "GameTimer.h"
-#include "../ImGUI/imgui.h"
-#include "../ImGUI/imgui_impl_win32.h"
-#include "../ImGUI/imgui_impl_dx11.h"
 
 namespace PandaEngine {
 	class renderer
@@ -46,6 +44,7 @@ namespace PandaEngine {
 		lightingManager*	_lightingManager;
 		cameraManager*		_cameraManager;
 		GameTimer*			_gameTimer;
+		UIManager*			_UIManager;
 
 		ID3D11ShaderResourceView* textureResourceView;
 		ID3D11SamplerState* textureSamplerState;
@@ -57,13 +56,16 @@ namespace PandaEngine {
 		renderer(window* window);
 		~renderer();
 
+		ID3D11Device* getDevice() { return _pd3dDevice; }
+		ID3D11DeviceContext* getDeviceContext() { return _pImmediateContext; }
+
 		void addObjectManager(objectManager* manager) { _objectManager = manager; _objectManager->setDevice(_pd3dDevice); };
 		void addLightingManager(lightingManager* manager) { _lightingManager = manager; };
 		void addCameraManager(cameraManager* manager) { _cameraManager = manager; };
 		void addGameTimer(GameTimer* timer) { _gameTimer = timer; };
+		void addUIManager(UIManager* manager) { _UIManager = manager; }
 
 		HRESULT Initialise();
-		HRESULT initUI(HWND _hWnd);
 		void Draw();
 	};
 }

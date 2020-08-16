@@ -376,6 +376,7 @@
   <ItemGroup />
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Engine\DockingUI.cpp" />
     <ClCompile Include="Engine\Cam.cpp" />
     <ClCompile Include="Engine\cameraManager.cpp" />
     <ClCompile Include="Engine\Collision.cpp" />
@@ -398,6 +399,7 @@
     <ClCompile Include="ImGUI\imgui_impl_dx11.cpp" />
     <ClCompile Include="ImGUI\imgui_impl_win32.cpp" />
     <ClCompile Include="ImGUI\imgui_widgets.cpp" />
+    <ClCompile Include="Engine\InspectorUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Engine\Light.cpp" />
     <ClCompile Include="Engine\debugCamera.cpp" />
@@ -420,12 +422,14 @@
     <ClCompile Include="Engine\UtlilityClass.cpp" />
     <ClCompile Include="Engine\Vector3D.cpp" />
     <ClCompile Include="Engine\window.cpp" />
+    <ClCompile Include="Engine\UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.fx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Engine\DockingUI.h" />
     <ClInclude Include="Engine\Cam.h" />
     <ClInclude Include="Engine\cameraManager.h" />
     <ClInclude Include="Engine\Collision.h" />
@@ -462,6 +466,7 @@
     <ClInclude Include="ImGUI\imstb_rectpack.h" />
     <ClInclude Include="ImGUI\imstb_textedit.h" />
     <ClInclude Include="ImGUI\imstb_truetype.h" />
+    <ClInclude Include="Engine\InspectorUI.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="Engine\RigidBody.h" />
     <ClInclude Include="Engine\Rotator.h" />
@@ -478,6 +483,9 @@
     <ClInclude Include="Engine\UtlilityClass.h" />
     <ClInclude Include="Engine\Vector3D.h" />
     <ClInclude Include="Engine\window.h" />
+    <ClInclude Include="Engine\UI.h" />
+    <ClInclude Include="Engine\UIManager.h" />
+    <ClInclude Include="Engine\uiIncludes.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

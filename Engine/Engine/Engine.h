@@ -20,6 +20,8 @@
 		objectManager* getObjectManager() { return ObjectManager; };
 		void addGameTimer() { gameTimer = new GameTimer(); Renderer->addGameTimer(gameTimer); };
 		GameTimer* getGameTimer() { return gameTimer; };
+		void addUIManager() { uiManager = new UIManager(Window->gethWnd(), Renderer->getDevice(), Renderer->getDeviceContext()); Renderer->addUIManager(uiManager); }
+		UIManager* getUIManager() { return uiManager; }
 
 	public:
 		// Internals
@@ -32,9 +34,12 @@
 		lightingManager*	LightingManager;
 		objectManager*		ObjectManager;
 		GameTimer*			gameTimer;
+		UIManager*			uiManager;
 
 	private:
 		void initGameTimer();
+		void initUIManager();
+		void initDefaultDebugUI();
 	};
 }
 

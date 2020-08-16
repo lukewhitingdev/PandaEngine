@@ -23,6 +23,8 @@ HRESULT PandaEngine::Engine::Init(HINSTANCE hInstance, int nCmdShow)
 	result = Window->Initialise(hInstance, nCmdShow);
 	initGameTimer();
 	result = Renderer->Initialise();
+	initUIManager();
+	initDefaultDebugUI();
 	return result;
 }
 
@@ -30,6 +32,17 @@ void PandaEngine::Engine::initGameTimer()
 {
 	addGameTimer();
 	gameTimer->ResetTimer();
+}
+
+void PandaEngine::Engine::initUIManager()
+{
+	addUIManager();
+}
+
+void PandaEngine::Engine::initDefaultDebugUI()
+{
+	uiManager->addUI(new DockingUI());
+	uiManager->addUI(new InspectorUI());
 }
 
 void PandaEngine::Engine::update()

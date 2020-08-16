@@ -328,6 +328,13 @@
     <ClInclude Include="ImGUI\imstb_rectpack.h">
       <Filter>Engine\External\imGUI</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\UI.h" />
+    <ClInclude Include="Engine\UIManager.h" />
+    <ClInclude Include="Engine\InspectorUI.h" />
+    <ClInclude Include="Engine\DockingUI.h" />
+    <ClInclude Include="Engine\uiIncludes.h">
+      <Filter>Engine\Utility\Includes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\firstPersonCamera.cpp">
@@ -465,6 +472,9 @@
     <ClCompile Include="ImGUI\imgui_widgets.cpp">
       <Filter>Engine\External\imGUI</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\UIManager.cpp" />
+    <ClCompile Include="Engine\InspectorUI.cpp" />
+    <ClCompile Include="Engine\DockingUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.fx">
