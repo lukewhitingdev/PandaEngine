@@ -3,3 +3,9 @@
 *.db
 *.tlog
 *.opendb
+*.obj
+*.pdb
+*.log
+*.ilk
+*.exe
+*.obj

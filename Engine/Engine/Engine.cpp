@@ -7,6 +7,7 @@ PandaEngine::Engine::Engine() {
 	gameTimer = nullptr;
 	LightingManager = nullptr;
 	ObjectManager = nullptr;
+	uiManager = nullptr;
 }
 
 PandaEngine::Engine::~Engine()
@@ -43,6 +44,7 @@ void PandaEngine::Engine::initDefaultDebugUI()
 {
 	uiManager->addUI(new DockingUI());
 	uiManager->addUI(new InspectorUI());
+	uiManager->addUI(new statsUI());
 }
 
 void PandaEngine::Engine::update()
@@ -65,8 +67,7 @@ void PandaEngine::Engine::update()
 
 	if (gameTimer) {
 		gameTimer->Tick();
-		HWND hwnd = Window->gethWnd();
-		gameTimer->CalculateFrameStats(hwnd);
+		gameTimer->CalculateFrameStats();
 	}
 }
 

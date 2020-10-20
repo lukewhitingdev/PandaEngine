@@ -335,6 +335,7 @@
     <ClInclude Include="Engine\uiIncludes.h">
       <Filter>Engine\Utility\Includes</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\statsUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\firstPersonCamera.cpp">
@@ -475,6 +476,7 @@
     <ClCompile Include="Engine\UIManager.cpp" />
     <ClCompile Include="Engine\InspectorUI.cpp" />
     <ClCompile Include="Engine\DockingUI.cpp" />
+    <ClCompile Include="Engine\statsUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.fx">

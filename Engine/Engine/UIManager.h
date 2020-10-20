@@ -17,6 +17,7 @@ namespace PandaEngine {
 		UIManager(HWND _hWnd, ID3D11Device* _device, ID3D11DeviceContext* _context);
 		void addUI(UI* ui) { UIElements.push_back(ui); };
 		void removeUI(UI ui);
+		UI* getUI(int index) { if (index < UIElements.size()) { return UIElements[index]; } }
 
 		void Draw();
 	};

@@ -9,15 +9,19 @@ namespace PandaEngine {
 
 		float getGameTime()const; // Return the time in seconds
 		float getDeltaTime()const; // Returns delta time in seconds
+		float getFPS()const; // Returns the current fps.
 
 		void ResetTimer();
 		void StartTimer();
 		void StopTimer();
 		void Tick();
 
-		void CalculateFrameStats(HWND& hwnd);
+		void CalculateFrameStats();
 
 	private:
+
+		float  fps;
+		float  frameTime;
 		double SecondsPerCount;
 		double deltaTime;
 

@@ -423,6 +423,7 @@
     <ClCompile Include="Engine\Vector3D.cpp" />
     <ClCompile Include="Engine\window.cpp" />
     <ClCompile Include="Engine\UIManager.cpp" />
+    <ClCompile Include="Engine\statsUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.fx" />
@@ -486,6 +487,7 @@
     <ClInclude Include="Engine\UI.h" />
     <ClInclude Include="Engine\UIManager.h" />
     <ClInclude Include="Engine\uiIncludes.h" />
+    <ClInclude Include="Engine\statsUI.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

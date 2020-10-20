@@ -39,6 +39,11 @@ float PandaEngine::GameTimer::getDeltaTime() const
 	return (float)deltaTime;
 }
 
+float PandaEngine::GameTimer::getFPS() const
+{
+	return fps;
+}
+
 void PandaEngine::GameTimer::ResetTimer()
 {
 	__int64 currTime;
@@ -109,7 +114,7 @@ void PandaEngine::GameTimer::Tick()
 
 }
 
-void PandaEngine::GameTimer::CalculateFrameStats(HWND& hwnd)
+void PandaEngine::GameTimer::CalculateFrameStats()
 {
 	static int frameCount = 0;
 	static float timeElapsed = 0.0f;
@@ -117,16 +122,8 @@ void PandaEngine::GameTimer::CalculateFrameStats(HWND& hwnd)
 	frameCount++;
 
 	if ((getGameTime() - timeElapsed) >= 1.0f){
-		float fps = (float)frameCount;
-		float msPerFrame = 1000.0f / fps;
-
-		std::wostringstream outs;
-		outs.precision(6);
-		outs << L"Engine" << L" "
-			<< L"FPS: " << fps << L" "
-			<< L"Frame Time: " << msPerFrame << L" (ms)" 
-			<< L" " << L"(Physics capped at 60fps)";
-		SetWindowText(hwnd, outs.str().c_str());
+		fps = (float)frameCount;
+		frameTime = 1000.0f / fps;
 
 		frameCount = 0;
 		timeElapsed += 1.0f;
