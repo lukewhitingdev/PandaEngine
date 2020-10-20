@@ -111,7 +111,6 @@ void PandaEngine::GameTimer::Tick()
 		deltaTime = 0.0f;
 	}
 
-
 }
 
 void PandaEngine::GameTimer::CalculateFrameStats()

@@ -1,11 +1,2 @@
-
-*.ipch
-*.db
-*.tlog
-*.opendb
-*.obj
-*.pdb
-*.log
-*.ilk
-*.exe
-*.obj
+Engine/.vs/
+Engine/Debug/

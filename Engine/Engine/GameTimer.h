@@ -17,7 +17,6 @@ namespace PandaEngine {
 		void Tick();
 
 		void CalculateFrameStats();
-
 	private:
 
 		float  fps;
